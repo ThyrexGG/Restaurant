@@ -4,6 +4,6 @@ import { Cloudinary } from '@cloudinary/url-gen';
 export const cld = new Cloudinary({
   cloud: {
     // TODO: Replace 'YOUR_CLOUD_NAME' with your actual Cloudinary Cloud Name
-    cloudName: dcizelppo
+    cloudName: 'dcizelppo'
   }
 });

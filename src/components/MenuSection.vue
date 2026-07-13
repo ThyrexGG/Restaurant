@@ -1,27 +1,27 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { AdvancedImage } from '@cloudinary/vue'
+import { cld } from '../cloudinary.js'
+import { store } from '../store.js'
 import rawMenuData from '../assets/menu.json'
 import placeholderImg from '../assets/food_placeholder.png'
 
-// Curated high-quality food photography from Unsplash
-const fallbackImages = [
-  'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80',
-  'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80',
-  'https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=400&q=80',
-  'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=400&q=80',
-  'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=400&q=80',
-  'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80',
-  'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=80',
-  'https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?auto=format&fit=crop&w=400&q=80'
-]
+// Helper function to generate a Cloudinary image
+const getCloudinaryImage = (publicId) => {
+  return cld.image(publicId).format('auto').quality('auto')
+}
 
 // Map CSV columns to clean object keys
 const menuItems = rawMenuData.map((item, index) => ({
   name: item.Name,
   category: item.Category,
   description: item.Description,
+  ingredients: item.Ingredients,
+  cookingMethod: item.Cooking_Method,
   price: '$' + item['Price [Best Khmer (Golden Cafe) Restaurant]'],
-  image: fallbackImages[index % fallbackImages.length],
+  // Try to use the Cloudinary_ID from the menu data. 
+  // If it's missing (like for items you haven't uploaded yet), it will fall back to a placeholder.
+  cloudinaryImg: getCloudinaryImage(item.Cloudinary_ID || 'cld-sample-4'),
   rating: 5,
   comments: Math.floor(Math.random() * 200) + 10, // Mock data for comments
   location: 'Phnom Penh, Cambodia'
@@ -31,11 +31,22 @@ const menuItems = rawMenuData.map((item, index) => ({
 const categories = [...new Set(menuItems.map(item => item.category))]
 
 const activeCategory = ref(categories[0] || '')
+const selectedItem = ref(null)
 
 // Filter items by selected category
 const filteredItems = computed(() => {
   return menuItems.filter(item => item.category === activeCategory.value)
 })
+
+const addedText = ref(false)
+const handleAddToCart = (item) => {
+  store.addToCart(item)
+  addedText.value = true
+  setTimeout(() => {
+    addedText.value = false
+    selectedItem.value = null
+  }, 800)
+}
 </script>
 
 <template>
@@ -60,17 +71,17 @@ const filteredItems = computed(() => {
 
       <!-- Menu Grid -->
       <div class="menu-grid">
-        <div v-for="item in filteredItems" :key="item.name" class="menu-card glass-panel animate-up">
+        <div v-for="item in filteredItems" :key="item.name" class="menu-card glass-panel animate-up" @click="selectedItem = item">
           
           <div class="card-image-wrapper">
-            <img :src="item.image" :alt="item.name" class="card-image" />
+            <AdvancedImage :cldImg="item.cloudinaryImg" class="card-image" />
           </div>
           
           <div class="card-content">
             <div class="card-header">
               <h3 class="item-name">{{ item.name }}</h3>
-              <button class="heart-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-primary)" xmlns="http://www.w3.org/2000/svg">
+              <button class="heart-btn" @click.stop="store.toggleFavorite(item.name)">
+                <svg width="20" height="20" viewBox="0 0 24 24" :fill="store.favorites.includes(item.name) ? 'var(--color-primary)' : 'none'" stroke="var(--color-primary)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                 </svg>
               </button>
@@ -90,6 +101,49 @@ const filteredItems = computed(() => {
               </div>
               <span class="item-price">{{ item.price }}</span>
             </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item Details Modal -->
+      <div v-if="selectedItem" class="modal-overlay" @click.self="selectedItem = null">
+        <div class="modal-content glass-panel animate-up">
+          <button class="close-btn" @click="selectedItem = null">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          
+          <div class="modal-image-wrapper">
+            <AdvancedImage :cldImg="selectedItem.cloudinaryImg" class="modal-image" />
+          </div>
+          
+          <div class="modal-details">
+            <div class="modal-header">
+              <h2 class="modal-title">{{ selectedItem.name }}</h2>
+              <span class="modal-price">{{ selectedItem.price }}</span>
+            </div>
+            
+            <p class="modal-category">{{ selectedItem.category }}</p>
+            
+            <div class="modal-divider"></div>
+            
+            <p class="modal-description">
+              {{ selectedItem.description || 'A delicious and highly recommended dish prepared with fresh ingredients by our master chefs. Perfectly balanced flavors to give you an unforgettable culinary experience.' }}
+            </p>
+            
+            <div v-if="selectedItem.ingredients" class="modal-extra-info">
+              <h4>Ingredients</h4>
+              <p>{{ selectedItem.ingredients }}</p>
+            </div>
+            
+            <div v-if="selectedItem.cookingMethod" class="modal-extra-info">
+              <h4>Method of Cooking</h4>
+              <p>{{ selectedItem.cookingMethod }}</p>
+            </div>
+            
+            <button class="action-btn" @click="handleAddToCart(selectedItem)">{{ addedText ? 'Added to Cart!' : 'Add to Order' }}</button>
           </div>
         </div>
       </div>
@@ -160,6 +214,7 @@ const filteredItems = computed(() => {
   border-radius: 16px;
   padding: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .menu-card:hover {
@@ -261,5 +316,157 @@ const filteredItems = computed(() => {
   font-weight: 700;
   font-size: 1.3rem;
   color: #ff4b4b; /* Red price matching the image */
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  background: var(--color-surface);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+  background: var(--color-primary);
+}
+
+.modal-image-wrapper {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-details {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.modal-price {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #ff4b4b;
+}
+
+.modal-category {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.modal-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0.5rem 0;
+}
+
+.modal-description {
+  color: var(--color-text);
+  line-height: 1.6;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.modal-extra-info {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 12px;
+  border-left: 3px solid var(--color-primary);
+}
+
+.modal-extra-info h4 {
+  color: var(--color-primary);
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-extra-info p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.action-btn {
+  margin-top: 1rem;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px var(--color-primary-glow);
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px var(--color-primary-glow);
 }
 </style>

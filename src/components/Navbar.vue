@@ -1,4 +1,10 @@
 <script setup>
+import { store } from '../store.js'
+import { computed } from 'vue'
+
+const cartItemCount = computed(() => {
+  return store.cart.reduce((total, item) => total + item.quantity, 0)
+})
 </script>
 
 <template>
@@ -11,7 +17,17 @@
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="btn-primary">Book a Table</button>
+      <div class="nav-actions">
+        <button class="cart-btn" @click="store.isCartOpen = true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span v-if="cartItemCount > 0" class="cart-badge">{{ cartItemCount }}</span>
+        </button>
+        <button class="btn-primary" @click="store.isBookingModalOpen = true">Book a Table</button>
+      </div>
     </div>
   </nav>
 </template>
@@ -73,5 +89,45 @@
 
 .nav-links a:hover::after {
   width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cart-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.cart-btn:hover {
+  color: var(--color-primary);
+  transform: scale(1.1);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-primary-glow);
 }
 </style>
