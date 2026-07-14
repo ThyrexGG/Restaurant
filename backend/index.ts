@@ -46,7 +46,7 @@ io.on('connection', (socket) => {
   // Handle incoming new order from Customer Ordering App
   socket.on('new_order', async (orderData) => {
     console.log('New order received from customer:', orderData);
-    
+
     // Save to PostgreSQL Database for resilience and analytics
     let dbOrderId = `mock-${Date.now()}`;
     try {
@@ -84,10 +84,10 @@ io.on('connection', (socket) => {
   // Handle order status updates from Admin or KDS
   socket.on('update_order_status', async ({ orderId, status }) => {
     console.log(`Order ${orderId} status updated to: ${status}`);
-    
+
     // Broadcast to all clients (Customer, Kitchen, Admin)
     io.emit('order_status_changed', { orderId, status });
-    
+
     // Update in database if it's a real UUID (not a mock order right now)
     if (orderId && orderId.length > 10) {
       try {

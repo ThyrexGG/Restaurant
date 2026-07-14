@@ -1,10 +1,11 @@
 export let printerCharacteristic: any = null;
 export let printerDevice: any = null;
 
+
 const setupDevice = async (device: any) => {
   const server = await device.gatt.connect();
   const services = await server.getPrimaryServices();
-  
+
   let targetCharacteristic: any = null;
 
   for (const service of services) {
@@ -32,8 +33,8 @@ export const connectPrinter = async () => {
     const device = await (navigator as any).bluetooth.requestDevice({
       acceptAllDevices: true,
       optionalServices: [
-        '000018f0-0000-1000-8000-00805f9b34fb', 
-        '0000fee7-0000-1000-8000-00805f9b34fb', 
+        '000018f0-0000-1000-8000-00805f9b34fb',
+        '0000fee7-0000-1000-8000-00805f9b34fb',
         'e7810a71-73ae-499d-8c15-faa9aef0c3f2',
         '49535343-fe7d-4ae5-8fa9-9fafd205e455'
       ]
@@ -70,7 +71,7 @@ export const autoConnectPrinter = async (): Promise<boolean> => {
           const onAdvertisement = async () => {
             console.log('Printer beacon detected! Ambushing connection...');
             device.removeEventListener('advertisementreceived', onAdvertisement);
-            
+
             try {
               await setupDevice(device);
               console.log('Force-connect successful!');
@@ -123,7 +124,7 @@ export const printOrderReceipt = async (order: any) => {
     const alignLeftCmd = new Uint8Array([0x1B, 0x61, 0x00]); // Align Left
     const boldOnCmd = new Uint8Array([0x1B, 0x45, 0x01]); // Bold On
     const boldOffCmd = new Uint8Array([0x1B, 0x45, 0x00]); // Bold Off
-    
+
     // Header
     const headerData = encoder.encode(
       "--------------------------------\n" +
@@ -162,11 +163,11 @@ export const printOrderReceipt = async (order: any) => {
     await printerCharacteristic.writeValue(initCmd);
     await printerCharacteristic.writeValue(alignCenterCmd);
     await printerCharacteristic.writeValue(headerData);
-    
+
     await printerCharacteristic.writeValue(alignLeftCmd);
     await printerCharacteristic.writeValue(orderInfoData);
     await printerCharacteristic.writeValue(itemsData);
-    
+
     await printerCharacteristic.writeValue(alignCenterCmd);
     await printerCharacteristic.writeValue(boldOnCmd);
     await printerCharacteristic.writeValue(totalData);
