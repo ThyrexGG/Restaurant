@@ -15,8 +15,10 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    // Connect to the backend server (ensure this matches your backend port)
-    const socketInstance = io('http://localhost:5000', {
+    // Use VITE_BACKEND_URL in production, fallback to localhost for local dev
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+    
+    const socketInstance = io(backendUrl, {
       transports: ['websocket', 'polling'],
     });
 

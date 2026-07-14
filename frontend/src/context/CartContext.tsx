@@ -14,6 +14,7 @@ interface CartContextType {
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, delta: number) => void;
   totalItems: number;
+  totalPrice: number;
   checkout: (tableNumber: string) => void;
   isCartOpen: boolean;
   toggleCart: () => void;

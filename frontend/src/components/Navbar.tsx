@@ -23,10 +23,10 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 bg-[#0a0a0c]/80 backdrop-blur-xl border border-gray-800/60 shadow-[0_8px_32px_rgba(0,0,0,0.5)] rounded-2xl px-8 py-4 flex justify-between items-center transition-all duration-300 hover:border-[#d4af37]/30">
-        <div className="flex items-center gap-4 cursor-pointer group" onClick={scrollToTop}>
-          <img src="/logo.png" alt="Best Khmer Restaurant Logo" className="h-12 w-auto rounded-full group-hover:scale-105 transition-transform duration-500 shadow-[0_0_15px_rgba(212,175,55,0.2)]" />
-          <div className="font-['Playfair_Display'] text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37] tracking-wider group-hover:to-[#f3e5ab] transition-all">
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 bg-[#0a0a0c]/80 backdrop-blur-xl border border-gray-800/60 shadow-[0_8px_32px_rgba(0,0,0,0.5)] rounded-2xl px-4 md:px-8 py-3 md:py-4 flex justify-between items-center transition-all duration-300 hover:border-[#d4af37]/30">
+        <div className="flex items-center gap-3 md:gap-4 cursor-pointer group" onClick={scrollToTop}>
+          <img src="/logo.png" alt="Best Khmer Restaurant Logo" className="h-10 md:h-12 w-auto rounded-full group-hover:scale-105 transition-transform duration-500 shadow-[0_0_15px_rgba(212,175,55,0.2)]" />
+          <div className="font-['Playfair_Display'] text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37] tracking-wider group-hover:to-[#f3e5ab] transition-all">
             Best Khmer
           </div>
         </div>

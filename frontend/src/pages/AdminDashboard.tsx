@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { connectPrinter, printOrderReceipt } from '../utils/printer';
 import { Printer, LayoutDashboard, UtensilsCrossed, Grid2X2, Settings, History } from 'lucide-react';
@@ -145,22 +145,22 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="min-h-screen flex bg-[#050505] text-white selection:bg-[#d4af37] selection:text-black">
+    <div className="min-h-screen flex flex-col md:flex-row bg-[#050505] text-white selection:bg-[#d4af37] selection:text-black">
       {/* Sidebar */}
-      <div className="w-72 bg-[#0a0a0c]/95 backdrop-blur-xl p-6 border-r border-gray-800 shadow-[4px_0_24px_rgba(0,0,0,0.8)] flex flex-col z-10 relative">
-        <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-[#f3e5ab] mb-10 font-['Playfair_Display'] tracking-wide">
+      <div className="w-full md:w-72 bg-[#0a0a0c]/95 backdrop-blur-xl p-6 border-b md:border-b-0 md:border-r border-gray-800 shadow-[4px_0_24px_rgba(0,0,0,0.8)] flex flex-col z-10 relative">
+        <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-[#f3e5ab] mb-6 md:mb-10 font-['Playfair_Display'] tracking-wide">
           Admin Console
         </h2>
         
-        <ul className="space-y-2 font-semibold flex-1">
+        <ul className="flex overflow-x-auto md:flex-col space-x-2 md:space-x-0 md:space-y-2 font-semibold flex-none md:flex-1 pb-4 md:pb-0 hide-scrollbar">
           {navItems.map((item) => (
             <li 
               key={item.name}
               onClick={() => setActiveTab(item.name)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all duration-300 ${
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all duration-300 whitespace-nowrap ${
                 activeTab === item.name 
-                  ? 'bg-gradient-to-r from-[#d4af37]/20 to-transparent text-[#d4af37] border-l-2 border-[#d4af37]' 
-                  : 'text-gray-500 hover:text-gray-300 hover:bg-gray-900/50 border-l-2 border-transparent'
+                  ? 'bg-gradient-to-r from-[#d4af37]/20 to-transparent text-[#d4af37] border-b-2 md:border-b-0 md:border-l-2 border-[#d4af37]' 
+                  : 'text-gray-500 hover:text-gray-300 hover:bg-gray-900/50 border-b-2 md:border-b-0 md:border-l-2 border-transparent'
               }`}
             >
               {item.icon}
@@ -169,7 +169,7 @@ export default function AdminDashboard() {
           ))}
         </ul>
         
-        <div className="space-y-4 mb-4">
+        <div className="hidden md:block space-y-4 mb-4">
           <button 
             onClick={handleConnectPrinter}
             disabled={printerStatus === 'CONNECTING'}
@@ -186,7 +186,7 @@ export default function AdminDashboard() {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 text-sm border-t border-gray-800/50 pt-6 mt-2">
+        <div className="hidden md:flex flex-col gap-2 text-sm border-t border-gray-800/50 pt-6 mt-2">
           <div className="flex items-center gap-3 px-2">
             <span className="relative flex h-3 w-3">
               {isConnected && <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>}
@@ -198,7 +198,7 @@ export default function AdminDashboard() {
       </div>
       
       {/* Main Content */}
-      <div className="flex-1 p-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-900 via-[#050505] to-[#050505] overflow-y-auto">
+      <div className="flex-1 p-4 md:p-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-900 via-[#050505] to-[#050505] overflow-y-auto">
         {renderContent()}
       </div>
     </div>

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useSocket } from '../context/SocketContext';
-import { CheckCircle, Clock, Flame, X } from 'lucide-react';
+import { CheckCircle, Flame, X } from 'lucide-react';
 
 export default function OrderStatusModal() {
   const { activeOrderId, setActiveOrderId } = useCart();

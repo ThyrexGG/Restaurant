@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 export default function HeroSection() {
   return (
@@ -13,14 +13,14 @@ export default function HeroSection() {
       />
       
       <div className="relative z-10 max-w-3xl px-6">
-        <h4 className="text-[#d4af37] font-['Outfit'] text-base uppercase tracking-[4px] mb-6">
+        <h4 className="text-[#d4af37] font-['Outfit'] text-sm md:text-base uppercase tracking-[4px] mb-4 md:mb-6">
           Experience Culinary Excellence
         </h4>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6">
           Welcome to <br />
           <span className="text-[#d4af37] italic">Best Khmer</span> Restaurant
         </h1>
-        <p className="text-xl text-[#aaaaaa] mb-12 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-[#aaaaaa] mb-10 md:mb-12 max-w-2xl mx-auto">
           Where every dish is a masterpiece, crafted with passion and the finest ingredients. 
           Join us for an unforgettable dining experience.
         </p>

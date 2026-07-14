@@ -67,7 +67,7 @@ export const autoConnectPrinter = async (): Promise<boolean> => {
           }
 
           // Listen for the printer's radio beacon
-          const onAdvertisement = async (event: any) => {
+          const onAdvertisement = async () => {
             console.log('Printer beacon detected! Ambushing connection...');
             device.removeEventListener('advertisementreceived', onAdvertisement);
             

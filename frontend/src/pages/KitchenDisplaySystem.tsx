@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { Clock, CheckCircle, ChefHat, Timer } from 'lucide-react';
 
@@ -57,19 +57,19 @@ export default function KitchenDisplaySystem() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white p-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 via-[#050505] to-[#050505]">
-      <header className="flex justify-between items-center mb-10 bg-gray-900/60 backdrop-blur-md p-6 rounded-2xl border border-gray-800 shadow-2xl relative overflow-hidden">
+    <div className="min-h-screen bg-[#050505] text-white p-4 md:p-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 via-[#050505] to-[#050505]">
+      <header className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 mb-6 md:mb-10 bg-gray-900/60 backdrop-blur-md p-4 md:p-6 rounded-2xl border border-gray-800 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
-        <div className="flex items-center gap-4">
-          <ChefHat size={40} className="text-[#d4af37]" />
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37] font-['Playfair_Display'] tracking-wide">
+        <div className="flex items-center gap-3 md:gap-4">
+          <ChefHat size={32} className="text-[#d4af37] md:w-10 md:h-10" />
+          <h1 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37] font-['Playfair_Display'] tracking-wide">
             Kitchen Display System
           </h1>
         </div>
-        <div className="flex gap-4">
-          <div className="bg-blue-500/20 text-blue-400 px-6 py-3 rounded-xl font-bold flex items-center gap-3 border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
-            <Clock size={22} />
-            <span className="text-xl">{activeOrders.length} Active Orders</span>
+        <div className="flex gap-4 w-full md:w-auto">
+          <div className="bg-blue-500/20 text-blue-400 px-4 md:px-6 py-2 md:py-3 rounded-xl font-bold flex items-center justify-center gap-2 md:gap-3 border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.15)] w-full md:w-auto">
+            <Clock size={20} className="md:w-[22px] md:h-[22px]" />
+            <span className="text-lg md:text-xl">{activeOrders.length} Active Orders</span>
           </div>
         </div>
       </header>
