@@ -20,6 +20,10 @@ export default function KitchenDisplaySystem() {
 
     socket.emit('join_kitchen');
 
+    socket.on('initial_orders', (orders) => {
+      setKitchenOrders(orders);
+    });
+
     socket.on('new_order_received', (order) => {
       if (!order.id) order.id = `mock-${Date.now()}`;
       if (!order.status) order.status = 'NEW';

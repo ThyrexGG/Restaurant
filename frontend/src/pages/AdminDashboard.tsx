@@ -14,6 +14,10 @@ export default function AdminDashboard() {
 
     socket.emit('join_admin');
 
+    socket.on('initial_orders', (orders) => {
+      setLiveOrders(orders.reverse()); // Latest first
+    });
+
     socket.on('new_order_received', (order) => {
       if (!order.id) order.id = `mock-${Date.now()}`;
       if (!order.status) order.status = 'NEW';
@@ -192,7 +196,7 @@ export default function AdminDashboard() {
           </button>
         </div>
 
-        <div className="hidden md:flex flex-col gap-2 text-sm border-t border-gray-800/50 pt-6 mt-2">
+        <div className="flex flex-col gap-2 text-sm border-t border-gray-800/50 pt-6 mt-2">
           <div className="flex items-center gap-3 px-2">
             <span className="relative flex h-3 w-3">
               {isConnected && <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>}

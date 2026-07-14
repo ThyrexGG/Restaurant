@@ -27,6 +27,9 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Restaurant POS API is running' });
 });
 
+// In-memory store for active orders to survive page reloads
+const activeOrders: any[] = [];
+
 // Socket.IO connection handling
 io.on('connection', (socket) => {
   console.log('A user connected:', socket.id);
@@ -35,12 +38,16 @@ io.on('connection', (socket) => {
   socket.on('join_kitchen', () => {
     socket.join('kitchen_room');
     console.log(`Socket ${socket.id} joined kitchen_room`);
+    // Send existing active orders to the kitchen
+    socket.emit('initial_orders', activeOrders.filter(o => ['NEW', 'COOKING'].includes(o.status)));
   });
 
   // For the Admin Dashboard
   socket.on('join_admin', () => {
     socket.join('admin_room');
     console.log(`Socket ${socket.id} joined admin_room`);
+    // Send existing active orders to the admin
+    socket.emit('initial_orders', activeOrders);
   });
 
   // Handle incoming new order from Customer Ordering App
@@ -66,7 +73,10 @@ io.on('connection', (socket) => {
     }
 
     // Attach real ID to the order data so frontend can update it
-    const enrichedOrder = { ...orderData, id: dbOrderId, status: 'NEW' };
+    const enrichedOrder = { ...orderData, id: dbOrderId, status: 'NEW', arrivalTime: Date.now() };
+    
+    // Store in memory so it survives reloads
+    activeOrders.push(enrichedOrder);
 
     // Broadcast to kitchen and admin instantly for real-time responsiveness
     io.to('kitchen_room').emit('new_order_received', enrichedOrder);
@@ -84,6 +94,12 @@ io.on('connection', (socket) => {
   // Handle order status updates from Admin or KDS
   socket.on('update_order_status', async ({ orderId, status }) => {
     console.log(`Order ${orderId} status updated to: ${status}`);
+
+    // Update in-memory store
+    const orderIndex = activeOrders.findIndex(o => o.id === orderId);
+    if (orderIndex !== -1) {
+      activeOrders[orderIndex].status = status;
+    }
 
     // Broadcast to all clients (Customer, Kitchen, Admin)
     io.emit('order_status_changed', { orderId, status });
