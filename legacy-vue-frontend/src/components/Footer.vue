@@ -5,7 +5,7 @@
   <footer class="footer">
     <div class="container footer-content">
       <div class="footer-brand">
-        <h2>Golden Cafe</h2>
+        <h2>Best Khmer Restaurant</h2>
         <p>Elevating culinary experiences since 2026.</p>
       </div>
       <div class="footer-links">
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Golden Cafe. All rights reserved.</p>
+      <p>&copy; 2026 Best Khmer Restaurant. All rights reserved.</p>
     </div>
   </footer>
 </template>

@@ -10,7 +10,10 @@ const cartItemCount = computed(() => {
 <template>
   <nav class="navbar glass-panel">
     <div class="container nav-content">
-      <div class="logo">Golden Cafe</div>
+      <div class="brand">
+        <img src="/logo.png" alt="Best Khmer Restaurant Logo" class="brand-logo" />
+        <div class="logo">Best Khmer Restaurant</div>
+      </div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#menu">Menu</a></li>
@@ -49,6 +52,18 @@ const cartItemCount = computed(() => {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-logo {
+  height: 40px;
+  width: auto;
+  border-radius: 50%;
 }
 
 .logo {
