@@ -2,12 +2,24 @@ import { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { connectPrinter, printOrderReceipt } from '../utils/printer';
 import { Printer, LayoutDashboard, UtensilsCrossed, Grid2X2, Settings, History } from 'lucide-react';
+import { QRCodeSVG } from 'qrcode.react';
 
 export default function AdminDashboard() {
   const { socket, isConnected } = useSocket();
   const [liveOrders, setLiveOrders] = useState<any[]>([]);
   const [printerStatus, setPrinterStatus] = useState<'DISCONNECTED' | 'CONNECTING' | 'CONNECTED'>('DISCONNECTED');
   const [activeTab, setActiveTab] = useState('Live Orders');
+  const [analytics, setAnalytics] = useState<any>(null);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+
+  useEffect(() => {
+    if (activeTab === 'Settings' && !analytics) {
+      fetch(`${backendUrl}/api/analytics`)
+        .then(res => res.json())
+        .then(data => setAnalytics(data))
+        .catch(err => console.error("Failed to fetch analytics", err));
+    }
+  }, [activeTab, backendUrl, analytics]);
 
   useEffect(() => {
     if (!socket) return;
@@ -129,6 +141,79 @@ export default function AdminDashboard() {
                   </div>
                 </div>
               ))}
+            </div>
+          )}
+        </>
+      );
+    }
+
+    if (activeTab === 'Tables') {
+      return (
+        <>
+          <h1 className="text-4xl font-bold mb-8 font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Table QR Codes</h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((table) => {
+              const url = `${window.location.origin}/table/${table}`;
+              return (
+                <div key={table} className="bg-gray-900/60 p-6 rounded-2xl border border-gray-800 flex flex-col items-center shadow-lg">
+                  <h3 className="text-xl font-bold text-[#d4af37] mb-4">Table {table}</h3>
+                  <div className="bg-white p-4 rounded-xl mb-4">
+                    <QRCodeSVG value={url} size={150} level="H" />
+                  </div>
+                  <p className="text-xs text-gray-500 text-center break-all">{url}</p>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      );
+    }
+
+    if (activeTab === 'Settings') {
+      return (
+        <>
+          <h1 className="text-4xl font-bold mb-8 font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Analytics & History</h1>
+          
+          {analytics ? (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-gray-900/60 p-8 rounded-3xl border border-gray-800 flex flex-col justify-center items-center shadow-lg">
+                  <p className="text-gray-400 mb-2">Total Revenue</p>
+                  <p className="text-5xl font-bold text-[#d4af37]">${(analytics.totalRevenue || 0).toFixed(2)}</p>
+                </div>
+                <div className="bg-gray-900/60 p-8 rounded-3xl border border-gray-800 flex flex-col justify-center items-center shadow-lg">
+                  <p className="text-gray-400 mb-2">Total Orders</p>
+                  <p className="text-5xl font-bold text-white">{analytics.totalOrders}</p>
+                </div>
+              </div>
+
+              <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
+                <h3 className="text-xl font-bold mb-4 text-[#d4af37]">Recent Order History</h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left">
+                    <thead>
+                      <tr className="border-b border-gray-800 text-gray-400">
+                        <th className="py-3 px-4">Date</th>
+                        <th className="py-3 px-4">Order ID</th>
+                        <th className="py-3 px-4 text-right">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {analytics.recentOrders?.map((order: any) => (
+                        <tr key={order.id} className="border-b border-gray-800/50 hover:bg-gray-800/30">
+                          <td className="py-3 px-4 whitespace-nowrap text-sm">{new Date(order.createdAt).toLocaleString()}</td>
+                          <td className="py-3 px-4 text-xs font-mono text-gray-500">{order.id}</td>
+                          <td className="py-3 px-4 font-bold text-[#d4af37] text-right">${order.totalPrice.toFixed(2)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="flex justify-center items-center h-64">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#d4af37]"></div>
             </div>
           )}
         </>

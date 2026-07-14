@@ -5,6 +5,8 @@ import CustomerOrdering from './pages/CustomerOrdering';
 import AdminDashboard from './pages/AdminDashboard';
 import KitchenDisplaySystem from './pages/KitchenDisplaySystem';
 
+import PinAuth from './components/PinAuth';
+
 function App() {
   return (
     <SocketProvider>
@@ -12,8 +14,8 @@ function App() {
         <Router>
           <Routes>
             <Route path="/table/:id" element={<CustomerOrdering />} />
-            <Route path="/admin/*" element={<AdminDashboard />} />
-            <Route path="/kitchen" element={<KitchenDisplaySystem />} />
+            <Route path="/admin/*" element={<PinAuth><AdminDashboard /></PinAuth>} />
+            <Route path="/kitchen" element={<PinAuth><KitchenDisplaySystem /></PinAuth>} />
             <Route path="/" element={<CustomerOrdering />} />
           </Routes>
         </Router>

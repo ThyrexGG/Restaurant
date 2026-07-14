@@ -27,6 +27,27 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Restaurant POS API is running' });
 });
 
+// Analytics endpoint
+app.get('/api/analytics', async (req, res) => {
+  try {
+    const totalOrders = await prisma.order.count();
+    const revenue = await prisma.order.aggregate({ _sum: { totalPrice: true } });
+    const recentOrders = await prisma.order.findMany({ 
+      take: 10, 
+      orderBy: { createdAt: 'desc' } 
+    });
+    
+    res.json({ 
+      totalOrders, 
+      totalRevenue: revenue._sum.totalPrice || 0, 
+      recentOrders 
+    });
+  } catch (error) {
+    console.error('Failed to fetch analytics:', error);
+    res.status(500).json({ error: 'Failed to fetch analytics' });
+  }
+});
+
 // In-memory store for active orders to survive page reloads
 const activeOrders: any[] = [];
 
