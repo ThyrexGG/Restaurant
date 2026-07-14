@@ -39,10 +39,38 @@ const CartContext = createContext<CartContextType>({
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  // Load initial cart from localStorage
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    try {
+      const savedCart = localStorage.getItem('restaurant_cart');
+      return savedCart ? JSON.parse(savedCart) : [];
+    } catch {
+      return [];
+    }
+  });
+
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [activeOrderId, setActiveOrderId] = useState<string | null>(null);
+  
+  // Load active order tracking ID from localStorage
+  const [activeOrderId, setActiveOrderId] = useState<string | null>(() => {
+    return localStorage.getItem('restaurant_active_order') || null;
+  });
+
   const { socket } = useSocket();
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('restaurant_cart', JSON.stringify(cart));
+  }, [cart]);
+
+  // Save active order tracking ID to localStorage
+  useEffect(() => {
+    if (activeOrderId) {
+      localStorage.setItem('restaurant_active_order', activeOrderId);
+    } else {
+      localStorage.removeItem('restaurant_active_order');
+    }
+  }, [activeOrderId]);
 
   // Listen for the confirmed order from the backend
   useEffect(() => {
