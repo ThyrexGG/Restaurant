@@ -97,8 +97,14 @@ export default function AdminDashboard() {
                   <div className="flex gap-3 mt-auto">
                     {order.status === 'NEW' && (
                       <>
-                        <button onClick={() => updateStatus(order.id, 'COOKING')} className="flex-1 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 py-3 rounded-xl text-sm font-bold shadow-[0_4px_20px_rgba(59,130,246,0.3)] hover:shadow-[0_4px_25px_rgba(59,130,246,0.5)] transition-all transform hover:-translate-y-0.5">Accept to Kitchen</button>
-                        <button onClick={() => updateStatus(order.id, 'CANCELLED')} className="flex-1 bg-[#222] text-gray-400 hover:bg-red-900/30 hover:text-red-400 py-3 rounded-xl text-sm font-bold border border-gray-700 hover:border-red-500/50 transition-all">Reject</button>
+                        <div className="flex-1 bg-orange-500/10 text-orange-400 border border-orange-500/30 font-bold py-3 rounded-xl flex items-center justify-center gap-2 text-sm">
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                          </span>
+                          Waiting for Kitchen
+                        </div>
+                        <button onClick={() => updateStatus(order.id, 'CANCELLED')} className="w-1/3 bg-[#222] text-gray-400 hover:bg-red-900/30 hover:text-red-400 py-3 rounded-xl text-sm font-bold border border-gray-700 hover:border-red-500/50 transition-all">Reject</button>
                       </>
                     )}
                     {order.status === 'COOKING' && (
