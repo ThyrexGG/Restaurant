@@ -55,7 +55,7 @@ export default function OrderStatusModal() {
     return (
       <div 
         onClick={() => setIsMinimized(false)}
-        className="fixed bottom-6 right-6 bg-[#0a0a0c] border-2 border-[#d4af37] rounded-full px-6 py-3 shadow-[0_10px_30px_rgba(212,175,55,0.3)] z-[90] cursor-pointer hover:scale-105 transition-transform flex items-center gap-3"
+        className="fixed bottom-6 right-6 bg-[#0a0a0c] border-2 border-[#d4af37] rounded-full px-6 py-3 shadow-[0_10px_30px_rgba(212,175,55,0.3)] z-[50] cursor-pointer hover:scale-105 transition-transform flex items-center gap-3"
       >
         {orderStatus === 'COOKING' ? <Flame className="text-[#d4af37] animate-pulse" /> : <CheckCircle className="text-[#d4af37]" />}
         <span className="font-bold text-white">

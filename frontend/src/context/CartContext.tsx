@@ -137,7 +137,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     socket.emit('new_order', orderData);
     setCart([]); // Clear cart after checkout
-    alert(`Order sent to Kitchen! Your table is ${tableNumber}.`);
   };
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
