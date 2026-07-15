@@ -4,7 +4,7 @@ import { fill } from '@cloudinary/url-gen/actions/resize';
 import { cld } from '../cloudinary';
 import { useCart } from '../context/CartContext';
 import menuDataFallback from '../assets/menu.json';
-import { X } from 'lucide-react';
+import { X, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type MenuItem = {
@@ -33,7 +33,8 @@ function MenuItemCard({ item, onSelect }: { item: MenuItem, onSelect: () => void
   const priceValue = item.price || item['Price [Best Khmer (Golden Cafe) Restaurant]'] || '5.00';
   const price = Number(priceValue);
   
-  const cloudinaryImgId = item.image || item.Cloudinary_ID;
+  const localImage = item.image?.startsWith('/images/') ? item.image : null;
+  const cloudinaryImgId = !localImage ? (item.image || item.Cloudinary_ID) : null;
   const cloudinaryImg = cloudinaryImgId ? cld.image(cloudinaryImgId).resize(fill().width(600).height(400)) : null;
   const hasLongDescription = displayDesc && displayDesc.length > 80;
   const isAvailable = item.availability !== false;
@@ -53,7 +54,14 @@ function MenuItemCard({ item, onSelect }: { item: MenuItem, onSelect: () => void
       onClick={onSelect}
       className="glass-panel overflow-hidden group flex flex-row md:flex-col items-center md:items-stretch hover:-translate-y-1 md:hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(212,175,55,0.15)] transition-all p-3 md:p-0 gap-3 md:gap-0 cursor-pointer"
     >
-      {cloudinaryImg ? (
+      {localImage ? (
+        <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none">
+          <img src={localImage} alt={displayName} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div className="hidden md:block absolute top-4 right-4 bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]">
+            Popular
+          </div>
+        </div>
+      ) : cloudinaryImg ? (
         <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none">
           <AdvancedImage cldImg={cloudinaryImg} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
           <div className="hidden md:block absolute top-4 right-4 bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]">
@@ -110,6 +118,7 @@ function MenuItemCard({ item, onSelect }: { item: MenuItem, onSelect: () => void
 
 export default function MenuSection() {
   const [activeCategory, setActiveCategory] = React.useState<string>('All');
+  const [searchQuery, setSearchQuery] = React.useState('');
   const [selectedItem, setSelectedItem] = React.useState<MenuItem | null>(null);
   const [menuItems, setMenuItems] = React.useState<MenuItem[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
@@ -137,9 +146,11 @@ export default function MenuSection() {
   const categories = ['All', ...Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean)))];
 
   // Filter items
-  const displayItems = menuItems.filter(item => 
-    activeCategory === 'All' ? true : (item.category?.name || item.Category) === activeCategory
-  );
+  const displayItems = menuItems.filter(item => {
+    const matchesCategory = activeCategory === 'All' ? true : (item.category?.name || item.Category) === activeCategory;
+    const matchesSearch = searchQuery === '' ? true : (item.name || item.Name || '').toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   if (isLoading) {
     return (
@@ -156,9 +167,20 @@ export default function MenuSection() {
         <p className="text-[#aaaaaa]">Discover our authentic and delicious dishes.</p>
       </div>
 
-      {/* Category Filter (Sticky) */}
+      {/* Search and Category Filter (Sticky) */}
       <div className="sticky top-24 z-40 bg-[#0a0a0c]/90 backdrop-blur-md py-4 -mx-6 px-6 mb-12 border-b border-gray-800 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-        <div className="flex overflow-x-auto hide-scrollbar gap-3 pb-2 max-w-7xl mx-auto items-center">
+        <div className="max-w-7xl mx-auto flex flex-col gap-4">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
+            <input 
+              type="text"
+              placeholder="Search for a dish..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-gray-900 border border-gray-700 rounded-full py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#d4af37] transition-colors"
+            />
+          </div>
+          <div className="flex overflow-x-auto hide-scrollbar gap-3 pb-2 items-center">
           {categories.map((cat, idx) => (
             <button 
               key={idx}
@@ -172,6 +194,7 @@ export default function MenuSection() {
               {cat as string}
             </button>
           ))}
+        </div>
         </div>
       </div>
       
@@ -258,10 +281,19 @@ function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClos
             <X size={20} />
           </button>
           
-          {item.Cloudinary_ID ? (
+          {localImage ? (
+            <div className="h-48 md:h-64 w-full flex-shrink-0 relative">
+              <img 
+                src={localImage} 
+                alt={displayName}
+                className="w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-transparent to-transparent" />
+            </div>
+          ) : cloudinaryImgId ? (
             <div className="h-48 md:h-64 w-full flex-shrink-0 relative">
               <AdvancedImage 
-                cldImg={cld.image(item.Cloudinary_ID).resize(fill().width(800).height(600))} 
+                cldImg={cld.image(cloudinaryImgId).resize(fill().width(800).height(600))} 
                 className="w-full h-full object-cover" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-transparent to-transparent" />
