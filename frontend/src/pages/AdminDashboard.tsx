@@ -255,26 +255,44 @@ export default function AdminDashboard() {
                               ))}
                             </div>
                             
-                            <button 
-                              onClick={() => {
-                                if (window.confirm(`Mark Table ${tableNum} as Paid? Total: $${tableData.total.toFixed(2)}`)) {
-                                  // Print combined receipt
+                            <div className="mt-auto flex flex-col gap-2">
+                              <button 
+                                onClick={() => {
                                   const combinedOrder = {
-                                    id: `CHECKOUT-${Date.now().toString().slice(-4)}`,
+                                    id: `BILL-${Date.now().toString().slice(-4)}`,
                                     table: tableNum,
-                                    type: 'TABLE CHECKOUT',
+                                    type: 'TABLE BILL',
                                     total: tableData.total,
                                     items: tableData.orders.flatMap((o: any) => o.items)
                                   };
                                   printOrderReceipt(combinedOrder);
-                                  
-                                  tableData.orders.forEach((o: any) => updateStatus(o.id, 'PAID'));
-                                }
-                              }}
-                              className="w-full mt-auto bg-green-600 hover:bg-green-500 text-white py-4 rounded-xl text-lg font-bold transition-all shadow-[0_4px_20px_rgba(22,163,74,0.3)] hover:shadow-[0_4px_25px_rgba(22,163,74,0.5)] hover:scale-[1.02]"
-                            >
-                              Checkout & Clear Table
-                            </button>
+                                }}
+                                className="w-full bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl text-sm font-bold transition-all shadow-[0_4px_20px_rgba(59,130,246,0.2)] flex items-center justify-center gap-2"
+                              >
+                                <Printer size={16} /> Print Bill
+                              </button>
+
+                              <button 
+                                onClick={() => {
+                                  if (window.confirm(`Mark Table ${tableNum} as Paid? Total: $${tableData.total.toFixed(2)}`)) {
+                                    // Print combined receipt
+                                    const combinedOrder = {
+                                      id: `CHECKOUT-${Date.now().toString().slice(-4)}`,
+                                      table: tableNum,
+                                      type: 'TABLE CHECKOUT',
+                                      total: tableData.total,
+                                      items: tableData.orders.flatMap((o: any) => o.items)
+                                    };
+                                    printOrderReceipt(combinedOrder);
+                                    
+                                    tableData.orders.forEach((o: any) => updateStatus(o.id, 'PAID'));
+                                  }
+                                }}
+                                className="w-full bg-green-600 hover:bg-green-500 text-white py-4 rounded-xl text-lg font-bold transition-all shadow-[0_4px_20px_rgba(22,163,74,0.3)] hover:shadow-[0_4px_25px_rgba(22,163,74,0.5)] hover:scale-[1.02]"
+                              >
+                                Checkout & Clear Table
+                              </button>
+                            </div>
                           </div>
                         </div>
                       );
