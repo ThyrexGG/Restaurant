@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
-import { connectPrinter, printOrderReceipt } from '../utils/printer';
-import { Printer, CheckCircle, History, UtensilsCrossed, Settings2, Grid2X2 } from 'lucide-react';
+import { connectPrinter, printOrderReceipt, autoConnectPrinter } from '../utils/printer';
+import { Printer, CheckCircle, History, UtensilsCrossed, Settings2, Grid2X2, Lock } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
 export default function AdminDashboard() {
@@ -12,7 +12,16 @@ export default function AdminDashboard() {
   const [analytics, setAnalytics] = useState<any>(null);
   const [menuItems, setMenuItems] = useState<any[]>([]);
   const [editingItem, setEditingItem] = useState<any | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [pinInput, setPinInput] = useState('');
+  const [pinError, setPinError] = useState(false);
   const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+
+  useEffect(() => {
+    autoConnectPrinter().then(success => {
+      if (success) setPrinterStatus('CONNECTED');
+    });
+  }, []);
 
   useEffect(() => {
     if (activeTab === 'Menu Management' && menuItems.length === 0) {
@@ -34,9 +43,20 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     if (!socket) return;
-    socket.emit('join_admin');
-
-    socket.on('initial_orders', (orders) => {
+    
+    // Ensure we join admin room on initial connect AND reconnects
+    const handleConnect = () => {
+      socket.emit('join_admin');
+    };
+    
+    // If already connected when component mounts, join immediately
+    if (socket.connected) {
+      handleConnect();
+    }
+    
+    socket.on('connect', handleConnect);
+    
+    socket.on('initial_orders', (orders: any[]) => {
       setLiveOrders(orders.reverse());
     });
 
@@ -57,6 +77,7 @@ export default function AdminDashboard() {
     });
 
     return () => {
+      socket.off('connect', handleConnect);
       socket.off('new_order_received');
       socket.off('order_status_changed');
     };
@@ -83,6 +104,41 @@ export default function AdminDashboard() {
     acc[table].total += order.total;
     return acc;
   }, {} as Record<string, { orders: any[], total: number }>);
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-[#050505] flex items-center justify-center p-4">
+        <div className="bg-gray-900 border border-gray-800 rounded-3xl p-8 max-w-sm w-full shadow-2xl flex flex-col items-center">
+          <div className="w-16 h-16 bg-[#d4af37]/10 rounded-full flex items-center justify-center mb-6">
+            <Lock className="text-[#d4af37]" size={32} />
+          </div>
+          <h2 className="text-2xl font-bold font-['Playfair_Display'] text-white mb-2">Admin Access</h2>
+          <p className="text-gray-400 text-sm mb-6 text-center">Enter your 4-digit PIN to access the cashier dashboard.</p>
+          
+          <input
+            type="password"
+            maxLength={4}
+            value={pinInput}
+            onChange={(e) => {
+              const val = e.target.value;
+              setPinInput(val);
+              setPinError(false);
+              if (val === '1234') {
+                setIsAuthenticated(true);
+              } else if (val.length === 4) {
+                setPinError(true);
+                setTimeout(() => setPinInput(''), 500);
+              }
+            }}
+            className={`w-full bg-black/50 border ${pinError ? 'border-red-500' : 'border-gray-700'} text-center text-4xl tracking-[0.5em] py-4 rounded-xl text-white outline-none focus:border-[#d4af37] transition-colors font-mono`}
+            placeholder="••••"
+            autoFocus
+          />
+          {pinError && <p className="text-red-500 text-sm mt-3 animate-pulse">Incorrect PIN</p>}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-[#d4af37] selection:text-black flex flex-col">

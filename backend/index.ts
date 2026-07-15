@@ -138,6 +138,31 @@ app.put('/api/menu/:id', async (req, res) => {
   }
 });
 const activeOrders: any[] = [];
+(async () => {
+  try {
+    const dbOrders = await prisma.order.findMany({
+      where: { status: { in: ['NEW', 'COOKING', 'READY'] } }
+    });
+    for (const o of dbOrders) {
+      try {
+        activeOrders.push({
+          id: o.id,
+          table: o.customerName ? o.customerName.replace('Table ', '') : '',
+          type: o.diningType,
+          status: o.status,
+          total: o.totalPrice,
+          items: JSON.parse(o.notes || '[]'),
+          timestamp: o.createdAt
+        });
+      } catch (e) {
+        // ignore parse error
+      }
+    }
+    console.log(`Loaded ${activeOrders.length} active orders from DB.`);
+  } catch (err) {
+    console.error('Failed to load active orders from DB:', err);
+  }
+})();
 
 // Socket.IO connection handling
 io.on('connection', (socket) => {
@@ -172,7 +197,7 @@ io.on('connection', (socket) => {
           diningType: 'DINE_IN',
           status: 'COOKING',
           totalPrice: orderData.total,
-          notes: 'Auto-synced from Customer App'
+          notes: JSON.stringify(orderData.items)
         }
       });
       dbOrderId = savedOrder.id;
