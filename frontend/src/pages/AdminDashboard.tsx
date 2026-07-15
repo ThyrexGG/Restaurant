@@ -125,7 +125,7 @@ export default function AdminDashboard() {
                   </div>
                   
                   <div className="flex gap-3 mt-auto">
-                    {order.status === 'NEW' && (
+                    {(order.status === 'NEW' || order.status === 'COOKING') && (
                       <>
                         <button onClick={() => updateStatus(order.id, 'READY')} className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 text-sm transition-all shadow-[0_4px_20px_rgba(59,130,246,0.2)]">
                           <CheckCircle size={18} />
@@ -133,15 +133,6 @@ export default function AdminDashboard() {
                         </button>
                         <button onClick={() => updateStatus(order.id, 'CANCELLED')} className="w-1/3 bg-[#222] text-gray-400 hover:bg-red-900/30 hover:text-red-400 py-3 rounded-xl text-sm font-bold border border-gray-700 hover:border-red-500/50 transition-all">Reject</button>
                       </>
-                    )}
-                    {order.status === 'COOKING' && (
-                      <div className="w-full text-center text-blue-400 font-bold py-3 border border-blue-500/30 bg-blue-500/10 rounded-xl flex items-center justify-center gap-2">
-                        <span className="relative flex h-3 w-3">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-                        </span>
-                        Cooking in Kitchen
-                      </div>
                     )}
                     {order.status === 'READY' && (
                       <div className="w-full text-center text-green-400 font-bold py-3 border border-green-500/30 bg-green-500/10 rounded-xl">Ready to Serve!</div>

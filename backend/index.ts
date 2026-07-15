@@ -198,6 +198,28 @@ io.on('connection', (socket) => {
     if (loyverseReceipt) {
       console.log('Order officially logged into Loyverse POS.');
     }
+
+    // Auto-transition to COOKING after 5 seconds to animate the customer's UI
+    setTimeout(async () => {
+      const orderIndex = activeOrders.findIndex(o => o.id === dbOrderId);
+      // Only transition if it's still NEW (hasn't been rejected or manually changed)
+      if (orderIndex !== -1 && activeOrders[orderIndex].status === 'NEW') {
+        activeOrders[orderIndex].status = 'COOKING';
+        io.emit('order_status_changed', { orderId: dbOrderId, status: 'COOKING' });
+        
+        // Update DB if it's a real order
+        if (dbOrderId.length > 10 && !dbOrderId.startsWith('mock')) {
+          try {
+            await prisma.order.update({
+              where: { id: dbOrderId },
+              data: { status: 'COOKING' }
+            });
+          } catch (e) {
+            console.error('Error auto-updating DB to COOKING:', e);
+          }
+        }
+      }
+    }, 5000);
   });
 
   // Handle order status updates from Admin or KDS

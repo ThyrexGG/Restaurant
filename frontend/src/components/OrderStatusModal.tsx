@@ -38,13 +38,14 @@ export default function OrderStatusModal() {
 
   const steps = [
     { key: 'NEW', label: 'Received', icon: <CheckCircle className="w-8 h-8" /> },
+    { key: 'COOKING', label: 'Cooking', icon: <Flame className="w-8 h-8" /> },
     { key: 'READY', label: 'Ready!', icon: <CheckCircle className="w-8 h-8" /> },
   ];
 
   const getStepIndex = (status: string) => {
     if (status === 'NEW') return 0;
-    if (status === 'COOKING') return 0; // Fallback if old status exists
-    if (status === 'READY') return 1;
+    if (status === 'COOKING') return 1;
+    if (status === 'READY') return 2;
     return 0; // Default or CANCELLED
   };
 
@@ -119,7 +120,7 @@ export default function OrderStatusModal() {
               <div className="absolute left-8 right-8 top-1/2 -translate-y-1/2 h-1 bg-gray-800 rounded-full z-0"></div>
               <div 
                 className="absolute left-8 top-1/2 -translate-y-1/2 h-1 bg-[#d4af37] rounded-full z-0 transition-all duration-700 ease-out"
-                style={{ width: `calc(${(currentStep / 1) * 100}% - 32px)` }}
+                style={{ width: `calc(${(currentStep / 2) * 100}% - 32px)` }}
               ></div>
 
               {/* Steps */}
