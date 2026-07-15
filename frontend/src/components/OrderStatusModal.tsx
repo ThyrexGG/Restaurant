@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useSocket } from '../context/SocketContext';
 import { CheckCircle, Flame, X, Minimize2, Maximize2, AlertCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function OrderStatusModal() {
   const { activeOrderId, setActiveOrderId } = useCart();

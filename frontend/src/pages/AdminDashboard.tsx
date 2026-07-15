@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
-import { connectPrinter, printOrderReceipt, printQRCode } from '../utils/printer';
+import { connectPrinter, printOrderReceipt } from '../utils/printer';
 import { Printer, LayoutDashboard, UtensilsCrossed, Grid2X2, Settings, History, CheckCircle } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 

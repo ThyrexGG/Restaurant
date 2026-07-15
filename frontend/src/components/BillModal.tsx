@@ -8,7 +8,7 @@ interface BillModalProps {
 }
 
 export default function BillModal({ isOpen, onClose }: BillModalProps) {
-  const { orderHistory, clearOrderHistory } = useCart();
+  const { orderHistory } = useCart();
 
   if (!isOpen) return null;
 
