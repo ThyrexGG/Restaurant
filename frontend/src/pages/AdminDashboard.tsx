@@ -185,12 +185,19 @@ export default function AdminDashboard() {
                           </div>
                         </div>
                         
-                        <div className="mt-auto pt-2 border-t border-gray-800">
+                        <div className="flex gap-2 mt-auto pt-2 border-t border-gray-800">
                           <button 
                             onClick={() => printOrderReceipt(order)} 
-                            className="w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all border border-gray-700"
+                            className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all border border-gray-700"
                           >
                             <Printer size={16} /> Reprint Ticket
+                          </button>
+                          <button 
+                            onClick={() => updateStatus(order.id, 'READY')} 
+                            className="flex-1 bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all border border-blue-500/30"
+                            title="Clear from this feed"
+                          >
+                            <CheckCircle size={16} /> Mark as Done
                           </button>
                         </div>
                       </div>
