@@ -66,20 +66,10 @@ export default function BillModal({ isOpen, onClose }: BillModalProps) {
 
         {orderHistory.length > 0 && (
           <div className="mt-6 pt-6 border-t border-gray-800">
-            <div className="flex justify-between items-end mb-6">
+            <div className="flex justify-between items-end mb-2">
               <span className="text-xl font-bold text-white">Grand Total</span>
               <span className="text-3xl font-bold text-[#d4af37]">${grandTotal.toFixed(2)}</span>
             </div>
-            
-            <button 
-              onClick={() => {
-                clearOrderHistory();
-                onClose();
-              }}
-              className="w-full bg-[#222] hover:bg-red-900/40 text-gray-400 hover:text-red-400 py-4 rounded-xl font-bold transition-colors border border-gray-700 hover:border-red-500/50"
-            >
-              Close Table / Start Fresh
-            </button>
           </div>
         )}
       </div>
