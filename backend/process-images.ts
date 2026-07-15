@@ -46,18 +46,25 @@ async function processImages() {
       // Look for a menu item with a similar name in the database
       // Using a basic case-insensitive exact match first
       const items = await prisma.menuItem.findMany();
-      const matchedItem = items.find(item => item.name.toLowerCase() === baseName.toLowerCase());
+      let matchedItems = items.filter(item => item.name.toLowerCase() === baseName.toLowerCase());
       
-      if (matchedItem) {
-        // Update database with new image path
-        await prisma.menuItem.update({
-          where: { id: matchedItem.id },
-          data: { image: `/images/${outFileName}` }
-        });
-        console.log(`🔗 Linked image to menu item: ${matchedItem.name}`);
-        matchedCount++;
+      // Fallback: if no exact match, find any item whose name contains the baseName
+      if (matchedItems.length === 0) {
+        matchedItems = items.filter(item => item.name.toLowerCase().includes(baseName.toLowerCase()));
+      }
+      
+      if (matchedItems.length > 0) {
+        // Link to all matched items (useful for variations like "Amok (Chicken)" and "Amok Seafood" sharing "Amok.jpeg")
+        for (const matchedItem of matchedItems) {
+          await prisma.menuItem.update({
+            where: { id: matchedItem.id },
+            data: { image: `/images/${outFileName}` }
+          });
+          console.log(`🔗 Linked image to menu item: ${matchedItem.name}`);
+          matchedCount++;
+        }
       } else {
-        console.log(`⚠️  Could not find a menu item matching the exact name: "${baseName}"`);
+        console.log(`⚠️  Could not find a menu item matching "${baseName}"`);
       }
     }
     
