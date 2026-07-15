@@ -48,13 +48,8 @@ async function processImages() {
       const items = await prisma.menuItem.findMany();
       let matchedItems = items.filter(item => item.name.toLowerCase() === baseName.toLowerCase());
       
-      // Fallback: if no exact match, find any item whose name contains the baseName
-      if (matchedItems.length === 0) {
-        matchedItems = items.filter(item => item.name.toLowerCase().includes(baseName.toLowerCase()));
-      }
-      
       if (matchedItems.length > 0) {
-        // Link to all matched items (useful for variations like "Amok (Chicken)" and "Amok Seafood" sharing "Amok.jpeg")
+        // Only link to exact matches (which handles Loyverse duplicates of the exact same dish)
         for (const matchedItem of matchedItems) {
           await prisma.menuItem.update({
             where: { id: matchedItem.id },
@@ -64,7 +59,7 @@ async function processImages() {
           matchedCount++;
         }
       } else {
-        console.log(`⚠️  Could not find a menu item matching "${baseName}"`);
+        console.log(`⚠️  Could not find a menu item matching exactly "${baseName}"`);
       }
     }
     
