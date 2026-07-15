@@ -48,7 +48,95 @@ app.get('/api/analytics', async (req, res) => {
   }
 });
 
-// In-memory store for active orders to survive page reloads
+// Menu Management Endpoints
+import fs from 'fs';
+import path from 'path';
+
+// Seed menu from JSON
+app.post('/api/menu/seed', async (req, res) => {
+  try {
+    const menuPath = path.join(__dirname, '../frontend/src/assets/menu.json');
+    if (!fs.existsSync(menuPath)) {
+      return res.status(404).json({ error: 'menu.json not found' });
+    }
+    
+    const rawData = fs.readFileSync(menuPath, 'utf-8');
+    const menuData = JSON.parse(rawData);
+    
+    let itemsAdded = 0;
+    
+    for (const item of menuData) {
+      if (!item.Name) continue;
+      
+      const categoryName = item.Category || 'Uncategorized';
+      let category = await prisma.category.findFirst({ where: { name: categoryName } });
+      
+      if (!category) {
+        category = await prisma.category.create({ data: { name: categoryName } });
+      }
+      
+      const priceValue = Number(item['Price [Best Khmer (Golden Cafe) Restaurant]']) || 5.00;
+      
+      const existingItem = await prisma.menuItem.findFirst({ where: { name: item.Name } });
+      if (!existingItem) {
+        await prisma.menuItem.create({
+          data: {
+            name: item.Name,
+            description: item.Description,
+            price: priceValue,
+            image: item.Cloudinary_ID || null,
+            categoryId: category.id,
+          }
+        });
+        itemsAdded++;
+      }
+    }
+    
+    res.json({ success: true, message: `Seeded ${itemsAdded} new menu items.` });
+  } catch (error) {
+    console.error('Failed to seed menu:', error);
+    res.status(500).json({ error: 'Failed to seed menu' });
+  }
+});
+
+// Get all menu items
+app.get('/api/menu', async (req, res) => {
+  try {
+    const items = await prisma.menuItem.findMany({
+      include: { category: true }
+    });
+    res.json(items);
+  } catch (error) {
+    console.error('Failed to fetch menu:', error);
+    res.status(500).json({ error: 'Failed to fetch menu' });
+  }
+});
+
+// Update a menu item
+app.put('/api/menu/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, description, price, availability } = req.body;
+    
+    const updated = await prisma.menuItem.update({
+      where: { id },
+      data: { 
+        name, 
+        description, 
+        price: Number(price), 
+        availability 
+      }
+    });
+    
+    // Broadcast menu update to connected clients
+    io.emit('menu_updated', updated);
+    
+    res.json(updated);
+  } catch (error) {
+    console.error('Failed to update menu item:', error);
+    res.status(500).json({ error: 'Failed to update menu item' });
+  }
+});
 const activeOrders: any[] = [];
 
 // Socket.IO connection handling

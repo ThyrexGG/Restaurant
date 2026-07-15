@@ -178,3 +178,57 @@ export const printOrderReceipt = async (order: any) => {
     console.error('Error printing receipt:', error);
   }
 };
+
+export const printQRCode = async (url: string, tableNumber: string | number) => {
+  if (!printerCharacteristic) {
+    console.warn('Printer not connected');
+    return;
+  }
+
+  try {
+    const encoder = new TextEncoder();
+    
+    // 1. Initialize & Center Align
+    await printerCharacteristic.writeValue(new Uint8Array([0x1B, 0x40]));
+    await printerCharacteristic.writeValue(new Uint8Array([0x1B, 0x61, 0x01]));
+    
+    // Header
+    const headerData = encoder.encode(
+      "--------------------------------\n" +
+      `   TABLE ${tableNumber} QR CODE   \n` +
+      "--------------------------------\n\n"
+    );
+    await printerCharacteristic.writeValue(headerData);
+    
+    // QR Code ESC/POS Commands (Function 180)
+    // Model 2
+    await printerCharacteristic.writeValue(new Uint8Array([0x1D, 0x28, 0x6B, 0x04, 0x00, 0x31, 0x41, 0x32, 0x00]));
+    // Module Size (8 dots)
+    await printerCharacteristic.writeValue(new Uint8Array([0x1D, 0x28, 0x6B, 0x03, 0x00, 0x31, 0x43, 0x08]));
+    // Error Correction (M = 15%)
+    await printerCharacteristic.writeValue(new Uint8Array([0x1D, 0x28, 0x6B, 0x03, 0x00, 0x31, 0x45, 0x30]));
+    
+    // Store QR Data
+    const urlData = encoder.encode(url);
+    const pL = (urlData.length + 3) % 256;
+    const pH = Math.floor((urlData.length + 3) / 256);
+    
+    const storeDataCmd = new Uint8Array(8 + urlData.length);
+    storeDataCmd.set([0x1D, 0x28, 0x6B, pL, pH, 0x31, 0x50, 0x30], 0);
+    storeDataCmd.set(urlData, 8);
+    await printerCharacteristic.writeValue(storeDataCmd);
+    
+    // Print QR Code
+    await printerCharacteristic.writeValue(new Uint8Array([0x1D, 0x28, 0x6B, 0x03, 0x00, 0x31, 0x51, 0x30]));
+    
+    // Footer & Feed
+    const footerData = encoder.encode(
+      "\n\nScan this code to view\nour menu and order!\n\n\n\n\n"
+    );
+    await printerCharacteristic.writeValue(footerData);
+    
+    console.log(`QR Code for Table ${tableNumber} printed successfully!`);
+  } catch (error) {
+    console.error('Error printing QR:', error);
+  }
+};

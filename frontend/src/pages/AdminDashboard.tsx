@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
-import { connectPrinter, printOrderReceipt } from '../utils/printer';
+import { connectPrinter, printOrderReceipt, printQRCode } from '../utils/printer';
 import { Printer, LayoutDashboard, UtensilsCrossed, Grid2X2, Settings, History } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
@@ -10,7 +10,18 @@ export default function AdminDashboard() {
   const [printerStatus, setPrinterStatus] = useState<'DISCONNECTED' | 'CONNECTING' | 'CONNECTED'>('DISCONNECTED');
   const [activeTab, setActiveTab] = useState('Live Orders');
   const [analytics, setAnalytics] = useState<any>(null);
+  const [menuItems, setMenuItems] = useState<any[]>([]);
+  const [editingItem, setEditingItem] = useState<any | null>(null);
   const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+
+  useEffect(() => {
+    if (activeTab === 'Menu Management' && menuItems.length === 0) {
+      fetch(`${backendUrl}/api/menu`)
+        .then(res => res.json())
+        .then(data => setMenuItems(data))
+        .catch(err => console.error("Failed to fetch menu", err));
+    }
+  }, [activeTab, backendUrl, menuItems.length]);
 
   useEffect(() => {
     if (activeTab === 'Settings' && !analytics) {
@@ -147,25 +158,180 @@ export default function AdminDashboard() {
       );
     }
 
-    if (activeTab === 'Tables') {
+    if (activeTab === 'Menu Management') {
       return (
         <>
-          <h1 className="text-4xl font-bold mb-8 font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Table QR Codes</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((table) => {
+          <h1 className="text-4xl font-bold mb-8 font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Menu Management</h1>
+          
+          {menuItems.length === 0 ? (
+            <div className="flex flex-col items-center justify-center p-12 bg-gray-900/40 rounded-3xl border border-gray-800 shadow-lg text-center">
+              <UtensilsCrossed size={48} className="text-gray-500 mb-4 opacity-50" />
+              <h3 className="text-2xl font-bold mb-2">No Menu Items in Database</h3>
+              <p className="text-gray-400 mb-8 max-w-md">Your cloud database currently has no menu items. You can automatically import your existing JSON menu to get started.</p>
+              <button 
+                onClick={() => {
+                  fetch(`${backendUrl}/api/menu/seed`, { method: 'POST' })
+                    .then(res => res.json())
+                    .then(() => {
+                      fetch(`${backendUrl}/api/menu`)
+                        .then(res => res.json())
+                        .then(data => setMenuItems(data));
+                    });
+                }}
+                className="btn-primary px-8 shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+              >
+                Import from menu.json
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {menuItems.map(item => (
+                <div key={item.id} className="bg-gray-900/60 p-6 rounded-2xl border border-gray-800 shadow-lg relative flex flex-col hover:-translate-y-1 transition-transform">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className={`text-xl font-bold ${item.availability === false ? 'text-gray-500' : ''}`}>{item.name}</h3>
+                    <span className="text-[#d4af37] font-bold">${(item.price || 0).toFixed(2)}</span>
+                  </div>
+                  <p className="text-gray-400 text-sm line-clamp-2 mb-6 flex-1">{item.description}</p>
+                  <div className="flex justify-between items-center mt-auto border-t border-gray-800 pt-4">
+                    <span className={`px-3 py-1 rounded-full text-xs font-bold ${item.availability !== false ? 'bg-green-500/10 text-green-400 border border-green-500/30' : 'bg-red-500/10 text-red-400 border border-red-500/30'}`}>
+                      {item.availability !== false ? 'Available' : 'Sold Out'}
+                    </span>
+                    <button 
+                      onClick={() => setEditingItem(item)}
+                      className="bg-[#222] text-white px-5 py-2 rounded-xl text-sm font-bold border border-gray-700 hover:border-[#d4af37] hover:bg-gray-800 transition-all"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Edit Modal */}
+          {editingItem && (
+            <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] flex justify-center items-center p-4 overflow-y-auto">
+              <div className="bg-[#0a0a0c] p-8 rounded-3xl border border-gray-800 w-full max-w-lg shadow-[0_20px_60px_rgba(0,0,0,0.8)] my-8">
+                <h2 className="text-3xl font-bold mb-6 font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Edit Menu Item</h2>
+                <div className="space-y-5">
+                  <div>
+                    <label className="block text-gray-400 text-sm mb-2 font-bold">Item Name</label>
+                    <input 
+                      type="text" 
+                      value={editingItem.name} 
+                      onChange={(e) => setEditingItem({...editingItem, name: e.target.value})}
+                      className="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:border-[#d4af37] outline-none transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-400 text-sm mb-2 font-bold">Price ($)</label>
+                    <input 
+                      type="number" 
+                      step="0.01"
+                      value={editingItem.price} 
+                      onChange={(e) => setEditingItem({...editingItem, price: parseFloat(e.target.value)})}
+                      className="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:border-[#d4af37] outline-none transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-400 text-sm mb-2 font-bold">Description</label>
+                    <textarea 
+                      value={editingItem.description || ''} 
+                      onChange={(e) => setEditingItem({...editingItem, description: e.target.value})}
+                      className="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:border-[#d4af37] outline-none h-32 resize-none transition-colors"
+                    />
+                  </div>
+                  <div className="flex items-center gap-3 mt-6 p-4 bg-gray-900/50 rounded-xl border border-gray-800">
+                    <input 
+                      type="checkbox" 
+                      id="availability"
+                      checked={editingItem.availability !== false} 
+                      onChange={(e) => setEditingItem({...editingItem, availability: e.target.checked})}
+                      className="w-6 h-6 rounded accent-[#d4af37] cursor-pointer"
+                    />
+                    <div className="flex flex-col">
+                      <label htmlFor="availability" className="text-white font-bold cursor-pointer">Available for Order</label>
+                      <span className="text-gray-500 text-xs">Uncheck this to mark the item as Sold Out.</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4 mt-8">
+                  <button 
+                    onClick={() => setEditingItem(null)}
+                    className="flex-1 py-4 rounded-xl bg-gray-800 text-white font-bold hover:bg-gray-700 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button 
+                    onClick={() => {
+                      fetch(`${backendUrl}/api/menu/${editingItem.id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(editingItem)
+                      })
+                      .then(res => res.json())
+                      .then(updated => {
+                        setMenuItems(prev => prev.map(item => item.id === updated.id ? updated : item));
+                        setEditingItem(null);
+                      });
+                    }}
+                    className="flex-1 py-4 rounded-xl bg-[#d4af37] text-black font-bold hover:bg-[#b08d29] transition-colors shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      );
+    }
+
+    if (activeTab === 'Tables') {
+      return (
+        <div className="print:bg-white print:text-black">
+          <div className="flex justify-between items-center mb-8 print:hidden">
+            <h1 className="text-4xl font-bold font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Table QR Codes</h1>
+            <button 
+              onClick={() => window.print()} 
+              className="bg-[#d4af37] text-black font-bold px-6 py-3 rounded-xl hover:bg-[#b08d29] transition-colors shadow-lg flex items-center gap-2"
+            >
+              <Printer size={20} />
+              Print QR Codes
+            </button>
+          </div>
+          
+          <div className="hidden print:block text-center mb-8">
+            <h1 className="text-4xl font-bold font-['Playfair_Display'] text-black">Scan to Order</h1>
+            <p className="text-gray-600">Place your phone camera over the QR code to view our menu and order.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 print:grid-cols-3 print:gap-8">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((table) => {
               const url = `${window.location.origin}/table/${table}`;
               return (
-                <div key={table} className="bg-gray-900/60 p-6 rounded-2xl border border-gray-800 flex flex-col items-center shadow-lg">
-                  <h3 className="text-xl font-bold text-[#d4af37] mb-4">Table {table}</h3>
-                  <div className="bg-white p-4 rounded-xl mb-4">
-                    <QRCodeSVG value={url} size={150} level="H" />
+                <div key={table} className="bg-gray-900/60 print:bg-white p-6 rounded-2xl border border-gray-800 print:border-gray-300 flex flex-col items-center shadow-lg print:shadow-none print:break-inside-avoid">
+                  <h3 className="text-xl font-bold text-[#d4af37] print:text-black mb-4">Table {table}</h3>
+                  <div className="bg-white p-4 rounded-xl mb-4 print:p-0 print:mb-2">
+                    <QRCodeSVG value={url} size={150} level="H" className="print:w-32 print:h-32" />
                   </div>
-                  <p className="text-xs text-gray-500 text-center break-all">{url}</p>
+                  <p className="text-xs text-gray-500 print:text-gray-800 text-center break-all mb-4 print:mb-0">{url}</p>
+                  
+                  {printerStatus === 'CONNECTED' && (
+                    <button 
+                      onClick={() => printQRCode(url, table)}
+                      className="w-full bg-[#222] hover:bg-[#333] text-white py-2 rounded-lg text-sm font-bold border border-gray-700 transition-colors print:hidden flex justify-center items-center gap-2 mt-auto"
+                    >
+                      <Printer size={16} className="text-gray-400" />
+                      Print to Thermal
+                    </button>
+                  )}
                 </div>
               );
             })}
           </div>
-        </>
+        </div>
       );
     }
 
@@ -242,7 +408,7 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-[#050505] text-white selection:bg-[#d4af37] selection:text-black">
       {/* Sidebar */}
-      <div className="w-full md:w-72 bg-[#0a0a0c]/95 backdrop-blur-xl p-6 border-b md:border-b-0 md:border-r border-gray-800 shadow-[4px_0_24px_rgba(0,0,0,0.8)] flex flex-col z-10 relative">
+      <div className="w-full md:w-72 bg-[#0a0a0c]/95 backdrop-blur-xl p-6 border-b md:border-b-0 md:border-r border-gray-800 shadow-[4px_0_24px_rgba(0,0,0,0.8)] flex flex-col z-10 relative print:hidden">
         <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-[#f3e5ab] mb-6 md:mb-10 font-['Playfair_Display'] tracking-wide">
           Admin Console
         </h2>
@@ -279,6 +445,24 @@ export default function AdminDashboard() {
             <Printer size={18} className={printerStatus === 'CONNECTING' ? 'animate-pulse' : ''} />
             {printerStatus === 'CONNECTED' ? 'Printer Ready' : printerStatus === 'CONNECTING' ? 'Connecting...' : 'Pair Printer'}
           </button>
+          
+          {printerStatus === 'CONNECTED' && (
+            <button 
+              onClick={() => {
+                printOrderReceipt({
+                  table: 'TEST',
+                  type: 'TEST PRINT',
+                  total: 0.00,
+                  items: [
+                    { quantity: 1, name: 'Test Connection', price: 0.00 }
+                  ]
+                });
+              }}
+              className="w-full py-3 rounded-xl font-bold flex items-center justify-center gap-2 bg-gray-800 text-white hover:bg-gray-700 transition-colors border border-gray-700"
+            >
+              Test Printer
+            </button>
+          )}
         </div>
 
         <div className="flex flex-col gap-2 text-sm border-t border-gray-800/50 pt-6 mt-2">
@@ -293,7 +477,7 @@ export default function AdminDashboard() {
       </div>
       
       {/* Main Content */}
-      <div className="flex-1 p-4 md:p-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-900 via-[#050505] to-[#050505] overflow-y-auto">
+      <div className="flex-1 p-4 md:p-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-900 via-[#050505] to-[#050505] overflow-y-auto print:bg-none print:bg-white print:p-0">
         {renderContent()}
       </div>
     </div>
