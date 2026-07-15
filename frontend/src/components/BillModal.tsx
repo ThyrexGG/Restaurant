@@ -1,5 +1,6 @@
 import { X, Receipt } from 'lucide-react';
-import { useCart, OrderHistoryItem } from '../context/CartContext';
+import { useCart } from '../context/CartContext';
+import type { OrderHistoryItem } from '../context/CartContext';
 
 interface BillModalProps {
   isOpen: boolean;
