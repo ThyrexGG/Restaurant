@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useSocket } from '../context/SocketContext';
-import { CheckCircle, Flame, X, Minimize2, Maximize2, AlertCircle } from 'lucide-react';
+import { Flame, X, Minimize2, Maximize2, AlertCircle, ChefHat } from 'lucide-react';
 
 export default function OrderStatusModal() {
   const { activeOrderId, setActiveOrderId } = useCart();
@@ -35,33 +35,14 @@ export default function OrderStatusModal() {
 
   if (!activeOrderId) return null;
 
-  const steps = [
-    { key: 'NEW', label: 'Received', icon: <CheckCircle className="w-8 h-8" /> },
-    { key: 'COOKING', label: 'Cooking', icon: <Flame className="w-8 h-8" /> },
-    { key: 'READY', label: 'Ready!', icon: <CheckCircle className="w-8 h-8" /> },
-  ];
-
-  const getStepIndex = (status: string) => {
-    if (status === 'NEW') return 0;
-    if (status === 'COOKING') return 1;
-    if (status === 'READY') return 2;
-    return 0; // Default or CANCELLED
-  };
-
-  const currentStep = getStepIndex(orderStatus);
-
   if (isMinimized) {
     return (
       <div 
         onClick={() => setIsMinimized(false)}
         className="fixed bottom-6 right-6 bg-[#0a0a0c] border-2 border-[#d4af37] rounded-full px-6 py-3 shadow-[0_10px_30px_rgba(212,175,55,0.3)] z-[50] cursor-pointer hover:scale-105 transition-transform flex items-center gap-3"
       >
-        {orderStatus === 'COOKING' ? <Flame className="text-[#d4af37] animate-pulse" /> : <CheckCircle className="text-[#d4af37]" />}
-        <span className="font-bold text-white">
-          {orderStatus === 'NEW' && 'Order Received'}
-          {orderStatus === 'COOKING' && 'Cooking Now'}
-          {orderStatus === 'READY' && 'Ready to Serve!'}
-        </span>
+        <Flame className="text-[#d4af37] animate-pulse" />
+        <span className="font-bold text-white">Food in Progress</span>
         <Maximize2 size={16} className="text-gray-400 ml-2" />
       </div>
     );
@@ -90,12 +71,12 @@ export default function OrderStatusModal() {
         </div>
 
         <h2 className="text-3xl font-bold font-['Playfair_Display'] text-[#d4af37] mb-2 text-center">
-          {orderStatus === 'CANCELLED' ? 'Order Cancelled' : 'Track Your Order'}
+          {orderStatus === 'CANCELLED' ? 'Order Cancelled' : 'Order Sent to Kitchen!'}
         </h2>
         <p className="text-gray-400 text-center mb-10">
           {orderStatus === 'CANCELLED' 
             ? 'We apologize, but your order could not be processed.' 
-            : 'We\'re working on your delicious food.'}
+            : 'We\'ve received your order and are currently preparing it.'}
         </p>
 
         {orderStatus === 'CANCELLED' ? (
@@ -113,48 +94,26 @@ export default function OrderStatusModal() {
             </button>
           </div>
         ) : (
-          <>
-            <div className="relative flex justify-between items-center mb-8 px-4">
-              {/* Progress Bar Line */}
-              <div className="absolute left-8 right-8 top-1/2 -translate-y-1/2 h-1 bg-gray-800 rounded-full z-0"></div>
-              <div 
-                className="absolute left-8 top-1/2 -translate-y-1/2 h-1 bg-[#d4af37] rounded-full z-0 transition-all duration-700 ease-out"
-                style={{ width: `calc(${(currentStep / 2) * 100}% - 32px)` }}
-              ></div>
-
-              {/* Steps */}
-              {steps.map((step, idx) => {
-                const isCompleted = idx <= currentStep;
-                const isCurrent = idx === currentStep;
-                
-                return (
-                  <div key={step.key} className="relative z-10 flex flex-col items-center gap-3">
-                    <div 
-                      className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 ${
-                        isCompleted 
-                          ? 'bg-[#d4af37] text-black shadow-[0_0_20px_rgba(212,175,55,0.4)]' 
-                          : 'bg-gray-800 text-gray-500 border-2 border-gray-700'
-                      } ${isCurrent ? 'scale-110' : ''}`}
-                    >
-                      {step.icon}
-                    </div>
-                    <span className={`font-bold ${isCurrent ? 'text-white' : (isCompleted ? 'text-gray-300' : 'text-gray-600')}`}>
-                      {step.label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-
-            {orderStatus === 'READY' && (
-              <div className="mt-10 text-center animate-bounce">
-                <div className="inline-block bg-green-500/20 text-green-400 px-6 py-3 rounded-full font-bold border border-green-500/30">
-                  Your food is ready to be served!
-                </div>
+          <div className="flex flex-col items-center justify-center py-6">
+            <div className="relative mb-8">
+              <div className="absolute inset-0 bg-[#d4af37] rounded-full blur-2xl opacity-20 animate-pulse"></div>
+              <div className="w-32 h-32 rounded-full bg-[#1a1a1c] border-4 border-[#d4af37] shadow-[0_0_40px_rgba(212,175,55,0.3)] flex items-center justify-center relative z-10">
+                <ChefHat className="w-16 h-16 text-[#d4af37] animate-bounce" />
               </div>
-            )}
-
-            <div className="mt-8 text-center">
+            </div>
+            
+            <div className="bg-[#1a1a1c] border border-gray-800 px-8 py-4 rounded-2xl text-center max-w-sm shadow-lg">
+              <p className="text-white font-semibold text-xl flex items-center justify-center gap-3">
+                <Flame className="text-[#d4af37]" size={24} />
+                Food is in progress
+                <Flame className="text-[#d4af37]" size={24} />
+              </p>
+              <p className="text-gray-400 text-sm mt-3 leading-relaxed">
+                Your food will be brought directly to your table as soon as it's ready. Hang tight!
+              </p>
+            </div>
+            
+            <div className="mt-12 text-center">
               <button 
                 onClick={() => setIsMinimized(true)}
                 className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm font-semibold underline"
@@ -162,7 +121,7 @@ export default function OrderStatusModal() {
                 Hide this to order more items
               </button>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
