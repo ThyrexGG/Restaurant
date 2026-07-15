@@ -229,7 +229,11 @@ io.on('connection', (socket) => {
     // Update in-memory store
     const orderIndex = activeOrders.findIndex(o => o.id === orderId);
     if (orderIndex !== -1) {
-      activeOrders[orderIndex].status = status;
+      if (status === 'PAID') {
+        activeOrders.splice(orderIndex, 1);
+      } else {
+        activeOrders[orderIndex].status = status;
+      }
     }
 
     // Broadcast to all clients (Customer, Kitchen, Admin)

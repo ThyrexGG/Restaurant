@@ -49,9 +49,12 @@ export default function AdminDashboard() {
     });
 
     socket.on('order_status_changed', ({ orderId, status }) => {
-      setLiveOrders((prev) => 
-        prev.map(o => o.id === orderId ? { ...o, status } : o)
-      );
+      setLiveOrders((prev) => {
+        if (status === 'PAID') {
+          return prev.filter(o => o.id !== orderId);
+        }
+        return prev.map(o => o.id === orderId ? { ...o, status } : o);
+      });
     });
 
     return () => {
@@ -280,10 +283,20 @@ export default function AdminDashboard() {
     }
 
     if (activeTab === 'Tables') {
+      const activeTables = liveOrders.reduce((acc, order) => {
+        const table = order.table;
+        if (!acc[table]) {
+          acc[table] = { orders: [], total: 0 };
+        }
+        acc[table].orders.push(order);
+        acc[table].total += order.total;
+        return acc;
+      }, {} as Record<string, { orders: any[], total: number }>);
+
       return (
         <div className="print:bg-white print:text-black">
           <div className="flex justify-between items-center mb-8 print:hidden">
-            <h1 className="text-4xl font-bold font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Table QR Codes</h1>
+            <h1 className="text-4xl font-bold font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Table Management</h1>
             <button 
               onClick={() => window.print()} 
               className="bg-[#d4af37] text-black font-bold px-6 py-3 rounded-xl hover:bg-[#b08d29] transition-colors shadow-lg flex items-center gap-2"
@@ -299,25 +312,62 @@ export default function AdminDashboard() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 print:grid-cols-3 print:gap-8">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((table) => {
-              const url = `${window.location.origin}/table/${table}`;
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((tableNum) => {
+              const tableString = tableNum.toString();
+              const url = `${window.location.origin}/table/${tableNum}`;
+              const tableData = activeTables[tableString];
+              const isOccupied = !!tableData && tableData.orders.length > 0;
+
               return (
-                <div key={table} className="bg-gray-900/60 print:bg-white p-6 rounded-2xl border border-gray-800 print:border-gray-300 flex flex-col items-center shadow-lg print:shadow-none print:break-inside-avoid">
-                  <h3 className="text-xl font-bold text-[#d4af37] print:text-black mb-4">Table {table}</h3>
-                  <div className="bg-white p-4 rounded-xl mb-4 print:p-0 print:mb-2">
-                    <QRCodeSVG value={url} size={150} level="H" className="print:w-32 print:h-32" />
-                  </div>
-                  <p className="text-xs text-gray-500 print:text-gray-800 text-center break-all mb-4 print:mb-0">{url}</p>
-                  
-                  {printerStatus === 'CONNECTED' && (
-                    <button 
-                      onClick={() => printQRCode(url, table)}
-                      className="w-full bg-[#222] hover:bg-[#333] text-white py-2 rounded-lg text-sm font-bold border border-gray-700 transition-colors print:hidden flex justify-center items-center gap-2 mt-auto"
-                    >
-                      <Printer size={16} className="text-gray-400" />
-                      Print to Thermal
-                    </button>
+                <div key={tableNum} className={`bg-gray-900/60 print:bg-white p-6 rounded-2xl border ${isOccupied ? 'border-[#d4af37]' : 'border-gray-800'} print:border-gray-300 flex flex-col shadow-lg print:shadow-none print:break-inside-avoid relative overflow-hidden transition-all duration-300`}>
+                  {isOccupied && (
+                    <div className="absolute top-0 right-0 bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded-bl-lg print:hidden">
+                      Occupied
+                    </div>
                   )}
+                  
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className={`text-xl font-bold ${isOccupied ? 'text-[#d4af37]' : 'text-gray-400'} print:text-black`}>Table {tableNum}</h3>
+                    {isOccupied && <span className="font-bold text-white print:hidden">${tableData.total.toFixed(2)}</span>}
+                  </div>
+
+                  {/* QR Code for Printing */}
+                  <div className="hidden print:flex bg-white p-4 rounded-xl mb-2 items-center justify-center">
+                    <QRCodeSVG value={url} size={150} level="H" className="w-32 h-32" />
+                  </div>
+                  <p className="hidden print:block text-xs text-gray-800 text-center break-all mb-4">{url}</p>
+
+                  <div className="print:hidden flex flex-col flex-1">
+                    {isOccupied ? (
+                      <div className="flex-1 flex flex-col">
+                        <p className="text-sm text-gray-400 mb-3">{tableData.orders.length} Active Order(s)</p>
+                        <div className="space-y-2 mb-4 flex-1">
+                          {tableData.orders.map((o: any, i: number) => (
+                            <div key={i} className="flex justify-between text-xs bg-black/40 p-2 rounded">
+                              <span className="text-gray-300">Order #{o.id.toString().slice(-4)}</span>
+                              <span className="font-bold text-gray-400">${o.total.toFixed(2)}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <button 
+                          onClick={() => {
+                            if (window.confirm(`Mark Table ${tableNum} as Paid? Total: $${tableData.total.toFixed(2)}`)) {
+                              tableData.orders.forEach((o: any) => {
+                                updateStatus(o.id, 'PAID');
+                              });
+                            }
+                          }}
+                          className="w-full bg-green-600 hover:bg-green-500 text-white py-3 rounded-xl text-sm font-bold transition-all shadow-[0_4px_20px_rgba(22,163,74,0.2)]"
+                        >
+                          Mark as Paid & Close
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="flex-1 flex flex-col items-center justify-center text-gray-500 min-h-[120px]">
+                        <span className="text-sm">Available</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               );
             })}

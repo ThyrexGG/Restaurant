@@ -10,6 +10,13 @@ export interface CartItem {
   notes?: string;
 }
 
+export interface OrderHistoryItem {
+  id: string;
+  items: CartItem[];
+  total: number;
+  date: number;
+}
+
 interface CartContextType {
   cart: CartItem[];
   addToCart: (item: Omit<CartItem, 'quantity' | 'cartItemId'>) => void;
@@ -22,6 +29,8 @@ interface CartContextType {
   toggleCart: () => void;
   activeOrderId: string | null;
   setActiveOrderId: (id: string | null) => void;
+  orderHistory: OrderHistoryItem[];
+  clearOrderHistory: () => void;
 }
 
 const CartContext = createContext<CartContextType>({
@@ -35,7 +44,9 @@ const CartContext = createContext<CartContextType>({
   isCartOpen: false,
   toggleCart: () => {},
   activeOrderId: null,
-  setActiveOrderId: () => {}
+  setActiveOrderId: () => {},
+  orderHistory: [],
+  clearOrderHistory: () => {}
 });
 
 export const useCart = () => useContext(CartContext);
@@ -46,6 +57,15 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const savedCart = localStorage.getItem('restaurant_cart');
       return savedCart ? JSON.parse(savedCart) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const [orderHistory, setOrderHistory] = useState<OrderHistoryItem[]>(() => {
+    try {
+      const savedHistory = localStorage.getItem('restaurant_order_history');
+      return savedHistory ? JSON.parse(savedHistory) : [];
     } catch {
       return [];
     }
@@ -65,6 +85,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem('restaurant_cart', JSON.stringify(cart));
   }, [cart]);
 
+  // Save order history to localStorage
+  useEffect(() => {
+    localStorage.setItem('restaurant_order_history', JSON.stringify(orderHistory));
+  }, [orderHistory]);
+
   // Save active order tracking ID to localStorage
   useEffect(() => {
     if (activeOrderId) {
@@ -80,6 +105,19 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     
     const handleOrderConfirmed = (order: any) => {
       setActiveOrderId(order.id);
+      
+      // Add to session history
+      setOrderHistory(prev => {
+        // Prevent duplicate entries if event fires twice
+        if (prev.some(o => o.id === order.id)) return prev;
+        
+        return [...prev, {
+          id: order.id,
+          items: order.items,
+          total: order.total,
+          date: Date.now()
+        }];
+      });
     };
     
     socket.on('order_confirmed', handleOrderConfirmed);
@@ -90,6 +128,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [socket]);
 
   const toggleCart = () => setIsCartOpen(!isCartOpen);
+
+  const clearOrderHistory = () => {
+    setOrderHistory([]);
+    setActiveOrderId(null);
+  };
 
   const addToCart = (newItem: Omit<CartItem, 'quantity' | 'cartItemId'>) => {
     setCart((prev) => {
@@ -147,7 +190,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       cart, addToCart, removeFromCart, updateQuantity, 
       totalItems, totalPrice, checkout, 
       isCartOpen, toggleCart,
-      activeOrderId, setActiveOrderId
+      activeOrderId, setActiveOrderId,
+      orderHistory, clearOrderHistory
     }}>
       {children}
     </CartContext.Provider>

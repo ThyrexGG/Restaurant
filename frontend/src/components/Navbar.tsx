@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { ShoppingCart, CheckCircle } from 'lucide-react';
+import { ShoppingCart, CheckCircle, Receipt } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import BillModal from './BillModal';
 
 export default function Navbar() {
-  const { totalItems, toggleCart } = useCart();
+  const { totalItems, toggleCart, orderHistory } = useCart();
   const [showToast, setShowToast] = useState(false);
+  const [showBill, setShowBill] = useState(false);
 
   const handleBookTable = () => {
     setShowToast(true);
@@ -37,6 +39,17 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-6">
+          {orderHistory.length > 0 && (
+            <button 
+              onClick={() => setShowBill(true)}
+              className="relative text-gray-300 hover:text-[#d4af37] hover:scale-105 transition-all duration-300 flex items-center gap-2 font-bold"
+              title="View My Bill"
+            >
+              <Receipt size={24} />
+              <span className="hidden md:inline">My Bill</span>
+            </button>
+          )}
+
           <button 
             onClick={toggleCart} 
             className="relative text-gray-300 hover:text-[#d4af37] hover:scale-110 transition-all duration-300"
@@ -65,6 +78,8 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      <BillModal isOpen={showBill} onClose={() => setShowBill(false)} />
     </>
   );
 }
