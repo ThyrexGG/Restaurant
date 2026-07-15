@@ -134,23 +134,11 @@ export const printOrderReceipt = async (order: any) => {
 
     // Order Info
     const orderInfoData = encoder.encode(
-      `Order: #${Math.floor(Math.random() * 1000) + 1000}\n` +
+      `Order: ${order.id ? order.id : '#' + (Math.floor(Math.random() * 1000) + 1000)}\n` +
       `Table: ${order.table}\n` +
       `Type:  ${order.type}\n` +
       "--------------------------------\n"
     );
-
-    // Items
-    let itemsString = "";
-    order.items.forEach((item: any) => {
-      itemsString += `${item.quantity}x ${item.name.substring(0, 20)}\n`;
-      itemsString += `   $${item.price.toFixed(2)}\n`;
-      if (item.notes) {
-        itemsString += `   *${item.notes}*\n`;
-      }
-    });
-    itemsString += "--------------------------------\n";
-    const itemsData = encoder.encode(itemsString);
 
     // Total
     const totalData = encoder.encode(
@@ -166,7 +154,17 @@ export const printOrderReceipt = async (order: any) => {
 
     await printerCharacteristic.writeValue(alignLeftCmd);
     await printerCharacteristic.writeValue(orderInfoData);
-    await printerCharacteristic.writeValue(itemsData);
+
+    // Print items individually to avoid Bluetooth MTU limits
+    for (const item of order.items) {
+      let itemStr = `${item.quantity}x ${item.name.substring(0, 20)}\n`;
+      itemStr += `   $${item.price.toFixed(2)}\n`;
+      if (item.notes) {
+        itemStr += `   *${item.notes}*\n`;
+      }
+      await printerCharacteristic.writeValue(encoder.encode(itemStr));
+    }
+    await printerCharacteristic.writeValue(encoder.encode("--------------------------------\n"));
 
     await printerCharacteristic.writeValue(alignCenterCmd);
     await printerCharacteristic.writeValue(boldOnCmd);
