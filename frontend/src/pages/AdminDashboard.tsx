@@ -258,6 +258,16 @@ export default function AdminDashboard() {
                             <button 
                               onClick={() => {
                                 if (window.confirm(`Mark Table ${tableNum} as Paid? Total: $${tableData.total.toFixed(2)}`)) {
+                                  // Print combined receipt
+                                  const combinedOrder = {
+                                    id: `CHECKOUT-${Date.now().toString().slice(-4)}`,
+                                    table: tableNum,
+                                    type: 'TABLE CHECKOUT',
+                                    total: tableData.total,
+                                    items: tableData.orders.flatMap((o: any) => o.items)
+                                  };
+                                  printOrderReceipt(combinedOrder);
+                                  
                                   tableData.orders.forEach((o: any) => updateStatus(o.id, 'PAID'));
                                 }
                               }}
