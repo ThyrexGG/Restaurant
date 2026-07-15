@@ -6,14 +6,14 @@ import { CheckCircle, Flame, X, Minimize2, Maximize2, AlertCircle } from 'lucide
 export default function OrderStatusModal() {
   const { activeOrderId, setActiveOrderId } = useCart();
   const { socket } = useSocket();
-  const [orderStatus, setOrderStatus] = useState<string>('NEW');
+  const [orderStatus, setOrderStatus] = useState<string>('COOKING');
   const [isMinimized, setIsMinimized] = useState(false);
 
   useEffect(() => {
     if (!socket || !activeOrderId) return;
 
     // Reset status when opening a new order
-    setOrderStatus('NEW');
+    setOrderStatus('COOKING');
     setIsMinimized(false);
 
     const handleStatusChange = (data: any) => {

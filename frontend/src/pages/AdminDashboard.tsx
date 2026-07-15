@@ -42,7 +42,7 @@ export default function AdminDashboard() {
 
     socket.on('new_order_received', (order) => {
       if (!order.id) order.id = `mock-${Date.now()}`;
-      if (!order.status) order.status = 'NEW';
+      if (!order.status) order.status = 'COOKING';
       setLiveOrders((prev) => [order, ...prev]);
       printOrderReceipt(order);
     });
@@ -141,18 +141,18 @@ export default function AdminDashboard() {
         {activeTab === 'Dashboard' && (
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8 h-full min-h-[80vh]">
             
-            {/* LEFT SIDE: KITCHEN ACTION HUB */}
+            {/* LEFT SIDE: LIVE ORDER FEED */}
             <div className="flex flex-col border border-gray-800 rounded-3xl bg-gray-900/30 backdrop-blur-md overflow-hidden shadow-2xl h-[80vh] xl:h-auto">
               <div className="bg-gray-900/80 p-5 border-b border-gray-800 flex justify-between items-center shrink-0">
                 <div>
                   <h3 className="text-2xl font-bold font-['Playfair_Display'] text-white flex items-center gap-3">
                     <History className="text-blue-400" />
-                    Kitchen Action Hub
+                    Live Order Feed
                   </h3>
-                  <p className="text-sm text-gray-400 mt-1">Orders currently cooking. Mark ready when food is done.</p>
+                  <p className="text-sm text-gray-400 mt-1">Recent orders sent to the printer. No action required.</p>
                 </div>
                 <div className="bg-blue-500/20 text-blue-400 px-4 py-1 rounded-full font-bold border border-blue-500/50">
-                  {kitchenOrders.length} Active
+                  {kitchenOrders.length} Recent
                 </div>
               </div>
 
@@ -160,8 +160,8 @@ export default function AdminDashboard() {
                 {kitchenOrders.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-full min-h-[300px] text-gray-500">
                     <CheckCircle size={48} className="mb-4 opacity-30" />
-                    <p className="text-xl font-bold">Kitchen is clear!</p>
-                    <p className="text-sm">Waiting for new orders...</p>
+                    <p className="text-xl font-bold">No new orders</p>
+                    <p className="text-sm">Waiting for customers to order...</p>
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2 gap-4">
@@ -170,8 +170,8 @@ export default function AdminDashboard() {
                         <div>
                           <div className="flex justify-between items-start mb-4">
                             <h3 className="text-[#d4af37] font-bold text-2xl">Table {order.table}</h3>
-                            <span className="text-xs px-3 py-1 rounded font-bold border bg-blue-500/20 text-blue-400 border-blue-500/50 animate-pulse uppercase tracking-wider">
-                              Cooking
+                            <span className="text-xs px-3 py-1 rounded font-bold border bg-gray-800 text-gray-400 border-gray-700">
+                              #{order.id.toString().slice(-4)}
                             </span>
                           </div>
                           
@@ -185,19 +185,12 @@ export default function AdminDashboard() {
                           </div>
                         </div>
                         
-                        <div className="flex gap-3 mt-auto">
+                        <div className="mt-auto pt-2 border-t border-gray-800">
                           <button 
-                            onClick={() => updateStatus(order.id, 'READY')} 
-                            className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-[0_4px_20px_rgba(59,130,246,0.4)] hover:scale-[1.02]"
+                            onClick={() => printOrderReceipt(order)} 
+                            className="w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all border border-gray-700"
                           >
-                            <CheckCircle size={20} /> Mark as Ready
-                          </button>
-                          <button 
-                            onClick={() => updateStatus(order.id, 'CANCELLED')} 
-                            className="px-5 bg-[#222] text-gray-400 hover:bg-red-900/40 hover:text-red-400 rounded-xl text-sm font-bold border border-gray-700 hover:border-red-500/50 transition-all"
-                            title="Reject Order"
-                          >
-                            Reject
+                            <Printer size={16} /> Reprint Ticket
                           </button>
                         </div>
                       </div>

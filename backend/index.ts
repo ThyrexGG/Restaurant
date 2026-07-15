@@ -170,7 +170,7 @@ io.on('connection', (socket) => {
         data: {
           customerName: `Table ${orderData.table}`,
           diningType: 'DINE_IN',
-          status: 'NEW',
+          status: 'COOKING',
           totalPrice: orderData.total,
           notes: 'Auto-synced from Customer App'
         }
@@ -178,20 +178,22 @@ io.on('connection', (socket) => {
       dbOrderId = savedOrder.id;
       console.log(`Order saved to Database! DB ID: ${savedOrder.id}`);
     } catch (dbError) {
-      console.error('⚠️ Database save failed (but order still sent to kitchen):', dbError);
+      console.error('Failed to save to database:', dbError);
     }
 
-    // Attach real ID to the order data so frontend can update it
-    const enrichedOrder = { ...orderData, id: dbOrderId, status: 'NEW', arrivalTime: Date.now() };
-    
-    // Store in memory so it survives reloads
-    activeOrders.push(enrichedOrder);
+    // Add unique ID and timestamp before broadcasting
+    orderData.id = dbOrderId;
+    orderData.status = 'COOKING';
+    orderData.timestamp = new Date().toISOString();
 
-    // Broadcast to kitchen and admin instantly for real-time responsiveness
-    io.to('kitchen_room').emit('new_order_received', enrichedOrder);
-    io.to('admin_room').emit('new_order_received', enrichedOrder);
+    // Store in-memory
+    activeOrders.push(orderData);
+
+    // Broadcast to Kitchen and Admin
+    io.to('kitchen_room').emit('new_order_received', orderData);
+    io.to('admin_room').emit('new_order_received', orderData);
     // Also echo back to the customer so they know their order ID for tracking
-    socket.emit('order_confirmed', enrichedOrder);
+    socket.emit('order_confirmed', orderData);
 
     // Sync to Loyverse in the background
     const loyverseReceipt = await postOrderToLoyverse(orderData);
