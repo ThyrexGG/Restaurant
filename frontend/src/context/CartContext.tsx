@@ -122,8 +122,23 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     
     socket.on('order_confirmed', handleOrderConfirmed);
     
+    const handleStatusChange = (data: any) => {
+      const incomingId = data.orderId || data.id;
+      if (data.status === 'PAID') {
+        setOrderHistory((prev) => {
+          if (prev.some(o => o.id === incomingId)) {
+            setActiveOrderId(null);
+            return []; // Clear history since they paid
+          }
+          return prev;
+        });
+      }
+    };
+    socket.on('order_status_changed', handleStatusChange);
+    
     return () => {
       socket.off('order_confirmed', handleOrderConfirmed);
+      socket.off('order_status_changed', handleStatusChange);
     };
   }, [socket]);
 
