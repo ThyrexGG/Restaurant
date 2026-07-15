@@ -4,7 +4,7 @@ import cors from 'cors';
 import { Server } from 'socket.io';
 import dotenv from 'dotenv';
 import { PrismaClient } from '@prisma/client';
-import { testLoyverseConnection, postOrderToLoyverse } from './loyverse';
+import { testLoyverseConnection, postOrderToLoyverse } from './loyverse.js';
 
 dotenv.config();
 

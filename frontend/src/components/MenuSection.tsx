@@ -224,6 +224,8 @@ function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClos
   
   const displayName = item.name || item.Name || 'Unknown';
   const priceValue = Number(item.price || item['Price [Best Khmer (Golden Cafe) Restaurant]'] || 5).toFixed(2);
+  const localImage = item.image?.startsWith('/images/') ? item.image : null;
+  const cloudinaryImgId = !localImage ? (item.image || item.Cloudinary_ID) : null;
   
   // Extract options from parentheses e.g. "Amok (Chicken/Fish/Tofu)"
   const optionsMatch = displayName.match(/\(([^)]+)\)/);
