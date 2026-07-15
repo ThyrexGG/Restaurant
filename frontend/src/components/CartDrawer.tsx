@@ -38,23 +38,24 @@ export default function CartDrawer() {
             </div>
           ) : (
             cart.map((item) => (
-              <div key={item.id} className="flex gap-4 items-center bg-black/40 p-4 rounded-xl border border-gray-800">
-                <div className="flex-1">
-                  <h4 className="font-bold text-lg leading-tight mb-1">{item.name}</h4>
+              <div key={item.cartItemId || item.id} className="flex gap-4 items-center bg-black/40 p-4 rounded-xl border border-gray-800">
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-bold text-lg leading-tight mb-1 truncate">{item.name}</h4>
+                  {item.notes && <p className="text-gray-400 text-xs mb-2 italic line-clamp-2">{item.notes}</p>}
                   <p className="text-[#d4af37] font-semibold">${item.price.toFixed(2)}</p>
                 </div>
                 
-                <div className="flex items-center gap-3 bg-gray-900 rounded-lg p-1 border border-gray-700">
-                  <button onClick={() => updateQuantity(item.id, -1)} className="p-1 hover:text-[#d4af37] transition-colors">
+                <div className="flex items-center gap-3 bg-gray-900 rounded-lg p-1 border border-gray-700 flex-shrink-0">
+                  <button onClick={() => updateQuantity(item.cartItemId || item.id, -1)} className="p-1 hover:text-[#d4af37] transition-colors">
                     <Minus size={16} />
                   </button>
                   <span className="font-bold w-4 text-center">{item.quantity}</span>
-                  <button onClick={() => updateQuantity(item.id, 1)} className="p-1 hover:text-[#d4af37] transition-colors">
+                  <button onClick={() => updateQuantity(item.cartItemId || item.id, 1)} className="p-1 hover:text-[#d4af37] transition-colors">
                     <Plus size={16} />
                   </button>
                 </div>
                 
-                <button onClick={() => removeFromCart(item.id)} className="p-2 text-red-500 hover:bg-red-500/20 rounded-lg transition-colors ml-2">
+                <button onClick={() => removeFromCart(item.cartItemId || item.id)} className="p-2 text-red-500 hover:bg-red-500/20 rounded-lg transition-colors ml-2 flex-shrink-0">
                   <Trash2 size={20} />
                 </button>
               </div>

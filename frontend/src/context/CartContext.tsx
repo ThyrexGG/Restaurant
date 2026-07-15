@@ -3,16 +3,18 @@ import { useSocket } from './SocketContext';
 
 export interface CartItem {
   id: string;
+  cartItemId?: string;
   name: string;
   price: number;
   quantity: number;
+  notes?: string;
 }
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (item: Omit<CartItem, 'quantity'>) => void;
-  removeFromCart: (id: string) => void;
-  updateQuantity: (id: string, delta: number) => void;
+  addToCart: (item: Omit<CartItem, 'quantity' | 'cartItemId'>) => void;
+  removeFromCart: (cartItemId: string) => void;
+  updateQuantity: (cartItemId: string, delta: number) => void;
   totalItems: number;
   totalPrice: number;
   checkout: (tableNumber: string) => void;
@@ -89,25 +91,33 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const toggleCart = () => setIsCartOpen(!isCartOpen);
 
-  const addToCart = (newItem: Omit<CartItem, 'quantity'>) => {
+  const addToCart = (newItem: Omit<CartItem, 'quantity' | 'cartItemId'>) => {
     setCart((prev) => {
-      const existing = prev.find(item => item.id === newItem.id);
+      // Find an existing item with the exact same ID AND notes
+      const existing = prev.find(item => item.id === newItem.id && item.notes === newItem.notes);
+      
       if (existing) {
-        return prev.map(item => item.id === newItem.id ? { ...item, quantity: item.quantity + 1 } : item);
+        return prev.map(item => 
+          (item.id === newItem.id && item.notes === newItem.notes) 
+            ? { ...item, quantity: item.quantity + 1 } 
+            : item
+        );
       }
-      return [...prev, { ...newItem, quantity: 1 }];
+      
+      const cartItemId = `${newItem.id}-${Date.now()}`;
+      return [...prev, { ...newItem, quantity: 1, cartItemId }];
     });
     // Auto-open cart when adding an item for better UX
     setIsCartOpen(true);
   };
 
-  const removeFromCart = (id: string) => {
-    setCart(prev => prev.filter(item => item.id !== id));
+  const removeFromCart = (cartItemId: string) => {
+    setCart(prev => prev.filter(item => (item.cartItemId || item.id) !== cartItemId));
   };
 
-  const updateQuantity = (id: string, delta: number) => {
+  const updateQuantity = (cartItemId: string, delta: number) => {
     setCart(prev => prev.map(item => {
-      if (item.id === id) {
+      if ((item.cartItemId || item.id) === cartItemId) {
         const newQuantity = Math.max(1, item.quantity + delta);
         return { ...item, quantity: newQuantity };
       }

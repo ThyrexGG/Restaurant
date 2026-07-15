@@ -108,9 +108,12 @@ export default function AdminDashboard() {
                     
                     <div className="space-y-3 mb-6 border-t border-gray-800 pt-4">
                       {order.items.map((item: any, i: number) => (
-                        <div key={i} className="flex justify-between items-center group-hover:translate-x-1 transition-transform duration-300">
-                          <p><span className="text-[#d4af37] font-bold mr-2">{item.quantity}x</span> {item.name}</p>
-                          <p className="text-gray-400">${item.price}</p>
+                        <div key={i} className="flex justify-between items-start group-hover:translate-x-1 transition-transform duration-300">
+                          <div>
+                            <p><span className="text-[#d4af37] font-bold mr-2">{item.quantity}x</span> {item.name}</p>
+                            {item.notes && <p className="text-gray-400 text-xs italic ml-7 max-w-[200px]">{item.notes}</p>}
+                          </div>
+                          <p className="text-gray-400 mt-1">${item.price.toFixed(2)}</p>
                         </div>
                       ))}
                     </div>
