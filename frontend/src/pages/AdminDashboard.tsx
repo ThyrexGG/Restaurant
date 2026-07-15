@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { connectPrinter, printOrderReceipt, printQRCode } from '../utils/printer';
-import { Printer, LayoutDashboard, UtensilsCrossed, Grid2X2, Settings, History } from 'lucide-react';
+import { Printer, LayoutDashboard, UtensilsCrossed, Grid2X2, Settings, History, CheckCircle } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
 export default function AdminDashboard() {
@@ -127,13 +127,10 @@ export default function AdminDashboard() {
                   <div className="flex gap-3 mt-auto">
                     {order.status === 'NEW' && (
                       <>
-                        <div className="flex-1 bg-orange-500/10 text-orange-400 border border-orange-500/30 font-bold py-3 rounded-xl flex items-center justify-center gap-2 text-sm">
-                          <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-                          </span>
-                          Waiting for Kitchen
-                        </div>
+                        <button onClick={() => updateStatus(order.id, 'READY')} className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 text-sm transition-all shadow-[0_4px_20px_rgba(59,130,246,0.2)]">
+                          <CheckCircle size={18} />
+                          Mark as Ready
+                        </button>
                         <button onClick={() => updateStatus(order.id, 'CANCELLED')} className="w-1/3 bg-[#222] text-gray-400 hover:bg-red-900/30 hover:text-red-400 py-3 rounded-xl text-sm font-bold border border-gray-700 hover:border-red-500/50 transition-all">Reject</button>
                       </>
                     )}
