@@ -17,7 +17,7 @@ async function processImages() {
     
     // Read raw images
     const files = await fs.readdir(RAW_DIR);
-    const imageFiles = files.filter(f => /\.(jpg|jpeg|png|webp|avif)$/i.test(f));
+    const imageFiles = files.filter(f => /\.(jpg|jpeg|png|webp|avif|jfif)$/i.test(f));
     
     if (imageFiles.length === 0) {
       console.log('No images found in backend/raw-images/. Please drop some images there first!');
