@@ -21,6 +21,7 @@ type MenuItem = {
   description?: string;
   price?: number;
   image?: string;
+  imagePosition?: string;
   availability?: boolean;
   category?: { name: string };
 }
@@ -57,14 +58,23 @@ function MenuItemCard({ item, onSelect }: { item: MenuItem, onSelect: () => void
     >
       {localImage ? (
         <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none">
-          <img src={localImage} alt={displayName} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <img 
+            src={localImage} 
+            alt={displayName} 
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+            style={{ objectPosition: item.imagePosition || 'center' }}
+          />
           <div className="hidden md:block absolute top-4 right-4 bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]">
             Popular
           </div>
         </div>
       ) : cloudinaryImg ? (
         <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none">
-          <AdvancedImage cldImg={cloudinaryImg} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <AdvancedImage 
+            cldImg={cloudinaryImg} 
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+            style={{ objectPosition: item.imagePosition || 'center' }}
+          />
           <div className="hidden md:block absolute top-4 right-4 bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]">
             Popular
           </div>

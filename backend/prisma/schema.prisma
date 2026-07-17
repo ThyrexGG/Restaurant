@@ -44,6 +44,7 @@ model MenuItem {
   description     String?
   price           Float
   image           String?
+  imagePosition   String?     @default("center")
   availability    Boolean     @default(true)
   preparationTime Int?        
   calories        Int?

@@ -439,6 +439,38 @@ export default function AdminDashboard() {
                         className="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:border-[#d4af37] outline-none h-32 resize-none transition-colors"
                       />
                     </div>
+                    <div>
+                      <label className="block text-gray-400 text-sm mb-2 font-bold">Image Focal Point</label>
+                      <div className="flex gap-6">
+                        {/* 9-Grid Selector */}
+                        <div className="grid grid-cols-3 gap-1 w-32 h-32 bg-gray-900 border border-gray-700 p-1 rounded-xl flex-shrink-0">
+                          {['top left', 'top center', 'top right', 'center left', 'center', 'center right', 'bottom left', 'bottom center', 'bottom right'].map((pos) => (
+                            <button
+                              key={pos}
+                              onClick={() => setEditingItem({...editingItem, imagePosition: pos})}
+                              className={`rounded-md transition-colors ${
+                                (editingItem.imagePosition || 'center') === pos ? 'bg-[#d4af37]' : 'bg-gray-800 hover:bg-gray-700'
+                              }`}
+                              title={pos}
+                            />
+                          ))}
+                        </div>
+                        {/* Live Preview */}
+                        {editingItem.image && (
+                          <div className="flex-1 h-32 bg-gray-900 border border-gray-700 rounded-xl overflow-hidden relative">
+                            <img 
+                              src={editingItem.image} 
+                              alt="Preview" 
+                              className="w-full h-full object-cover"
+                              style={{ objectPosition: editingItem.imagePosition || 'center' }}
+                            />
+                            <div className="absolute inset-0 border-2 border-dashed border-[#d4af37]/50 rounded-xl pointer-events-none"></div>
+                            <div className="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs text-white">Live Preview</div>
+                          </div>
+                        )}
+                      </div>
+                      <p className="text-xs text-gray-500 mt-2">Select the most important part of the dish to prevent it from being cropped out on the menu.</p>
+                    </div>
                     <div className="flex items-center gap-3 mt-6 p-4 bg-gray-900/50 rounded-xl border border-gray-800">
                       <input 
                         type="checkbox" 
