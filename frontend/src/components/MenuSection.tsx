@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 type MenuItem = {
   id?: string;
+  sku?: string;
   SKU?: string;
   Name?: string;
   Description?: string;
@@ -148,7 +149,10 @@ export default function MenuSection() {
   // Filter items
   const displayItems = menuItems.filter(item => {
     const matchesCategory = activeCategory === 'All' ? true : (item.category?.name || item.Category) === activeCategory;
-    const matchesSearch = searchQuery === '' ? true : (item.name || item.Name || '').toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = searchQuery === '' ? true : (
+      (item.name || item.Name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (item.sku || item.SKU || '').toLowerCase().includes(searchQuery.toLowerCase())
+    );
     return matchesCategory && matchesSearch;
   });
 

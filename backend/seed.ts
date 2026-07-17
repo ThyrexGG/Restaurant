@@ -30,6 +30,7 @@ async function main() {
       await prisma.menuItem.create({
         data: {
           name: item.Name,
+          sku: item.SKU || null,
           description: item.Description,
           price: priceValue,
           image: item.Cloudinary_ID || null,

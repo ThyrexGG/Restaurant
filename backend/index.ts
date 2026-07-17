@@ -82,6 +82,7 @@ app.post('/api/menu/seed', async (req, res) => {
         await prisma.menuItem.create({
           data: {
             name: item.Name,
+            sku: item.SKU || null,
             description: item.Description,
             price: priceValue,
             image: item.Cloudinary_ID || null,
