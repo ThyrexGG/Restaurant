@@ -3,7 +3,7 @@ import { SocketProvider } from './context/SocketContext';
 import { CartProvider } from './context/CartContext';
 import CustomerOrdering from './pages/CustomerOrdering';
 import AdminDashboard from './pages/AdminDashboard';
-import KitchenDisplaySystem from './pages/KitchenDisplaySystem';
+import InventoryDashboard from './pages/InventoryDashboard';
 
 import PinAuth from './components/PinAuth';
 
@@ -15,7 +15,7 @@ function App() {
           <Routes>
             <Route path="/table/:id" element={<CustomerOrdering />} />
             <Route path="/admin/*" element={<PinAuth><AdminDashboard /></PinAuth>} />
-            <Route path="/kitchen" element={<PinAuth><KitchenDisplaySystem /></PinAuth>} />
+            <Route path="/inventory" element={<PinAuth><InventoryDashboard /></PinAuth>} />
             <Route path="/" element={<CustomerOrdering />} />
           </Routes>
         </Router>

@@ -138,6 +138,65 @@ app.put('/api/menu/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to update menu item' });
   }
 });
+
+// --- INVENTORY ROUTES ---
+app.get('/api/inventory', async (req, res) => {
+  try {
+    const items = await prisma.inventoryItem.findMany({
+      orderBy: { category: 'asc' }
+    });
+    res.json(items);
+  } catch (error) {
+    console.error('Failed to fetch inventory:', error);
+    res.status(500).json({ error: 'Failed to fetch inventory' });
+  }
+});
+
+app.post('/api/inventory', async (req, res) => {
+  try {
+    const { name, khmerName, category, quantity, unit, lowWarning, status } = req.body;
+    const newItem = await prisma.inventoryItem.create({
+      data: { name, khmerName, category, quantity: Number(quantity), unit, lowWarning: Number(lowWarning), status }
+    });
+    res.json(newItem);
+  } catch (error) {
+    console.error('Failed to create inventory item:', error);
+    res.status(500).json({ error: 'Failed to create inventory item' });
+  }
+});
+
+app.put('/api/inventory/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, khmerName, category, quantity, unit, lowWarning, status } = req.body;
+    
+    const data: any = { name, khmerName, category, unit, status };
+    if (quantity !== undefined) data.quantity = Number(quantity);
+    if (lowWarning !== undefined) data.lowWarning = Number(lowWarning);
+
+    const updated = await prisma.inventoryItem.update({
+      where: { id },
+      data
+    });
+    
+    res.json(updated);
+  } catch (error) {
+    console.error('Failed to update inventory item:', error);
+    res.status(500).json({ error: 'Failed to update inventory item' });
+  }
+});
+
+app.delete('/api/inventory/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await prisma.inventoryItem.delete({ where: { id } });
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Failed to delete inventory item:', error);
+    res.status(500).json({ error: 'Failed to delete inventory item' });
+  }
+});
+// ------------------------
 const activeOrders: any[] = [];
 (async () => {
   try {

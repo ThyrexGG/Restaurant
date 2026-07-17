@@ -99,9 +99,12 @@ model OrderItem {
 model InventoryItem {
   id          String   @id @default(uuid())
   name        String   @unique
+  khmerName   String?
+  category    String   @default("General")
   quantity    Float    @default(0)
   unit        String   
   lowWarning  Float    @default(10)
+  status      String   @default("IN_STOCK")
   loyverseId  String?  @unique
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
