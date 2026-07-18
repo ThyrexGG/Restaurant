@@ -181,8 +181,8 @@ export default function MenuSection() {
         <p className="text-[#aaaaaa]">Discover our authentic and delicious dishes.</p>
       </div>
 
-      {/* Search and Category Filter (Sticky) */}
-      <div className="sticky top-24 z-40 bg-[#0a0a0c]/90 backdrop-blur-md py-4 -mx-6 px-6 mb-12 border-b border-gray-800 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+      {/* Search and Category Filter */}
+      <div className="bg-[#0a0a0c]/90 backdrop-blur-md py-4 -mx-6 px-6 mb-12 border-b border-gray-800 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
         <div className="max-w-7xl mx-auto flex flex-col gap-4">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
