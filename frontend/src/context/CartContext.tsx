@@ -52,10 +52,20 @@ const CartContext = createContext<CartContextType>({
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  // Get table number from URL to isolate local storage state per table
+  const getTableNum = () => {
+    if (typeof window !== 'undefined') {
+      const match = window.location.pathname.match(/\/table\/([^/]+)/);
+      return match ? `_${match[1]}` : '_default';
+    }
+    return '_default';
+  };
+  const tableSuffix = getTableNum();
+
   // Load initial cart from localStorage
   const [cart, setCart] = useState<CartItem[]>(() => {
     try {
-      const savedCart = localStorage.getItem('restaurant_cart');
+      const savedCart = localStorage.getItem(`restaurant_cart${tableSuffix}`);
       return savedCart ? JSON.parse(savedCart) : [];
     } catch {
       return [];
@@ -64,7 +74,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [orderHistory, setOrderHistory] = useState<OrderHistoryItem[]>(() => {
     try {
-      const savedHistory = localStorage.getItem('restaurant_order_history');
+      const savedHistory = localStorage.getItem(`restaurant_order_history${tableSuffix}`);
       return savedHistory ? JSON.parse(savedHistory) : [];
     } catch {
       return [];
@@ -75,29 +85,29 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   
   // Load active order tracking ID from localStorage
   const [activeOrderId, setActiveOrderId] = useState<string | null>(() => {
-    return localStorage.getItem('restaurant_active_order') || null;
+    return localStorage.getItem(`restaurant_active_order${tableSuffix}`) || null;
   });
 
   const { socket } = useSocket();
 
   // Save cart to localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem('restaurant_cart', JSON.stringify(cart));
-  }, [cart]);
+    localStorage.setItem(`restaurant_cart${tableSuffix}`, JSON.stringify(cart));
+  }, [cart, tableSuffix]);
 
   // Save order history to localStorage
   useEffect(() => {
-    localStorage.setItem('restaurant_order_history', JSON.stringify(orderHistory));
-  }, [orderHistory]);
+    localStorage.setItem(`restaurant_order_history${tableSuffix}`, JSON.stringify(orderHistory));
+  }, [orderHistory, tableSuffix]);
 
   // Save active order tracking ID to localStorage
   useEffect(() => {
     if (activeOrderId) {
-      localStorage.setItem('restaurant_active_order', activeOrderId);
+      localStorage.setItem(`restaurant_active_order${tableSuffix}`, activeOrderId);
     } else {
-      localStorage.removeItem('restaurant_active_order');
+      localStorage.removeItem(`restaurant_active_order${tableSuffix}`);
     }
-  }, [activeOrderId]);
+  }, [activeOrderId, tableSuffix]);
 
   // Listen for the confirmed order from the backend
   useEffect(() => {
