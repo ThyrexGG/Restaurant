@@ -206,10 +206,12 @@ const activeOrders: any[] = [];
     });
     for (const o of dbOrders) {
       try {
+        const isDailyFormat = o.orderNumber && o.orderNumber.includes('-') && o.orderNumber.split('-')[0].length === 8 && !isNaN(Number(o.orderNumber.split('-')[1]));
+        
         activeOrders.push({
           id: o.id,
           orderNumber: o.orderNumber,
-          dailyOrderNumber: o.orderNumber.includes('-') ? o.orderNumber.split('-')[1] : o.orderNumber.substring(0, 4),
+          dailyOrderNumber: isDailyFormat ? o.orderNumber.split('-')[1] : String(Math.floor(Math.random() * 900) + 100),
           table: o.customerName ? o.customerName.replace('Table ', '') : '',
           type: o.diningType,
           status: o.status,
