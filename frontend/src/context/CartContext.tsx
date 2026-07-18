@@ -165,8 +165,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const cartItemId = `${newItem.id}-${Date.now()}`;
       return [...prev, { ...newItem, quantity: 1, cartItemId }];
     });
-    // Auto-open cart when adding an item for better UX
-    setIsCartOpen(true);
   };
 
   const removeFromCart = (cartItemId: string) => {

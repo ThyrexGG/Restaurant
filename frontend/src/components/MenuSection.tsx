@@ -258,11 +258,40 @@ function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClos
     }
   }, [options]);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e: React.MouseEvent) => {
     let finalNotes = specialInstructions.trim();
     if (options.length > 0) {
       const optionText = `Choice: ${selectedOption}`;
       finalNotes = finalNotes ? `${optionText} | ${finalNotes}` : optionText;
+    }
+
+    // Fly-to-cart animation
+    const buttonRect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const cartIcon = document.getElementById('cart-icon');
+    
+    if (cartIcon) {
+      const cartRect = cartIcon.getBoundingClientRect();
+      const particle = document.createElement('div');
+      particle.className = 'fly-to-cart-particle';
+      
+      // Start position (center of the Add to Order button)
+      particle.style.left = `${buttonRect.left + buttonRect.width / 2 - 10}px`;
+      particle.style.top = `${buttonRect.top + buttonRect.height / 2 - 10}px`;
+      document.body.appendChild(particle);
+      
+      // Force reflow
+      particle.getBoundingClientRect();
+      
+      // End position (center of cart icon)
+      particle.style.left = `${cartRect.left + cartRect.width / 2 - 10}px`;
+      particle.style.top = `${cartRect.top + cartRect.height / 2 - 10}px`;
+      particle.style.transform = 'scale(0.2)';
+      particle.style.opacity = '0.5';
+      
+      // Cleanup
+      setTimeout(() => {
+        if (particle.parentNode) particle.parentNode.removeChild(particle);
+      }, 600);
     }
 
     addToCart({

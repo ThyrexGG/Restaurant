@@ -133,8 +133,9 @@ export const printOrderReceipt = async (order: any) => {
     );
 
     // Order Info
+    const displayOrderNum = order.dailyOrderNumber || (order.id ? order.id.toString().substring(0, 4) : '#' + (Math.floor(Math.random() * 1000) + 1000));
     const orderInfoData = encoder.encode(
-      `Order: ${order.id ? order.id : '#' + (Math.floor(Math.random() * 1000) + 1000)}\n` +
+      `Order: #${displayOrderNum}\n` +
       `Table: ${order.table}\n` +
       `Type:  ${order.type}\n` +
       "--------------------------------\n"

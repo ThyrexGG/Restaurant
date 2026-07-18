@@ -190,7 +190,7 @@ export default function AdminDashboard() {
                           <div className="flex justify-between items-start mb-4">
                             <h3 className="text-[#d4af37] font-bold text-2xl">Table {order.table}</h3>
                             <span className="text-xs px-3 py-1 rounded font-bold border bg-gray-800 text-gray-400 border-gray-700">
-                              #{order.id.toString().slice(-4)}
+                              #{order.dailyOrderNumber || (order.id ? order.id.toString().slice(-4) : 'NEW')}
                             </span>
                           </div>
                           
