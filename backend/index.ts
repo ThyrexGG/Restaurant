@@ -208,6 +208,8 @@ const activeOrders: any[] = [];
       try {
         activeOrders.push({
           id: o.id,
+          orderNumber: o.orderNumber,
+          dailyOrderNumber: o.orderNumber.includes('-') ? o.orderNumber.split('-')[1] : o.orderNumber.substring(0, 4),
           table: o.customerName ? o.customerName.replace('Table ', '') : '',
           type: o.diningType,
           status: o.status,
@@ -251,9 +253,23 @@ io.on('connection', (socket) => {
 
     // Save to PostgreSQL Database for resilience and analytics
     let dbOrderId = `mock-${Date.now()}`;
+    let dbOrderNumber = dbOrderId;
     try {
+      const today = new Date();
+      const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+      
+      const count = await prisma.order.count({
+        where: {
+          createdAt: { gte: startOfDay }
+        }
+      });
+      const orderNumStr = (count + 1).toString().padStart(3, '0');
+      const dateStr = today.toISOString().slice(0, 10).replace(/-/g, '');
+      dbOrderNumber = `${dateStr}-${orderNumStr}`;
+
       const savedOrder = await prisma.order.create({
         data: {
+          orderNumber: dbOrderNumber,
           customerName: `Table ${orderData.table}`,
           diningType: 'DINE_IN',
           status: 'COOKING',
@@ -262,13 +278,15 @@ io.on('connection', (socket) => {
         }
       });
       dbOrderId = savedOrder.id;
-      console.log(`Order saved to Database! DB ID: ${savedOrder.id}`);
+      console.log(`Order saved to Database! DB ID: ${savedOrder.id}, Order Number: ${dbOrderNumber}`);
     } catch (dbError) {
       console.error('Failed to save to database:', dbError);
     }
 
     // Add unique ID and timestamp before broadcasting
     orderData.id = dbOrderId;
+    orderData.orderNumber = dbOrderNumber;
+    orderData.dailyOrderNumber = dbOrderNumber.includes('-') ? dbOrderNumber.split('-')[1] : dbOrderNumber.substring(0, 4);
     orderData.status = 'COOKING';
     orderData.timestamp = new Date().toISOString();
 
