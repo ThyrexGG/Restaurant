@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import MenuSection from '../components/MenuSection';
 import CartDrawer from '../components/CartDrawer';
 import OrderStatusModal from '../components/OrderStatusModal';
+import FloatingCheckout from '../components/FloatingCheckout';
 
 export default function CustomerOrdering() {
   return (
@@ -13,6 +14,7 @@ export default function CustomerOrdering() {
       <MenuSection />
       <CartDrawer />
       <OrderStatusModal />
+      <FloatingCheckout />
     </div>
   );
 }
