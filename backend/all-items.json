@@ -1,0 +1,1622 @@
+[
+  {
+    "id": "87ea6f38-bd3f-4de4-90c7-b929aee517df",
+    "name": "Avocado Slice",
+    "desc": "Traditional Avocado Slice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "dd5bc0ec-37c9-4472-8ba7-979e8bfcb5c7",
+    "name": "Angkor Small Bottle",
+    "desc": "Scrumptious Angkor Small Bottle. A carefully crafted drink to quench your thirst and elevate your mood. Enjoy every bite."
+  },
+  {
+    "id": "e3b89b8c-7f30-487f-a2d5-418484346137",
+    "name": "Amok Seafood",
+    "desc": "Hearty Amok Seafood. A traditional Cambodian delicacy featuring a rich, aromatic coconut curry base flavored with lemongrass, kaffir lime, and galangal, gently steamed to perfection. Perfect for any time of the day."
+  },
+  {
+    "id": "d33ef083-33f6-4a3a-8e66-232df2a5bd32",
+    "name": "Khmer Beef Salad",
+    "desc": "Zesty Khmer Beef Salad. A carefully prepared salad showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "38f9bd23-137c-4834-aa5d-bcf7953d0e47",
+    "name": "Angkor Can",
+    "desc": "Local Beer"
+  },
+  {
+    "id": "f303010f-dabc-4ebe-830d-38f0b72b2963",
+    "name": "Apple Smoothie",
+    "desc": "Scrumptious Apple Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "96bcfad6-f47b-4d30-94bf-de44ab5a46af",
+    "name": "Avocado Smoothie",
+    "desc": "Flavorful Avocado Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. A must-try for food lovers."
+  },
+  {
+    "id": "7e04d387-7022-4126-b7bf-9b0d3cfa75c7",
+    "name": "Banana with Coconut Milk",
+    "desc": "Scrumptious Banana with Coconut Milk. A carefully prepared dessert showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "cfe04ed9-c006-4423-91fa-06b18cbd2e74",
+    "name": "Angkor Big Bottle",
+    "desc": "Delicious Angkor Big Bottle. A carefully crafted drink to quench your thirst and elevate your mood. Perfect for any time of the day."
+  },
+  {
+    "id": "2d8cc9b5-353b-42ba-83eb-702f55b53609",
+    "name": "Lok lak with Rice (Chicken/Pork/Tofu)",
+    "desc": "Fresh Lok lak with Rice (Chicken/Pork/Tofu). A classic Khmer dish of tender, marinated meat stir-fried in a savory brown sauce, traditionally served with crisp lettuce, tomatoes, and a tangy lime-pepper dipping sauce. Enjoy every bite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "b77c79bf-2911-4502-91ad-2d703cfcb3fd",
+    "name": "Shrimp Paste Fried Rice Golden Cafe",
+    "desc": "Authentic Shrimp Paste Fried Rice Golden Cafe. Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. Enjoy every bite."
+  },
+  {
+    "id": "05e985d2-814e-411a-91a5-8a86a1ce5027",
+    "name": "Banana Smoothie",
+    "desc": "Signature Banana Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Prepared with our chef's special touch."
+  },
+  {
+    "id": "6c82a7ce-8230-46e7-8150-167c34b51ec8",
+    "name": "Beef Burger",
+    "desc": "Tempting Beef Burger. A juicy, perfectly grilled patty served in a soft bun with crisp veggies and savory sauces. Enjoy every bite."
+  },
+  {
+    "id": "8fbac20e-1f3c-46d9-be0c-842d15aaa02a",
+    "name": "Beef Lab",
+    "desc": "Classic Beef Lab. A vibrant, spicy, and sour minced meat salad tossed with fresh herbs, toasted rice powder, and a zesty lime dressing. A must-try for food lovers."
+  },
+  {
+    "id": "12e2b659-08ce-4f83-868c-43245571f44f",
+    "name": "Beef Burger Cheese with French fries",
+    "desc": "Mouth-watering Beef Burger Cheese with French fries. A juicy, perfectly grilled patty served in a soft bun with crisp veggies and savory sauces. Enjoy every bite."
+  },
+  {
+    "id": "b2dd9a36-ee47-4565-8246-d80a17d6c745",
+    "name": "Green Mango Salad with Smoked Fish",
+    "desc": "Signature Green Mango Salad with Smoked Fish. A carefully prepared salad showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "c1225a28-d21f-4bab-940c-f06c2841fea0",
+    "name": "Grilled Pork with Rice",
+    "desc": "Fresh Grilled Pork with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "9bf1e500-a226-4d75-8cf0-87d16c4cdcf1",
+    "name": "Khmer Shrimp Salad",
+    "desc": "Delectable Khmer Shrimp Salad. A carefully prepared salad showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "7a2a8b31-1f5c-4b2f-81c8-da9be8942869",
+    "name": "Crispy Chicken Burger",
+    "desc": "Classic Crispy Chicken Burger. A juicy, perfectly grilled patty served in a soft bun with crisp veggies and savory sauces. A must-try for food lovers."
+  },
+  {
+    "id": "1fb9445c-5516-4b09-ab05-c333827f8c69",
+    "name": "Beef Lok lak with Rice",
+    "desc": "Fresh Beef Lok lak with Rice. A classic Khmer dish of tender, marinated meat stir-fried in a savory brown sauce, traditionally served with crisp lettuce, tomatoes, and a tangy lime-pepper dipping sauce. Prepared with our chef's special touch."
+  },
+  {
+    "id": "33b32b50-5611-4c14-9055-e9da6b0f94e3",
+    "name": "Soft drink (7up/Sprite/Pepsi)",
+    "desc": "Mouth-watering Soft drink (7up/Sprite/Pepsi). A carefully crafted drink to quench your thirst and elevate your mood. Served fresh and hot. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "9ba05877-13dc-4cf5-8e02-6e2a589c989e",
+    "name": "Beef Lok Lak Bok Choy with Rice",
+    "desc": "Fresh Beef Lok Lak Bok Choy with Rice. A classic Khmer dish of tender, marinated meat stir-fried in a savory brown sauce, traditionally served with crisp lettuce, tomatoes, and a tangy lime-pepper dipping sauce. A delightful culinary experience."
+  },
+  {
+    "id": "b5ab45ba-f01c-4034-83d3-d1f6e2dff8f7",
+    "name": "Beef Burger with Cheese",
+    "desc": "Traditional Beef Burger with Cheese. A juicy, perfectly grilled patty served in a soft bun with crisp veggies and savory sauces. Crafted with the finest ingredients."
+  },
+  {
+    "id": "4b0b7e4c-68c2-4660-90e9-b6414371177c",
+    "name": "Pad kra pao with Tofu",
+    "desc": "Delicious Pad kra pao with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "b7043184-210c-4e3c-8f1c-174b8edd0296",
+    "name": "Beef Noodle Soup",
+    "desc": "Signature Beef Noodle Soup. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients."
+  },
+  {
+    "id": "35debbcd-1d73-4c4b-ba3c-c6fa53340ecc",
+    "name": "Beef Lok lak with Fried Rice",
+    "desc": "Flavorful Beef Lok lak with Fried Rice. A classic Khmer dish of tender, marinated meat stir-fried in a savory brown sauce, traditionally served with crisp lettuce, tomatoes, and a tangy lime-pepper dipping sauce. Crafted with the finest ingredients."
+  },
+  {
+    "id": "49bb356f-af64-40fe-a34e-14a52960124a",
+    "name": "Pineapple Fried Rice Cashew Nut (Seafood/Beef)",
+    "desc": "Authentic Pineapple Fried Rice Cashew Nut (Seafood/Beef). Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. A must-try for food lovers. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "c82fcdbd-4e63-48d6-92a3-336df626e39f",
+    "name": "Iced Lemon Black Tea",
+    "desc": "Authentic Iced Lemon Black Tea. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "5958f5f1-71f7-4e7e-8bbc-53f5a00aedd7",
+    "name": "Shrimp Paste Fried Rice Golden Cafe (Beef/ Seafood)",
+    "desc": "Flavorful Shrimp Paste Fried Rice Golden Cafe (Beef/ Seafood). Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. Experience the true taste of Cambodia. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "85f68bee-2005-4e63-98a9-92a2669581e9",
+    "name": "Mixed Vegetable Salad",
+    "desc": "Tempting Mixed Vegetable Salad. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "bdde96be-2a2d-43cc-b749-79300027adbd",
+    "name": "Papaya Smoothie",
+    "desc": "Scrumptious Papaya Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. A delightful culinary experience."
+  },
+  {
+    "id": "3a6136cf-fa63-4f49-a0fc-629565a45eeb",
+    "name": "Soursop Smoothie",
+    "desc": "Delectable Soursop Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Served fresh and hot."
+  },
+  {
+    "id": "4fdddcb6-b98e-48df-a2fc-900a96cc2f11",
+    "name": "Mixed Salad with Chicken",
+    "desc": "Classic Mixed Salad with Chicken. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "1dada5ba-7b60-4c58-9428-8c8898b523e9",
+    "name": "Mixed Fruits Smoothie",
+    "desc": "Savory Mixed Fruits Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "603e979b-c826-4823-b8ec-b18b80267a48",
+    "name": "Pineapple Smoothie",
+    "desc": "Delectable Pineapple Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Perfect for any time of the day."
+  },
+  {
+    "id": "0e43bd44-f729-466c-ab21-3647c5f6792f",
+    "name": "Somlor Kor Ko (Fish/Pork/Chicken)",
+    "desc": "Savory Somlor Kor Ko (Fish/Pork/Chicken). A carefully prepared soup showcasing premium ingredients and balanced flavors. A local favorite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "7ad3ed25-8cbb-4c8d-a16e-f84648a5ac55",
+    "name": "Soda Water",
+    "desc": "Delicious Soda Water. A carefully crafted drink to quench your thirst and elevate your mood. Prepared with our chef's special touch."
+  },
+  {
+    "id": "0e61d9d3-5698-43ca-a666-16d5b5b0b907",
+    "name": "Blue Hawai",
+    "desc": "Fresh Blue Hawai. A carefully prepared cocktails showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients."
+  },
+  {
+    "id": "0e852850-1df2-401c-9c47-3772f7a2af4b",
+    "name": "Black Tea Macchiato",
+    "desc": "Scrumptious Black Tea Macchiato. A rich espresso layered with creamy milk and flavored syrup. A must-try for food lovers."
+  },
+  {
+    "id": "0a63a5e6-ac4b-4657-b513-537876bd4a7f",
+    "name": "Beef Salad with Deep fried morning glory",
+    "desc": "Zesty Beef Salad with Deep fried morning glory. A carefully prepared salad showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "511ac5fb-7d52-408b-8b94-63176988b86d",
+    "name": "Cambodia Can",
+    "desc": "Scrumptious Cambodia Can. A carefully crafted drink to quench your thirst and elevate your mood. Perfect for any time of the day."
+  },
+  {
+    "id": "d72f0978-5199-4ea3-a6e6-bc85c1082d2c",
+    "name": "Brown Suger Frappe",
+    "desc": "Hearty Brown Suger Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. Served fresh and hot."
+  },
+  {
+    "id": "586a6097-dc45-4d4e-b220-eed7d806525a",
+    "name": "Butterfly Tea Frappe",
+    "desc": "Mouth-watering Butterfly Tea Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. Crafted with the finest ingredients."
+  },
+  {
+    "id": "0915cb4c-65fb-4b65-b0fd-6d2f33a1c241",
+    "name": "Butterfly Tea Macchiato",
+    "desc": "Exquisite Butterfly Tea Macchiato. A rich espresso layered with creamy milk and flavored syrup. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "bb4167cb-014c-400b-a685-50b6ff75817f",
+    "name": "Chicken Pasta",
+    "desc": "Traditional Chicken Pasta. A carefully prepared new menu showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch."
+  },
+  {
+    "id": "101e1b8a-e764-40a3-8374-3db82c4a58bf",
+    "name": "Chicken Burger with Cheese",
+    "desc": "Traditional Chicken Burger with Cheese. A juicy, perfectly grilled patty served in a soft bun with crisp veggies and savory sauces. Served fresh and hot."
+  },
+  {
+    "id": "05db864b-277e-4a8e-8861-a4ecc1e913bd",
+    "name": "Cappuccino Frappe",
+    "desc": "Savory Cappuccino Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. Prepared with our chef's special touch."
+  },
+  {
+    "id": "a95b6383-2a4b-429f-ac21-8aed1ecc6f27",
+    "name": "Caramel Macchiato",
+    "desc": "Fresh Caramel Macchiato. A rich espresso layered with creamy milk and flavored syrup. A local favorite."
+  },
+  {
+    "id": "16a25cba-5690-4977-95e9-c0767ec62d70",
+    "name": "Cheese",
+    "desc": "Flavorful Cheese. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "28d2c63a-0e91-4a07-aecf-55a376914b86",
+    "name": "Chicken Noodle Soup",
+    "desc": "Signature Chicken Noodle Soup. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "e5848ddc-b81c-442d-b54b-9c55453383ac",
+    "name": "Chocolate Macchiato",
+    "desc": "Mouth-watering Chocolate Macchiato. A rich espresso layered with creamy milk and flavored syrup. Prepared with our chef's special touch."
+  },
+  {
+    "id": "9f02ad46-79d7-47ef-a102-67ec9abf4451",
+    "name": "Blueberry Smoothie",
+    "desc": "Savory Blueberry Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. A must-try for food lovers."
+  },
+  {
+    "id": "c6ba4ab1-0686-4aae-804e-da45bad2bdc8",
+    "name": "Blue Magarita",
+    "desc": "Signature Blue Magarita. A carefully prepared cocktails showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "3382f49f-f32b-4f6e-b68a-aba36d3b6b87",
+    "name": "Brown Suger Macchiato",
+    "desc": "Exquisite Brown Suger Macchiato. A rich espresso layered with creamy milk and flavored syrup. A delightful culinary experience."
+  },
+  {
+    "id": "f82f5e6d-b771-4d15-9732-cc6f2925d234",
+    "name": "Caramel Frappe",
+    "desc": "Vibrant Caramel Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. Served fresh and hot."
+  },
+  {
+    "id": "5e317bb8-9f66-4a10-a328-f5221ee25561",
+    "name": "Chicken Soup with Fermented Limes",
+    "desc": "Exquisite Chicken Soup with Fermented Limes. A carefully prepared soup showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "ba42551d-4608-4888-8585-12580c362ac8",
+    "name": "Chocolate Frappe",
+    "desc": "Signature Chocolate Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "ebe040db-6faf-487a-b0f4-d6bafa534819",
+    "name": "Carrot Smoothie",
+    "desc": "Traditional Carrot Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "ce60edbf-b873-4eb3-939a-ff53dafb3c88",
+    "name": "Chocolate Pancake (3)",
+    "desc": "Fresh Chocolate Pancake (3). Fluffy, golden-brown pancakes served warm with delightful toppings. Enjoy every bite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "17f24601-f6bb-40c5-9713-9c7f63c2724d",
+    "name": "Coca Cola",
+    "desc": "Scrumptious Coca Cola. A carefully crafted drink to quench your thirst and elevate your mood. Perfect for any time of the day."
+  },
+  {
+    "id": "31de8c3a-e983-448f-8c55-8de92cacf0ed",
+    "name": "Coca Cola Light",
+    "desc": "Classic Coca Cola Light. A carefully crafted drink to quench your thirst and elevate your mood. Perfect for any time of the day."
+  },
+  {
+    "id": "1dd039cd-0fdf-4abf-87d4-44b17f0813f0",
+    "name": "Coconut Smoothie",
+    "desc": "Flavorful Coconut Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Enjoy every bite."
+  },
+  {
+    "id": "1d885edc-b0f6-4c5e-8ace-df636c1ced9f",
+    "name": "Crispy Chicken Burger with Cheese",
+    "desc": "Exquisite Crispy Chicken Burger with Cheese. A juicy, perfectly grilled patty served in a soft bun with crisp veggies and savory sauces. A must-try for food lovers."
+  },
+  {
+    "id": "18246a01-dd4c-454c-b0d4-c0d4b4d3a2eb",
+    "name": "Crispy Fish Burger",
+    "desc": "Scrumptious Crispy Fish Burger. A juicy, perfectly grilled patty served in a soft bun with crisp veggies and savory sauces. Perfect for any time of the day."
+  },
+  {
+    "id": "70b3f757-3a83-4aba-9f98-b07abfff194a",
+    "name": "Deep Fried Beef Meatballs with Spicy",
+    "desc": "Savory Deep Fried Beef Meatballs with Spicy. A carefully prepared grilled showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "3c21d570-3148-4837-92e6-b7dd43bdc36b",
+    "name": "Deep Fried Chicken with Rice",
+    "desc": "Vibrant Deep Fried Chicken with Rice. A carefully prepared new menu showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "de81a782-09d8-4496-afb7-7743296a8b66",
+    "name": "Deep Fried Circle Chive Cake (3)",
+    "desc": "Authentic Deep Fried Circle Chive Cake (3). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "98b2d3a8-caf7-492d-a7f8-d56dfe8de96f",
+    "name": "Coffee Frappe",
+    "desc": "Zesty Coffee Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. Prepared with our chef's special touch."
+  },
+  {
+    "id": "4369cd95-1980-4613-ac78-4f46da117378",
+    "name": "Coffee Macchiato",
+    "desc": "Exquisite Coffee Macchiato. A rich espresso layered with creamy milk and flavored syrup. Served fresh and hot."
+  },
+  {
+    "id": "58d7c74f-5d4f-40d8-86bc-f18272554e83",
+    "name": "Crab Meat Sandwich with Cheese",
+    "desc": "Fresh Crab Meat Sandwich with Cheese. Freshly assembled with premium fillings between slices of toasted or soft bread. Perfect for any time of the day."
+  },
+  {
+    "id": "dedc60c6-e966-41af-8bc1-eff3671cc47f",
+    "name": "Coca Cola Zero",
+    "desc": "Tempting Coca Cola Zero. A carefully crafted drink to quench your thirst and elevate your mood. Enjoy every bite."
+  },
+  {
+    "id": "88b5f4e7-9be6-4719-9233-b9bce130adea",
+    "name": "Deep Fried Beef Meatballs (4)",
+    "desc": "Authentic Deep Fried Beef Meatballs (4). A carefully prepared grilled showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "2bde3209-8f08-46e0-8d20-175d09895487",
+    "name": "Deep Fried Chicken (2)",
+    "desc": "Traditional Deep Fried Chicken (2). A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "8a196693-d5f5-418b-aa0d-ed84f00dff68",
+    "name": "Crispy Chicken Sandwich with Cheese",
+    "desc": "Delectable Crispy Chicken Sandwich with Cheese. Freshly assembled with premium fillings between slices of toasted or soft bread. Served fresh and hot."
+  },
+  {
+    "id": "b280c583-b9b6-4a86-89c9-888297a6aff5",
+    "name": "Deep Fried Chicken Spring Rolls (4)",
+    "desc": "Fresh Deep Fried Chicken Spring Rolls (4). Crispy or fresh rolls packed with vibrant ingredients and served with a complementary dipping sauce. Served fresh and hot. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "0ce2cfef-dab0-447f-89e2-0fd34fecbf6a",
+    "name": "Crispy Fish Burger with Cheese",
+    "desc": "Vibrant Crispy Fish Burger with Cheese. A juicy, perfectly grilled patty served in a soft bun with crisp veggies and savory sauces. A local favorite."
+  },
+  {
+    "id": "86026e04-abe7-4df6-9bd4-41a7d1538c87",
+    "name": "Deep Fried Chicken Breast & Fries",
+    "desc": "Flavorful Deep Fried Chicken Breast & Fries. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "431bb0ba-6882-4e4c-ae9b-ec92a666b397",
+    "name": "Deep Fried Drumstick Chicken with Fish Cheese",
+    "desc": "Zesty Deep Fried Drumstick Chicken with Fish Cheese. A carefully prepared grilled showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "009014d5-ca07-4322-b5be-373179951ac3",
+    "name": "Deep Fried Drumstick Chicken with Rice",
+    "desc": "Authentic Deep Fried Drumstick Chicken with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "a0e3e2d1-6975-4b33-ade7-9d1f9afab7b3",
+    "name": "Deep Fried fish & French fries",
+    "desc": "Vibrant Deep Fried fish & French fries. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "c8c03789-fc7c-4105-b303-6abb41fb683c",
+    "name": "Deep Fried Fish with Sweet Sour Vegetables",
+    "desc": "Traditional Deep Fried Fish with Sweet Sour Vegetables. A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "dc10bfb2-a368-491a-a1d0-9f879c056288",
+    "name": "Deep Fried Fish with Sweet Soybean",
+    "desc": "Hearty Deep Fried Fish with Sweet Soybean. A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "a397d37c-60d5-48fe-a27b-b4408030110f",
+    "name": "Deep Fried Hot Dog with Toast",
+    "desc": "Flavorful Deep Fried Hot Dog with Toast. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Served fresh and hot."
+  },
+  {
+    "id": "a2c5b5b5-dec0-40af-9aef-9f5c091b2122",
+    "name": "Deep Fried Fish with Sweet Sour Sauce",
+    "desc": "Savory Deep Fried Fish with Sweet Sour Sauce. A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "2d56cbc1-e15b-4921-a4cf-259bd66ec0cc",
+    "name": "Deep Fried Mushrooms with flour",
+    "desc": "Savory Deep Fried Mushrooms with flour. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch."
+  },
+  {
+    "id": "be4a97e7-e451-4a87-8990-ae3d1c316921",
+    "name": "Deep Fried Vegetable Spring Rolls (4)",
+    "desc": "Hearty Deep Fried Vegetable Spring Rolls (4). Crispy or fresh rolls packed with vibrant ingredients and served with a complementary dipping sauce. Perfect for any time of the day. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "c79d597c-48dc-470f-87da-33156d944c55",
+    "name": "Deep Fried Wonton (5)",
+    "desc": "Scrumptious Deep Fried Wonton (5). A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "c24ade07-1830-4298-a950-bbcf345e1489",
+    "name": "Deep Fried Hot Dog with flour",
+    "desc": "Delectable Deep Fried Hot Dog with flour. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "38321c96-d838-45b7-848e-f6f1969a0c8c",
+    "name": "Deep Fried Fish with Mango Salad and Rice",
+    "desc": "Flavorful Deep Fried Fish with Mango Salad and Rice. A carefully prepared new menu showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "6c21942e-c88d-48c2-a70c-c3aa3f28a638",
+    "name": "Deep fried Khmer Fish Cheese",
+    "desc": "Flavorful Deep fried Khmer Fish Cheese. A carefully prepared salad showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "738497fb-a822-4475-8a26-fb8e11b6cd52",
+    "name": "Deep Fried Shrimp with flour (6)",
+    "desc": "Savory Deep Fried Shrimp with flour (6). A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "ab42a25b-8c6d-47bd-8e29-a09d3b394483",
+    "name": "Deep Fried Tofu with flour",
+    "desc": "Delectable Deep Fried Tofu with flour. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "1d2dfe70-ff98-427c-b4a4-174df6398861",
+    "name": "Fresh Fruits Sliced",
+    "desc": "Delicious Fresh Fruits Sliced. A carefully prepared dessert showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients."
+  },
+  {
+    "id": "15ce6eb9-35dd-4513-81d0-d58de5e7f0fb",
+    "name": "Fried Egg with bread or toast",
+    "desc": "Fresh Fried Egg with bread or toast. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "178cb862-80de-4483-a9c3-8a41f7ca8ecf",
+    "name": "Fried Glass Noodle (Beef/Seafood)",
+    "desc": "Classic Fried Glass Noodle (Beef/Seafood). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "3175a562-85c0-4e88-87e0-928de57e27c0",
+    "name": "Fried Glass Noodle (Chicken/Pork/Tofu)",
+    "desc": "Flavorful Fried Glass Noodle (Chicken/Pork/Tofu). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. A local favorite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "dfa15ef5-9bd7-46e1-bb7c-548ec7f3c363",
+    "name": "Glass Noodle Salad Seafood",
+    "desc": "Zesty Glass Noodle Salad Seafood. A carefully prepared salad showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "e235a8d9-f315-444c-bb63-7893f19e40e3",
+    "name": "Fried Yellow Noodle (Beef/Seafood)",
+    "desc": "Fresh Fried Yellow Noodle (Beef/Seafood). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. A local favorite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "75221671-4793-4546-ac02-f105956c1266",
+    "name": "Green Mango Salad with Dry shrimp",
+    "desc": "Authentic Green Mango Salad with Dry shrimp. A carefully prepared salad showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "b2352923-770c-42dc-9dbd-2b9a2a5d8949",
+    "name": "Durian Smoothie",
+    "desc": "Tempting Durian Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "3bbe7026-3264-4991-91dd-1ecf9ee86270",
+    "name": "English Lok lak (Beef/Chicken)",
+    "desc": "Hearty English Lok lak (Beef/Chicken). A classic Khmer dish of tender, marinated meat stir-fried in a savory brown sauce, traditionally served with crisp lettuce, tomatoes, and a tangy lime-pepper dipping sauce. A must-try for food lovers. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "522eca50-47e0-484f-93ba-5976e97ba1b5",
+    "name": "Fried Egg",
+    "desc": "Exquisite Fried Egg. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Served fresh and hot."
+  },
+  {
+    "id": "49d24308-794e-4271-b55e-1374ae32e620",
+    "name": "Fried Egg Hotdog with bread or toast",
+    "desc": "Traditional Fried Egg Hotdog with bread or toast. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch."
+  },
+  {
+    "id": "17106253-bf4c-4796-9811-4abd019fb753",
+    "name": "Fried Mama Noodle (Chicken/Pork/Tofu)",
+    "desc": "Fresh Fried Mama Noodle (Chicken/Pork/Tofu). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. A delightful culinary experience. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "cbefd81c-9d83-4fec-ba52-77dd8162ce33",
+    "name": "Fried Mama Noodle (Beef/Seafood)",
+    "desc": "Savory Fried Mama Noodle (Beef/Seafood). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "c41ba113-6fca-4def-984d-7d50f549b94e",
+    "name": "Fried Flat Noodle (Chicken/Pork/Tofu)",
+    "desc": "Signature Fried Flat Noodle (Chicken/Pork/Tofu). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "2b57524e-48ff-4ff3-9cfb-2559e6ccff43",
+    "name": "Fried Rice Basil (Chicken/Pork/Tofu)",
+    "desc": "Delicious Fried Rice Basil (Chicken/Pork/Tofu). Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. Prepared with our chef's special touch. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "8ff92d16-1380-4e68-a4c1-3a6da0775e32",
+    "name": "Fried Yellow Noodle (Chicken/Pork/Tofu)",
+    "desc": "Classic Fried Yellow Noodle (Chicken/Pork/Tofu). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "645dc903-ad46-45f3-97dd-1985c5a71d80",
+    "name": "Green Tea Frappe",
+    "desc": "Authentic Green Tea Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. Perfect for any time of the day."
+  },
+  {
+    "id": "67f0dc6a-0ca1-40cf-b606-4f8c5a94b8fa",
+    "name": "Fresh Coconut",
+    "desc": "Flavorful Fresh Coconut. A carefully prepared dessert showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "3e897726-6705-44f7-9aae-0b777bc13f89",
+    "name": "Egg Burger with Cheese",
+    "desc": "Traditional Egg Burger with Cheese. A juicy, perfectly grilled patty served in a soft bun with crisp veggies and savory sauces. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "71f585dd-32a7-41e1-b9db-d288c093832e",
+    "name": "Fried Rice (Beef/Seafood)",
+    "desc": "Delectable Fried Rice (Beef/Seafood). Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. Perfect for any time of the day. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "914b42a2-41a4-4dfe-9a2d-0d8a0aec0a23",
+    "name": "Fresh Spring Rolls (Chicken/Pork) (4)",
+    "desc": "Classic Fresh Spring Rolls (Chicken/Pork) (4). Crispy or fresh rolls packed with vibrant ingredients and served with a complementary dipping sauce. Crafted with the finest ingredients. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "f08853f0-4602-4857-a35e-78ed246729b8",
+    "name": "Fried Flat Noodle (Beef/Seafood)",
+    "desc": "Scrumptious Fried Flat Noodle (Beef/Seafood). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Enjoy every bite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "ad2644e2-00d5-4423-85a1-793c3af53c21",
+    "name": "Fried Mama Noodle with Beef Meatball",
+    "desc": "Signature Fried Mama Noodle with Beef Meatball. A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "7f5280bb-7c70-4ae0-9f4c-2edd5bc968b0",
+    "name": "Green Papaya Salad with Tofu",
+    "desc": "Exquisite Green Papaya Salad with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "e2d6f9e4-beff-4662-8f1a-413def391f7e",
+    "name": "Fried Rice Stick Noodle (Chicken/Pork/Tofu)",
+    "desc": "Authentic Fried Rice Stick Noodle (Chicken/Pork/Tofu). Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. A local favorite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "6811dd7a-6cd2-439b-9613-36ef0797a1e8",
+    "name": "Golden Bacardi",
+    "desc": "Authentic Golden Bacardi. A carefully prepared cocktails showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "f0fe9f99-07c1-4d5b-b410-7bf75a39de68",
+    "name": "Fried Prama Fish with Egg",
+    "desc": "Delectable Fried Prama Fish with Egg. A robust and deeply flavorful traditional salted and fermented fish, pan-fried to golden perfection and often served with egg. Enjoy every bite."
+  },
+  {
+    "id": "1dca0211-af46-427a-83f6-105dbea9e75a",
+    "name": "Fried Rice Basil (Beef/Seafood)",
+    "desc": "Signature Fried Rice Basil (Beef/Seafood). Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "9a320b85-9093-4a08-92eb-6d30b47668b4",
+    "name": "Green Curry with Tofu",
+    "desc": "Signature Green Curry with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients."
+  },
+  {
+    "id": "b583971d-417f-4e1d-8206-9495621f63a0",
+    "name": "Fried Rice Stick Noodle (Beef/Seafood)",
+    "desc": "Delicious Fried Rice Stick Noodle (Beef/Seafood). Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. A must-try for food lovers. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "69bd74c0-fdf6-4870-90e1-0fb136ed1b3b",
+    "name": "Fried Rice (Chicken/Pork/Tofu)",
+    "desc": "Mouth-watering Fried Rice (Chicken/Pork/Tofu). Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. A local favorite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "c2a1a737-6427-454d-acb8-67b8e4869c53",
+    "name": "Green Payaya Salad with Shrimp",
+    "desc": "Tempting Green Payaya Salad with Shrimp. A carefully prepared salad showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch."
+  },
+  {
+    "id": "4fc41eeb-90f8-495f-95b6-1664541eeac5",
+    "name": "Fried Rice Sausage with Basil",
+    "desc": "Exquisite Fried Rice Sausage with Basil. Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. A must-try for food lovers."
+  },
+  {
+    "id": "94efc6ba-bffd-414e-a5c6-ca930344964e",
+    "name": "Gin",
+    "desc": "Hearty Gin. A carefully prepared cocktails showcasing premium ingredients and balanced flavors. Served fresh and hot."
+  },
+  {
+    "id": "0d842140-4952-4c37-8160-d5b8ec41b603",
+    "name": "Green Tea Macchiato",
+    "desc": "Classic Green Tea Macchiato. A rich espresso layered with creamy milk and flavored syrup. A delightful culinary experience."
+  },
+  {
+    "id": "a21f1a75-38ac-48e5-b7e3-51a268810582",
+    "name": "Glass Noodle Salad (Chicken/Pork)",
+    "desc": "Scrumptious Glass Noodle Salad (Chicken/Pork). A carefully prepared salad showcasing premium ingredients and balanced flavors. A local favorite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "ea576c6f-94ff-4758-9797-81c5d19711ad",
+    "name": "Green Curry (Chicken/Fish/Tofu)",
+    "desc": "Zesty Green Curry (Chicken/Fish/Tofu). A carefully prepared soup showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "fb28d2b3-24b0-4379-a4d1-8fb04f80c76b",
+    "name": "Grape Smoothie",
+    "desc": "Zesty Grape Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Crafted with the finest ingredients."
+  },
+  {
+    "id": "a65051bf-539f-473d-b781-dcfd214f96af",
+    "name": "Green Papaya Salad with dried shrimp",
+    "desc": "Scrumptious Green Papaya Salad with dried shrimp. A carefully prepared salad showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "ba27687c-b5c3-4227-b9ab-9663d932deaa",
+    "name": "Grilled Chicken BBQ (3)",
+    "desc": "Hearty Grilled Chicken BBQ (3). A carefully prepared grilled showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "d508b812-7651-4134-994e-bdf2106393b4",
+    "name": "Grilled Fish with Rice",
+    "desc": "Classic Grilled Fish with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Served fresh and hot."
+  },
+  {
+    "id": "0b484088-9121-42cc-9cd3-f8af1a2fc70e",
+    "name": "Ham and Cheese Sandwich",
+    "desc": "Tempting Ham and Cheese Sandwich. Freshly assembled with premium fillings between slices of toasted or soft bread. Perfect for any time of the day."
+  },
+  {
+    "id": "b657dc68-adcd-4243-8795-747f74ee200a",
+    "name": "Grilled Beef BBQ (3)",
+    "desc": "Delicious Grilled Beef BBQ (3). A carefully prepared grilled showcasing premium ingredients and balanced flavors. Enjoy every bite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "abf5abd2-1aff-4956-9be0-91696eb5ce8d",
+    "name": "Grilled Beef with Black pepper sauce",
+    "desc": "Vibrant Grilled Beef with Black pepper sauce. A carefully prepared grilled showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "b515e0fd-be14-4b9f-99a2-87b2347dd20f",
+    "name": "Grilled Beef with Fish Cheese",
+    "desc": "Mouth-watering Grilled Beef with Fish Cheese. A carefully prepared grilled showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "537bfd10-07da-45f4-9c79-cdebdb38dabe",
+    "name": "Grilled Chicken with Black pepper sauce",
+    "desc": "Tempting Grilled Chicken with Black pepper sauce. A carefully prepared grilled showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients."
+  },
+  {
+    "id": "a3762b8e-cf1e-4878-8e39-0f23f39f95d8",
+    "name": "Grilled Chicken with Rice",
+    "desc": "Authentic Grilled Chicken with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Served fresh and hot."
+  },
+  {
+    "id": "3c55a91e-699d-4048-b7fa-4b38dbbd7f64",
+    "name": "Honey Pancake (3)",
+    "desc": "Hearty Honey Pancake (3). Fluffy, golden-brown pancakes served warm with delightful toppings. Prepared with our chef's special touch. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "71bfa2ae-c235-498c-8af3-a259727414a8",
+    "name": "Hot Americano",
+    "desc": "Vibrant Hot Americano. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "54f5c4fe-890f-4e1b-84f1-526f56ca763b",
+    "name": "Hot Cappuccino",
+    "desc": "Scrumptious Hot Cappuccino. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "3a7882f1-7959-44be-9fbb-75b48691f185",
+    "name": "Hot Chocolate",
+    "desc": "Signature Hot Chocolate. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "0be9a36b-ea71-4f67-84fc-c83f4583f4a2",
+    "name": "Hot Coffee with Milk",
+    "desc": "Hearty Hot Coffee with Milk. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "b80eb95b-2d6b-404e-925b-fc50a601a4bd",
+    "name": "Hot Dog (2)",
+    "desc": "Signature Hot Dog (2). A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "1ec8b0a2-1423-4021-9dea-55f08f3c3f2c",
+    "name": "Hot Expresso",
+    "desc": "Authentic Hot Expresso. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "44b49d57-a19d-43ab-96d0-1fdb0a780d6c",
+    "name": "Hot Green Tea",
+    "desc": "Mouth-watering Hot Green Tea. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "b7d21ca0-d80a-487e-ad90-4d403cafbb71",
+    "name": "Hot Latte",
+    "desc": "Mouth-watering Hot Latte. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "517bdae5-a179-4fd3-85e9-83b3e78c5ce3",
+    "name": "Hot Lemon Green Tea",
+    "desc": "Flavorful Hot Lemon Green Tea. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "7364b060-e68d-4213-a11b-8d62c820ff79",
+    "name": "Hot Lemon Red Tea",
+    "desc": "Zesty Hot Lemon Red Tea. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "0a463773-b60b-4485-abb5-a752c619a7ea",
+    "name": "Hot Milo",
+    "desc": "Classic Hot Milo. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "382e9fab-c12c-42ce-ae7d-f5c3b52d3d22",
+    "name": "Lychee Smoothie",
+    "desc": "Scrumptious Lychee Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Perfect for any time of the day."
+  },
+  {
+    "id": "9d86b3d4-1420-4c67-a1c2-b9db990b8546",
+    "name": "Pineapple Fried Rice (Chicken/Pork/Tofu/Egg)",
+    "desc": "Tempting Pineapple Fried Rice (Chicken/Pork/Tofu/Egg). Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. Prepared with our chef's special touch. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "63cf54f1-d8a2-4d7c-bc63-79faa2c7bd28",
+    "name": "Hot Mocha",
+    "desc": "Savory Hot Mocha. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "6656e50b-908a-493e-b3ff-f1ce691c7450",
+    "name": "Iced Butterfly Milk Tea",
+    "desc": "Fresh Iced Butterfly Milk Tea. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "f319f314-1089-4450-92ef-36776ed83933",
+    "name": "Iced Kiwi Soda",
+    "desc": "Exquisite Iced Kiwi Soda. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "d4739012-d315-4a38-a2d1-af9795659bfc",
+    "name": "Iced Lemon Green Tea",
+    "desc": "Flavorful Iced Lemon Green Tea. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch."
+  },
+  {
+    "id": "c1c08e22-a913-44d3-9b9f-93f7543366ff",
+    "name": "Jasmine Tea Macchiato",
+    "desc": "Mouth-watering Jasmine Tea Macchiato. A rich espresso layered with creamy milk and flavored syrup. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "118ceb5c-0da7-4596-892c-f1f436a61162",
+    "name": "Mixed Deep Fried Meatballes with Flour",
+    "desc": "Authentic Mixed Deep Fried Meatballes with Flour. A carefully prepared grilled showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "8d29a66e-0a45-4f35-b0ac-d3485a01a6c2",
+    "name": "Mocha Frappe",
+    "desc": "Zesty Mocha Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. Crafted with the finest ingredients."
+  },
+  {
+    "id": "7471beb2-fd1e-4b1d-a326-ca6cb5aaffe9",
+    "name": "Omelet Cheese with bread or toast",
+    "desc": "Tempting Omelet Cheese with bread or toast. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "37fdccdd-b4bb-4aad-a44b-0f279cdbe54c",
+    "name": "Iced Tamarind Fresh Milk",
+    "desc": "Signature Iced Tamarind Fresh Milk. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch."
+  },
+  {
+    "id": "e3868c97-9557-4379-a2e6-259a6af53c6d",
+    "name": "Sausage Fried Rice",
+    "desc": "Flavorful Sausage Fried Rice. Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. Prepared with our chef's special touch."
+  },
+  {
+    "id": "ca34a6be-5cd8-4ef4-b7a4-f38cbcf7fe46",
+    "name": "Scrambled Egg Hotdog with bread or toast",
+    "desc": "Delicious Scrambled Egg Hotdog with bread or toast. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "0dfddf13-d12a-4cbe-842c-ad343bdeb9e0",
+    "name": "Iced Brown Suger Fresh Milk with Pearl",
+    "desc": "Zesty Iced Brown Suger Fresh Milk with Pearl. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "c9b7e27b-0c57-437b-8eb5-9b11350c13c1",
+    "name": "Hot Ovaltine",
+    "desc": "Flavorful Hot Ovaltine. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "8ab5bad2-3df0-4f94-9d86-03754f834d6e",
+    "name": "Iced Blue Curacao Soda",
+    "desc": "Exquisite Iced Blue Curacao Soda. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "bbbfbf98-4f9b-4363-bf4f-d5443e1b4f50",
+    "name": "Iced Green Milk Tea with Pearl",
+    "desc": "Flavorful Iced Green Milk Tea with Pearl. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "4a9f408b-37d4-4fc6-83f7-c30aac4fa231",
+    "name": "Iced Ovaltine",
+    "desc": "Zesty Iced Ovaltine. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "3b914760-0852-4076-8270-9353c14e6935",
+    "name": "Iced Passion Milk",
+    "desc": "Mouth-watering Iced Passion Milk. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "933f0ce5-66db-4327-9e41-713fe796f3c9",
+    "name": "Iced Red Milk Tea",
+    "desc": "Classic Iced Red Milk Tea. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "5fe6d836-11bb-4eb8-ac3e-471591c05c87",
+    "name": "Iced Tamarind Soda",
+    "desc": "Scrumptious Iced Tamarind Soda. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Served fresh and hot."
+  },
+  {
+    "id": "816cdd9e-f1df-41bd-9803-48fbb881cabf",
+    "name": "Khmer Spicy Sour Soup (Beef/Chicken/Fish)",
+    "desc": "Savory Khmer Spicy Sour Soup (Beef/Chicken/Fish). A carefully prepared soup showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "fca7a68a-f312-4014-b8e0-38f4e567f94d",
+    "name": "Mango Sticky rice",
+    "desc": "Scrumptious Mango Sticky rice. A carefully prepared dessert showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "5c5ca774-51b0-47ee-9def-fc53835c99d0",
+    "name": "Omelet Vegetable with bread or toast",
+    "desc": "Traditional Omelet Vegetable with bread or toast. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "37604ecd-99ff-4766-bed6-b51d5ee9876f",
+    "name": "Pad kra pai (Chicken/Pork/Tofu)",
+    "desc": "Mouth-watering Pad kra pai (Chicken/Pork/Tofu). A carefully prepared fried rice showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "14ee27a7-9353-4ef5-9a0e-530ba5fa8faa",
+    "name": "Passion Macchiato",
+    "desc": "Flavorful Passion Macchiato. A rich espresso layered with creamy milk and flavored syrup. Enjoy every bite."
+  },
+  {
+    "id": "7f415257-aab9-4c79-bbe8-b3751d7d1fe6",
+    "name": "Seafood Noodle Soup",
+    "desc": "Authentic Seafood Noodle Soup. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "09200cfd-bcb5-4aaa-962e-c5c6bbd2396f",
+    "name": "Hot Red Tea",
+    "desc": "Delicious Hot Red Tea. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "276a8c58-cb55-4646-8fe7-4e22d13769e6",
+    "name": "Iced Blueberry Soda",
+    "desc": "Zesty Iced Blueberry Soda. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "6ea56c64-f8dc-48d0-a705-4723f7652ba9",
+    "name": "Iced Lemon Red Tea",
+    "desc": "Exquisite Iced Lemon Red Tea. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch."
+  },
+  {
+    "id": "6409f241-41b8-4d7e-a009-640fff6fe35e",
+    "name": "Iced Milk Tea with Pearl",
+    "desc": "Delicious Iced Milk Tea with Pearl. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients."
+  },
+  {
+    "id": "a5043a67-4703-442a-bbd0-e85fb461722a",
+    "name": "Iced Strawberry Soda",
+    "desc": "Authentic Iced Strawberry Soda. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "981fe5b2-3fa8-4d2a-9f13-1031089ddf39",
+    "name": "Milo Frappe",
+    "desc": "Authentic Milo Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "bb605fba-e338-4cf6-b499-ffe1739b1024",
+    "name": "Pineapple Fried Rice (Seafood/Beef)",
+    "desc": "Delectable Pineapple Fried Rice (Seafood/Beef). Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. Crafted with the finest ingredients. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "2932d131-3823-4198-81dd-59ea803e12a2",
+    "name": "Red Tea Frappe",
+    "desc": "Flavorful Red Tea Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. A delightful culinary experience."
+  },
+  {
+    "id": "4f789b46-1465-45cf-a609-e25cd6a81c51",
+    "name": "Mixed Vegetable Salad (Chicken/Pork)",
+    "desc": "Scrumptious Mixed Vegetable Salad (Chicken/Pork). A carefully prepared salad showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "7efac52d-073c-436e-8d62-ee417f3689f6",
+    "name": "Rose Tea Macchiato",
+    "desc": "Tempting Rose Tea Macchiato. A rich espresso layered with creamy milk and flavored syrup. A delightful culinary experience."
+  },
+  {
+    "id": "61bd2e14-a656-4fa7-a27e-d18a3d173f01",
+    "name": "Scrambled Egg with bread or toast",
+    "desc": "Delicious Scrambled Egg with bread or toast. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "324315de-7778-4875-8ad2-d2c97b6dbb88",
+    "name": "Mango Smoothie",
+    "desc": "Exquisite Mango Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "4ee8b3df-744d-428f-8fb4-121ad7b84af4",
+    "name": "Roast Beef on Strip",
+    "desc": "Flavorful Roast Beef on Strip. A carefully prepared new menu showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "b3e38e63-96d8-45a3-a498-e69fdb14fd9b",
+    "name": "Pumpkin with Coconut Milk",
+    "desc": "Classic Pumpkin with Coconut Milk. A carefully prepared dessert showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "5b8be38b-38bf-49fa-9f72-b50e5645d9b6",
+    "name": "Hot Vanilla",
+    "desc": "Exquisite Hot Vanilla. A carefully prepared hot drink showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "4e55379e-dcdd-4e5e-83ca-7c29832d6223",
+    "name": "Iced Green Milk Tea",
+    "desc": "Mouth-watering Iced Green Milk Tea. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Served fresh and hot."
+  },
+  {
+    "id": "a61b344a-ba4e-4e08-9472-92cf70f3fbc2",
+    "name": "Iced Lemon Butterfly Tea",
+    "desc": "Hearty Iced Lemon Butterfly Tea. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "20ceba4d-3965-4a7b-8023-a0cd41b00a89",
+    "name": "Iced Black Coffee",
+    "desc": "Scrumptious Iced Black Coffee. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "151ba74b-3884-48b3-b7cc-23d5dc75f44c",
+    "name": "Iced Black Milk Tea",
+    "desc": "Savory Iced Black Milk Tea. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "d01954df-5206-4f1a-89b4-56bfadb35bec",
+    "name": "Iced Blueberry Milk",
+    "desc": "Signature Iced Blueberry Milk. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "8145bf20-bbbf-4377-9ed0-1d254cd000de",
+    "name": "Iced Cappuccino",
+    "desc": "Savory Iced Cappuccino. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "bfb9272a-52fa-480d-a722-d9793b8adaf7",
+    "name": "Iced Caramel Fresh Milk with Pearl",
+    "desc": "Traditional Iced Caramel Fresh Milk with Pearl. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients."
+  },
+  {
+    "id": "df823030-1d4f-43f9-b0e5-279274305659",
+    "name": "Iced Lychee Soda",
+    "desc": "Flavorful Iced Lychee Soda. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "fc01f525-fe87-4e73-94f4-68446bd00f06",
+    "name": "Passion Smoothie",
+    "desc": "Signature Passion Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "d555cae5-5c36-4a1a-b0a8-9fcf3e8c3dbd",
+    "name": "Red Curry with Tofu",
+    "desc": "Delectable Red Curry with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "e25d8657-53e0-497e-9aaf-c124e35f26d9",
+    "name": "Mixed Vegetable Salad Seafood",
+    "desc": "Vibrant Mixed Vegetable Salad Seafood. A carefully prepared salad showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients."
+  },
+  {
+    "id": "37fb6ffc-db6a-405c-8108-7b5f916424bd",
+    "name": "Ovaltine Macchiato",
+    "desc": "Delicious Ovaltine Macchiato. A rich espresso layered with creamy milk and flavored syrup. Perfect for any time of the day."
+  },
+  {
+    "id": "e12ffa1c-1226-41d4-83e2-6aa9b9d39374",
+    "name": "Pad kra pai (Beef/Seafood)",
+    "desc": "Flavorful Pad kra pai (Beef/Seafood). A carefully prepared fried rice showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "315551c8-5f06-4131-bc14-39390871f1de",
+    "name": "Pancake with Cream Coconut (3)",
+    "desc": "Delicious Pancake with Cream Coconut (3). Fluffy, golden-brown pancakes served warm with delightful toppings. Perfect for any time of the day. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "045afd33-fac2-4ee1-a317-53ef054e061c",
+    "name": "Onion Rings",
+    "desc": "Mouth-watering Onion Rings. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "9bec7109-9393-4fd2-9e68-1f01db4dbcfd",
+    "name": "Iced Syrup Fresh Milk",
+    "desc": "Mouth-watering Iced Syrup Fresh Milk. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "d1f0a0d1-b6a7-4552-8fac-2598a1e51798",
+    "name": "Khmer Salad with Tofu",
+    "desc": "Zesty Khmer Salad with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "42b42c0a-761b-40d3-b92b-7e69ecf28f4a",
+    "name": "Lemon Smoothie",
+    "desc": "Scrumptious Lemon Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Enjoy every bite."
+  },
+  {
+    "id": "6243e38d-17f7-4ce4-a143-b3703602970f",
+    "name": "Iced Chocolate",
+    "desc": "Hearty Iced Chocolate. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "573850b1-fe69-402d-8b56-334b3177a93d",
+    "name": "Iced Latte",
+    "desc": "Vibrant Iced Latte. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "e4b2abfb-9754-4e05-bc64-6e26150f469e",
+    "name": "Iced Milo",
+    "desc": "Flavorful Iced Milo. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients."
+  },
+  {
+    "id": "601d2d70-37ef-45be-8546-b4bcb2ee767a",
+    "name": "Iced Strawberry Milk",
+    "desc": "Classic Iced Strawberry Milk. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "71fd39d8-6584-4417-97fd-0d5aa259fa09",
+    "name": "Iced Vanilla Latte",
+    "desc": "Delicious Iced Vanilla Latte. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "b9127206-c18f-44a6-b8fe-9ca466c1f73b",
+    "name": "Khmer Fish Sour Soup with Morning glory",
+    "desc": "Exquisite Khmer Fish Sour Soup with Morning glory. A carefully prepared soup showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch."
+  },
+  {
+    "id": "d97c6357-ebd4-47d5-9a2f-6a125947b1c5",
+    "name": "Lab (Chicken/Pork)",
+    "desc": "Exquisite Lab (Chicken/Pork). A vibrant, spicy, and sour minced meat salad tossed with fresh herbs, toasted rice powder, and a zesty lime dressing. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "2bb08a68-9f30-4e6c-bb7d-9ba20534bc34",
+    "name": "Long Island Ice Tea",
+    "desc": "Delicious Long Island Ice Tea. A carefully prepared cocktails showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "b05e4b83-d36f-4c8a-b56a-67105eaf1a5d",
+    "name": "Magarita",
+    "desc": "Delectable Magarita. A carefully prepared cocktails showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "177733d9-2235-471e-8f64-113f14c9a6c5",
+    "name": "Mixed Deep Fried Meatballes",
+    "desc": "Delectable Mixed Deep Fried Meatballes. A carefully prepared grilled showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "cca58531-b851-423f-bf41-9e9a4eabb8ea",
+    "name": "Omelet Chicken/Pork with bread or toast",
+    "desc": "Scrumptious Omelet Chicken/Pork with bread or toast. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "eedc6bcb-00ce-4ffb-9298-ab3e66817615",
+    "name": "Rum",
+    "desc": "Savory Rum. A carefully prepared cocktails showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "fbab8985-20e8-46a1-90e6-84b6134e4615",
+    "name": "Khmer Fish Salad",
+    "desc": "Delicious Khmer Fish Salad. A carefully prepared salad showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "741565f9-6d12-4bd2-b980-b0b7b999eea3",
+    "name": "Iced Coffee Milk",
+    "desc": "Delectable Iced Coffee Milk. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "0f06bd57-baea-4360-aca5-fddf8928c9b9",
+    "name": "Iced Jasmine Milk Tea",
+    "desc": "Mouth-watering Iced Jasmine Milk Tea. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "34044937-c38d-4f85-aa05-b6ed06e2fded",
+    "name": "Jack Fruit Smoothie",
+    "desc": "Traditional Jack Fruit Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. A local favorite."
+  },
+  {
+    "id": "d1dcb3f0-bb59-4ffd-a4c1-fbb720c48f11",
+    "name": "Mixed Spicy Beef",
+    "desc": "Hearty Mixed Spicy Beef. A carefully prepared salad showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "34d494ac-2ece-482f-86b0-901e561c499a",
+    "name": "Iced Lemon Jasmine Tea",
+    "desc": "Traditional Iced Lemon Jasmine Tea. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Served fresh and hot."
+  },
+  {
+    "id": "7c8880a1-e2c7-472b-a0d9-d58e3dc5c3bc",
+    "name": "Iced Mocha",
+    "desc": "Tempting Iced Mocha. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "27ecac8a-c368-4936-a3a7-0bed3dbab2dc",
+    "name": "Iced Passion Soda",
+    "desc": "Traditional Iced Passion Soda. A carefully prepared iced drink showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "215eaf9b-c1ef-4ef8-95a0-b1e37d4234d1",
+    "name": "Jrouk Krav Chuang (Chicken/Fish)",
+    "desc": "Delicious Jrouk Krav Chuang (Chicken/Fish). A carefully prepared soup showcasing premium ingredients and balanced flavors. Perfect for any time of the day. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "e33f3074-b66b-4d4a-a7d4-836b0513f315",
+    "name": "Khmer Fish Sour Soup with Green Papaya",
+    "desc": "Savory Khmer Fish Sour Soup with Green Papaya. A carefully prepared soup showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "314448b1-47fc-470a-9bd3-ecfc192fe1c2",
+    "name": "Khmer Sour Soup (Fish/Shrimp)",
+    "desc": "Vibrant Khmer Sour Soup (Fish/Shrimp). A carefully prepared soup showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "77e959b3-1b27-4b1b-9619-88562f688565",
+    "name": "Lok lak Pok Choy with Rice (Chicken/Pork/Tofu)",
+    "desc": "Zesty Lok lak Pok Choy with Rice (Chicken/Pork/Tofu). A classic Khmer dish of tender, marinated meat stir-fried in a savory brown sauce, traditionally served with crisp lettuce, tomatoes, and a tangy lime-pepper dipping sauce. Prepared with our chef's special touch. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "b981f289-aead-41ac-8577-f1415fefcc89",
+    "name": "Lok lak with Fried Rice (Chicken/Pork/Tofu)",
+    "desc": "Vibrant Lok lak with Fried Rice (Chicken/Pork/Tofu). A classic Khmer dish of tender, marinated meat stir-fried in a savory brown sauce, traditionally served with crisp lettuce, tomatoes, and a tangy lime-pepper dipping sauce. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "a94d822e-9e32-43c9-8d14-dab53d2ca6c4",
+    "name": "Milo Macchiato",
+    "desc": "Fresh Milo Macchiato. A rich espresso layered with creamy milk and flavored syrup. Prepared with our chef's special touch."
+  },
+  {
+    "id": "cb5966c4-d681-4b62-ba4c-22e047f998e1",
+    "name": "Mojito",
+    "desc": "Tempting Mojito. A carefully prepared cocktails showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "4ed7cd6f-ea6f-433e-82c7-7bdd60d725a3",
+    "name": "Oreo Frappe",
+    "desc": "Delicious Oreo Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. Prepared with our chef's special touch."
+  },
+  {
+    "id": "633ad2e3-3529-46fb-a991-0b2b2e093d83",
+    "name": "Ovaltine Frappe",
+    "desc": "Mouth-watering Ovaltine Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. A must-try for food lovers."
+  },
+  {
+    "id": "c78c3d08-c3b5-4c2f-98ab-fc6d536e2daf",
+    "name": "Red Tea Macchiato",
+    "desc": "Hearty Red Tea Macchiato. A rich espresso layered with creamy milk and flavored syrup. A local favorite."
+  },
+  {
+    "id": "63839f8a-a095-4328-ae60-a3a2760023de",
+    "name": "Rice",
+    "desc": "Flavorful Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "5df1238f-b4f9-406d-8275-2880ccccce9a",
+    "name": "Pinacolada",
+    "desc": "Tempting Pinacolada. A carefully prepared cocktails showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "0011d829-0bb4-45ae-9bfe-406ecaa727d3",
+    "name": "Special Pad Thai with Tofu",
+    "desc": "Delectable Special Pad Thai with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "9d769a7c-a5ba-4b49-bd39-85c55a418d7c",
+    "name": "Pineapple Fried Rice Cashew Nut with Tofu",
+    "desc": "Delectable Pineapple Fried Rice Cashew Nut with Tofu. Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "7c4ea84b-6ef3-4369-8de3-18ab31139aad",
+    "name": "Steamed Shrimp with Coconut Cream",
+    "desc": "Delicious Steamed Shrimp with Coconut Cream. A carefully prepared grilled showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "331d5338-3e60-4e3c-97ea-fc9f79b27d54",
+    "name": "Singapore Sling",
+    "desc": "Savory Singapore Sling. A carefully prepared cocktails showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "41c1a3cb-2781-40e2-b257-828669fea6e5",
+    "name": "Pumpkin Soup with Bread",
+    "desc": "Hearty Pumpkin Soup with Bread. A carefully prepared new menu showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "4612cd13-0bad-475a-9fe8-6aca014dad6a",
+    "name": "Red Curry (Chicken/Fish/Tofu)",
+    "desc": "Scrumptious Red Curry (Chicken/Fish/Tofu). A carefully prepared soup showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "6015b6c4-8388-4571-8503-7b682e226a2c",
+    "name": "Red Curry Seafood",
+    "desc": "Traditional Red Curry Seafood. A carefully prepared soup showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "157d1a12-a3ff-4e3f-8120-76d899ee60cd",
+    "name": "Shrimp Fresh Spring Rolls (4)",
+    "desc": "Authentic Shrimp Fresh Spring Rolls (4). Crispy or fresh rolls packed with vibrant ingredients and served with a complementary dipping sauce. Crafted with the finest ingredients. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "fe72b22f-7cfe-4921-9f81-c0362a5749c0",
+    "name": "Shrimp Paste Fried Rice Golden Cafe (Chicken/ Pork)",
+    "desc": "Vibrant Shrimp Paste Fried Rice Golden Cafe (Chicken/ Pork). Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "b2923e87-2b35-44ee-ab9c-cd054c375349",
+    "name": "Spaghetti (Beef/Seafood)",
+    "desc": "Traditional Spaghetti (Beef/Seafood). A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Enjoy every bite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "5e67644f-5f9f-459d-93c2-8c8c200452c3",
+    "name": "Spaghetti (Pork/Chicken)",
+    "desc": "Tempting Spaghetti (Pork/Chicken). A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "e2ba1c92-6466-4343-8b7f-79d392e41055",
+    "name": "Spaghetti Cabonara",
+    "desc": "Exquisite Spaghetti Cabonara. A carefully prepared new menu showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "4f8503d2-3a59-4793-be6c-aa697636b60a",
+    "name": "Spaghetti with Tomato Sauce",
+    "desc": "Traditional Spaghetti with Tomato Sauce. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients."
+  },
+  {
+    "id": "98200a5e-5e14-4e1c-9f86-42e5c2d69359",
+    "name": "Special Pad Thai (Beef/Seafood)",
+    "desc": "Vibrant Special Pad Thai (Beef/Seafood). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "3de5a3d0-74fa-48b8-9dbf-995af7d08d75",
+    "name": "Special Pad Thai (Chicken/Pork/Tofu)",
+    "desc": "Zesty Special Pad Thai (Chicken/Pork/Tofu). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "16f1ed2c-5237-421b-97a0-e311d12fbf86",
+    "name": "Steamed Shrimp with Glass Noodle",
+    "desc": "Delectable Steamed Shrimp with Glass Noodle. A carefully prepared grilled showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "49010be2-193a-4917-83b7-86b90106acfe",
+    "name": "Strawberry Smoothie",
+    "desc": "Authentic Strawberry Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Prepared with our chef's special touch."
+  },
+  {
+    "id": "96110be6-2167-4e84-878d-db8519ea25ff",
+    "name": "Stir-Fried Cabbage (Chicken/Pork/Tofu)",
+    "desc": "Traditional Stir-Fried Cabbage (Chicken/Pork/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Enjoy every bite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "efd00f26-5e4d-4fed-bd50-d60c0248b570",
+    "name": "Stir-fried Silver Pin Noodle (Chicken/Pork/Tofu)",
+    "desc": "Mouth-watering Stir-fried Silver Pin Noodle (Chicken/Pork/Tofu). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "52afbc66-8a86-42ca-9dab-ebeb3db13e12",
+    "name": "Vanila Frappe",
+    "desc": "Traditional Vanila Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. Crafted with the finest ingredients."
+  },
+  {
+    "id": "c24759d5-06db-4722-b367-df517a407097",
+    "name": "Vegetable Fresh Spring Rolls (4)",
+    "desc": "Mouth-watering Vegetable Fresh Spring Rolls (4). Crispy or fresh rolls packed with vibrant ingredients and served with a complementary dipping sauce. A delightful culinary experience. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "a9609c68-56a6-4e6d-a1e7-d82a3272dceb",
+    "name": "Stir-Fried Broccoli (Chicken/Pork/Tofu)",
+    "desc": "Delectable Stir-Fried Broccoli (Chicken/Pork/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. A must-try for food lovers. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "85e3d63b-ea8b-4732-9a1d-446637f77488",
+    "name": "Steamed Shrimp with Lemongrass",
+    "desc": "Fresh Steamed Shrimp with Lemongrass. A carefully prepared grilled showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "a77e88ef-b4d3-43a8-b23e-f992a9887b6e",
+    "name": "Stir-Fried Pineapple (Chicken/Pork/Fish/Tofu)",
+    "desc": "Exquisite Stir-Fried Pineapple (Chicken/Pork/Fish/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "cb7bede4-6013-4f37-ade3-e959bf7bbf10",
+    "name": "Water (small)",
+    "desc": "Delicious Water (small). A carefully crafted drink to quench your thirst and elevate your mood. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "7e4eb620-5a6e-4e89-8df1-767e23db2512",
+    "name": "Stir-Fried Cauliflower (Chicken/Pork/Tofu)",
+    "desc": "Delicious Stir-Fried Cauliflower (Chicken/Pork/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Perfect for any time of the day. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "4b480426-d255-4add-882b-69c4ea3658b4",
+    "name": "Tom Yum (Chicken/Fish/Tofu)",
+    "desc": "Vibrant Tom Yum (Chicken/Fish/Tofu). A carefully prepared soup showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "1f80fd48-55c6-4725-bc47-b16aa3f1a2d9",
+    "name": "Stir-Fried Eggplant with Tofu",
+    "desc": "Tempting Stir-Fried Eggplant with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "e9d64e1f-2a44-44ea-8eb9-a379e645df29",
+    "name": "Stir-fried Silver Pin Noodle (Beef/Seafood)",
+    "desc": "Signature Stir-fried Silver Pin Noodle (Beef/Seafood). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Enjoy every bite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "efb46bae-892d-4aae-8bab-d36b0fb79fda",
+    "name": "Stir-Fried Bean Sprout (Chicken/Pork/Tofu)",
+    "desc": "Authentic Stir-Fried Bean Sprout (Chicken/Pork/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. A local favorite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "3c7ec8cf-7c6d-4321-ae46-984d8bcfe346",
+    "name": "Tofu Salad with Deep fried morning glory",
+    "desc": "Hearty Tofu Salad with Deep fried morning glory. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "1c96c792-d114-4330-a4e4-1af03a16f24b",
+    "name": "Vegetable Noodle Soup",
+    "desc": "Authentic Vegetable Noodle Soup. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "9a56d6d1-d761-44aa-8f26-9efe357c1ab2",
+    "name": "Yellow Curry with Tofu",
+    "desc": "Vibrant Yellow Curry with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "7d0b60b6-42f2-415a-80d8-cce85b1f6d07",
+    "name": "Stir-Fried Sweet Sour Vegetables with Tofu",
+    "desc": "Fresh Stir-Fried Sweet Sour Vegetables with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch."
+  },
+  {
+    "id": "19a7628c-6ee5-42e8-aea1-ca98e7bb5c73",
+    "name": "Tofu Amok",
+    "desc": "Hearty Tofu Amok. A traditional Cambodian delicacy featuring a rich, aromatic coconut curry base flavored with lemongrass, kaffir lime, and galangal, gently steamed to perfection. A must-try for food lovers."
+  },
+  {
+    "id": "16c11f9a-e82f-4f45-97cb-3ee28b8a414c",
+    "name": "Tofu Lok lak with Rice",
+    "desc": "Tempting Tofu Lok lak with Rice. A classic Khmer dish of tender, marinated meat stir-fried in a savory brown sauce, traditionally served with crisp lettuce, tomatoes, and a tangy lime-pepper dipping sauce. Perfect for any time of the day."
+  },
+  {
+    "id": "d3639ff9-a05e-475d-b2f0-e3797e0067a4",
+    "name": "Stir-Fried Bell Pepper (Seafood/Beef)",
+    "desc": "Flavorful Stir-Fried Bell Pepper (Seafood/Beef). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "d0e4fded-a660-40f2-9adc-867e89033538",
+    "name": "Stir-Fried Cauliflower (Seafood/Beef)",
+    "desc": "Exquisite Stir-Fried Cauliflower (Seafood/Beef). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. A must-try for food lovers. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "b929ac0d-9264-4405-bd2d-bcd9567d72c6",
+    "name": "Tofu Salad with deep fried glass noodle",
+    "desc": "Delectable Tofu Salad with deep fried glass noodle. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Served fresh and hot."
+  },
+  {
+    "id": "3888cffd-ec6a-4b89-810e-b4e8817d736d",
+    "name": "Stir-Fried Khmer Spicy String bean (Pork/Chicken/fish/Tofu)",
+    "desc": "Hearty Stir-Fried Khmer Spicy String bean (Pork/Chicken/fish/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "38173830-f56c-4ccf-b93c-bf6baa1ef847",
+    "name": "Stir-Fried Morning Glory (Chicken/Pork/fish/Tofu)",
+    "desc": "Scrumptious Stir-Fried Morning Glory (Chicken/Pork/fish/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. A local favorite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "dcfa0da1-a0f1-4dfa-bda7-40348db88277",
+    "name": "Stir-Fried Mushrooms (Chicken/Pork/fish/Tofu)",
+    "desc": "Classic Stir-Fried Mushrooms (Chicken/Pork/fish/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "80570da3-e800-461e-90df-d1c695950a44",
+    "name": "Strawberry Pancake (3)",
+    "desc": "Hearty Strawberry Pancake (3). Fluffy, golden-brown pancakes served warm with delightful toppings. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "58cb99c3-b44e-411b-a2c0-0710614e096c",
+    "name": "Sweet Sour Pineapple & Coconut Soup (Chicken/Fish/Tofu)",
+    "desc": "Flavorful Sweet Sour Pineapple & Coconut Soup (Chicken/Fish/Tofu). A carefully prepared soup showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "047183b3-00a0-4a3e-890c-c9f4584eebf9",
+    "name": "Syrup Fresh Milk Frappe",
+    "desc": "Classic Syrup Fresh Milk Frappe. A blended, icy beverage topped with a generous dollop of whipped cream. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "74430e49-1417-4f2c-a3b7-1fa228c3f9f6",
+    "name": "Strawberry & Lychee Smoothie",
+    "desc": "Scrumptious Strawberry & Lychee Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Crafted with the finest ingredients."
+  },
+  {
+    "id": "0e300a9e-b6bd-4d4d-a6ca-af2399cd831e",
+    "name": "Vegetable Fresh Spring Rolls with Tofu (4)",
+    "desc": "Savory Vegetable Fresh Spring Rolls with Tofu (4). Crispy or fresh rolls packed with vibrant ingredients and served with a complementary dipping sauce. Enjoy every bite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "6a6a9dfb-f983-4dbc-a427-021546eecb9a",
+    "name": "Stir-Fried Hot Basil Chicken",
+    "desc": "Delectable Stir-Fried Hot Basil Chicken. A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch."
+  },
+  {
+    "id": "1c6d3b05-5f92-42bf-931a-d1e9d909a04c",
+    "name": "Stir-Fried Bok Choy (Chicken/Pork/Tofu)",
+    "desc": "Mouth-watering Stir-Fried Bok Choy (Chicken/Pork/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "76c1da56-f161-48e5-b299-a4675651f21b",
+    "name": "Stir-Fried Khmer Spicy String bean (Seafood/Beef)",
+    "desc": "Flavorful Stir-Fried Khmer Spicy String bean (Seafood/Beef). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Perfect for any time of the day. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "b4f8fd3a-703b-454a-8173-ee1a0cb5a45b",
+    "name": "Wine by Glass",
+    "desc": "Authentic Wine by Glass. A carefully prepared cocktails showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "b2c81d11-732f-4d27-bd88-b4985e8f649c",
+    "name": "Winter melon Smoothie",
+    "desc": "Signature Winter melon Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. A local favorite."
+  },
+  {
+    "id": "91d436fc-a46d-4654-b893-66f2633b7e85",
+    "name": "Wonton Soup",
+    "desc": "Delicious Wonton Soup. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Served fresh and hot."
+  },
+  {
+    "id": "93920fc2-92d8-4bcf-9475-352503c0cfd3",
+    "name": "Stir-Fried Sweet Sour Vegetables with Crispy (Fish/Chicken)",
+    "desc": "Zesty Stir-Fried Sweet Sour Vegetables with Crispy (Fish/Chicken). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "e1b6bbaa-9dd7-4b3f-bb47-0fe9fe4cc283",
+    "name": "Stir-Fried Bok Choy (Seafood/Beef)",
+    "desc": "Traditional Stir-Fried Bok Choy (Seafood/Beef). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. A delightful culinary experience. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "84f9e591-75d7-49fc-9e48-e0f9ef263adb",
+    "name": "Stir-Fried Broccoli (Seafood/Beef)",
+    "desc": "Tempting Stir-Fried Broccoli (Seafood/Beef). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "b43383d4-1543-4fd1-a536-d07604d5cbdc",
+    "name": "Stir-Fried Ginger with Beef",
+    "desc": "Exquisite Stir-Fried Ginger with Beef. A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "713ee1ff-9afc-42f6-9e31-fd120492baaa",
+    "name": "Stir-fried Mixed Meatballs",
+    "desc": "Fresh Stir-fried Mixed Meatballs. A carefully prepared grilled showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "b4be6cfa-6080-4513-99be-8fe9bb3c1aa3",
+    "name": "Vanilla Macchiato",
+    "desc": "Exquisite Vanilla Macchiato. A rich espresso layered with creamy milk and flavored syrup. Served fresh and hot."
+  },
+  {
+    "id": "4d442246-9cd3-42fc-bd1f-0b1933c56715",
+    "name": "Water (big)",
+    "desc": "Fresh Water (big). A carefully crafted drink to quench your thirst and elevate your mood. Prepared with our chef's special touch. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "3c7d1dc5-2872-4923-aabf-c4807feaea03",
+    "name": "Stir-Fried Eggplant (Pork/Chicken/fish/Tofu)",
+    "desc": "Delicious Stir-Fried Eggplant (Pork/Chicken/fish/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "0b46eb35-677b-496c-bd86-bd2904ac42b9",
+    "name": "Stir-Fried Squid with Green Pepper",
+    "desc": "Savory Stir-Fried Squid with Green Pepper. A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. A must-try for food lovers."
+  },
+  {
+    "id": "950ca4c4-4d6f-4f30-b216-e4cc0a7243f1",
+    "name": "Tom Yum Seafood",
+    "desc": "Savory Tom Yum Seafood. A carefully prepared soup showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "d3708126-881c-4b1c-9c3d-45ac9b646da0",
+    "name": "Water Melon Smoothie",
+    "desc": "Fresh Water Melon Smoothie. A refreshing, ice-cold blend of fresh ingredients, perfectly sweetened. Experience the true taste of Cambodia."
+  },
+  {
+    "id": "a5937331-bd68-4a61-9081-bc60263892c2",
+    "name": "Stir-Fried Mixed Vegetable with Tofu And Cashew Nut",
+    "desc": "Scrumptious Stir-Fried Mixed Vegetable with Tofu And Cashew Nut. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Served fresh and hot."
+  },
+  {
+    "id": "a8d7f1da-653c-407c-9806-e4bd235a03f4",
+    "name": "Stir-Fried Morning Glory with Oyster Sauce",
+    "desc": "Zesty Stir-Fried Morning Glory with Oyster Sauce. A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. A local favorite."
+  },
+  {
+    "id": "24b872d1-3453-42b8-a74f-6f84e95c7621",
+    "name": "Stir-Fried Onion (Chicken/Pork/Fish/Tofu)",
+    "desc": "Hearty Stir-Fried Onion (Chicken/Pork/Fish/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. A delightful culinary experience. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "3c22ece8-e17e-481f-89ee-6a337f04882c",
+    "name": "Stir-Fried Shitake Mushrooms (Chicken/Pork/Fish/Tofu)",
+    "desc": "Vibrant Stir-Fried Shitake Mushrooms (Chicken/Pork/Fish/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Perfect for any time of the day. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "262570b9-71bc-42d2-822c-d9e5bfe97c87",
+    "name": "Sweet and Sour Soup (Chicken/Fish)",
+    "desc": "Fresh Sweet and Sour Soup (Chicken/Fish). A carefully prepared soup showcasing premium ingredients and balanced flavors. Perfect for any time of the day. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "25f9276c-dc78-4b1d-8aa9-628f4c4d9ad5",
+    "name": "Stir-Fried Bok Choy with Oyster Sauce",
+    "desc": "Savory Stir-Fried Bok Choy with Oyster Sauce. A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients."
+  },
+  {
+    "id": "1915f999-0aeb-4c2e-8959-67aa22ac421d",
+    "name": "Grilled Beef with Rice",
+    "desc": "Hearty Grilled Beef with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Perfect for any time of the day."
+  },
+  {
+    "id": "1731e1ea-3250-4593-9d07-b306f48a2bdf",
+    "name": "Stir-Fried Chicken with Salt and Chili",
+    "desc": "Delicious Stir-Fried Chicken with Salt and Chili. A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients."
+  },
+  {
+    "id": "8868e070-657e-46a2-ba0b-df8fc61f3760",
+    "name": "Amok (Chicken/Fish/Tofu)",
+    "desc": "Delicious Amok (Chicken/Fish/Tofu). A traditional Cambodian delicacy featuring a rich, aromatic coconut curry base flavored with lemongrass, kaffir lime, and galangal, gently steamed to perfection. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "3984f16f-499b-423c-8476-14ee5561505d",
+    "name": "Stir-Fried Kale with Beef",
+    "desc": "Zesty Stir-Fried Kale with Beef. A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "5cdcd070-e33d-448e-8d3c-f79911c6286d",
+    "name": "Stir-Fried String Bean (Chicken/Pork/Fish/Tofu)",
+    "desc": "Flavorful Stir-Fried String Bean (Chicken/Pork/Fish/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. A local favorite. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "388cf2d4-9ee1-4094-8f63-e182cba027ae",
+    "name": "Stir-Fried Tomato (Chicken/Pork/Fish/Tofu)",
+    "desc": "Vibrant Stir-Fried Tomato (Chicken/Pork/Fish/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. A must-try for food lovers. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "9b5252e0-9792-4f78-984a-12811649a892",
+    "name": "Tomato Soup with Bread",
+    "desc": "Authentic Tomato Soup with Bread. A carefully prepared new menu showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings."
+  },
+  {
+    "id": "3af2ec43-f0d5-465c-9a46-479a19d637c8",
+    "name": "French fries",
+    "desc": "Mouth-watering French fries. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Enjoy every bite."
+  },
+  {
+    "id": "fd34e571-9817-43f5-a727-db8b07dc6ab9",
+    "name": "Grilled Mackerel Fish with Spicy Sauce",
+    "desc": "Mouth-watering Grilled Mackerel Fish with Spicy Sauce. A carefully prepared grilled showcasing premium ingredients and balanced flavors. A delightful culinary experience."
+  },
+  {
+    "id": "b7218562-6fc1-4120-8696-f5e8934f1b8d",
+    "name": "Stir-Fried Ginger (Chicken/Pork/fish/Tofu)",
+    "desc": "Classic Stir-Fried Ginger (Chicken/Pork/fish/Tofu). A carefully prepared stir-fried showcasing premium ingredients and balanced flavors. Perfect for any time of the day. Choose your favorite variation for a personalized touch."
+  },
+  {
+    "id": "8fb77350-4262-4458-9830-34def862aa54",
+    "name": "Sandwich Egg with French fries",
+    "desc": "Tempting Sandwich Egg with French fries. Freshly assembled with premium fillings between slices of toasted or soft bread. Experience the true taste of Cambodia."
+  }
+]
