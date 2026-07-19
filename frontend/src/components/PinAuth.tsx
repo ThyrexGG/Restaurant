@@ -33,6 +33,19 @@ export default function PinAuth({ children, correctPin = '1234' }: PinAuthProps)
     setError(false);
   };
 
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key >= '0' && e.key <= '9') {
+        handleNumberClick(e.key);
+      } else if (e.key === 'Backspace' || e.key === 'Delete') {
+        handleDelete();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [pin]);
+
   if (isAuthenticated) {
     return <>{children}</>;
   }
