@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { connectPrinter, printOrderReceipt, autoConnectPrinter } from '../utils/printer';
 import { Printer, CheckCircle, History, UtensilsCrossed, Settings2, Grid2X2 } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
+import Cropper from 'react-easy-crop';
+import { getCroppedImg } from '../utils/cropImage';
 
 export default function AdminDashboard() {
   const { socket, isConnected } = useSocket();
@@ -13,6 +15,47 @@ export default function AdminDashboard() {
   const [menuItems, setMenuItems] = useState<any[]>([]);
   const [editingItem, setEditingItem] = useState<any | null>(null);
   const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+
+  const [isCropModalOpen, setIsCropModalOpen] = useState(false);
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+  const [isCropping, setIsCropping] = useState(false);
+
+  const onCropComplete = useCallback((_croppedArea: any, croppedAreaPixels: any) => {
+    setCroppedAreaPixels(croppedAreaPixels);
+  }, []);
+
+  const handleSaveCrop = async () => {
+    if (!editingItem?.image || !croppedAreaPixels) return;
+    setIsCropping(true);
+    try {
+      const croppedBlob = await getCroppedImg(editingItem.image, croppedAreaPixels);
+      if (!croppedBlob) throw new Error("Failed to crop image");
+      
+      const formData = new FormData();
+      formData.append('file', croppedBlob);
+      formData.append('upload_preset', 'restaurant_menu');
+
+      const res = await fetch('https://api.cloudinary.com/v1_1/dcizelppo/image/upload', {
+        method: 'POST',
+        body: formData
+      });
+      const data = await res.json();
+      
+      if (data.secure_url) {
+        setEditingItem({ ...editingItem, image: data.secure_url });
+        setIsCropModalOpen(false);
+      } else {
+        alert("Upload failed.");
+      }
+    } catch (e) {
+      console.error(e);
+      alert("Error cropping image.");
+    } finally {
+      setIsCropping(false);
+    }
+  };
 
   const openCloudinaryWidget = () => {
     if (!(window as any).cloudinary) {
@@ -447,11 +490,19 @@ export default function AdminDashboard() {
                       <div className="flex justify-between items-center mb-2">
                         <label className="block text-gray-400 text-sm font-bold">Image & Focal Point</label>
                         <div className="flex gap-2">
+                          {editingItem.image && (
+                            <button 
+                              onClick={() => setIsCropModalOpen(true)}
+                              className="bg-[#d4af37]/20 hover:bg-[#d4af37]/40 text-[#d4af37] border border-[#d4af37]/50 px-3 py-1 rounded text-xs font-bold transition-colors"
+                            >
+                              Crop Existing
+                            </button>
+                          )}
                           <button 
                             onClick={openCloudinaryWidget}
-                            className="bg-[#222] hover:bg-gray-800 text-[#d4af37] border border-gray-700 px-3 py-1 rounded text-xs font-bold transition-colors"
+                            className="bg-[#222] hover:bg-gray-800 text-white border border-gray-700 px-3 py-1 rounded text-xs font-bold transition-colors"
                           >
-                            Upload/Change
+                            Upload New
                           </button>
                           {editingItem.image && (
                             <button 
@@ -623,6 +674,55 @@ export default function AdminDashboard() {
           })}
         </div>
       </div>
+
+        {/* Custom Crop Modal */}
+        {isCropModalOpen && editingItem?.image && (
+          <div className="fixed inset-0 bg-black/90 backdrop-blur-md z-[200] flex flex-col items-center justify-center p-4">
+            <h2 className="text-2xl font-bold text-white mb-6 font-['Playfair_Display']">Crop Image</h2>
+            <div className="relative w-full max-w-3xl h-[60vh] bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+              <Cropper
+                image={editingItem.image}
+                crop={crop}
+                zoom={zoom}
+                aspect={4 / 3}
+                onCropChange={setCrop}
+                onCropComplete={onCropComplete}
+                onZoomChange={setZoom}
+              />
+            </div>
+            <div className="w-full max-w-md mt-6 flex flex-col gap-4">
+              <div className="flex items-center gap-4 text-white">
+                <span className="text-sm font-bold text-gray-400">Zoom</span>
+                <input
+                  type="range"
+                  value={zoom}
+                  min={1}
+                  max={3}
+                  step={0.1}
+                  aria-labelledby="Zoom"
+                  onChange={(e) => setZoom(Number(e.target.value))}
+                  className="w-full accent-[#d4af37]"
+                />
+              </div>
+              <div className="flex gap-4">
+                <button
+                  onClick={() => setIsCropModalOpen(false)}
+                  className="flex-1 py-4 rounded-xl bg-gray-800 text-white font-bold hover:bg-gray-700 transition-colors border border-gray-700"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleSaveCrop}
+                  disabled={isCropping}
+                  className="flex-1 py-4 rounded-xl bg-[#d4af37] text-black font-bold hover:bg-[#b08d29] transition-colors shadow-[0_0_15px_rgba(212,175,55,0.3)] disabled:opacity-50"
+                >
+                  {isCropping ? "Cropping & Uploading..." : "Save Crop"}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
     </div>
   );
 }
