@@ -134,6 +134,30 @@ export default function MenuSection() {
   const [menuItems, setMenuItems] = React.useState<MenuItem[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const { addToCart } = useCart();
+
+  // Drag to scroll logic
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = React.useState(false);
+  const [startX, setStartX] = React.useState(0);
+  const [scrollLeftPos, setScrollLeftPos] = React.useState(0);
+  const [dragDistance, setDragDistance] = React.useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setDragDistance(0);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeftPos(scrollContainerRef.current.scrollLeft);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    setDragDistance(prev => prev + Math.abs(x - startX));
+    scrollContainerRef.current.scrollLeft = scrollLeftPos - walk;
+  };
   
   React.useEffect(() => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
@@ -194,11 +218,21 @@ export default function MenuSection() {
               className="w-full bg-gray-900 border border-gray-700 rounded-full py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#d4af37] transition-colors"
             />
           </div>
-          <div className="flex overflow-x-auto hide-scrollbar gap-3 pb-2 items-center">
+          <div 
+            ref={scrollContainerRef}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={() => setIsDragging(false)}
+            onMouseUp={() => setIsDragging(false)}
+            onMouseMove={handleMouseMove}
+            className={`flex overflow-x-auto hide-scrollbar gap-3 pb-2 items-center select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+          >
           {categories.map((cat, idx) => (
             <button 
               key={idx}
-              onClick={() => setActiveCategory(cat as string)}
+              onClick={() => {
+                if (dragDistance > 10) return;
+                setActiveCategory(cat as string);
+              }}
               className={`whitespace-nowrap px-6 py-2.5 rounded-full font-bold transition-all ${
                 activeCategory === cat 
                   ? 'bg-[#d4af37] text-black shadow-[0_0_20px_rgba(212,175,55,0.4)] scale-105' 
@@ -208,7 +242,7 @@ export default function MenuSection() {
               {cat as string}
             </button>
           ))}
-        </div>
+          </div>
         </div>
       </div>
       
