@@ -14,6 +14,47 @@ export default function AdminDashboard() {
   const [editingItem, setEditingItem] = useState<any | null>(null);
   const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
+  const openCloudinaryWidget = () => {
+    if (!(window as any).cloudinary) {
+      alert("Cloudinary widget script is not loaded yet.");
+      return;
+    }
+    
+    const widget = (window as any).cloudinary.createUploadWidget(
+      {
+        cloudName: 'dcizelppo',
+        uploadPreset: 'restaurant_menu',
+        sources: ['local', 'url', 'camera'],
+        cropping: true,
+        multiple: false,
+        defaultSource: 'local',
+        styles: {
+          palette: {
+            window: "#0a0a0c",
+            windowBorder: "#333",
+            tabIcon: "#d4af37",
+            menuIcons: "#d4af37",
+            textDark: "#ffffff",
+            textLight: "#aaaaaa",
+            link: "#d4af37",
+            action: "#d4af37",
+            inactiveTabIcon: "#aaaaaa",
+            error: "#ff4444",
+            inProgress: "#d4af37",
+            complete: "#22c55e",
+            sourceBg: "#050505"
+          }
+        }
+      },
+      (error: any, result: any) => {
+        if (!error && result && result.event === "success") {
+          setEditingItem((prev: any) => ({ ...prev, image: result.info.secure_url }));
+        }
+      }
+    );
+    widget.open();
+  };
+
   useEffect(() => {
     autoConnectPrinter().then(success => {
       if (success) setPrinterStatus('CONNECTED');
@@ -403,7 +444,25 @@ export default function AdminDashboard() {
                       />
                     </div>
                     <div>
-                      <label className="block text-gray-400 text-sm mb-2 font-bold">Image Focal Point</label>
+                      <div className="flex justify-between items-center mb-2">
+                        <label className="block text-gray-400 text-sm font-bold">Image & Focal Point</label>
+                        <div className="flex gap-2">
+                          <button 
+                            onClick={openCloudinaryWidget}
+                            className="bg-[#222] hover:bg-gray-800 text-[#d4af37] border border-gray-700 px-3 py-1 rounded text-xs font-bold transition-colors"
+                          >
+                            Upload/Change
+                          </button>
+                          {editingItem.image && (
+                            <button 
+                              onClick={() => setEditingItem({...editingItem, image: null})}
+                              className="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded text-xs font-bold transition-colors"
+                            >
+                              Remove
+                            </button>
+                          )}
+                        </div>
+                      </div>
                       <div className="flex gap-6">
                         {/* 9-Grid Selector */}
                         <div className="grid grid-cols-3 gap-1 w-32 h-32 bg-gray-900 border border-gray-700 p-1 rounded-xl flex-shrink-0">
@@ -419,7 +478,7 @@ export default function AdminDashboard() {
                           ))}
                         </div>
                         {/* Live Preview */}
-                        {editingItem.image && (
+                        {editingItem.image ? (
                           <div className="flex-1 h-32 bg-gray-900 border border-gray-700 rounded-xl overflow-hidden relative">
                             <img 
                               src={editingItem.image} 
@@ -430,9 +489,14 @@ export default function AdminDashboard() {
                             <div className="absolute inset-0 border-2 border-dashed border-[#d4af37]/50 rounded-xl pointer-events-none"></div>
                             <div className="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs text-white">Live Preview</div>
                           </div>
+                        ) : (
+                          <div className="flex-1 h-32 bg-gray-900/50 border border-dashed border-gray-700 rounded-xl flex flex-col items-center justify-center text-gray-500 cursor-pointer hover:border-gray-500 hover:text-gray-400 transition-colors" onClick={openCloudinaryWidget}>
+                            <span className="text-2xl mb-1">+</span>
+                            <span className="text-xs font-bold">No Image</span>
+                          </div>
                         )}
                       </div>
-                      <p className="text-xs text-gray-500 mt-2">Select the most important part of the dish to prevent it from being cropped out on the menu.</p>
+                      <p className="text-xs text-gray-500 mt-2">Upload a photo, then select the most important part of the dish to prevent it from being cropped out on the menu.</p>
                     </div>
                     <div className="flex items-center gap-3 mt-6 p-4 bg-gray-900/50 rounded-xl border border-gray-800">
                       <input 

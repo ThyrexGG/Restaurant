@@ -117,7 +117,7 @@ app.get('/api/menu', async (req, res) => {
 app.put('/api/menu/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, description, price, availability, imagePosition } = req.body;
+    const { name, description, price, availability, imagePosition, image } = req.body;
     
     const updated = await prisma.menuItem.update({
       where: { id },
@@ -126,7 +126,8 @@ app.put('/api/menu/:id', async (req, res) => {
         description, 
         price: Number(price), 
         availability,
-        ...(imagePosition !== undefined && { imagePosition })
+        ...(imagePosition !== undefined && { imagePosition }),
+        ...(image !== undefined && { image })
       }
     });
     
