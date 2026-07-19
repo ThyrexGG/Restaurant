@@ -26,6 +26,22 @@ type MenuItem = {
   category?: { name: string };
 }
 
+const extractCloudinaryPublicId = (urlOrId: string | undefined | null): string | null => {
+  if (!urlOrId) return null;
+  if (!urlOrId.startsWith('http')) return urlOrId;
+  
+  const parts = urlOrId.split('/upload/');
+  if (parts.length > 1) {
+    let path = parts[1];
+    if (path.match(/^v\d+\//)) {
+      path = path.replace(/^v\d+\//, '');
+    }
+    path = path.replace(/\.[^/.]+$/, '');
+    return path;
+  }
+  return urlOrId;
+};
+
 function MenuItemCard({ item, onSelect }: { item: MenuItem, onSelect: () => void }) {
   const [isExpanded, setIsExpanded] = React.useState(false);
   const { addToCart } = useCart();
@@ -36,7 +52,8 @@ function MenuItemCard({ item, onSelect }: { item: MenuItem, onSelect: () => void
   const price = Number(priceValue);
   
   const localImage = item.image?.startsWith('/images/') ? item.image : null;
-  const cloudinaryImgId = !localImage ? (item.image || item.Cloudinary_ID) : null;
+  const rawCloudinaryId = !localImage ? (item.image || item.Cloudinary_ID) : null;
+  const cloudinaryImgId = extractCloudinaryPublicId(rawCloudinaryId);
   const cloudinaryImg = cloudinaryImgId ? cld.image(cloudinaryImgId).resize(fill().width(600).height(400)) : null;
   const hasLongDescription = displayDesc && displayDesc.length > 80;
   const isAvailable = item.availability !== false;
@@ -273,7 +290,8 @@ function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClos
   const displayName = item.name || item.Name || 'Unknown';
   const priceValue = Number(item.price || item['Price [Best Khmer (Golden Cafe) Restaurant]'] || 5).toFixed(2);
   const localImage = item.image?.startsWith('/images/') ? item.image : null;
-  const cloudinaryImgId = !localImage ? (item.image || item.Cloudinary_ID) : null;
+  const rawCloudinaryId = !localImage ? (item.image || item.Cloudinary_ID) : null;
+  const cloudinaryImgId = extractCloudinaryPublicId(rawCloudinaryId);
   
   // Extract options from parentheses e.g. "Amok (Chicken/Fish/Tofu)"
   const optionsMatch = displayName.match(/\(([^)]+)\)/);
