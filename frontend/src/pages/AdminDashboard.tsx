@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { connectPrinter, printOrderReceipt, autoConnectPrinter } from '../utils/printer';
-import { Printer, CheckCircle, History, UtensilsCrossed, Settings2, Grid2X2 } from 'lucide-react';
+import { Printer, CheckCircle, History, UtensilsCrossed, Settings2, Grid2X2, Search } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 import Cropper from 'react-easy-crop';
 import { getCroppedImg } from '../utils/cropImage';
@@ -14,7 +14,19 @@ export default function AdminDashboard() {
   const [analytics, setAnalytics] = useState<any>(null);
   const [menuItems, setMenuItems] = useState<any[]>([]);
   const [editingItem, setEditingItem] = useState<any | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeCategory, setActiveCategory] = useState<string>('All');
   const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+
+  const categories = ['All', ...new Set(menuItems.map(item => item.category?.name || 'Uncategorized'))];
+  
+  const displayItems = menuItems.filter(item => {
+    const categoryName = item.category?.name || 'Uncategorized';
+    const matchesCategory = activeCategory === 'All' || categoryName === activeCategory;
+    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          (item.description && item.description.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
 
   const [isCropModalOpen, setIsCropModalOpen] = useState(false);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -412,6 +424,39 @@ export default function AdminDashboard() {
         {activeTab === 'Menu Management' && (
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl font-bold mb-8 font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Menu Management</h1>
+            
+            {menuItems.length > 0 && (
+              <div className="bg-[#0a0a0c]/90 backdrop-blur-md py-4 mb-8 border-b border-gray-800">
+                <div className="flex flex-col gap-4">
+                  <div className="relative max-w-md">
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
+                    <input 
+                      type="text"
+                      placeholder="Search for a dish..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full bg-gray-900 border border-gray-700 rounded-full py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#d4af37] transition-colors"
+                    />
+                  </div>
+                  <div className="flex overflow-x-auto hide-scrollbar gap-3 pb-2 items-center">
+                    {categories.map((cat, idx) => (
+                      <button 
+                        key={idx}
+                        onClick={() => setActiveCategory(cat as string)}
+                        className={`whitespace-nowrap px-6 py-2.5 rounded-full font-bold transition-all ${
+                          activeCategory === cat 
+                            ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.4)]' 
+                            : 'bg-gray-900 border border-gray-700 text-gray-400 hover:border-[#d4af37] hover:text-[#d4af37]'
+                        }`}
+                      >
+                        {cat as string}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
             {menuItems.length === 0 ? (
               <div className="flex flex-col items-center justify-center p-12 bg-gray-900/40 rounded-3xl border border-gray-800 shadow-lg text-center">
                 <UtensilsCrossed size={48} className="text-gray-500 mb-4 opacity-50" />
@@ -430,7 +475,7 @@ export default function AdminDashboard() {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {menuItems.map(item => (
+                {displayItems.map(item => (
                   <div key={item.id} className="bg-gray-900/60 p-6 rounded-2xl border border-gray-800 shadow-lg relative flex flex-col hover:-translate-y-1 transition-transform">
                     <div className="flex justify-between items-start mb-2">
                       <h3 className={`text-xl font-bold ${item.availability === false ? 'text-gray-500' : ''}`}>{item.name}</h3>
