@@ -42,7 +42,7 @@ const extractCloudinaryPublicId = (urlOrId: string | undefined | null): string |
   return urlOrId;
 };
 
-function MenuItemCard({ item, onSelect }: { item: MenuItem, onSelect: () => void }) {
+function MenuItemCard({ item, onSelect, isPopular = false }: { item: MenuItem, onSelect: () => void, isPopular?: boolean }) {
   const [isExpanded, setIsExpanded] = React.useState(false);
   const { addToCart } = useCart();
   
@@ -81,9 +81,11 @@ function MenuItemCard({ item, onSelect }: { item: MenuItem, onSelect: () => void
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
             style={{ objectPosition: item.imagePosition || 'center' }}
           />
-          <div className="hidden md:block absolute top-4 right-4 bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]">
-            Popular
-          </div>
+          {isPopular && (
+            <div className="hidden md:block absolute top-4 right-4 bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]">
+              Popular
+            </div>
+          )}
         </div>
       ) : cloudinaryImg ? (
         <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none">
@@ -92,15 +94,19 @@ function MenuItemCard({ item, onSelect }: { item: MenuItem, onSelect: () => void
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
             style={{ objectPosition: item.imagePosition || 'center' }}
           />
-          <div className="hidden md:block absolute top-4 right-4 bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]">
-            Popular
-          </div>
+          {isPopular && (
+            <div className="hidden md:block absolute top-4 right-4 bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]">
+              Popular
+            </div>
+          )}
         </div>
       ) : (
         <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative bg-contain bg-center bg-no-repeat bg-[#0a0a0c] rounded-xl md:rounded-none border border-gray-800 md:border-none" style={{ backgroundImage: "url('/logo.png')" }}>
-          <div className="hidden md:block absolute top-4 right-4 bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]">
-            Popular
-          </div>
+          {isPopular && (
+            <div className="hidden md:block absolute top-4 right-4 bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]">
+              Popular
+            </div>
+          )}
         </div>
       )}
       <div className="md:p-6 flex flex-col flex-1 min-w-0 h-full justify-between">
@@ -145,7 +151,7 @@ function MenuItemCard({ item, onSelect }: { item: MenuItem, onSelect: () => void
 }
 
 export default function MenuSection() {
-  const [activeCategory, setActiveCategory] = React.useState<string>('All');
+  const [activeCategory, setActiveCategory] = React.useState<string>('Recommendations');
   const [searchQuery, setSearchQuery] = React.useState('');
   const [selectedItem, setSelectedItem] = React.useState<MenuItem | null>(null);
   const [menuItems, setMenuItems] = React.useState<MenuItem[]>([]);
@@ -195,11 +201,30 @@ export default function MenuSection() {
   }, []);
 
   // Extract unique categories
-  const categories = ['All', ...Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean)))];
+  const categories = ['Recommendations', 'All', ...Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean)))];
+
+  // Pre-calculate recommended items
+  const recommendedItemIds = React.useMemo(() => {
+    return new Set(
+      menuItems
+        .filter(i => (i.image || i.Cloudinary_ID) && i.availability !== false)
+        .slice(0, 8)
+        .map(i => i.id)
+    );
+  }, [menuItems]);
 
   // Filter items
   const displayItems = menuItems.filter(item => {
-    const matchesCategory = activeCategory === 'All' ? true : (item.category?.name || item.Category) === activeCategory;
+    const categoryName = item.category?.name || item.Category || 'Uncategorized';
+    
+    let matchesCategory = false;
+    if (activeCategory === 'All') matchesCategory = true;
+    else if (activeCategory === 'Recommendations') {
+      matchesCategory = recommendedItemIds.has(item.id);
+    } else {
+      matchesCategory = categoryName === activeCategory;
+    }
+
     const matchesSearch = searchQuery === '' ? true : (
       (item.name || item.Name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
       (item.sku || item.SKU || '').toLowerCase().includes(searchQuery.toLowerCase())
@@ -265,7 +290,12 @@ export default function MenuSection() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
         {displayItems.map((item, index) => (
-          <MenuItemCard key={index} item={item} onSelect={() => setSelectedItem(item)} />
+          <MenuItemCard 
+            key={index} 
+            item={item} 
+            onSelect={() => setSelectedItem(item)} 
+            isPopular={recommendedItemIds.has(item.id)}
+          />
         ))}
       </div>
 
