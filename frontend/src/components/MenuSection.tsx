@@ -266,7 +266,7 @@ export default function MenuSection() {
             onMouseLeave={() => setIsDragging(false)}
             onMouseUp={() => setIsDragging(false)}
             onMouseMove={handleMouseMove}
-            className={`flex overflow-x-auto hide-scrollbar gap-3 pb-2 items-center select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`flex overflow-x-auto hide-scrollbar gap-3 px-4 py-4 -mx-4 items-center select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
           {categories.map((cat, idx) => (
             <button 
