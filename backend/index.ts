@@ -112,6 +112,26 @@ app.get('/api/menu', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch menu' });
   }
 });
+// Get a menu item by slug
+app.get('/api/menu/slug/:slug', async (req, res) => {
+  try {
+    const { slug } = req.params;
+    const items = await prisma.menuItem.findMany({ include: { category: true } });
+    
+    // Find the item where the generated slug matches
+    const item = items.find(i => 
+      (i.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') === slug
+    );
+    
+    if (!item) {
+      return res.status(404).json({ error: 'Menu item not found' });
+    }
+    res.json(item);
+  } catch (error) {
+    console.error('Failed to fetch menu item by slug:', error);
+    res.status(500).json({ error: 'Failed to fetch menu item' });
+  }
+});
 
 // Update a menu item
 app.put('/api/menu/:id', async (req, res) => {
