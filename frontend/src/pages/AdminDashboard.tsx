@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { connectPrinter, printOrderReceipt, autoConnectPrinter } from '../utils/printer';
-import { Printer, CheckCircle, History, UtensilsCrossed, Settings2, Grid2X2, Search } from 'lucide-react';
+import { Printer, CheckCircle, History, UtensilsCrossed, Settings2, Grid2X2, Search, Image as ImageIcon } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 import Cropper from 'react-easy-crop';
 import { getCroppedImg } from '../utils/cropImage';
@@ -503,9 +503,17 @@ export default function AdminDashboard() {
                     </div>
                     <p className="text-gray-400 text-sm line-clamp-2 mb-6 flex-1">{item.description}</p>
                     <div className="flex justify-between items-center mt-auto border-t border-gray-800 pt-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-bold ${item.availability !== false ? 'bg-green-500/10 text-green-400 border border-green-500/30' : 'bg-red-500/10 text-red-400 border border-red-500/30'}`}>
-                        {item.availability !== false ? 'Available' : 'Sold Out'}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className={`px-3 py-1 rounded-full text-xs font-bold ${item.availability !== false ? 'bg-green-500/10 text-green-400 border border-green-500/30' : 'bg-red-500/10 text-red-400 border border-red-500/30'}`}>
+                          {item.availability !== false ? 'Available' : 'Sold Out'}
+                        </span>
+                        {item.image && (
+                          <span className="px-2 py-1 rounded-full text-xs bg-gray-800 text-gray-400 border border-gray-700 flex items-center gap-1" title="Has Image">
+                            <ImageIcon size={12} />
+                            <span className="hidden sm:inline">Image</span>
+                          </span>
+                        )}
+                      </div>
                       <button 
                         onClick={() => {
                           setEditingItem(item);
