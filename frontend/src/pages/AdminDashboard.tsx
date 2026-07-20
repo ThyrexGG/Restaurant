@@ -5,6 +5,7 @@ import { Printer, CheckCircle, History, UtensilsCrossed, Settings2, Grid2X2, Sea
 import { QRCodeSVG } from 'qrcode.react';
 import Cropper from 'react-easy-crop';
 import { getCroppedImg } from '../utils/cropImage';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 
 export default function AdminDashboard() {
   const { socket, isConnected } = useSocket();
@@ -707,24 +708,65 @@ export default function AdminDashboard() {
 
         {/* ANALYTICS & SETTINGS TAB */}
         {activeTab === 'Analytics' && (
-          <div className="max-w-6xl mx-auto pb-12">
-            <h1 className="text-4xl font-bold mb-8 font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Analytics & Settings</h1>
+          <div className="max-w-7xl mx-auto pb-12">
+            <h1 className="text-4xl font-bold mb-8 font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Sales Analytics Dashboard</h1>
             
             {analytics ? (
-              <div className="space-y-6">
+              <div className="space-y-8">
+                {/* Top KPI Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-gray-900/60 p-8 rounded-3xl border border-gray-800 flex flex-col justify-center items-center shadow-lg">
+                  <div className="bg-gray-900/60 p-8 rounded-3xl border border-gray-800 flex flex-col justify-center items-center shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                     <p className="text-gray-400 mb-2 font-bold tracking-wider uppercase text-sm">Total Revenue</p>
-                    <p className="text-5xl font-bold text-[#d4af37]">${(analytics.totalRevenue || 0).toFixed(2)}</p>
+                    <p className="text-6xl font-bold text-[#d4af37]">${(analytics.totalRevenue || 0).toFixed(2)}</p>
                   </div>
-                  <div className="bg-gray-900/60 p-8 rounded-3xl border border-gray-800 flex flex-col justify-center items-center shadow-lg">
+                  <div className="bg-gray-900/60 p-8 rounded-3xl border border-gray-800 flex flex-col justify-center items-center shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                     <p className="text-gray-400 mb-2 font-bold tracking-wider uppercase text-sm">Total Orders</p>
-                    <p className="text-5xl font-bold text-white">{analytics.totalOrders}</p>
+                    <p className="text-6xl font-bold text-white">{analytics.totalOrders}</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  {/* Sales By Day Chart */}
+                  <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg h-96 flex flex-col">
+                    <h3 className="text-xl font-bold mb-6 text-white">Sales Over Time (Last 7 Days)</h3>
+                    <div className="flex-1 w-full h-full">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <LineChart data={analytics.salesChart}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="#333" />
+                          <XAxis dataKey="date" stroke="#888" />
+                          <YAxis stroke="#888" />
+                          <RechartsTooltip 
+                            contentStyle={{ backgroundColor: '#111', borderColor: '#333', color: '#fff', borderRadius: '8px' }}
+                            itemStyle={{ color: '#d4af37' }}
+                          />
+                          <Line type="monotone" dataKey="revenue" stroke="#d4af37" strokeWidth={3} dot={{ fill: '#d4af37', r: 6 }} activeDot={{ r: 8 }} />
+                        </LineChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </div>
+
+                  {/* Top Items Leaderboard */}
+                  <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg h-96 flex flex-col">
+                    <h3 className="text-xl font-bold mb-6 text-[#d4af37]">Top Selling Items</h3>
+                    <div className="flex-1 w-full h-full">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={analytics.topItems} layout="vertical" margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="#333" horizontal={false} />
+                          <XAxis type="number" stroke="#888" />
+                          <YAxis dataKey="name" type="category" stroke="#fff" width={120} tick={{ fill: '#ccc', fontSize: 12 }} />
+                          <RechartsTooltip 
+                            contentStyle={{ backgroundColor: '#111', borderColor: '#333', color: '#fff', borderRadius: '8px' }}
+                            itemStyle={{ color: '#d4af37' }}
+                          />
+                          <Bar dataKey="quantity" fill="#d4af37" radius={[0, 4, 4, 0]} />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
                   </div>
                 </div>
 
                 <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
-                  <h3 className="text-xl font-bold mb-6 text-[#d4af37]">Recent Order History</h3>
+                  <h3 className="text-xl font-bold mb-6 text-white">Recent Order History</h3>
                   <div className="overflow-x-auto">
                     <table className="w-full text-left">
                       <thead>

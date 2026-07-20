@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import HeroSection from '../components/HeroSection';
 import Navbar from '../components/Navbar';
 import SeoMenuSection from '../components/SeoMenuSection';
+import CustomerReviews from '../components/CustomerReviews';
 
 export default function LandingPage() {
   return (
@@ -26,7 +27,9 @@ export default function LandingPage() {
 
       <SeoMenuSection />
       
-      <footer className="py-8 text-center text-gray-500 text-sm border-t border-gray-800 mt-12">
+      <CustomerReviews />
+      
+      <footer className="py-8 text-center text-gray-500 text-sm border-t border-gray-800 mt-0">
         <p>&copy; {new Date().getFullYear()} Golden Cafe. All rights reserved.</p>
         <p className="mt-2">123 Street 456, Phnom Penh, Cambodia</p>
       </footer>
