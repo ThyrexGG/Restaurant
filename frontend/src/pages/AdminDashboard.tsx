@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { connectPrinter, printOrderReceipt, autoConnectPrinter } from '../utils/printer';
 import { Printer, CheckCircle, History, UtensilsCrossed, Settings2, Grid2X2, Search } from 'lucide-react';
@@ -16,11 +16,18 @@ export default function AdminDashboard() {
   const [editingItem, setEditingItem] = useState<any | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string>('All');
+  
+  const [removedImageBackup, setRemovedImageBackup] = useState<string | null>(null);
+  const [pendingDeletes, setPendingDeletes] = useState<string[]>([]);
+  const [toast, setToast] = useState<{id: string, message: string, onUndo: () => void} | null>(null);
+  const deleteTimers = useRef<{[key: string]: any}>({});
+
   const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
   const categories = ['All', ...new Set(menuItems.map(item => item.category?.name || 'Uncategorized'))];
   
   const displayItems = menuItems.filter(item => {
+    if (pendingDeletes.includes(item.id)) return false;
     const categoryName = item.category?.name || 'Uncategorized';
     const matchesCategory = activeCategory === 'All' || categoryName === activeCategory;
     const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -472,10 +479,22 @@ export default function AdminDashboard() {
                 >
                   Import from menu.json
                 </button>
+                {/* Global Toast */}
+                {toast && (
+                  <div className="fixed bottom-6 right-6 bg-gray-900 border border-gray-700 shadow-2xl rounded-xl p-4 flex items-center gap-4 z-[200]">
+                    <span className="text-white font-bold">{toast.message}</span>
+                    <button 
+                      onClick={toast.onUndo}
+                      className="bg-[#d4af37] text-black px-4 py-2 rounded-lg font-bold hover:scale-105 transition-transform"
+                    >
+                      Undo
+                    </button>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {displayItems.map(item => (
+                {displayItems.filter(i => !pendingDeletes.includes(i.id)).map(item => (
                   <div key={item.id} className="bg-gray-900/60 p-6 rounded-2xl border border-gray-800 shadow-lg relative flex flex-col hover:-translate-y-1 transition-transform">
                     <div className="flex justify-between items-start mb-2">
                       <h3 className={`text-xl font-bold ${item.availability === false ? 'text-gray-500' : ''}`}>{item.name}</h3>
@@ -487,7 +506,10 @@ export default function AdminDashboard() {
                         {item.availability !== false ? 'Available' : 'Sold Out'}
                       </span>
                       <button 
-                        onClick={() => setEditingItem(item)}
+                        onClick={() => {
+                          setEditingItem(item);
+                          setRemovedImageBackup(null);
+                        }}
                         className="bg-[#222] text-white px-5 py-2 rounded-xl text-sm font-bold border border-gray-700 hover:border-[#d4af37] hover:bg-gray-800 transition-all"
                       >
                         Edit
@@ -551,10 +573,24 @@ export default function AdminDashboard() {
                           </button>
                           {editingItem.image && (
                             <button 
-                              onClick={() => setEditingItem({...editingItem, image: null})}
+                              onClick={() => {
+                                setRemovedImageBackup(editingItem.image);
+                                setEditingItem({...editingItem, image: null});
+                              }}
                               className="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded text-xs font-bold transition-colors"
                             >
                               Remove
+                            </button>
+                          )}
+                          {removedImageBackup && !editingItem.image && (
+                            <button 
+                              onClick={() => {
+                                setEditingItem({...editingItem, image: removedImageBackup});
+                                setRemovedImageBackup(null);
+                              }}
+                              className="bg-[#d4af37]/10 hover:bg-[#d4af37]/20 text-[#d4af37] border border-[#d4af37]/30 px-3 py-1 rounded text-xs font-bold transition-colors"
+                            >
+                              Undo Remove
                             </button>
                           )}
                         </div>
@@ -610,6 +646,35 @@ export default function AdminDashboard() {
                   </div>
                   
                   <div className="flex gap-4 mt-8">
+                    <button 
+                      onClick={() => {
+                        const itemToDelete = editingItem;
+                        setEditingItem(null);
+                        setPendingDeletes(prev => [...prev, itemToDelete.id]);
+                        
+                        deleteTimers.current[itemToDelete.id] = setTimeout(() => {
+                          fetch(`${backendUrl}/api/menu/${itemToDelete.id}`, { method: 'DELETE' })
+                            .then(() => {
+                              setMenuItems(prev => prev.filter(i => i.id !== itemToDelete.id));
+                              setPendingDeletes(prev => prev.filter(id => id !== itemToDelete.id));
+                            });
+                          setToast(null);
+                        }, 5000);
+                        
+                        setToast({
+                          id: itemToDelete.id,
+                          message: `Deleted ${itemToDelete.name}`,
+                          onUndo: () => {
+                            clearTimeout(deleteTimers.current[itemToDelete.id]);
+                            setPendingDeletes(prev => prev.filter(id => id !== itemToDelete.id));
+                            setToast(null);
+                          }
+                        });
+                      }}
+                      className="flex-[0.5] py-4 rounded-xl bg-red-900/30 text-red-500 font-bold hover:bg-red-900/50 transition-colors border border-red-900/50"
+                    >
+                      Delete
+                    </button>
                     <button 
                       onClick={() => setEditingItem(null)}
                       className="flex-1 py-4 rounded-xl bg-gray-800 text-white font-bold hover:bg-gray-700 transition-colors border border-gray-700"

@@ -141,6 +141,18 @@ app.put('/api/menu/:id', async (req, res) => {
   }
 });
 
+app.delete('/api/menu/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await prisma.menuItem.delete({ where: { id } });
+    io.emit('menu_item_deleted', id);
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Failed to delete menu item:', error);
+    res.status(500).json({ error: 'Failed to delete menu item' });
+  }
+});
+
 // --- INVENTORY ROUTES ---
 app.get('/api/inventory', async (req, res) => {
   try {
