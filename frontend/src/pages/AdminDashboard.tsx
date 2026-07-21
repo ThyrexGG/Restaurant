@@ -17,6 +17,7 @@ export default function AdminDashboard() {
   const [editingItem, setEditingItem] = useState<any | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string>('All');
+  const [imageFilter, setImageFilter] = useState<'ALL' | 'WITH_IMAGE' | 'NO_IMAGE'>('ALL');
   
   const [removedImageBackup, setRemovedImageBackup] = useState<string | null>(null);
   const [pendingDeletes, setPendingDeletes] = useState<string[]>([]);
@@ -33,7 +34,12 @@ export default function AdminDashboard() {
     const matchesCategory = activeCategory === 'All' || categoryName === activeCategory;
     const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           (item.description && item.description.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesCategory && matchesSearch;
+                          
+    let matchesImage = true;
+    if (imageFilter === 'WITH_IMAGE') matchesImage = !!item.image;
+    if (imageFilter === 'NO_IMAGE') matchesImage = !item.image;
+
+    return matchesCategory && matchesSearch && matchesImage;
   });
 
   const [isCropModalOpen, setIsCropModalOpen] = useState(false);
@@ -460,6 +466,39 @@ export default function AdminDashboard() {
                         {cat as string}
                       </button>
                     ))}
+                  </div>
+                  <div className="flex overflow-x-auto hide-scrollbar gap-3 pb-2 items-center border-t border-gray-800 pt-4 mt-2">
+                    <span className="text-gray-500 font-bold text-sm mr-2 whitespace-nowrap">Image Filter:</span>
+                    <button 
+                      onClick={() => setImageFilter('ALL')}
+                      className={`whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-bold transition-all ${
+                        imageFilter === 'ALL' 
+                          ? 'bg-gray-700 text-white' 
+                          : 'bg-transparent text-gray-500 hover:text-white'
+                      }`}
+                    >
+                      Show All
+                    </button>
+                    <button 
+                      onClick={() => setImageFilter('WITH_IMAGE')}
+                      className={`whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-bold transition-all ${
+                        imageFilter === 'WITH_IMAGE' 
+                          ? 'bg-[#d4af37] text-black shadow-[0_0_10px_rgba(212,175,55,0.4)]' 
+                          : 'bg-transparent text-[#d4af37]/60 hover:text-[#d4af37]'
+                      }`}
+                    >
+                      With Image
+                    </button>
+                    <button 
+                      onClick={() => setImageFilter('NO_IMAGE')}
+                      className={`whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-bold transition-all ${
+                        imageFilter === 'NO_IMAGE' 
+                          ? 'bg-red-500 text-white shadow-[0_0_10px_rgba(239,68,68,0.4)]' 
+                          : 'bg-transparent text-red-500/60 hover:text-red-500'
+                      }`}
+                    >
+                      Missing Image
+                    </button>
                   </div>
                 </div>
               </div>
