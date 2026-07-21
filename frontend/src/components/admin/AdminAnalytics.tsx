@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Printer } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { QRCodeSVG } from 'qrcode.react';
@@ -7,7 +8,7 @@ interface AdminAnalyticsProps {
 }
 
 export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
-  const [showPreview, setShowPreview] = React.useState(false);
+  const [showPreview, setShowPreview] = useState(false);
 
   if (showPreview) {
     return (
