@@ -56,15 +56,22 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
   const deleteTimers = useRef<{[key: string]: ReturnType<typeof setTimeout>}>({});
 
   const categoryOrder = [
-    'Breakfast',
-    'Salad',
-    'Soup',
-    'Fried Rice',
     'Vegetarian Food',
-    'Dessert',
-    'Beverage',
+    'Breakfast',
+    'Fried Rice',
+    'Fried Noodle',
+    'Grilled',
+    'Soup',
+    'Salad',
+    'Stir-fried',
+    'Iced Drink',
+    'Soda',
+    'Frappe',
     'Smoothie',
-    'Addons'
+    'Macchiato',
+    'Hot Drink',
+    'Beverage',
+    'Cocktails'
   ];
 
   const rawCategories = Array.from(new Set(menuItems.map(item => item.category?.name || item.Category || 'Uncategorized'))).sort((a, b) => {

@@ -184,15 +184,22 @@ export default function MenuSection() {
 
   // Extract unique categories
   const categoryOrder = [
-    'Breakfast',
-    'Salad',
-    'Soup',
-    'Fried Rice',
     'Vegetarian Food',
-    'Dessert',
-    'Beverage',
+    'Breakfast',
+    'Fried Rice',
+    'Fried Noodle',
+    'Grilled',
+    'Soup',
+    'Salad',
+    'Stir-fried',
+    'Iced Drink',
+    'Soda',
+    'Frappe',
     'Smoothie',
-    'Addons'
+    'Macchiato',
+    'Hot Drink',
+    'Beverage',
+    'Cocktails'
   ];
 
   const rawCategories = Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean))).sort((a, b) => {
