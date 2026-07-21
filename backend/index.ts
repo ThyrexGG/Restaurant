@@ -367,7 +367,7 @@ io.on('connection', (socket) => {
         data: {
           orderNumber: dbOrderNumber,
           customerName: `Table ${orderData.table}`,
-          diningType: 'DINE_IN',
+          diningType: orderData.type || 'DINE_IN',
           status: 'COOKING',
           totalPrice: orderData.total,
           notes: JSON.stringify(orderData.items)

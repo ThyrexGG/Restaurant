@@ -4,7 +4,7 @@ import { fill } from '@cloudinary/url-gen/actions/resize';
 import { cld } from '../cloudinary';
 import { useCart } from '../context/CartContext';
 import menuDataFallback from '../assets/menu.json';
-import { X, Search } from 'lucide-react';
+import { X, Search, Minus, Plus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type MenuItem = {
@@ -201,7 +201,8 @@ export default function MenuSection() {
   }, []);
 
   // Extract unique categories
-  const categories = ['Recommendations', 'All', ...Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean)))];
+  const rawCategories = Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean)));
+  const categories = ['Recommendations', 'All', ...rawCategories.filter(c => c !== 'Addons')];
 
   // Pre-calculate recommended items
   const recommendedItemIds = React.useMemo(() => {
@@ -216,6 +217,9 @@ export default function MenuSection() {
   // Filter items
   const displayItems = menuItems.filter(item => {
     const categoryName = item.category?.name || item.Category || 'Uncategorized';
+    
+    // Hide Addons from the main menu lists
+    if (categoryName === 'Addons') return false;
     
     let matchesCategory = false;
     if (activeCategory === 'All') matchesCategory = true;
@@ -304,6 +308,7 @@ export default function MenuSection() {
         {selectedItem && (
           <ItemModalContent 
             item={selectedItem} 
+            addonsList={menuItems.filter(item => (item.category?.name || item.Category) === 'Addons' && item.availability !== false)}
             onClose={() => setSelectedItem(null)} 
             addToCart={addToCart} 
           />
@@ -313,12 +318,17 @@ export default function MenuSection() {
   );
 }
 
-function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClose: () => void, addToCart: any }) {
+function ItemModalContent({ item, addonsList, onClose, addToCart }: { item: MenuItem, addonsList: MenuItem[], onClose: () => void, addToCart: any }) {
   const [specialInstructions, setSpecialInstructions] = React.useState('');
   const [selectedOption, setSelectedOption] = React.useState<string>('');
+  const [selectedAddons, setSelectedAddons] = React.useState<MenuItem[]>([]);
+  const [quantity, setQuantity] = React.useState(1);
   
   const displayName = item.name || item.Name || 'Unknown';
-  const priceValue = Number(item.price || item['Price [Best Khmer (Golden Cafe) Restaurant]'] || 5).toFixed(2);
+  const basePriceValue = Number(item.price || item['Price [Best Khmer (Golden Cafe) Restaurant]'] || 5);
+  const addonsTotal = selectedAddons.reduce((sum, a) => sum + Number(a.price || a['Price [Best Khmer (Golden Cafe) Restaurant]'] || 0), 0);
+  const totalPrice = (basePriceValue + addonsTotal) * quantity;
+  const priceValue = totalPrice.toFixed(2);
   const localImage = item.image?.startsWith('/images/') ? item.image : null;
   const rawCloudinaryId = !localImage ? (item.image || item.Cloudinary_ID) : null;
   const cloudinaryImgId = extractCloudinaryPublicId(rawCloudinaryId);
@@ -379,8 +389,10 @@ function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClos
     addToCart({
       id: item.id || item.SKU || displayName,
       name: baseName, // Use the base name without the (Chicken/Fish) part
-      price: Number(priceValue),
-      notes: finalNotes || undefined
+      price: basePriceValue,
+      notes: finalNotes || undefined,
+      quantity: quantity,
+      addons: selectedAddons.map(a => ({ id: a.id, name: a.name || a.Name || '', price: Number(a.price || a['Price [Best Khmer (Golden Cafe) Restaurant]'] || 0) }))
     });
     onClose();
   };
@@ -471,6 +483,36 @@ function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClos
               </div>
             )}
 
+            {addonsList.length > 0 && (
+              <div className="mb-6">
+                <h4 className="font-bold mb-3 text-white">Optional Add-ons:</h4>
+                <div className="space-y-3">
+                  {addonsList.map(addon => {
+                    const isSelected = selectedAddons.find(a => a.id === addon.id);
+                    const addonPrice = Number(addon.price || addon['Price [Best Khmer (Golden Cafe) Restaurant]'] || 0);
+                    return (
+                      <label key={addon.id} className="flex items-center justify-between p-3 border border-gray-800 rounded-xl cursor-pointer hover:border-[#d4af37]/50 transition-colors">
+                        <div className="flex items-center gap-3">
+                          <input 
+                            type="checkbox"
+                            checked={!!isSelected}
+                            onChange={(e) => {
+                              if (e.target.checked) setSelectedAddons([...selectedAddons, addon]);
+                              else setSelectedAddons(selectedAddons.filter(a => a.id !== addon.id));
+                            }}
+                            className="w-5 h-5 accent-[#d4af37]"
+                          />
+                          <span className="font-semibold text-gray-200">{addon.name || addon.Name}</span>
+                        </div>
+                        <span className="text-[#d4af37]">+${addonPrice.toFixed(2)}</span>
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+
             <div className="mb-8">
               <h4 className="font-bold mb-2 text-white">Special Instructions</h4>
               <textarea 
@@ -479,6 +521,25 @@ function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClos
                 placeholder="E.g., No spicy, extra sauce, allergy info..."
                 className="w-full bg-gray-900/50 border border-gray-700 rounded-xl p-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] transition-all resize-none h-24"
               />
+            </div>
+            
+            <div className="flex items-center justify-between mb-4 border-t border-gray-800 pt-4 mt-auto">
+              <span className="text-gray-400 font-bold">Quantity</span>
+              <div className="flex items-center gap-4 bg-gray-900 rounded-full px-4 py-2 border border-gray-800">
+                <button 
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  className="text-gray-400 hover:text-white p-1"
+                >
+                  <Minus size={20} />
+                </button>
+                <span className="font-bold w-6 text-center text-lg">{quantity}</span>
+                <button 
+                  onClick={() => setQuantity(quantity + 1)}
+                  className="text-gray-400 hover:text-white p-1"
+                >
+                  <Plus size={20} />
+                </button>
+              </div>
             </div>
             
             <button 

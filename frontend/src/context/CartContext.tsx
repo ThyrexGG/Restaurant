@@ -8,6 +8,7 @@ export interface CartItem {
   price: number;
   quantity: number;
   notes?: string;
+  addons?: { id: string; name: string; price: number }[];
 }
 
 export interface OrderHistoryItem {
@@ -24,7 +25,7 @@ interface CartContextType {
   updateQuantity: (cartItemId: string, delta: number) => void;
   totalItems: number;
   totalPrice: number;
-  checkout: (tableNumber: string) => void;
+  checkout: (tableNumber: string, type: string) => void;
   isCartOpen: boolean;
   toggleCart: () => void;
   activeOrderId: string | null;
@@ -191,12 +192,12 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }));
   };
 
-  const checkout = (tableNumber: string) => {
+  const checkout = (tableNumber: string, type: string) => {
     if (cart.length === 0 || !socket) return;
     
     const orderData = {
       table: tableNumber,
-      type: 'Dine In',
+      type: type,
       items: cart,
       total: totalPrice
     };
@@ -206,7 +207,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const totalPrice = cart.reduce((sum, item) => {
+    const itemTotal = item.price + (item.addons?.reduce((addonSum, addon) => addonSum + addon.price, 0) || 0);
+    return sum + (itemTotal * item.quantity);
+  }, 0);
 
   return (
     <CartContext.Provider value={{ 

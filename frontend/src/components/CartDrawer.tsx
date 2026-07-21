@@ -1,9 +1,10 @@
-
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { X, Plus, Minus, Trash2 } from 'lucide-react';
 
 export default function CartDrawer() {
+  const [diningType, setDiningType] = useState('Dine In');
   const { id: tableId } = useParams<{ id: string }>();
   const { cart, isCartOpen, toggleCart, removeFromCart, updateQuantity, totalPrice, checkout } = useCart();
 
@@ -41,8 +42,19 @@ export default function CartDrawer() {
               <div key={item.cartItemId || item.id} className="flex gap-4 items-center bg-black/40 p-4 rounded-xl border border-gray-800">
                 <div className="flex-1 min-w-0">
                   <h4 className="font-bold text-lg leading-tight mb-1 truncate">{item.name}</h4>
+                  {item.addons && item.addons.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mb-1">
+                      {item.addons.map((addon, idx) => (
+                        <span key={idx} className="text-xs bg-[#d4af37]/20 text-[#d4af37] px-2 py-0.5 rounded">
+                          +{addon.name}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   {item.notes && <p className="text-gray-400 text-xs mb-2 italic line-clamp-2">{item.notes}</p>}
-                  <p className="text-[#d4af37] font-semibold">${item.price.toFixed(2)}</p>
+                  <p className="text-[#d4af37] font-semibold">
+                    ${(item.price + (item.addons?.reduce((s, a) => s + a.price, 0) || 0)).toFixed(2)}
+                  </p>
                 </div>
                 
                 <div className="flex items-center gap-3 bg-gray-900 rounded-lg p-1 border border-gray-700 flex-shrink-0">
@@ -66,6 +78,21 @@ export default function CartDrawer() {
         {/* Footer */}
         {cart.length > 0 && (
           <div className="p-6 border-t border-gray-800 bg-black/40">
+            <div className="flex bg-gray-900 rounded-xl p-1 mb-6 border border-gray-800">
+              <button 
+                onClick={() => setDiningType('Dine In')}
+                className={`flex-1 py-2 text-sm font-bold rounded-lg transition-colors ${diningType === 'Dine In' ? 'bg-[#d4af37] text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
+              >
+                Dine In
+              </button>
+              <button 
+                onClick={() => setDiningType('Take Away')}
+                className={`flex-1 py-2 text-sm font-bold rounded-lg transition-colors ${diningType === 'Take Away' ? 'bg-[#d4af37] text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
+              >
+                Take Away
+              </button>
+            </div>
+            
             <div className="flex justify-between items-center mb-6">
               <span className="text-xl font-bold">Total</span>
               <span className="text-2xl font-bold text-[#d4af37]">${totalPrice.toFixed(2)}</span>
@@ -73,7 +100,7 @@ export default function CartDrawer() {
             <button 
               onClick={() => {
                 toggleCart();
-                checkout(tableId || 'Takeaway'); // Use URL parameter or fallback
+                checkout(tableId || 'Takeaway', diningType === 'Take Away' ? 'TAKE_AWAY' : 'DINE_IN');
               }} 
               className="w-full btn-primary py-4 text-lg"
             >
