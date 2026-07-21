@@ -202,7 +202,7 @@ export default function MenuSection() {
 
   // Extract unique categories
   const rawCategories = Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean)));
-  const categories = ['Recommendations', 'All', ...rawCategories.filter(c => c !== 'Addons')];
+  const categories = ['Recommendations', 'All', ...rawCategories];
 
   // Pre-calculate recommended items
   const recommendedItemIds = React.useMemo(() => {
@@ -217,9 +217,6 @@ export default function MenuSection() {
   // Filter items
   const displayItems = menuItems.filter(item => {
     const categoryName = item.category?.name || item.Category || 'Uncategorized';
-    
-    // Hide Addons from the main menu lists
-    if (categoryName === 'Addons') return false;
     
     let matchesCategory = false;
     if (activeCategory === 'All') matchesCategory = true;
@@ -320,13 +317,11 @@ export default function MenuSection() {
 function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClose: () => void, addToCart: any }) {
   const [specialInstructions, setSpecialInstructions] = React.useState('');
   const [selectedOption, setSelectedOption] = React.useState<string>('');
-  const [selectedAddons, setSelectedAddons] = React.useState<{id: string, name: string, price: number}[]>([]);
   const [quantity, setQuantity] = React.useState(1);
   
   const displayName = item.name || item.Name || 'Unknown';
   const basePriceValue = Number(item.price || item['Price [Best Khmer (Golden Cafe) Restaurant]'] || 5);
-  const addonsTotal = selectedAddons.reduce((sum, a) => sum + a.price, 0);
-  const totalPrice = (basePriceValue + addonsTotal) * quantity;
+  const totalPrice = basePriceValue * quantity;
   const priceValue = totalPrice.toFixed(2);
   const localImage = item.image?.startsWith('/images/') ? item.image : null;
   const rawCloudinaryId = !localImage ? (item.image || item.Cloudinary_ID) : null;
@@ -340,18 +335,6 @@ function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClos
   if (optionsMatch && optionsMatch[1].includes('/')) {
     options = optionsMatch[1].split('/').map(s => s.trim());
     baseName = displayName.replace(/\([^)]+\)/, '').trim();
-  }
-
-  // Define standard addons based on category
-  const categoryName = (item.category?.name || item.Category || '').toLowerCase();
-  const availableAddons: {id: string, name: string, price: number}[] = [];
-  
-  if (categoryName.includes('burger') || categoryName.includes('sandwich') || categoryName.includes('new menu') || categoryName.includes('breakfast')) {
-    availableAddons.push({ id: 'addon-cheese', name: 'Cheese', price: 0.50 });
-    availableAddons.push({ id: 'addon-fries', name: 'French Fries', price: 1.50 });
-  } else if (categoryName.includes('fried rice') || categoryName.includes('noodle') || categoryName.includes('stir-fried')) {
-    availableAddons.push({ id: 'addon-fried-egg', name: 'Fried Egg', price: 0.50 });
-    availableAddons.push({ id: 'addon-white-rice', name: 'White Rice', price: 1.00 });
   }
 
   // Auto-select first option if available
@@ -402,8 +385,7 @@ function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClos
       name: baseName, // Use the base name without the (Chicken/Fish) part
       price: basePriceValue,
       notes: finalNotes || undefined,
-      quantity: quantity,
-      addons: selectedAddons
+      quantity: quantity
     });
     onClose();
   };
@@ -493,35 +475,6 @@ function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClos
                 </div>
               </div>
             )}
-
-            {availableAddons.length > 0 && (
-              <div className="mb-6">
-                <h4 className="font-bold mb-3 text-white">Optional Add-ons:</h4>
-                <div className="space-y-3">
-                  {availableAddons.map(addon => {
-                    const isSelected = selectedAddons.find(a => a.id === addon.id);
-                    return (
-                      <label key={addon.id} className="flex items-center justify-between p-3 border border-gray-800 rounded-xl cursor-pointer hover:border-[#d4af37]/50 transition-colors">
-                        <div className="flex items-center gap-3">
-                          <input 
-                            type="checkbox"
-                            checked={!!isSelected}
-                            onChange={(e) => {
-                              if (e.target.checked) setSelectedAddons([...selectedAddons, addon]);
-                              else setSelectedAddons(selectedAddons.filter(a => a.id !== addon.id));
-                            }}
-                            className="w-5 h-5 accent-[#d4af37]"
-                          />
-                          <span className="font-semibold text-gray-200">{addon.name}</span>
-                        </div>
-                        <span className="text-[#d4af37]">+${addon.price.toFixed(2)}</span>
-                      </label>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
 
             <div className="mb-8">
               <h4 className="font-bold mb-2 text-white">Special Instructions</h4>
