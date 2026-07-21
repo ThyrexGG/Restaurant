@@ -1,4 +1,3 @@
-import React from 'react';
 import { History, Grid2X2, CheckCircle, Printer } from 'lucide-react';
 import { printOrderReceipt } from '../../utils/printer';
 

@@ -6,7 +6,7 @@ import { useCart } from '../context/CartContext';
 import menuDataFallback from '../assets/menu.json';
 import { Search } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
-import ItemModal, { MenuItem } from './ItemModal';
+import ItemModal, { type MenuItem } from './ItemModal';
 
 const extractCloudinaryPublicId = (urlOrId: string | undefined | null): string | null => {
   if (!urlOrId) return null;
@@ -183,7 +183,30 @@ export default function MenuSection() {
   }, []);
 
   // Extract unique categories
-  const rawCategories = Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean))).sort((a, b) => String(a).localeCompare(String(b)));
+  const categoryOrder = [
+    'Breakfast',
+    'Salad',
+    'Soup',
+    'Fried Rice',
+    'Vegetarian Food',
+    'Dessert',
+    'Beverage',
+    'Smoothie',
+    'Addons'
+  ];
+
+  const rawCategories = Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean))).sort((a, b) => {
+    const aStr = String(a);
+    const bStr = String(b);
+    const aIndex = categoryOrder.indexOf(aStr);
+    const bIndex = categoryOrder.indexOf(bStr);
+    
+    if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+    if (aIndex !== -1) return -1; // a comes first
+    if (bIndex !== -1) return 1;  // b comes first
+    
+    return aStr.localeCompare(bStr);
+  });
   const categories = ['Recommendations', 'All', ...rawCategories];
 
   // Pre-calculate recommended items

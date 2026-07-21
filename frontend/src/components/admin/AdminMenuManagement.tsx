@@ -53,7 +53,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
   const [removedImageBackup, setRemovedImageBackup] = useState<string | null>(null);
   const [pendingDeletes, setPendingDeletes] = useState<string[]>([]);
   const [toast, setToast] = useState<{id: string, message: string, onUndo: () => void} | null>(null);
-  const deleteTimers = useRef<{[key: string]: NodeJS.Timeout}>({});
+  const deleteTimers = useRef<{[key: string]: ReturnType<typeof setTimeout>}>({});
 
   const categories = ['All', ...Array.from(new Set(menuItems.map(item => item.category?.name || 'Uncategorized')))];
   
@@ -62,7 +62,8 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
     const categoryName = item.category?.name || 'Uncategorized';
     const matchesCategory = activeCategory === 'All' || categoryName === activeCategory;
     const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          (item.description && item.description.toLowerCase().includes(searchQuery.toLowerCase()));
+                          (item.description && item.description.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                          (item.sku || item.SKU || '').toLowerCase().includes(searchQuery.toLowerCase());
                           
     let matchesImage = true;
     if (imageFilter === 'WITH_IMAGE') matchesImage = !!item.image;
@@ -268,7 +269,10 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
         {displayItems.map(item => (
           <div key={item.id} className="bg-gray-900/60 p-6 rounded-2xl border border-gray-800 shadow-lg relative flex flex-col hover:-translate-y-1 transition-transform">
             <div className="flex justify-between items-start mb-2">
-              <h3 className={`text-xl font-bold ${item.availability === false ? 'text-gray-500' : ''}`}>{item.name}</h3>
+              <div>
+                <h3 className={`text-xl font-bold ${item.availability === false ? 'text-gray-500' : ''}`}>{item.name}</h3>
+                {(item.sku || item.SKU) && <span className="text-sm font-mono text-gray-500 mt-1 block">{item.sku || item.SKU}</span>}
+              </div>
               <span className="text-[#d4af37] font-bold">${(item.price || 0).toFixed(2)}</span>
             </div>
             <p className="text-gray-400 text-sm line-clamp-2 mb-6 flex-1">{item.description}</p>
@@ -305,14 +309,25 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
         <div className="bg-[#0a0a0c] p-8 rounded-3xl border border-gray-800 w-full max-w-lg shadow-[0_20px_60px_rgba(0,0,0,0.8)] my-8">
           <h2 className="text-3xl font-bold mb-6 font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Edit Menu Item</h2>
           <div className="space-y-5">
-            <div>
-              <label className="block text-gray-400 text-sm mb-2 font-bold">Item Name</label>
-              <input 
-                type="text" 
-                value={editingItem.name} 
-                onChange={(e) => setEditingItem({...editingItem, name: e.target.value})}
-                className="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:border-[#d4af37] outline-none transition-colors"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label className="block text-gray-400 text-sm mb-2 font-bold">Item Name</label>
+                <input 
+                  type="text" 
+                  value={editingItem.name} 
+                  onChange={(e) => setEditingItem({...editingItem, name: e.target.value})}
+                  className="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:border-[#d4af37] outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block text-gray-400 text-sm mb-2 font-bold">SKU Code</label>
+                <input 
+                  type="text" 
+                  value={editingItem.sku || editingItem.SKU || ''} 
+                  onChange={(e) => setEditingItem({...editingItem, sku: e.target.value})}
+                  className="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:border-[#d4af37] outline-none transition-colors"
+                />
+              </div>
             </div>
             <div>
               <label className="block text-gray-400 text-sm mb-2 font-bold">Price ($)</label>
