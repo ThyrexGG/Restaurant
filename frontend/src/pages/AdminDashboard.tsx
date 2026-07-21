@@ -7,6 +7,41 @@ import Cropper from 'react-easy-crop';
 import { getCroppedImg } from '../utils/cropImage';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 
+const DraggableScrollContainer = ({ children, className }: { children: React.ReactNode, className?: string }) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.pageX - (scrollRef.current?.offsetLeft || 0));
+    setScrollLeft(scrollRef.current?.scrollLeft || 0);
+  };
+  const handleMouseLeave = () => setIsDragging(false);
+  const handleMouseUp = () => setIsDragging(false);
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  return (
+    <div
+      ref={scrollRef}
+      onMouseDown={handleMouseDown}
+      onMouseLeave={handleMouseLeave}
+      onMouseUp={handleMouseUp}
+      onMouseMove={handleMouseMove}
+      className={`flex overflow-x-auto hide-scrollbar cursor-grab active:cursor-grabbing px-4 py-4 -mx-4 ${className || ''}`}
+    >
+      {children}
+    </div>
+  );
+};
+
 export default function AdminDashboard() {
   const { socket, isConnected } = useSocket();
   const [liveOrders, setLiveOrders] = useState<any[]>([]);
@@ -452,7 +487,7 @@ export default function AdminDashboard() {
                       className="w-full bg-gray-900 border border-gray-700 rounded-full py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#d4af37] transition-colors"
                     />
                   </div>
-                  <div className="flex overflow-x-auto hide-scrollbar gap-3 pb-2 items-center">
+                  <DraggableScrollContainer className="gap-3 items-center">
                     {categories.map((cat, idx) => (
                       <button 
                         key={idx}
@@ -466,8 +501,8 @@ export default function AdminDashboard() {
                         {cat as string}
                       </button>
                     ))}
-                  </div>
-                  <div className="flex overflow-x-auto hide-scrollbar gap-3 pb-2 items-center border-t border-gray-800 pt-4 mt-2">
+                  </DraggableScrollContainer>
+                  <DraggableScrollContainer className="gap-3 items-center border-t border-gray-800 pt-4 mt-2">
                     <span className="text-gray-500 font-bold text-sm mr-2 whitespace-nowrap">Image Filter:</span>
                     <button 
                       onClick={() => setImageFilter('ALL')}
@@ -499,7 +534,7 @@ export default function AdminDashboard() {
                     >
                       Missing Image
                     </button>
-                  </div>
+                  </DraggableScrollContainer>
                 </div>
               </div>
             )}
