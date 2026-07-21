@@ -308,7 +308,6 @@ export default function MenuSection() {
         {selectedItem && (
           <ItemModalContent 
             item={selectedItem} 
-            addonsList={menuItems.filter(item => (item.category?.name || item.Category) === 'Addons' && item.availability !== false)}
             onClose={() => setSelectedItem(null)} 
             addToCart={addToCart} 
           />
@@ -318,15 +317,15 @@ export default function MenuSection() {
   );
 }
 
-function ItemModalContent({ item, addonsList, onClose, addToCart }: { item: MenuItem, addonsList: MenuItem[], onClose: () => void, addToCart: any }) {
+function ItemModalContent({ item, onClose, addToCart }: { item: MenuItem, onClose: () => void, addToCart: any }) {
   const [specialInstructions, setSpecialInstructions] = React.useState('');
   const [selectedOption, setSelectedOption] = React.useState<string>('');
-  const [selectedAddons, setSelectedAddons] = React.useState<MenuItem[]>([]);
+  const [selectedAddons, setSelectedAddons] = React.useState<{id: string, name: string, price: number}[]>([]);
   const [quantity, setQuantity] = React.useState(1);
   
   const displayName = item.name || item.Name || 'Unknown';
   const basePriceValue = Number(item.price || item['Price [Best Khmer (Golden Cafe) Restaurant]'] || 5);
-  const addonsTotal = selectedAddons.reduce((sum, a) => sum + Number(a.price || a['Price [Best Khmer (Golden Cafe) Restaurant]'] || 0), 0);
+  const addonsTotal = selectedAddons.reduce((sum, a) => sum + a.price, 0);
   const totalPrice = (basePriceValue + addonsTotal) * quantity;
   const priceValue = totalPrice.toFixed(2);
   const localImage = item.image?.startsWith('/images/') ? item.image : null;
@@ -338,9 +337,21 @@ function ItemModalContent({ item, addonsList, onClose, addToCart }: { item: Menu
   let baseName = displayName;
   let options: string[] = [];
   
-  if (optionsMatch) {
+  if (optionsMatch && optionsMatch[1].includes('/')) {
     options = optionsMatch[1].split('/').map(s => s.trim());
     baseName = displayName.replace(/\([^)]+\)/, '').trim();
+  }
+
+  // Define standard addons based on category
+  const categoryName = (item.category?.name || item.Category || '').toLowerCase();
+  const availableAddons: {id: string, name: string, price: number}[] = [];
+  
+  if (categoryName.includes('burger') || categoryName.includes('sandwich') || categoryName.includes('new menu') || categoryName.includes('breakfast')) {
+    availableAddons.push({ id: 'addon-cheese', name: 'Cheese', price: 0.50 });
+    availableAddons.push({ id: 'addon-fries', name: 'French Fries', price: 1.50 });
+  } else if (categoryName.includes('fried rice') || categoryName.includes('noodle') || categoryName.includes('stir-fried')) {
+    availableAddons.push({ id: 'addon-fried-egg', name: 'Fried Egg', price: 0.50 });
+    availableAddons.push({ id: 'addon-white-rice', name: 'White Rice', price: 1.00 });
   }
 
   // Auto-select first option if available
@@ -392,7 +403,7 @@ function ItemModalContent({ item, addonsList, onClose, addToCart }: { item: Menu
       price: basePriceValue,
       notes: finalNotes || undefined,
       quantity: quantity,
-      addons: selectedAddons.map(a => ({ id: a.id, name: a.name || a.Name || '', price: Number(a.price || a['Price [Best Khmer (Golden Cafe) Restaurant]'] || 0) }))
+      addons: selectedAddons
     });
     onClose();
   };
@@ -483,13 +494,12 @@ function ItemModalContent({ item, addonsList, onClose, addToCart }: { item: Menu
               </div>
             )}
 
-            {addonsList.length > 0 && (
+            {availableAddons.length > 0 && (
               <div className="mb-6">
                 <h4 className="font-bold mb-3 text-white">Optional Add-ons:</h4>
                 <div className="space-y-3">
-                  {addonsList.map(addon => {
+                  {availableAddons.map(addon => {
                     const isSelected = selectedAddons.find(a => a.id === addon.id);
-                    const addonPrice = Number(addon.price || addon['Price [Best Khmer (Golden Cafe) Restaurant]'] || 0);
                     return (
                       <label key={addon.id} className="flex items-center justify-between p-3 border border-gray-800 rounded-xl cursor-pointer hover:border-[#d4af37]/50 transition-colors">
                         <div className="flex items-center gap-3">
@@ -502,9 +512,9 @@ function ItemModalContent({ item, addonsList, onClose, addToCart }: { item: Menu
                             }}
                             className="w-5 h-5 accent-[#d4af37]"
                           />
-                          <span className="font-semibold text-gray-200">{addon.name || addon.Name}</span>
+                          <span className="font-semibold text-gray-200">{addon.name}</span>
                         </div>
-                        <span className="text-[#d4af37]">+${addonPrice.toFixed(2)}</span>
+                        <span className="text-[#d4af37]">+${addon.price.toFixed(2)}</span>
                       </label>
                     );
                   })}
