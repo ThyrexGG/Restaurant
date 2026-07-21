@@ -7,6 +7,100 @@ interface AdminAnalyticsProps {
 }
 
 export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
+  const [showPreview, setShowPreview] = React.useState(false);
+
+  if (showPreview) {
+    return (
+      <div className="bg-white min-h-screen font-sans p-8 print:p-0">
+        <style>
+          {`
+            @media print {
+              @page { margin: 1cm; size: auto; }
+              body, html, #root { 
+                background-color: white !important; 
+                color: black !important;
+                -webkit-print-color-adjust: exact; 
+                print-color-adjust: exact; 
+              }
+              body > *:not(#root) { display: none !important; }
+            }
+          `}
+        </style>
+        
+        <div className="max-w-7xl mx-auto print:hidden flex justify-between items-center mb-8">
+          <button 
+            onClick={() => setShowPreview(false)} 
+            className="bg-black text-white px-6 py-3 rounded-xl font-bold hover:bg-gray-800 transition-colors"
+          >
+            ← Back to Dashboard
+          </button>
+          <button 
+            onClick={() => window.print()} 
+            className="bg-[#d4af37] text-black px-8 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-[#c19b2e] transition-colors shadow-lg"
+          >
+            <Printer size={20} />
+            Print QR Codes
+          </button>
+        </div>
+
+        <div className="flex flex-col items-center gap-[2cm] py-4 bg-white">
+          {[1,2,3,4,5,6,7,8,9,10,11,12].map(table => {
+            const url = `${window.location.origin}/table/${table}`;
+            return (
+              <div 
+                key={table} 
+                className="relative overflow-hidden flex flex-row items-center justify-between border-[6px] border-[#d4af37] rounded-3xl p-10 shadow-2xl bg-white text-black"
+                style={{ width: '23cm', height: '15cm', pageBreakInside: 'avoid' }}
+              >
+                {/* Accents */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[#d4af37] opacity-10 rounded-bl-full" />
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#d4af37] opacity-10 rounded-tr-full" />
+                
+                {/* Left Side: Instructions */}
+                <div className="w-[55%] flex flex-col justify-center h-full z-10 pr-4">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-full bg-[#d4af37] flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+                      {table}
+                    </div>
+                    <div>
+                      <h2 className="text-gray-500 uppercase tracking-widest text-sm font-bold">Table Number</h2>
+                      <h1 className="text-5xl font-bold font-['Playfair_Display']">TABLE {table}</h1>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-bold text-gray-800 border-b-2 border-[#d4af37] pb-2 inline-block font-['Playfair_Display']">Scan & Order</h3>
+                    <ul className="text-xl space-y-4 font-medium text-gray-700 list-decimal pl-6 marker:text-[#d4af37] marker:font-bold">
+                      <li>Open your phone's camera</li>
+                      <li>Point it at the QR code</li>
+                      <li>Browse our digital menu</li>
+                      <li>Order and enjoy!</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="mt-auto">
+                    <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">Best Khmer Restaurant</p>
+                  </div>
+                </div>
+
+                {/* Right Side: QR Code */}
+                <div className="w-[45%] flex flex-col items-center justify-center border-l-2 border-dashed border-gray-300 pl-8 h-full z-10">
+                  <div className="bg-white p-4 border-4 border-[#d4af37] rounded-3xl shadow-xl transform transition-transform hover:scale-105">
+                    <QRCodeSVG value={url} size={220} level="H" fgColor="#000000" />
+                  </div>
+                  <div className="mt-6 flex flex-col items-center">
+                    <p className="font-bold text-lg text-gray-800 tracking-wider">Wi-Fi: <span className="text-[#d4af37]">GoldenCafe</span></p>
+                    <p className="text-sm text-gray-500 font-mono mt-1">{url.replace('https://', '').replace('http://', '')}</p>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="print:hidden max-w-7xl mx-auto pb-12">
@@ -92,13 +186,13 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
             
             <div className="bg-gray-900/60 p-8 rounded-3xl border border-gray-800 shadow-lg mt-8">
               <h3 className="text-2xl font-bold mb-2 text-white">Print Table QR Codes</h3>
-              <p className="text-gray-400 mb-6">Need new QR codes for your tables? Click below to print a high-quality sheet of codes for all 12 tables.</p>
+              <p className="text-gray-400 mb-6">Need new QR codes for your tables? Click below to preview and print a high-quality sheet of codes for all 12 tables.</p>
               <button 
-                onClick={() => window.print()} 
+                onClick={() => setShowPreview(true)} 
                 className="bg-white text-black font-bold px-8 py-4 rounded-xl hover:bg-gray-200 transition-colors shadow-lg flex items-center justify-center gap-3 w-full sm:w-auto hover:scale-105"
               >
                 <Printer size={20} />
-                Print All QR Codes
+                Preview & Print QR Codes
               </button>
             </div>
           </div>
@@ -107,79 +201,6 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#d4af37]"></div>
           </div>
         )}
-      </div>
-
-      {/* PRINT-ONLY VIEW: QR CODES */}
-      <div className="hidden print:block bg-white text-black min-h-screen font-sans">
-        <style>
-          {`
-            @media print {
-              @page { margin: 1cm; size: auto; }
-              body, html, #root { 
-                background-color: white !important; 
-                color: black !important;
-                -webkit-print-color-adjust: exact; 
-                print-color-adjust: exact; 
-              }
-              /* Hide all other elements in the body that might be outside of our component */
-              body > *:not(#root) { display: none !important; }
-            }
-          `}
-        </style>
-        <div className="flex flex-col items-center gap-[2cm] py-4 bg-white">
-          {[1,2,3,4,5,6,7,8,9,10,11,12].map(table => {
-            const url = `${window.location.origin}/table/${table}`;
-            return (
-              <div 
-                key={table} 
-                className="relative overflow-hidden flex flex-row items-center justify-between border-[6px] border-[#d4af37] rounded-3xl p-10 shadow-2xl bg-white text-black"
-                style={{ width: '23cm', height: '15cm', pageBreakInside: 'avoid' }}
-              >
-                {/* Accents */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-[#d4af37] opacity-10 rounded-bl-full" />
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#d4af37] opacity-10 rounded-tr-full" />
-                
-                {/* Left Side: Instructions */}
-                <div className="w-[55%] flex flex-col justify-center h-full z-10 pr-4">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-full bg-[#d4af37] flex items-center justify-center text-white font-bold text-2xl shadow-lg">
-                      {table}
-                    </div>
-                    <div>
-                      <h2 className="text-gray-500 uppercase tracking-widest text-sm font-bold">Table Number</h2>
-                      <h1 className="text-5xl font-bold font-['Playfair_Display']">TABLE {table}</h1>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <h3 className="text-3xl font-bold text-gray-800 border-b-2 border-[#d4af37] pb-2 inline-block font-['Playfair_Display']">Scan & Order</h3>
-                    <ul className="text-xl space-y-4 font-medium text-gray-700 list-decimal pl-6 marker:text-[#d4af37] marker:font-bold">
-                      <li>Open your phone's camera</li>
-                      <li>Point it at the QR code</li>
-                      <li>Browse our digital menu</li>
-                      <li>Order and enjoy!</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="mt-auto">
-                    <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">Best Khmer Restaurant</p>
-                  </div>
-                </div>
-
-                {/* Right Side: QR Code */}
-                <div className="w-[45%] flex flex-col items-center justify-center border-l-2 border-dashed border-gray-300 pl-8 h-full z-10">
-                  <div className="bg-white p-4 border-4 border-[#d4af37] rounded-3xl shadow-xl transform transition-transform hover:scale-105">
-                    <QRCodeSVG value={url} size={220} level="H" fgColor="#000000" />
-                  </div>
-                  <div className="mt-6 flex flex-col items-center">
-                    <p className="font-bold text-lg text-gray-800 tracking-wider">Wi-Fi: <span className="text-[#d4af37]">GoldenCafe</span></p>
-                    <p className="text-sm text-gray-500 font-mono mt-1">{url.replace('https://', '').replace('http://', '')}</p>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
-        </div>
       </div>
     </>
   );
