@@ -56,6 +56,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
   const deleteTimers = useRef<{[key: string]: ReturnType<typeof setTimeout>}>({});
 
   const categoryOrder = [
+    'New Menu',
     'Vegetarian Food',
     'Breakfast',
     'Fried Rice',
@@ -71,6 +72,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
     'Macchiato',
     'Hot Drink',
     'Beverage',
+    'Dessert',
     'Cocktails'
   ];
 

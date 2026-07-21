@@ -184,6 +184,7 @@ export default function MenuSection() {
 
   // Extract unique categories
   const categoryOrder = [
+    'New Menu',
     'Vegetarian Food',
     'Breakfast',
     'Fried Rice',
@@ -199,6 +200,7 @@ export default function MenuSection() {
     'Macchiato',
     'Hot Drink',
     'Beverage',
+    'Dessert',
     'Cocktails'
   ];
 
