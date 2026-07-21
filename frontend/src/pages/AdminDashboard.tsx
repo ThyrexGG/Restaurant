@@ -218,10 +218,15 @@ export default function AdminDashboard() {
       });
     });
 
+    socket.on('menu_updated', (updatedItem) => {
+      setMenuItems((prev) => prev.map(item => item.id === updatedItem.id ? updatedItem : item));
+    });
+
     return () => {
       socket.off('connect', handleConnect);
       socket.off('new_order_received');
       socket.off('order_status_changed');
+      socket.off('menu_updated');
     };
   }, [socket]);
 
@@ -470,11 +475,36 @@ export default function AdminDashboard() {
         )}
 
         {/* MENU MANAGEMENT TAB */}
-        {activeTab === 'Menu Management' && (
-          <div className="max-w-6xl mx-auto">
-            <h1 className="text-4xl font-bold mb-8 font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Menu Management</h1>
-            
-            {menuItems.length > 0 && (
+        {activeTab === 'Menu Management' && (() => {
+          const totalItemsCount = menuItems.length;
+          const itemsWithImageCount = menuItems.filter(item => item.image || item.Cloudinary_ID).length;
+          const imageCompletionPercentage = totalItemsCount > 0 ? Math.round((itemsWithImageCount / totalItemsCount) * 100) : 0;
+
+          return (
+            <div className="max-w-6xl mx-auto">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+                <h1 className="text-4xl font-bold font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Menu Management</h1>
+                
+                {totalItemsCount > 0 && (
+                  <div className="w-full md:w-64 bg-gray-900/60 p-4 rounded-2xl border border-gray-800 shadow-lg">
+                    <div className="flex justify-between items-end mb-2">
+                      <span className="text-sm text-gray-400 font-bold">Image Completion</span>
+                      <span className="text-lg font-bold text-[#d4af37]">{imageCompletionPercentage}%</span>
+                    </div>
+                    <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-[#b08d29] to-[#d4af37] transition-all duration-500 ease-out"
+                        style={{ width: `${imageCompletionPercentage}%` }}
+                      ></div>
+                    </div>
+                    <div className="text-xs text-gray-500 mt-2 text-right">
+                      {itemsWithImageCount} of {totalItemsCount} items
+                    </div>
+                  </div>
+                )}
+              </div>
+              
+              {menuItems.length > 0 && (
               <div className="bg-[#0a0a0c]/90 backdrop-blur-md py-4 mb-8 border-b border-gray-800">
                 <div className="flex flex-col gap-4">
                   <div className="relative max-w-md">
@@ -786,7 +816,8 @@ export default function AdminDashboard() {
               </div>
             )}
           </div>
-        )}
+          );
+        })()}
 
         {/* ANALYTICS & SETTINGS TAB */}
         {activeTab === 'Analytics' && (
