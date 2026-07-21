@@ -55,7 +55,31 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
   const [toast, setToast] = useState<{id: string, message: string, onUndo: () => void} | null>(null);
   const deleteTimers = useRef<{[key: string]: ReturnType<typeof setTimeout>}>({});
 
-  const categories = ['All', ...Array.from(new Set(menuItems.map(item => item.category?.name || 'Uncategorized')))];
+  const categoryOrder = [
+    'Breakfast',
+    'Salad',
+    'Soup',
+    'Fried Rice',
+    'Vegetarian Food',
+    'Dessert',
+    'Beverage',
+    'Smoothie',
+    'Addons'
+  ];
+
+  const rawCategories = Array.from(new Set(menuItems.map(item => item.category?.name || item.Category || 'Uncategorized'))).sort((a, b) => {
+    const aStr = String(a);
+    const bStr = String(b);
+    const aIndex = categoryOrder.indexOf(aStr);
+    const bIndex = categoryOrder.indexOf(bStr);
+    
+    if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+    if (aIndex !== -1) return -1;
+    if (bIndex !== -1) return 1;
+    
+    return aStr.localeCompare(bStr);
+  });
+  const categories = ['All', ...rawCategories];
   
   const displayItems = menuItems.filter(item => {
     if (pendingDeletes.includes(item.id)) return false;
@@ -70,6 +94,46 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
     if (imageFilter === 'NO_IMAGE') matchesImage = !item.image;
 
     return matchesCategory && matchesSearch && matchesImage;
+  }).sort((a, b) => {
+    if (searchQuery) {
+      const lowerQuery = searchQuery.toLowerCase();
+      const skuA = (a.sku || a.SKU || '').toLowerCase();
+      const skuB = (b.sku || b.SKU || '').toLowerCase();
+      const nameA = (a.name || a.Name || '').toLowerCase();
+      const nameB = (b.name || b.Name || '').toLowerCase();
+
+      // 1. Exact SKU match
+      const aExactSku = skuA === lowerQuery;
+      const bExactSku = skuB === lowerQuery;
+      if (aExactSku && !bExactSku) return -1;
+      if (!aExactSku && bExactSku) return 1;
+
+      // 2. SKU starts with query
+      const aStartsSku = skuA.startsWith(lowerQuery);
+      const bStartsSku = skuB.startsWith(lowerQuery);
+      if (aStartsSku && !bStartsSku) return -1;
+      if (!aStartsSku && bStartsSku) return 1;
+
+      // If both start with the SKU, sort them by SKU
+      if (aStartsSku && bStartsSku) {
+        return skuA.localeCompare(skuB);
+      }
+
+      // 3. Name starts with query
+      const aStartsName = nameA.startsWith(lowerQuery);
+      const bStartsName = nameB.startsWith(lowerQuery);
+      if (aStartsName && !bStartsName) return -1;
+      if (!aStartsName && bStartsName) return 1;
+    }
+
+    const catA = a.category?.name || a.Category || 'Uncategorized';
+    const catB = b.category?.name || b.Category || 'Uncategorized';
+    if (catA < catB) return -1;
+    if (catA > catB) return 1;
+    
+    const nameA = a.name || a.Name || '';
+    const nameB = b.name || b.Name || '';
+    return nameA.localeCompare(nameB);
   });
 
   const [isCropModalOpen, setIsCropModalOpen] = useState(false);
