@@ -43,10 +43,21 @@ const extractCloudinaryPublicId = (urlOrId: string | undefined | null): string |
 export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem, onClose: () => void, addToCart: any }) {
   const [specialInstructions, setSpecialInstructions] = React.useState('');
   const [selectedOption, setSelectedOption] = React.useState<string>('');
+  const [addEgg, setAddEgg] = React.useState(false);
   const [quantity, setQuantity] = React.useState(1);
   
   const displayName = item.name || item.Name || 'Unknown';
-  const basePriceValue = Number(item.price || item['Price [Best Khmer (Golden Cafe) Restaurant]'] || 5);
+  const nameLower = displayName.toLowerCase();
+  const catLower = (item.category?.name || item.Category || '').toLowerCase();
+  
+  const isEligibleForEgg = 
+    (nameLower.includes('fried rice') || nameLower.includes('fried noodle') || nameLower.includes('stir fried') || 
+     catLower.includes('fried rice') || catLower.includes('fried noodle')) &&
+    !nameLower.includes('burger') && !nameLower.includes('soup') &&
+    !catLower.includes('burger') && !catLower.includes('soup');
+
+  const eggPrice = addEgg ? 0.50 : 0;
+  const basePriceValue = Number(item.price || item['Price [Best Khmer (Golden Cafe) Restaurant]'] || 5) + eggPrice;
   const totalPrice = basePriceValue * quantity;
   const priceValue = totalPrice.toFixed(2);
   const localImage = item.image?.startsWith('/images/') ? item.image : null;
@@ -75,6 +86,9 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
     if (options.length > 0) {
       const optionText = `Choice: ${selectedOption}`;
       finalNotes = finalNotes ? `${optionText} | ${finalNotes}` : optionText;
+    }
+    if (addEgg) {
+      finalNotes = finalNotes ? `Add Fried Egg (+$0.50) | ${finalNotes}` : `Add Fried Egg (+$0.50)`;
     }
 
     // Fly-to-cart animation
@@ -199,6 +213,29 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
                     </label>
                   ))}
                 </div>
+              </div>
+            )}
+
+            {isEligibleForEgg && (
+              <div className="mb-6">
+                <h4 className="font-bold mb-3 text-white">Extras:</h4>
+                <label className={`cursor-pointer border rounded-xl p-3 flex justify-between items-center transition-all ${
+                    addEgg 
+                      ? 'border-[#d4af37] bg-[#d4af37]/10 text-[#d4af37] font-bold' 
+                      : 'border-gray-700 hover:border-gray-500 text-gray-300'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <input 
+                      type="checkbox" 
+                      checked={addEgg}
+                      onChange={(e) => setAddEgg(e.target.checked)}
+                      className="w-5 h-5 rounded border-gray-600 text-[#d4af37] focus:ring-[#d4af37] focus:ring-offset-gray-900 bg-gray-800"
+                    />
+                    <span>Add Fried Egg</span>
+                  </div>
+                  <span>+$0.50</span>
+                </label>
               </div>
             )}
 
