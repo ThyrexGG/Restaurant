@@ -95,12 +95,13 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
 
     return matchesCategory && matchesSearch && matchesImage;
   }).sort((a, b) => {
+    const skuA = (a.sku || a.SKU || '').toLowerCase();
+    const skuB = (b.sku || b.SKU || '').toLowerCase();
+    const nameA = (a.name || a.Name || '').toLowerCase();
+    const nameB = (b.name || b.Name || '').toLowerCase();
+
     if (searchQuery) {
       const lowerQuery = searchQuery.toLowerCase();
-      const skuA = (a.sku || a.SKU || '').toLowerCase();
-      const skuB = (b.sku || b.SKU || '').toLowerCase();
-      const nameA = (a.name || a.Name || '').toLowerCase();
-      const nameB = (b.name || b.Name || '').toLowerCase();
 
       // 1. Exact SKU match
       const aExactSku = skuA === lowerQuery;
@@ -114,11 +115,6 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
       if (aStartsSku && !bStartsSku) return -1;
       if (!aStartsSku && bStartsSku) return 1;
 
-      // If both start with the SKU, sort them by SKU
-      if (aStartsSku && bStartsSku) {
-        return skuA.localeCompare(skuB);
-      }
-
       // 3. Name starts with query
       const aStartsName = nameA.startsWith(lowerQuery);
       const bStartsName = nameB.startsWith(lowerQuery);
@@ -126,13 +122,14 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
       if (!aStartsName && bStartsName) return 1;
     }
 
-    const catA = a.category?.name || a.Category || 'Uncategorized';
-    const catB = b.category?.name || b.Category || 'Uncategorized';
-    if (catA < catB) return -1;
-    if (catA > catB) return 1;
+    // Default sorting by SKU
+    if (skuA && !skuB) return -1;
+    if (!skuA && skuB) return 1;
+    if (skuA && skuB) {
+      return skuA.localeCompare(skuB, undefined, { numeric: true, sensitivity: 'base' });
+    }
     
-    const nameA = a.name || a.Name || '';
-    const nameB = b.name || b.Name || '';
+    // Fallback to name if no SKU
     return nameA.localeCompare(nameB);
   });
 
