@@ -50,12 +50,22 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
             return (
               <div 
                 key={table} 
-                className="relative overflow-hidden flex flex-row items-center justify-between border-[6px] border-[#d4af37] rounded-3xl p-10 shadow-2xl bg-white text-black"
-                style={{ width: '23cm', height: '15cm', pageBreakInside: 'avoid' }}
+                className="relative overflow-hidden flex flex-row items-center justify-between border-[6px] border-[#d4af37] rounded-3xl p-10 shadow-2xl text-black"
+                style={{ 
+                  width: '23cm', 
+                  height: '15cm', 
+                  pageBreakInside: 'avoid',
+                  background: 'linear-gradient(135deg, #ffffff 0%, #fdfcf7 40%, #f7f1df 100%)'
+                }}
               >
+                {/* Background Watermark Logo */}
+                <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center opacity-[0.06] mix-blend-multiply">
+                  <img src="/logo.png" alt="Watermark" className="w-[70%] h-[70%] object-contain grayscale" />
+                </div>
+
                 {/* Accents */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-[#d4af37] opacity-10 rounded-bl-full" />
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#d4af37] opacity-10 rounded-tr-full" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#d4af37] to-transparent opacity-20 rounded-bl-full z-0" />
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#d4af37] to-transparent opacity-20 rounded-tr-full z-0" />
                 
                 {/* Left Side: Instructions */}
                 <div className="w-[55%] flex flex-col justify-center h-full z-10 pr-4">
