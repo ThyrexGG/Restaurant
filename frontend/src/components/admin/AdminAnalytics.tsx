@@ -110,16 +110,65 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
       </div>
 
       {/* PRINT-ONLY VIEW: QR CODES */}
-      <div className="hidden print:block bg-white text-black min-h-screen">
-        <h1 className="text-4xl font-bold text-center py-8 border-b-2 border-black mb-8 font-['Playfair_Display']">Scan to Order</h1>
-        <div className="grid grid-cols-3 gap-8 px-8">
+      <div className="hidden print:block bg-white text-black min-h-screen font-sans">
+        <style>
+          {`
+            @media print {
+              @page { margin: 1cm; size: auto; }
+              body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            }
+          `}
+        </style>
+        <div className="flex flex-col items-center gap-[2cm] py-4">
           {[1,2,3,4,5,6,7,8,9,10,11,12].map(table => {
             const url = `${window.location.origin}/table/${table}`;
             return (
-              <div key={table} className="border-2 border-dashed border-gray-300 p-6 flex flex-col items-center justify-center rounded-xl break-inside-avoid">
-                <h2 className="text-3xl font-bold mb-6">Table {table}</h2>
-                <QRCodeSVG value={url} size={180} level="H" />
-                <p className="text-xs text-gray-500 mt-6 font-mono text-center break-all">{url}</p>
+              <div 
+                key={table} 
+                className="relative overflow-hidden flex flex-row items-center justify-between border-[6px] border-[#d4af37] rounded-3xl p-10 shadow-2xl bg-white text-black"
+                style={{ width: '23cm', height: '15cm', pageBreakInside: 'avoid' }}
+              >
+                {/* Accents */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[#d4af37] opacity-10 rounded-bl-full" />
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#d4af37] opacity-10 rounded-tr-full" />
+                
+                {/* Left Side: Instructions */}
+                <div className="w-[55%] flex flex-col justify-center h-full z-10 pr-4">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-full bg-[#d4af37] flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+                      {table}
+                    </div>
+                    <div>
+                      <h2 className="text-gray-500 uppercase tracking-widest text-sm font-bold">Table Number</h2>
+                      <h1 className="text-5xl font-bold font-['Playfair_Display']">TABLE {table}</h1>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-bold text-gray-800 border-b-2 border-[#d4af37] pb-2 inline-block font-['Playfair_Display']">Scan & Order</h3>
+                    <ul className="text-xl space-y-4 font-medium text-gray-700 list-decimal pl-6 marker:text-[#d4af37] marker:font-bold">
+                      <li>Open your phone's camera</li>
+                      <li>Point it at the QR code</li>
+                      <li>Browse our digital menu</li>
+                      <li>Order and enjoy!</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="mt-auto">
+                    <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">Best Khmer Restaurant</p>
+                  </div>
+                </div>
+
+                {/* Right Side: QR Code */}
+                <div className="w-[45%] flex flex-col items-center justify-center border-l-2 border-dashed border-gray-300 pl-8 h-full z-10">
+                  <div className="bg-white p-4 border-4 border-[#d4af37] rounded-3xl shadow-xl transform transition-transform hover:scale-105">
+                    <QRCodeSVG value={url} size={220} level="H" fgColor="#000000" />
+                  </div>
+                  <div className="mt-6 flex flex-col items-center">
+                    <p className="font-bold text-lg text-gray-800 tracking-wider">Wi-Fi: <span className="text-[#d4af37]">GoldenCafe</span></p>
+                    <p className="text-sm text-gray-500 font-mono mt-1">{url.replace('https://', '').replace('http://', '')}</p>
+                  </div>
+                </div>
               </div>
             )
           })}
