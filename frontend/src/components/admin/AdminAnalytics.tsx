@@ -9,7 +9,7 @@ interface AdminAnalyticsProps {
 export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
   return (
     <>
-      <div className="max-w-7xl mx-auto pb-12">
+      <div className="print:hidden max-w-7xl mx-auto pb-12">
         <h1 className="text-4xl font-bold mb-8 font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Sales Analytics Dashboard</h1>
         
         {analytics ? (
@@ -115,11 +115,18 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
           {`
             @media print {
               @page { margin: 1cm; size: auto; }
-              body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+              body, html, #root { 
+                background-color: white !important; 
+                color: black !important;
+                -webkit-print-color-adjust: exact; 
+                print-color-adjust: exact; 
+              }
+              /* Hide all other elements in the body that might be outside of our component */
+              body > *:not(#root) { display: none !important; }
             }
           `}
         </style>
-        <div className="flex flex-col items-center gap-[2cm] py-4">
+        <div className="flex flex-col items-center gap-[2cm] py-4 bg-white">
           {[1,2,3,4,5,6,7,8,9,10,11,12].map(table => {
             const url = `${window.location.origin}/table/${table}`;
             return (
