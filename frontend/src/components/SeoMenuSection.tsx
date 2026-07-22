@@ -256,14 +256,14 @@ export default function SeoMenuSection() {
         {/* Recommendations Section */}
         {(activeCategory === 'All' || activeCategory === 'Recommendations') && (
           <div id="seo-category-section-recommendations" className="scroll-mt-36">
-            <div className="flex items-center justify-between mb-6 pb-3 border-b-2 border-[#d4af37]">
-              <div>
-                <span className="text-xs font-bold text-[#d4af37] uppercase tracking-widest block mb-0.5">Special Highlights</span>
-                <h3 className="text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white">
+            <div className="flex items-center justify-between gap-3 mb-6 pb-3 border-b-2 border-[#d4af37]">
+              <div className="min-w-0">
+                <span className="text-[10px] md:text-xs font-bold text-[#d4af37] uppercase tracking-widest block mb-0.5 whitespace-nowrap">Special Highlights</span>
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white whitespace-nowrap truncate">
                   Chef's Recommendations
                 </h3>
               </div>
-              <span className="bg-[#d4af37]/20 border border-[#d4af37]/50 text-[#d4af37] text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow">
+              <span className="bg-[#d4af37]/20 border border-[#d4af37]/50 text-[#d4af37] text-xs font-extrabold px-3 py-1.5 rounded-full shadow whitespace-nowrap flex-shrink-0">
                 {recommendedItemIds.size} Dishes
               </span>
             </div>
@@ -297,14 +297,14 @@ export default function SeoMenuSection() {
 
           return (
             <div key={catName} id={`seo-category-section-${sectionSlug}`} className="scroll-mt-36">
-              <div className="flex items-center justify-between mb-6 pb-3 border-b border-gray-800">
-                <div>
-                  <span className="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Category</span>
-                  <h3 className="text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white">
+              <div className="flex items-center justify-between gap-3 mb-6 pb-3 border-b border-gray-800">
+                <div className="min-w-0">
+                  <span className="text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-widest block mb-0.5 whitespace-nowrap">Category</span>
+                  <h3 className="text-lg sm:text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white whitespace-nowrap truncate">
                     {catName}
                   </h3>
                 </div>
-                <span className="bg-gray-900 border border-gray-700 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-full">
+                <span className="bg-gray-900 border border-gray-700 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-full whitespace-nowrap flex-shrink-0">
                   {sectionItems.length} {sectionItems.length === 1 ? 'Dish' : 'Dishes'}
                 </span>
               </div>
