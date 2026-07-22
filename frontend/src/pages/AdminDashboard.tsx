@@ -89,12 +89,17 @@ export default function AdminDashboard() {
       });
     });
 
+    socket.on('menu_item_deleted', (deletedId: string) => {
+      setMenuItems((prev) => prev.filter(i => String(i.id) !== String(deletedId)));
+    });
+
     return () => {
       socket.off('connect', handleConnect);
       socket.off('initial_orders');
       socket.off('new_order_received');
       socket.off('order_status_changed');
       socket.off('menu_updated');
+      socket.off('menu_item_deleted');
     };
   }, [socket]);
 

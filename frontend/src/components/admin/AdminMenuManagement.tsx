@@ -511,28 +511,17 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
           <div className="flex gap-4 mt-8">
             <button 
               onClick={() => {
+                if (!window.confirm(`Are you sure you want to delete "${editingItem.name}"?`)) return;
                 const itemToDelete = editingItem;
                 setEditingItem(null);
-                setPendingDeletes(prev => [...prev, itemToDelete.id]);
                 
-                deleteTimers.current[itemToDelete.id] = setTimeout(() => {
-                  fetch(`${backendUrl}/api/menu/${itemToDelete.id}`, { method: 'DELETE' })
-                    .then(() => {
-                      setMenuItems(prev => prev.filter(i => i.id !== itemToDelete.id));
-                      setPendingDeletes(prev => prev.filter(id => id !== itemToDelete.id));
-                    });
-                  setToast(null);
-                }, 5000);
-                
-                setToast({
-                  id: itemToDelete.id,
-                  message: `Deleted ${itemToDelete.name}`,
-                  onUndo: () => {
-                    clearTimeout(deleteTimers.current[itemToDelete.id]);
-                    setPendingDeletes(prev => prev.filter(id => id !== itemToDelete.id));
-                    setToast(null);
-                  }
-                });
+                fetch(`${backendUrl}/api/menu/${itemToDelete.id}`, { method: 'DELETE' })
+                  .then(res => {
+                    if (res.ok) {
+                      setMenuItems(prev => prev.filter(i => String(i.id) !== String(itemToDelete.id)));
+                    }
+                  })
+                  .catch(err => console.error('Delete failed:', err));
               }}
               className="flex-[0.5] py-4 rounded-xl bg-red-900/30 text-red-500 font-bold hover:bg-red-900/50 transition-colors border border-red-900/50"
             >
