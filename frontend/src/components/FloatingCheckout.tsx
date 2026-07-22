@@ -12,24 +12,24 @@ export default function FloatingCheckout() {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[90] w-[90%] max-w-md"
+          className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[90] w-[92%] max-w-md"
         >
           <button
             onClick={toggleCart}
-            className="w-full flex items-center justify-between bg-gradient-to-r from-[#d4af37] to-[#f3e5ab] text-black px-6 py-4 rounded-2xl font-bold shadow-[0_10px_40px_rgba(212,175,55,0.4)] hover:shadow-[0_10px_50px_rgba(212,175,55,0.6)] hover:scale-[1.02] active:scale-95 transition-all"
+            className="w-full flex items-center justify-between bg-[#d4af37] text-black px-4 py-3.5 sm:px-6 sm:py-4 rounded-2xl font-bold shadow-[0_10px_35px_rgba(212,175,55,0.4)] hover:scale-[1.02] active:scale-95 transition-all whitespace-nowrap border border-[#f3e5ab]/50"
           >
-            <div className="flex items-center gap-3">
-              <div className="bg-black/20 p-2 rounded-full flex items-center justify-center">
-                <span className="w-6 text-center text-lg">{totalItems}</span>
+            <div className="flex items-center gap-2.5">
+              <div className="bg-black text-[#d4af37] w-7 h-7 rounded-full flex items-center justify-center font-black text-xs sm:text-sm shadow">
+                {totalItems}
               </div>
-              <span className="text-lg uppercase tracking-wide">View Order</span>
+              <span className="font-extrabold text-xs sm:text-sm uppercase tracking-wider">View Order</span>
             </div>
             
-            <div className="flex items-center gap-3">
-              <span className="text-[#0a0a0c] font-black text-lg sm:text-xl">
-                ${totalPrice.toFixed(2)} <span className="text-sm font-bold text-gray-800">({(totalPrice * 4000).toLocaleString()} ៛)</span>
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="font-black text-xs sm:text-sm tracking-tight text-black">
+                ${totalPrice.toFixed(2)} <span className="text-[11px] sm:text-xs font-bold opacity-80">({(totalPrice * 4000).toLocaleString()} ៛)</span>
               </span>
-              <ShoppingCart size={20} />
+              <ShoppingCart size={18} className="shrink-0" />
             </div>
           </button>
         </motion.div>
