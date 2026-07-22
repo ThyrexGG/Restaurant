@@ -272,9 +272,14 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
             <button 
               disabled={item.availability === false}
               onClick={handleAddToCart} 
-              className={`${item.availability !== false ? 'btn-primary' : 'bg-gray-800 text-gray-500 cursor-not-allowed'} w-full py-4 text-lg font-bold shadow-[0_0_30px_rgba(212,175,55,0.3)] mt-auto`}
+              className={`${item.availability !== false ? 'btn-primary' : 'bg-gray-800 text-gray-500 cursor-not-allowed'} w-full py-4 text-lg font-bold shadow-[0_0_30px_rgba(212,175,55,0.3)] mt-auto flex items-center justify-center gap-2`}
             >
-              {item.availability !== false ? `Add to Order - $${priceValue}` : 'Sold Out'}
+              {item.availability !== false ? (
+                <>
+                  <span>Add to Order - ${priceValue}</span>
+                  <span className="text-xs opacity-90">({(totalPrice * 4000).toLocaleString()} ៛)</span>
+                </>
+              ) : 'Sold Out'}
             </button>
           </div>
         </motion.div>

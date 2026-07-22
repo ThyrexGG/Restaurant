@@ -111,16 +111,19 @@ export default function AdminLiveOrders({ kitchenOrders, activeTables, updateSta
                     
                     <div className="flex justify-between items-end mb-4">
                       <h3 className="text-3xl font-bold text-white">Table {tableNum}</h3>
-                      <span className="font-bold text-green-400 text-2xl">${tableData.total.toFixed(2)}</span>
+                      <div className="text-right">
+                        <span className="font-bold text-green-400 text-2xl">${tableData.total.toFixed(2)}</span>
+                        <span className="block text-xs font-bold text-gray-400">({(tableData.total * 4000).toLocaleString()} ៛)</span>
+                      </div>
                     </div>
 
                     <div className="flex-1 flex flex-col">
                       <p className="text-sm text-gray-400 mb-3 font-bold">{tableData.orders.length} Active Order(s)</p>
                       <div className="space-y-2 mb-6 flex-1">
                         {tableData.orders.map((o: any, i: number) => (
-                          <div key={i} className="flex justify-between text-sm bg-black/50 p-3 rounded-lg text-gray-300 border border-gray-800">
+                          <div key={i} className="flex justify-between items-center text-sm bg-black/50 p-3 rounded-lg text-gray-300 border border-gray-800">
                             <span>Order #{o.id.toString().slice(-4)} <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] uppercase font-bold ${o.status === 'READY' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'}`}>{o.status}</span></span>
-                            <span className="font-bold">${o.total.toFixed(2)}</span>
+                            <span className="font-bold text-right">${o.total.toFixed(2)} <span className="text-xs text-gray-400 font-normal">({(o.total * 4000).toLocaleString()} ៛)</span></span>
                           </div>
                         ))}
                       </div>
@@ -144,7 +147,7 @@ export default function AdminLiveOrders({ kitchenOrders, activeTables, updateSta
 
                         <button 
                           onClick={() => {
-                            if (window.confirm(`Mark Table ${tableNum} as Paid? Total: $${tableData.total.toFixed(2)}`)) {
+                            if (window.confirm(`Mark Table ${tableNum} as Paid? Total: $${tableData.total.toFixed(2)} (${(tableData.total * 4000).toLocaleString()} ៛)`)) {
                               // Print combined receipt
                               const combinedOrder = {
                                 id: `CHECKOUT-${Date.now().toString().slice(-4)}`,

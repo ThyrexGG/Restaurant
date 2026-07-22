@@ -128,7 +128,7 @@ export const printOrderReceipt = async (order: any) => {
     // Header
     const headerData = encoder.encode(
       "--------------------------------\n" +
-      "   GOLDEN CAFE RESTAURANT   \n" +
+      "    BEST KHMER RESTAURANT   \n" +
       "--------------------------------\n\n"
     );
 
@@ -141,9 +141,11 @@ export const printOrderReceipt = async (order: any) => {
       "--------------------------------\n"
     );
 
-    // Total
+    // Total in USD & KHR (Riel)
+    const rielTotal = Math.round(order.total * 4000).toLocaleString();
     const totalData = encoder.encode(
       `TOTAL: $${order.total.toFixed(2)}\n` +
+      `       (${rielTotal} KHR)\n` +
       "--------------------------------\n" +
       "       THANK YOU!       \n\n\n\n\n"
     );
@@ -156,9 +158,11 @@ export const printOrderReceipt = async (order: any) => {
     await printerCharacteristic.writeValue(alignLeftCmd);
     await printerCharacteristic.writeValue(orderInfoData);
 
-    // Print items individually to avoid Bluetooth MTU limits
+    // Print items individually to avoid Bluetooth MTU limits and wrap long item names
     for (const item of order.items) {
-      let itemStr = `${item.quantity}x ${item.name.substring(0, 20)}\n`;
+      // Clean multiline item name wrapping without truncating
+      const fullItemName = `${item.quantity}x ${item.name}`;
+      let itemStr = `${fullItemName}\n`;
       itemStr += `   $${item.price.toFixed(2)}\n`;
       if (item.notes) {
         itemStr += `   *${item.notes}*\n`;

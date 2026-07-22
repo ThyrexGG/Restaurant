@@ -26,7 +26,9 @@ export default function FloatingCheckout() {
             </div>
             
             <div className="flex items-center gap-3">
-              <span className="text-xl">${totalPrice.toFixed(2)}</span>
+              <span className="text-[#0a0a0c] font-black text-lg sm:text-xl">
+                ${totalPrice.toFixed(2)} <span className="text-sm font-bold text-gray-800">({(totalPrice * 4000).toLocaleString()} ៛)</span>
+              </span>
               <ShoppingCart size={20} />
             </div>
           </button>

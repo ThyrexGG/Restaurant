@@ -95,7 +95,10 @@ export default function CartDrawer() {
             
             <div className="flex justify-between items-center mb-6">
               <span className="text-xl font-bold">Total</span>
-              <span className="text-2xl font-bold text-[#d4af37]">${totalPrice.toFixed(2)}</span>
+              <div className="text-right">
+                <span className="text-2xl font-bold text-[#d4af37]">${totalPrice.toFixed(2)}</span>
+                <span className="block text-sm font-bold text-gray-400">({(totalPrice * 4000).toLocaleString()} ៛)</span>
+              </div>
             </div>
             <button 
               onClick={() => {

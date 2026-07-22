@@ -323,6 +323,7 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
               <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
                 <p className="text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Total Sales Revenue</p>
                 <h3 className="text-3xl font-bold text-[#d4af37]">${analytics.totalRevenue?.toFixed(2) || '0.00'}</h3>
+                <p className="text-xs font-bold text-gray-500 mt-1">({Math.round((analytics.totalRevenue || 0) * 4000).toLocaleString()} ៛)</p>
               </div>
               <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
                 <p className="text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Total Orders Completed</p>
@@ -333,6 +334,9 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
                 <h3 className="text-3xl font-bold text-[#d4af37]">
                   ${analytics.totalOrders > 0 ? (analytics.totalRevenue / analytics.totalOrders).toFixed(2) : '0.00'}
                 </h3>
+                <p className="text-xs font-bold text-gray-500 mt-1">
+                  ({analytics.totalOrders > 0 ? Math.round(((analytics.totalRevenue / analytics.totalOrders) * 4000)).toLocaleString() : '0'} ៛)
+                </p>
               </div>
               <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
                 <p className="text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Active Categories</p>
@@ -394,7 +398,9 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
                       <tr key={order.id} className="border-b border-gray-800/50 hover:bg-gray-800/30">
                         <td className="py-3 px-4 whitespace-nowrap text-sm text-gray-300">{new Date(order.createdAt).toLocaleString()}</td>
                         <td className="py-3 px-4 text-xs font-mono text-gray-500">{order.id}</td>
-                        <td className="py-3 px-4 font-bold text-[#d4af37] text-right">${order.totalPrice.toFixed(2)}</td>
+                        <td className="py-3 px-4 font-bold text-[#d4af37] text-right">
+                          ${order.totalPrice.toFixed(2)} <span className="text-xs text-gray-400 font-normal">({Math.round(order.totalPrice * 4000).toLocaleString()} ៛)</span>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
