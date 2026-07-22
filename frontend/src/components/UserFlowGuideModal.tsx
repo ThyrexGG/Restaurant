@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, ChevronRight, ChevronLeft, Volume2, VolumeX, Info } from 'lucide-react';
+import { X, ChevronRight, ChevronLeft, Volume2, VolumeX, Info, Play, Pause } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface UserFlowGuideModalProps {
@@ -107,6 +107,29 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
   const [activeStep, setActiveStep] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [progress, setProgress] = useState(0);
+
+  // Auto-advance step timer & progress bar
+  useEffect(() => {
+    if (!isPlaying || !isOpen) return;
+
+    const interval = 50; // ms
+    const stepDuration = 6000; // ms per step
+    const increment = (interval / stepDuration) * 100;
+
+    const timer = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          setActiveStep((currentStep) => (currentStep + 1) % STEPS.length);
+          return 0;
+        }
+        return prev + increment;
+      });
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, [isPlaying, isOpen, activeStep]);
 
   // Speech Voice Over
   const speakVoiceOver = (text: string) => {
@@ -154,6 +177,19 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
               <p className="text-xs text-gray-400">Step-by-step Lok Lak ordering guide</p>
             </div>
             <div className="flex items-center gap-2">
+              {/* Play / Pause Auto-Advance Toggle */}
+              <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                className={`p-2 rounded-full text-xs font-bold transition-all border ${
+                  isPlaying 
+                    ? 'bg-[#d4af37]/20 text-[#d4af37] border-[#d4af37]/50' 
+                    : 'bg-gray-900 text-gray-400 border-gray-800 hover:text-white'
+                }`}
+                title={isPlaying ? 'Pause Auto Play' : 'Play Auto Advance'}
+              >
+                {isPlaying ? <Pause size={16} /> : <Play size={16} />}
+              </button>
+
               <button 
                 onClick={() => {
                   const newMuted = !isMuted;
@@ -199,6 +235,14 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
 
             {/* Visual Example Box with Real Dish Photo */}
             {current.visual}
+
+            {/* Auto Progress Bar */}
+            <div className="w-full bg-gray-900 h-1.5 rounded-full overflow-hidden border border-gray-800">
+              <div 
+                className="bg-[#d4af37] h-full transition-all duration-75"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
 
             {/* Collapsible Info Tip */}
             <div className="pt-1">
