@@ -10,202 +10,115 @@ interface UserFlowGuideModalProps {
 const STEPS = [
   {
     id: 1,
-    title: "1. Pick Category & Find Dish",
+    title: "1. Tap Item & Select Options (Meat / Sugar)",
     time: "00:05",
-    voiceText: "Step 1: Select a category from the dropdown or search for your favorite dish.",
-    shortDesc: "Tap the dropdown menu or swipe category pills to jump to any section.",
+    voiceText: "Step 1: Tap any item. Choose your meat option like Chicken, Pork, or Beef, and select drink sugar levels 100%, 50%, or 0%, then tap Add to Order.",
+    shortDesc: "Select meat choice (Chicken/Pork/Beef) or drink sweetness (100%, 50%, 0%), then tap Add to Order.",
     visual: (
-      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-3 font-sans relative">
-        {/* Animated Pointer Arrow Callout */}
+      <div className="bg-[#0a0a0c] rounded-2xl p-4 border border-gray-800 space-y-3 font-sans relative">
+        {/* Animated Pointer Arrow Callouts */}
         <div className="absolute top-10 right-4 z-20 bg-[#d4af37] text-black font-extrabold text-[10px] px-2.5 py-1 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.8)] flex items-center gap-1 animate-bounce">
-          <MousePointer size={12} /> TAP CATEGORY DROPDOWN ⬇️
+          <MousePointer size={12} /> PICK MEAT & SUGAR LEVEL ⬇️
         </div>
 
-        {/* Web Navbar Mockup */}
-        <div className="flex justify-between items-center bg-black/60 p-2 rounded-lg border border-gray-800">
-          <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="Logo" className="w-5 h-5 rounded-full" />
-            <span className="text-xs font-bold text-[#d4af37]">Best Khmer</span>
-          </div>
-          <span className="text-[10px] text-gray-400 bg-gray-900 px-2 py-0.5 rounded border border-gray-800">Menu</span>
-        </div>
-
-        {/* Category Selector Card */}
-        <div className="bg-black p-2.5 rounded-xl border-2 border-[#d4af37] space-y-2 relative shadow-lg">
-          <div className="text-[9px] font-bold text-[#d4af37] uppercase">Select Category</div>
-          <div className="bg-gray-900 p-2 rounded-lg text-xs text-white font-bold flex justify-between items-center border border-gray-700">
-            <span>⭐ Chef's Recommendations (8)</span>
-            <span className="text-[#d4af37]">▼</span>
-          </div>
-          <div className="flex gap-1.5 overflow-x-auto text-[10px] pb-1">
-            <span className="bg-[#d4af37] text-black font-bold px-2.5 py-1 rounded-md whitespace-nowrap">Recommendations (8)</span>
-            <span className="bg-gray-900 text-gray-400 font-bold px-2.5 py-1 rounded-md border border-gray-800 whitespace-nowrap">Breakfast (12)</span>
-            <span className="bg-gray-900 text-gray-400 font-bold px-2.5 py-1 rounded-md border border-gray-800 whitespace-nowrap">Fried Rice (18)</span>
-          </div>
-        </div>
-
-        {/* Dish Grid Preview */}
-        <div className="grid grid-cols-2 gap-2">
-          <div className="bg-gray-900 p-2 rounded-lg border border-gray-800 flex flex-col justify-between">
-            <div className="space-y-0.5">
-              <span className="text-[10px] font-bold text-white block truncate">Grilled Pork Rice</span>
-              <span className="text-[10px] font-bold text-[#d4af37]">$3.50 <span className="text-[8px] text-gray-400 font-normal">(14,000 ៛)</span></span>
+        {/* Item Customization Modal Mockup */}
+        <div className="bg-black/95 p-3.5 rounded-2xl border-2 border-[#d4af37] space-y-3 shadow-2xl">
+          <div className="flex justify-between items-start">
+            <div>
+              <h5 className="text-xs font-bold text-white">Special Amok (Chicken/Fish/Pork)</h5>
+              <span className="text-[10px] text-gray-400">Authentic Cambodian Curry</span>
             </div>
-            <span className="bg-[#d4af37] text-black text-[9px] font-bold text-center py-1 rounded mt-1.5">+ Add</span>
+            <span className="text-xs font-bold text-[#d4af37]">$5.00 <span className="text-[8px] text-gray-400 font-normal">(20,000 ៛)</span></span>
           </div>
 
-          <div className="bg-gray-900 p-2 rounded-lg border border-gray-800 flex flex-col justify-between">
-            <div className="space-y-0.5">
-              <span className="text-[10px] font-bold text-white block truncate">Strawberry Smoothie</span>
-              <span className="text-[10px] font-bold text-[#d4af37]">$2.50 <span className="text-[8px] text-gray-400 font-normal">(10,000 ៛)</span></span>
+          {/* Option 1: Meat Choice Selector */}
+          <div className="bg-gray-900/90 p-2 rounded-xl border border-[#d4af37]/60 space-y-1.5">
+            <div className="flex justify-between items-center text-[10px]">
+              <span className="font-bold text-white flex items-center gap-1">🍗 Choose Meat Choice:</span>
+              <span className="font-bold text-[#d4af37] bg-[#d4af37]/20 px-1.5 py-0.5 rounded">Chicken</span>
             </div>
-            <span className="bg-[#d4af37] text-black text-[9px] font-bold text-center py-1 rounded mt-1.5">+ Add</span>
+            <div className="grid grid-cols-4 gap-1 text-[9px] text-center font-bold">
+              <span className="bg-[#d4af37] text-black py-1 rounded shadow">Chicken</span>
+              <span className="bg-gray-800 text-gray-400 py-1 rounded border border-gray-700">Pork</span>
+              <span className="bg-gray-800 text-gray-400 py-1 rounded border border-gray-700">Beef</span>
+              <span className="bg-gray-800 text-gray-400 py-1 rounded border border-gray-700">Fish</span>
+            </div>
           </div>
+
+          {/* Option 2: Drink Sugar Level Selector */}
+          <div className="bg-gray-900/90 p-2 rounded-xl border border-cyan-500/40 space-y-1.5">
+            <div className="flex justify-between items-center text-[10px]">
+              <span className="font-bold text-white flex items-center gap-1">🍬 Drink Sugar Level:</span>
+              <span className="font-bold text-cyan-400 bg-cyan-500/20 px-1.5 py-0.5 rounded">50% (Half Sugar)</span>
+            </div>
+            <div className="flex flex-wrap gap-1 text-[9px] font-bold">
+              <span className="bg-gray-800 text-gray-400 px-2 py-0.5 rounded border border-gray-700">100%</span>
+              <span className="bg-cyan-500 text-black px-2 py-0.5 rounded shadow scale-105">50%</span>
+              <span className="bg-gray-800 text-gray-400 px-2 py-0.5 rounded border border-gray-700">25%</span>
+              <span className="bg-gray-800 text-gray-400 px-2 py-0.5 rounded border border-gray-700">0%</span>
+            </div>
+          </div>
+
+          <button className="w-full bg-[#d4af37] text-black font-black text-xs py-2.5 rounded-xl shadow-lg animate-pulse">
+            + Add to Order • $5.00 (20,000 ៛)
+          </button>
         </div>
       </div>
     )
   },
   {
     id: 2,
-    title: "2. Set Sugar Level & Add Drink",
+    title: "2. Open Cart & Confirm Order",
     time: "00:15",
-    voiceText: "Step 2: Tap any drink to customize sugar levels 100%, 50% or no sugar, then add to order.",
-    shortDesc: "Pick your sweetness (100%, 50%, 0%) & ice preference, then tap Add.",
+    voiceText: "Step 2: Open your cart, select Dine-In with your table number or Takeaway, and tap Confirm Order. Your ticket prints automatically to the kitchen!",
+    shortDesc: "Select Dine In (Table Number) or Take Away, tap Confirm Order, and kitchen ticket prints automatically!",
     visual: (
-      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-2.5 font-sans relative">
-        {/* Animated Pointer Arrow Callout */}
-        <div className="absolute top-16 right-4 z-20 bg-[#d4af37] text-black font-extrabold text-[10px] px-2.5 py-1 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.8)] flex items-center gap-1 animate-pulse">
-          <MousePointer size={12} /> SELECT SWEETNESS 👈
+      <div className="bg-[#0a0a0c] rounded-2xl p-4 border border-gray-800 space-y-3 font-sans relative">
+        {/* Animated Pointer Arrow Callouts */}
+        <div className="absolute top-10 right-4 z-20 bg-green-500 text-black font-extrabold text-[10px] px-2.5 py-1 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.8)] flex items-center gap-1 animate-bounce">
+          <MousePointer size={12} /> TAP CONFIRM ORDER ⬇️
         </div>
 
-        {/* Item Modal Mockup */}
-        <div className="bg-black/90 p-3 rounded-xl border-2 border-[#d4af37] space-y-2 shadow-xl">
-          <div className="flex justify-between items-start">
-            <div>
-              <h5 className="text-xs font-bold text-white">Strawberry Smoothie</h5>
-              <span className="text-[10px] text-gray-400">Fresh blended fruit smoothie</span>
-            </div>
-            <span className="text-xs font-bold text-[#d4af37]">$2.50</span>
-          </div>
-
-          {/* Sugar Level Selector */}
-          <div className="bg-gray-900/90 p-2 rounded-lg border border-[#d4af37]/60 space-y-1.5">
-            <div className="flex justify-between items-center text-[10px]">
-              <span className="font-bold text-white flex items-center gap-1">🍬 Sugar Level</span>
-              <span className="font-bold text-[#d4af37] bg-[#d4af37]/20 px-1.5 py-0.5 rounded">50% (Half)</span>
-            </div>
-            <div className="flex flex-wrap gap-1 text-[9px]">
-              <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">100%</span>
-              <span className="bg-[#d4af37] text-black font-bold px-2 py-0.5 rounded shadow scale-105">50%</span>
-              <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">25%</span>
-              <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">0%</span>
-            </div>
-          </div>
-
-          {/* Ice Level Selector */}
-          <div className="bg-gray-900/90 p-2 rounded-lg border border-gray-800 space-y-1.5">
-            <div className="flex justify-between items-center text-[10px]">
-              <span className="font-bold text-white flex items-center gap-1">🧊 Ice Level</span>
-              <span className="font-bold text-cyan-400">Normal Ice</span>
-            </div>
-            <div className="flex gap-1 text-[9px]">
-              <span className="bg-cyan-500 text-black font-bold px-2 py-0.5 rounded shadow">Normal Ice</span>
-              <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">Less Ice</span>
-              <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">No Ice</span>
-            </div>
-          </div>
-
-          <button className="w-full bg-[#d4af37] text-black font-extrabold text-xs py-2 rounded-lg shadow-md">
-            Add to Order - $2.50 <span className="text-[9px] opacity-90">(10,000 ៛)</span>
-          </button>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 3,
-    title: "3. Choose Dine-In / Takeaway & Confirm",
-    time: "00:30",
-    voiceText: "Step 3: Select Dine-In with your table number or Takeaway, then confirm order.",
-    shortDesc: "Tap the floating cart, choose Dine In (Table) or Take Away, then tap Confirm.",
-    visual: (
-      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-2.5 font-sans relative">
-        {/* Animated Pointer Arrow Callout */}
-        <div className="absolute top-10 right-4 z-20 bg-[#d4af37] text-black font-extrabold text-[10px] px-2.5 py-1 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.8)] flex items-center gap-1 animate-bounce">
-          <MousePointer size={12} /> PICK DINE-IN TABLE ⬇️
-        </div>
-
-        {/* Cart Drawer Mockup */}
-        <div className="bg-gray-950 p-3 rounded-xl border border-gray-800 space-y-2.5">
+        {/* Cart Drawer & Order Checkout Mockup */}
+        <div className="bg-gray-950 p-3.5 rounded-2xl border border-gray-800 space-y-3 shadow-2xl">
           <div className="flex justify-between items-center text-xs pb-1.5 border-b border-gray-800">
             <span className="font-bold text-white">Your Cart (2 Items)</span>
-            <span className="text-xs font-bold text-[#d4af37]">$6.00</span>
+            <span className="text-xs font-bold text-[#d4af37]">$7.50</span>
           </div>
 
-          {/* Dining Option Toggle */}
-          <div className="grid grid-cols-2 gap-1.5 bg-gray-900 p-1 rounded-lg border-2 border-[#d4af37]">
-            <div className="bg-[#d4af37] text-black text-[10px] font-bold py-1.5 text-center rounded shadow">Dine In (Table 5)</div>
-            <div className="text-gray-400 text-[10px] font-bold py-1.5 text-center rounded">Take Away</div>
-          </div>
-
-          {/* Order Item List */}
-          <div className="space-y-1 text-[10px] text-gray-300">
-            <div className="flex justify-between">
-              <span>1x Grilled Pork Rice</span>
-              <span className="text-white font-bold">$3.50</span>
+          {/* Dine-In Table vs Takeaway Selector */}
+          <div className="grid grid-cols-2 gap-1.5 bg-gray-900 p-1 rounded-xl border-2 border-[#d4af37]">
+            <div className="bg-[#d4af37] text-black text-[10px] font-extrabold py-1.5 text-center rounded-lg shadow">
+              Dine In (Table #5)
             </div>
-            <div className="flex justify-between">
-              <span>1x Strawberry Smoothie <span className="text-[#d4af37]">(Sugar 50%)</span></span>
-              <span className="text-white font-bold">$2.50</span>
+            <div className="text-gray-400 text-[10px] font-bold py-1.5 text-center rounded-lg">
+              Take Away
+            </div>
+          </div>
+
+          {/* Order Items with Customization Specs */}
+          <div className="space-y-1.5 text-[10px] bg-black/60 p-2 rounded-xl border border-gray-800/80">
+            <div className="flex justify-between text-gray-200 font-bold">
+              <span>1x Special Amok <span className="text-[#d4af37]">(Choice: Chicken)</span></span>
+              <span>$5.00</span>
+            </div>
+            <div className="flex justify-between text-gray-200 font-bold">
+              <span>1x Strawberry Smoothie <span className="text-cyan-400">(Sugar 50%)</span></span>
+              <span>$2.50</span>
             </div>
           </div>
 
           {/* Confirm Button */}
-          <button className="w-full bg-[#d4af37] text-black font-black text-xs py-2 rounded-lg shadow-md animate-pulse">
-            Confirm Order • Total: $6.00 (24,000 ៛)
+          <button className="w-full bg-[#d4af37] text-black font-black text-xs py-2.5 rounded-xl shadow-lg border border-[#d4af37]">
+            Confirm Order • Total: $7.50 (30,000 ៛)
           </button>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 4,
-    title: "4. Kitchen Ticket Auto Prints",
-    time: "00:45",
-    voiceText: "Step 4: Your order is confirmed and printed automatically to our kitchen printer!",
-    shortDesc: "Ticket is sent to kitchen printer instantly. View your receipt anytime in 'My Bill'.",
-    visual: (
-      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-2 font-sans relative">
-        {/* Animated Pointer Arrow Callout */}
-        <div className="absolute top-2 right-4 z-20 bg-green-500 text-black font-extrabold text-[10px] px-2.5 py-1 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.8)] flex items-center gap-1 animate-pulse">
-          ✨ INSTANT KITCHEN PRINT!
-        </div>
 
-        {/* Thermal Receipt Mockup */}
-        <div className="bg-white text-black p-3 rounded-lg font-mono text-[10px] space-y-1.5 shadow-xl border border-gray-300">
-          <div className="text-center font-bold text-xs border-b border-dashed border-gray-400 pb-1">
-            BEST KHMER RESTAURANT
-            <div className="text-[9px] font-normal text-gray-600">Siem Reap, Cambodia</div>
+          {/* Kitchen Printer Notification Badge */}
+          <div className="text-center pt-1">
+            <span className="inline-block bg-green-500/20 text-green-400 border border-green-500/40 text-[10px] font-extrabold px-3 py-1 rounded-full shadow-sm">
+              ✓ Sent to Kitchen Printer Automatically
+            </span>
           </div>
-          <div className="flex justify-between text-[9px] font-bold">
-            <span>ORDER #1042</span>
-            <span>DINE IN (TABLE #5)</span>
-          </div>
-          <div className="border-t border-b border-dashed border-gray-400 py-1 space-y-0.5">
-            <div className="flex justify-between"><span>1x Grilled Pork Rice</span><span>$3.50</span></div>
-            <div className="flex justify-between"><span>1x Strawberry Smoothie</span><span>$2.50</span></div>
-            <div className="text-[8px] text-gray-600 pl-2">└ Sugar: 50% | Ice: Normal</div>
-          </div>
-          <div className="flex justify-between font-bold text-xs pt-0.5">
-            <span>TOTAL:</span>
-            <span>$6.00 (24,000 ៛)</span>
-          </div>
-        </div>
-
-        <div className="text-center">
-          <span className="inline-block bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-3 py-1 rounded-full">
-            ✓ Sent to Kitchen Printer Automatically
-          </span>
         </div>
       </div>
     )
@@ -229,7 +142,7 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
       utterance.pitch = 1.0;
       window.speechSynthesis.speak(utterance);
     } catch {
-      // Ignore audio synthesis errors silently if browser restricts autoplay audio
+      // Ignore audio synthesis errors silently
     }
   };
 
@@ -266,7 +179,7 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
     if (!isPlaying || hasRealVideo || !isOpen) return;
 
     const interval = 50; // ms
-    const stepDuration = 5000; // ms per step
+    const stepDuration = 6000; // ms per step
     const increment = (interval / stepDuration) * 100;
 
     const timer = setInterval(() => {
@@ -302,8 +215,8 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
                 <HelpCircle size={22} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white font-['Playfair_Display']">How to Order (Interactive Video)</h3>
-                <p className="text-xs text-gray-400">Step-by-step screen demo with AI Voice Over narration</p>
+                <h3 className="text-xl font-bold text-white font-['Playfair_Display']">Easy 2-Step Ordering Guide</h3>
+                <p className="text-xs text-gray-400">Watch the quick demo with AI Voice Over narration</p>
               </div>
             </div>
             <button 
@@ -317,7 +230,7 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
             </button>
           </div>
 
-          {/* Real MP4 Video or Authentic Website Showcase Simulation Player */}
+          {/* Real MP4 Video or 2-Step Interactive Demo Player */}
           {hasRealVideo ? (
             <div className="relative rounded-2xl overflow-hidden bg-black border border-gray-800 mb-6 aspect-video">
               <video 
@@ -395,7 +308,7 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
                     <span className="text-xs font-mono text-[#d4af37]">{current.time}</span>
                   </div>
 
-                  {/* Pixel-Perfect UI Showcase Mockup */}
+                  {/* UI Showcase Mockup */}
                   <div className="my-2">
                     {current.visual}
                   </div>
@@ -421,7 +334,7 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
                   onClick={() => { setActiveStep(prev => Math.max(0, prev - 1)); setProgress(0); }}
                   className="flex items-center gap-1 text-xs font-bold text-gray-400 hover:text-white disabled:opacity-30 disabled:hover:text-gray-400 transition-colors"
                 >
-                  <ChevronLeft size={16} /> Prev Step
+                  <ChevronLeft size={16} /> Step 1
                 </button>
 
                 <div className="flex items-center gap-2">
@@ -444,7 +357,7 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
                   onClick={() => { setActiveStep(prev => Math.min(STEPS.length - 1, prev + 1)); setProgress(0); }}
                   className="flex items-center gap-1 text-xs font-bold text-[#d4af37] hover:text-[#f3e5ab] disabled:opacity-30 disabled:hover:text-[#d4af37] transition-colors"
                 >
-                  Next Step <ChevronRight size={16} />
+                  Step 2 <ChevronRight size={16} />
                 </button>
               </div>
             </div>
