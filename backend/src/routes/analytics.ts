@@ -14,8 +14,16 @@ export default function analyticsRoutes() {
       const totalRevenue = orders.reduce((sum, o) => sum + o.totalPrice, 0);
       const totalOrders = orders.length;
 
-      // Recent orders (last 5)
-      const recentOrders = [...orders].sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).slice(0, 5);
+      // Filter Today's orders (current calendar day)
+      const now = new Date();
+      const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      
+      const todayOrdersList = orders.filter(o => new Date(o.createdAt) >= startOfToday);
+      const todayRevenue = todayOrdersList.reduce((sum, o) => sum + o.totalPrice, 0);
+      const todayOrders = todayOrdersList.length;
+
+      // Recent orders (last 10)
+      const recentOrders = [...orders].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 10);
 
       // Top Selling Items
       const itemSales: Record<string, { name: string, quantity: number, revenue: number }> = {};
@@ -43,7 +51,7 @@ export default function analyticsRoutes() {
       }
       
       orders.forEach(o => {
-        const dateStr = o.createdAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        const dateStr = new Date(o.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
         if (salesByDay[dateStr] !== undefined) {
           salesByDay[dateStr] += o.totalPrice;
         }
@@ -51,12 +59,28 @@ export default function analyticsRoutes() {
 
       const salesChart = Object.keys(salesByDay).map(date => ({ date, revenue: salesByDay[date] }));
 
+      // Daily Breakdown List (Grouped by date, sorted newest first)
+      const dailyMap: Record<string, { date: string, revenue: number, ordersCount: number }> = {};
+      orders.forEach(o => {
+        const dateKey = new Date(o.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        if (!dailyMap[dateKey]) {
+          dailyMap[dateKey] = { date: dateKey, revenue: 0, ordersCount: 0 };
+        }
+        dailyMap[dateKey].revenue += o.totalPrice;
+        dailyMap[dateKey].ordersCount += 1;
+      });
+
+      const dailyBreakdown = Object.values(dailyMap).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
       res.json({
+        todayRevenue,
+        todayOrders,
         totalRevenue,
         totalOrders,
         recentOrders,
         topItems,
-        salesChart
+        salesChart,
+        dailyBreakdown
       });
     } catch (error) {
       console.error('Failed to fetch analytics:', error);

@@ -348,31 +348,38 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
 
         {analytics ? (
           <div className="space-y-8">
+            {/* Top Cards: Today's Metrics vs Lifetime */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-gray-900/80 p-6 rounded-3xl border border-[#d4af37]/40 shadow-xl relative overflow-hidden">
+                <div className="absolute top-3 right-3 bg-[#d4af37]/20 text-[#d4af37] text-[10px] font-black uppercase px-2.5 py-1 rounded-full border border-[#d4af37]/30">
+                  Today's Record
+                </div>
+                <p className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Today's Revenue</p>
+                <h3 className="text-3xl font-black text-[#d4af37]">${analytics.todayRevenue?.toFixed(2) || '0.00'}</h3>
+                <p className="text-xs font-bold text-gray-400 mt-1">({Math.round((analytics.todayRevenue || 0) * 4000).toLocaleString()} ៛)</p>
+              </div>
+
+              <div className="bg-gray-900/80 p-6 rounded-3xl border border-blue-500/40 shadow-xl relative overflow-hidden">
+                <div className="absolute top-3 right-3 bg-blue-500/20 text-blue-400 text-[10px] font-black uppercase px-2.5 py-1 rounded-full border border-blue-500/30">
+                  Today's Record
+                </div>
+                <p className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Today's Orders</p>
+                <h3 className="text-3xl font-black text-white">{analytics.todayOrders || 0} <span className="text-sm font-normal text-gray-400">orders</span></h3>
+              </div>
+
               <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
-                <p className="text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Total Sales Revenue</p>
-                <h3 className="text-3xl font-bold text-[#d4af37]">${analytics.totalRevenue?.toFixed(2) || '0.00'}</h3>
+                <p className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Lifetime Total Revenue</p>
+                <h3 className="text-2xl font-bold text-gray-200">${analytics.totalRevenue?.toFixed(2) || '0.00'}</h3>
                 <p className="text-xs font-bold text-gray-500 mt-1">({Math.round((analytics.totalRevenue || 0) * 4000).toLocaleString()} ៛)</p>
               </div>
+
               <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
-                <p className="text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Total Orders Completed</p>
-                <h3 className="text-3xl font-bold text-white">{analytics.totalOrders || 0}</h3>
-              </div>
-              <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
-                <p className="text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Average Order Value</p>
-                <h3 className="text-3xl font-bold text-[#d4af37]">
-                  ${analytics.totalOrders > 0 ? (analytics.totalRevenue / analytics.totalOrders).toFixed(2) : '0.00'}
-                </h3>
-                <p className="text-xs font-bold text-gray-500 mt-1">
-                  ({analytics.totalOrders > 0 ? Math.round(((analytics.totalRevenue / analytics.totalOrders) * 4000)).toLocaleString() : '0'} ៛)
-                </p>
-              </div>
-              <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
-                <p className="text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Active Categories</p>
-                <h3 className="text-3xl font-bold text-white">18</h3>
+                <p className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Lifetime Orders</p>
+                <h3 className="text-2xl font-bold text-gray-200">{analytics.totalOrders || 0} <span className="text-sm font-normal text-gray-500">total</span></h3>
               </div>
             </div>
 
+            {/* Charts */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg h-96 flex flex-col">
                 <h3 className="text-xl font-bold mb-6 text-white">Revenue (Last 7 Days)</h3>
@@ -411,13 +418,46 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
               </div>
             </div>
 
+            {/* Daily Breakdown by Date */}
+            {analytics.dailyBreakdown && analytics.dailyBreakdown.length > 0 && (
+              <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
+                <h3 className="text-xl font-bold mb-4 text-white flex items-center justify-between">
+                  <span>📅 Daily Sales Records (Past Days Preserved)</span>
+                  <span className="text-xs text-gray-400 font-normal">New day starts fresh record automatically</span>
+                </h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left">
+                    <thead>
+                      <tr className="border-b border-gray-800 text-gray-400 text-sm">
+                        <th className="py-3 px-4">Date</th>
+                        <th className="py-3 px-4 text-center">Orders Count</th>
+                        <th className="py-3 px-4 text-right">Daily Total Revenue</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {analytics.dailyBreakdown.map((row: any, idx: number) => (
+                        <tr key={idx} className="border-b border-gray-800/50 hover:bg-gray-800/30">
+                          <td className="py-3.5 px-4 font-bold text-gray-200">{row.date}</td>
+                          <td className="py-3.5 px-4 text-center font-bold text-gray-300">{row.ordersCount} orders</td>
+                          <td className="py-3.5 px-4 font-black text-[#d4af37] text-right">
+                            ${row.revenue.toFixed(2)} <span className="text-xs text-gray-400 font-normal">({Math.round(row.revenue * 4000).toLocaleString()} ៛)</span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {/* Recent Orders List */}
             <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
               <h3 className="text-xl font-bold mb-6 text-white">Recent Order History</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
                     <tr className="border-b border-gray-800 text-gray-400">
-                      <th className="py-3 px-4">Date</th>
+                      <th className="py-3 px-4">Date & Time</th>
                       <th className="py-3 px-4">Order ID</th>
                       <th className="py-3 px-4 text-right">Total</th>
                     </tr>
