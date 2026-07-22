@@ -258,56 +258,24 @@ export default function MenuSection() {
     return counts;
   }, [menuItems, recommendedItemIds]);
 
-  // Filter and sort items
-  const displayItems = menuItems.filter(item => {
-    const categoryName = item.category?.name || item.Category || 'Uncategorized';
-    
-    let matchesCategory = false;
-    if (activeCategory === 'All') matchesCategory = true;
-    else if (activeCategory === 'Recommendations') {
-      matchesCategory = recommendedItemIds.has(item.id);
+  // Slug generator for scroll IDs
+  const generateSlug = (name: string) => {
+    return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  };
+
+  const handleCategoryChange = (categoryName: string) => {
+    setActiveCategory(categoryName);
+    if (categoryName === 'All' || categoryName === 'Recommendations') {
+      const el = document.getElementById('menu');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
-      matchesCategory = categoryName === activeCategory;
+      const slug = generateSlug(categoryName);
+      const el = document.getElementById(`category-section-${slug}`);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
-
-    const matchesSearch = searchQuery === '' ? true : (
-      (item.name || item.Name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (item.sku || item.SKU || '').toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    return matchesCategory && matchesSearch;
-  }).sort((a, b) => {
-    const skuA = (a.sku || a.SKU || '').toLowerCase();
-    const skuB = (b.sku || b.SKU || '').toLowerCase();
-    const nameA = (a.name || a.Name || '').toLowerCase();
-    const nameB = (b.name || b.Name || '').toLowerCase();
-
-    if (searchQuery) {
-      const lowerQuery = searchQuery.toLowerCase();
-
-      const aExactSku = skuA === lowerQuery;
-      const bExactSku = skuB === lowerQuery;
-      if (aExactSku && !bExactSku) return -1;
-      if (!aExactSku && bExactSku) return 1;
-
-      const aStartsSku = skuA.startsWith(lowerQuery);
-      const bStartsSku = skuB.startsWith(lowerQuery);
-      if (aStartsSku && !bStartsSku) return -1;
-      if (!aStartsSku && bStartsSku) return 1;
-
-      const aStartsName = nameA.startsWith(lowerQuery);
-      const bStartsName = nameB.startsWith(lowerQuery);
-      if (aStartsName && !bStartsName) return -1;
-      if (!aStartsName && bStartsName) return 1;
-    }
-
-    if (skuA && !skuB) return -1;
-    if (!skuA && skuB) return 1;
-    if (skuA && skuB) {
-      return skuA.localeCompare(skuB, undefined, { numeric: true, sensitivity: 'base' });
-    }
-    
-    return nameA.localeCompare(nameB);
-  });
+  };
 
   if (isLoading) {
     return (
@@ -317,41 +285,49 @@ export default function MenuSection() {
     );
   }
 
+  // Group items by category for the continuous single-scroll layout
+  const categorySectionsToRender = rawCategories.filter(cat => {
+    if (activeCategory !== 'All' && activeCategory !== 'Recommendations' && activeCategory !== cat) {
+      return false;
+    }
+    return true;
+  });
+
   return (
-    <section id="menu" className="py-20 px-6 max-w-7xl mx-auto">
-      <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold mb-4 font-['Playfair_Display']">Our Menu</h2>
-        <p className="text-[#aaaaaa]">Select a category below or search for your favorite dish.</p>
+    <section id="menu" className="py-12 px-6 max-w-7xl mx-auto">
+      <div className="text-center mb-8">
+        <h2 className="text-4xl font-bold mb-3 font-['Playfair_Display']">Our Menu</h2>
+        <p className="text-[#aaaaaa]">All items in one continuous scroll. Use the dropdown or pills to jump to any category.</p>
       </div>
 
-      {/* Prominent Category Dropdown & Search Filter */}
-      <div className="bg-[#0a0a0c]/95 backdrop-blur-md py-6 -mx-6 px-6 mb-12 border-y border-gray-800 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+      {/* Sticky Top Filter & Quick-Jump Dropdown */}
+      <div className="sticky top-0 z-[80] bg-[#0a0a0c]/95 backdrop-blur-md py-4 -mx-6 px-6 mb-12 border-y border-gray-800 shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-stretch md:items-center">
           
-          {/* Category Dropdown Selector */}
+          {/* Category Dropdown Selector (Scroll Jump) */}
           <div className="flex-1 relative">
-            <label className="text-xs font-bold text-[#d4af37] uppercase tracking-wider block mb-1.5 flex items-center gap-1.5">
-              <Layers size={14} /> Select Menu Category (Dropdown)
+            <label className="text-[11px] font-bold text-[#d4af37] uppercase tracking-wider block mb-1 flex items-center gap-1.5">
+              <Layers size={13} /> Quick Jump To Category (Dropdown)
             </label>
             <div className="relative">
               <select
                 value={activeCategory}
-                onChange={(e) => setActiveCategory(e.target.value)}
-                className="w-full bg-black border-2 border-[#d4af37] text-white font-bold py-3.5 px-4 pr-10 rounded-2xl appearance-none focus:outline-none focus:ring-2 focus:ring-[#d4af37] shadow-lg cursor-pointer text-base"
+                onChange={(e) => handleCategoryChange(e.target.value)}
+                className="w-full bg-black border-2 border-[#d4af37] text-white font-bold py-3 px-4 pr-10 rounded-2xl appearance-none focus:outline-none focus:ring-2 focus:ring-[#d4af37] shadow-lg cursor-pointer text-sm md:text-base"
               >
                 {categories.map((cat, idx) => (
                   <option key={idx} value={cat as string} className="bg-gray-900 text-white font-semibold py-2">
-                    {cat === 'Recommendations' ? '⭐ Chef\'s Recommendations' : cat === 'All' ? '🍽️ All Dishes' : `📁 ${cat}`} ({categoryCounts[cat as string] || 0})
+                    {cat === 'Recommendations' ? '⭐ Chef\'s Recommendations' : cat === 'All' ? '🍽️ All Dishes (Full Menu)' : `📁 ${cat}`} ({categoryCounts[cat as string] || 0})
                   </option>
                 ))}
               </select>
-              <ChevronDown size={20} className="absolute right-4 top-1/2 -translate-y-1/2 text-[#d4af37] pointer-events-none" />
+              <ChevronDown size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-[#d4af37] pointer-events-none" />
             </div>
           </div>
 
           {/* Search Input */}
           <div className="flex-1 relative">
-            <label className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1.5">
+            <label className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1">
               Search Dishes & SKU
             </label>
             <div className="relative">
@@ -361,31 +337,31 @@ export default function MenuSection() {
                 placeholder="Search by dish name or SKU (e.g. B16)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-gray-900 border border-gray-700 rounded-2xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-[#d4af37] transition-colors text-base"
+                className="w-full bg-gray-900 border border-gray-700 rounded-2xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-[#d4af37] transition-colors text-sm md:text-base"
               />
             </div>
           </div>
 
         </div>
 
-        {/* Quick Horizontal Pills */}
-        <div className="max-w-7xl mx-auto mt-4 pt-4 border-t border-gray-800/60">
+        {/* Quick Jump Category Pills */}
+        <div className="max-w-7xl mx-auto mt-3 pt-3 border-t border-gray-800/60">
           <div 
             ref={scrollContainerRef}
             onMouseDown={handleMouseDown}
             onMouseLeave={() => setIsDragging(false)}
             onMouseUp={() => setIsDragging(false)}
             onMouseMove={handleMouseMove}
-            className={`flex overflow-x-auto hide-scrollbar gap-2.5 pb-2 items-center select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`flex overflow-x-auto hide-scrollbar gap-2 pb-1 items-center select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
             {categories.map((cat, idx) => (
               <button 
                 key={idx}
                 onClick={() => {
                   if (dragDistance > 10) return;
-                  setActiveCategory(cat as string);
+                  handleCategoryChange(cat as string);
                 }}
-                className={`whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+                className={`whitespace-nowrap px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
                   activeCategory === cat 
                     ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.4)] scale-105' 
                     : 'bg-gray-900/80 border border-gray-800 text-gray-400 hover:border-[#d4af37] hover:text-[#d4af37]'
@@ -398,28 +374,86 @@ export default function MenuSection() {
         </div>
       </div>
       
-      {/* Clear Section Header */}
-      <div className="flex items-center justify-between mb-8 pb-3 border-b border-gray-800">
-        <div>
-          <span className="text-xs font-bold text-[#d4af37] uppercase tracking-widest block mb-1">Current Menu Section</span>
-          <h3 className="text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white">
-            {activeCategory === 'Recommendations' ? '⭐ Chef\'s Recommendations' : activeCategory === 'All' ? '🍽️ All Dishes' : `📁 ${activeCategory}`}
-          </h3>
-        </div>
-        <span className="bg-gray-900 border border-gray-700 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-full">
-          {displayItems.length} {displayItems.length === 1 ? 'Dish' : 'Dishes'}
-        </span>
-      </div>
+      {/* CONTINUOUS SINGLE-SCROLL LAYOUT - ALL CATEGORIES STACKED */}
+      <div className="space-y-16">
+        {/* Recommendations Section */}
+        {(activeCategory === 'All' || activeCategory === 'Recommendations') && (
+          <div id="category-section-recommendations" className="scroll-mt-36">
+            <div className="flex items-center justify-between mb-6 pb-3 border-b-2 border-[#d4af37]">
+              <div>
+                <span className="text-xs font-bold text-[#d4af37] uppercase tracking-widest block mb-0.5">Special Highlights</span>
+                <h3 className="text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white">
+                  ⭐ Chef's Recommendations
+                </h3>
+              </div>
+              <span className="bg-[#d4af37]/20 border border-[#d4af37]/50 text-[#d4af37] text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow">
+                {recommendedItemIds.size} Dishes
+              </span>
+            </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
-        {displayItems.map((item, index) => (
-          <MenuItemCard 
-            key={item.id || index} 
-            item={item} 
-            onSelect={() => setSelectedItem(item)} 
-            isPopular={recommendedItemIds.has(item.id)}
-          />
-        ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
+              {menuItems
+                .filter(i => recommendedItemIds.has(i.id))
+                .filter(i => !searchQuery || (i.name || i.Name || '').toLowerCase().includes(searchQuery.toLowerCase()) || (i.sku || i.SKU || '').toLowerCase().includes(searchQuery.toLowerCase()))
+                .map((item, index) => (
+                  <MenuItemCard 
+                    key={item.id || index} 
+                    item={item} 
+                    onSelect={() => setSelectedItem(item)} 
+                    isPopular={true}
+                  />
+                ))}
+            </div>
+          </div>
+        )}
+
+        {/* Category Sections Stacked One After Another */}
+        {categorySectionsToRender.map((catName) => {
+          const sectionSlug = generateSlug(catName);
+          const sectionItems = menuItems.filter(item => {
+            const cat = item.category?.name || item.Category || 'Uncategorized';
+            const matchesCat = cat === catName;
+            const matchesSearch = !searchQuery || (
+              (item.name || item.Name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+              (item.sku || item.SKU || '').toLowerCase().includes(searchQuery.toLowerCase())
+            );
+            return matchesCat && matchesSearch;
+          }).sort((a, b) => {
+            const skuA = (a.sku || a.SKU || '').toLowerCase();
+            const skuB = (b.sku || b.SKU || '').toLowerCase();
+            if (skuA && skuB) return skuA.localeCompare(skuB, undefined, { numeric: true, sensitivity: 'base' });
+            return (a.name || a.Name || '').localeCompare(b.name || b.Name || '');
+          });
+
+          if (sectionItems.length === 0) return null;
+
+          return (
+            <div key={catName} id={`category-section-${sectionSlug}`} className="scroll-mt-36">
+              <div className="flex items-center justify-between mb-6 pb-3 border-b border-gray-800">
+                <div>
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Category</span>
+                  <h3 className="text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white">
+                    📁 {catName}
+                  </h3>
+                </div>
+                <span className="bg-gray-900 border border-gray-700 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-full">
+                  {sectionItems.length} {sectionItems.length === 1 ? 'Dish' : 'Dishes'}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
+                {sectionItems.map((item, index) => (
+                  <MenuItemCard 
+                    key={item.id || index} 
+                    item={item} 
+                    onSelect={() => setSelectedItem(item)} 
+                    isPopular={recommendedItemIds.has(item.id)}
+                  />
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       {/* Item Modal */}
