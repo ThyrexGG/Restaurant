@@ -5,7 +5,7 @@ import { format, quality } from '@cloudinary/url-gen/actions/delivery';
 import { cld } from '../cloudinary';
 import { useCart } from '../context/CartContext';
 import menuDataFallback from '../assets/menu.json';
-import { Search, ChevronDown } from 'lucide-react';
+import { Search, ChevronDown, ArrowLeftRight } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import ItemModal, { type MenuItem } from './ItemModal';
 
@@ -344,32 +344,43 @@ export default function MenuSection() {
 
         </div>
 
-        {/* Quick Jump Category Pills */}
+        {/* Quick Jump Category Pills with Drag/Swipe Indicator */}
         <div className="max-w-7xl mx-auto mt-3 pt-3 border-t border-gray-800/60">
-          <div 
-            ref={scrollContainerRef}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={() => setIsDragging(false)}
-            onMouseUp={() => setIsDragging(false)}
-            onMouseMove={handleMouseMove}
-            className={`flex overflow-x-auto hide-scrollbar gap-2 pb-1 items-center select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
-          >
-            {categories.map((cat, idx) => (
-              <button 
-                key={idx}
-                onClick={() => {
-                  if (dragDistance > 10) return;
-                  handleCategoryChange(cat as string);
-                }}
-                className={`whitespace-nowrap px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                  activeCategory === cat 
-                    ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.4)] scale-105' 
-                    : 'bg-gray-900/80 border border-gray-800 text-gray-400 hover:border-[#d4af37] hover:text-[#d4af37]'
-                }`}
-              >
-                {cat as string} <span className="opacity-70 text-[10px]">({categoryCounts[cat as string] || 0})</span>
-              </button>
-            ))}
+          <div className="flex items-center justify-between mb-2 px-1">
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Quick Categories</span>
+            <span className="text-[10px] font-bold text-[#d4af37] flex items-center gap-1.5 bg-[#d4af37]/10 px-2.5 py-0.5 rounded-full border border-[#d4af37]/30 shadow-sm animate-pulse">
+              <ArrowLeftRight size={11} /> Drag / Swipe →
+            </span>
+          </div>
+
+          <div className="relative">
+            <div 
+              ref={scrollContainerRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={() => setIsDragging(false)}
+              onMouseUp={() => setIsDragging(false)}
+              onMouseMove={handleMouseMove}
+              className={`flex overflow-x-auto hide-scrollbar gap-2 pb-1 items-center select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+            >
+              {categories.map((cat, idx) => (
+                <button 
+                  key={idx}
+                  onClick={() => {
+                    if (dragDistance > 10) return;
+                    handleCategoryChange(cat as string);
+                  }}
+                  className={`whitespace-nowrap px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                    activeCategory === cat 
+                      ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.4)] scale-105' 
+                      : 'bg-gray-900/80 border border-gray-800 text-gray-400 hover:border-[#d4af37] hover:text-[#d4af37]'
+                  }`}
+                >
+                  {cat as string} <span className="opacity-70 text-[10px]">({categoryCounts[cat as string] || 0})</span>
+                </button>
+              ))}
+            </div>
+            {/* Gradient right fade hint indicator */}
+            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#0a0a0c] to-transparent pointer-events-none rounded-r-xl" />
           </div>
         </div>
       </div>
