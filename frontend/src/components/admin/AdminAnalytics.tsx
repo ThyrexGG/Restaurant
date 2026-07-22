@@ -144,109 +144,165 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(table => {
             const url = `${window.location.origin}/table/${table}`;
             return orientation === 'landscape' ? (
+              /* LANDSCAPE FORMAT (23cm x 15cm) - UNMISSABLE HIGH-IMPACT DESIGN */
               <div
                 key={table}
                 id={`table-card-${table}`}
-                className="relative overflow-hidden flex flex-row items-center justify-between border-[6px] border-[#d4af37] rounded-3xl p-10 shadow-2xl text-black"
+                className="relative overflow-hidden flex flex-row items-center justify-between border-[8px] border-[#d4af37] rounded-3xl p-8 shadow-2xl text-black"
                 style={{
                   width: '23cm',
                   height: '15cm',
                   pageBreakInside: 'avoid',
-                  background: 'linear-gradient(135deg, #ffffff 0%, #fdfcf7 40%, #f7f1df 100%)'
+                  background: 'linear-gradient(135deg, #ffffff 0%, #fffdf5 50%, #f7eee0 100%)'
                 }}
               >
-                <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center opacity-[0.06] mix-blend-multiply">
+                {/* Background Watermark Logo */}
+                <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center opacity-[0.05] mix-blend-multiply">
                   <img src="/logo.png" alt="Watermark" className="w-[70%] h-[70%] object-contain grayscale" />
                 </div>
-                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#d4af37] to-transparent opacity-20 rounded-bl-full z-0" />
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#d4af37] to-transparent opacity-20 rounded-tr-full z-0" />
-                <div className="w-[55%] flex flex-col justify-center h-full z-10 pr-4">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-full bg-[#d4af37] flex items-center justify-center text-white font-bold text-2xl shadow-lg">
-                      {table}
+
+                {/* Accents */}
+                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#d4af37] to-transparent opacity-25 rounded-bl-full z-0" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-[#d4af37] to-transparent opacity-25 rounded-tr-full z-0" />
+
+                {/* Left Side: Table & Instructions */}
+                <div className="w-[52%] flex flex-col justify-between h-full z-10 pr-2">
+                  {/* Table Badge & Header */}
+                  <div>
+                    <div className="inline-flex items-center gap-3 bg-black text-white px-5 py-2.5 rounded-full shadow-lg border border-[#d4af37] mb-4">
+                      <div className="w-8 h-8 rounded-full bg-[#d4af37] text-black flex items-center justify-center font-bold text-lg">
+                        {table}
+                      </div>
+                      <span className="font-['Playfair_Display'] font-bold text-xl tracking-wider text-[#d4af37]">TABLE {table}</span>
                     </div>
-                    <div>
-                      <h2 className="text-gray-500 uppercase tracking-widest text-sm font-bold">Table Number</h2>
-                      <h1 className="text-5xl font-bold font-['Playfair_Display']">TABLE {table}</h1>
+                    
+                    <h1 className="text-4xl font-black font-['Playfair_Display'] text-gray-900 tracking-tight leading-tight">
+                      SCAN FOR <br />
+                      <span className="text-[#b08d29] underline decoration-[#d4af37] decoration-4 underline-offset-4">DIGITAL MENU</span>
+                    </h1>
+                  </div>
+
+                  {/* 3 Step Visual Guide */}
+                  <div className="space-y-2.5 my-auto">
+                    <div className="flex items-center gap-3 bg-white/90 p-2.5 rounded-2xl border border-gray-200 shadow-sm">
+                      <span className="w-8 h-8 rounded-xl bg-[#d4af37]/20 text-[#b08d29] font-black flex items-center justify-center text-sm border border-[#d4af37]/40 flex-shrink-0">1</span>
+                      <span className="font-bold text-base text-gray-800">Open your Phone Camera</span>
+                    </div>
+                    <div className="flex items-center gap-3 bg-white/90 p-2.5 rounded-2xl border border-gray-200 shadow-sm">
+                      <span className="w-8 h-8 rounded-xl bg-[#d4af37]/20 text-[#b08d29] font-black flex items-center justify-center text-sm border border-[#d4af37]/40 flex-shrink-0">2</span>
+                      <span className="font-bold text-base text-gray-800">Point at the QR Code</span>
+                    </div>
+                    <div className="flex items-center gap-3 bg-white/90 p-2.5 rounded-2xl border border-gray-200 shadow-sm">
+                      <span className="w-8 h-8 rounded-xl bg-[#d4af37]/20 text-[#b08d29] font-black flex items-center justify-center text-sm border border-[#d4af37]/40 flex-shrink-0">3</span>
+                      <span className="font-bold text-base text-gray-800">Order & Enjoy Fresh Food</span>
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <h3 className="text-3xl font-bold text-gray-800 border-b-2 border-[#d4af37] pb-2 inline-block font-['Playfair_Display']">Scan & Order</h3>
-                    <ul className="text-xl space-y-4 font-medium text-gray-700 list-decimal pl-6 marker:text-[#d4af37] marker:font-bold">
-                      <li>Open your phone's camera</li>
-                      <li>Point it at the QR code</li>
-                      <li>Browse our digital menu</li>
-                      <li>Order and enjoy!</li>
-                    </ul>
-                  </div>
-                  <div className="mt-auto">
-                    <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">Best Khmer Restaurant</p>
+
+                  {/* Footer */}
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-black text-gray-400 uppercase tracking-widest">Best Khmer Restaurant</span>
                   </div>
                 </div>
-                <div className="w-[45%] flex flex-col items-center justify-center border-l-2 border-dashed border-gray-300 pl-8 h-full z-10">
-                  <div className="bg-white p-4 border-4 border-[#d4af37] rounded-3xl shadow-xl transform transition-transform hover:scale-105 relative group">
-                    <QRCodeSVG id={`qr-svg-${table}`} value={url} size={220} level="H" fgColor="#000000" />
+
+                {/* Right Side: Big QR Code */}
+                <div className="w-[48%] flex flex-col items-center justify-center border-l-2 border-dashed border-gray-300/80 pl-6 h-full z-10">
+                  {/* Scan Me Floating Badge */}
+                  <div className="mb-2 bg-black text-[#d4af37] text-xs font-black tracking-widest uppercase px-4 py-1.5 rounded-full border border-[#d4af37] shadow-md flex items-center gap-1.5">
+                    <span>📷</span> SCAN ME TO ORDER
                   </div>
-                  <div className="mt-4 flex flex-col items-center">
+
+                  <div className="bg-white p-3.5 border-[6px] border-[#d4af37] rounded-3xl shadow-[0_15px_35px_rgba(212,175,55,0.25)] relative group">
+                    <QRCodeSVG id={`qr-svg-${table}`} value={url} size={235} level="H" fgColor="#000000" />
+                  </div>
+
+                  <div className="mt-3 flex flex-col items-center w-full">
                     <button
                       onClick={() => handleDownloadCard(table)}
-                      className="print:hidden mb-2 bg-[#222] hover:bg-black text-white text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition-colors border border-gray-700 shadow"
+                      className="print:hidden mb-2 bg-black text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-1.5 transition-colors border border-[#d4af37] shadow hover:bg-gray-800"
                     >
                       <Download size={14} /> Download Card PNG
                     </button>
-                    <p className="font-bold text-lg text-gray-800 tracking-wider">Wi-Fi: <span className="text-[#d4af37]">Best Khmer</span></p>
-                    <p className="font-bold text-sm text-gray-600 tracking-wider mt-1">Pass: <span className="text-[#d4af37]">Bkr@0168</span></p>
-                    <p className="text-sm text-gray-500 font-mono mt-1">{url.replace('https://', '').replace('http://', '')}</p>
+                    
+                    <div className="bg-white/90 p-2.5 rounded-xl border border-gray-300 w-full text-center shadow-sm">
+                      <p className="font-extrabold text-sm text-gray-900 tracking-wide">📶 Wi-Fi: <span className="text-[#b08d29]">Best Khmer</span></p>
+                      <p className="font-bold text-xs text-gray-600 tracking-wide mt-0.5">🔑 Pass: <span className="text-[#b08d29]">Bkr@0168</span></p>
+                    </div>
                   </div>
                 </div>
               </div>
             ) : (
+              /* PORTRAIT FORMAT (15cm x 23cm) - UNMISSABLE HIGH-IMPACT DESIGN */
               <div
                 key={table}
                 id={`table-card-${table}`}
-                className="relative overflow-hidden flex flex-col items-center justify-between border-[6px] border-[#d4af37] rounded-3xl p-8 shadow-2xl text-black"
+                className="relative overflow-hidden flex flex-col items-center justify-between border-[8px] border-[#d4af37] rounded-3xl p-8 shadow-2xl text-black"
                 style={{
                   width: '15cm',
                   height: '23cm',
                   pageBreakInside: 'avoid',
-                  background: 'linear-gradient(180deg, #ffffff 0%, #fdfcf7 40%, #f7f1df 100%)'
+                  background: 'linear-gradient(180deg, #ffffff 0%, #fffdf5 50%, #f7eee0 100%)'
                 }}
               >
-                <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center opacity-[0.06] mix-blend-multiply">
+                {/* Background Watermark Logo */}
+                <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center opacity-[0.05] mix-blend-multiply">
                   <img src="/logo.png" alt="Watermark" className="w-[85%] h-[85%] object-contain grayscale" />
                 </div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#d4af37] to-transparent opacity-20 rounded-bl-full z-0" />
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#d4af37] to-transparent opacity-20 rounded-tr-full z-0" />
+
+                {/* Accents */}
+                <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-[#d4af37] to-transparent opacity-25 rounded-bl-full z-0" />
+                <div className="absolute bottom-0 left-0 w-36 h-36 bg-gradient-to-tr from-[#d4af37] to-transparent opacity-25 rounded-tr-full z-0" />
+
+                {/* Top: Header & Table Number Badge */}
                 <div className="flex flex-col items-center z-10 w-full text-center">
-                  <div className="w-16 h-16 rounded-full bg-[#d4af37] flex items-center justify-center text-white font-bold text-2xl shadow-lg mb-2">
-                    {table}
+                  <div className="inline-flex items-center gap-2 bg-black text-white px-5 py-2 rounded-full shadow-lg border border-[#d4af37] mb-3">
+                    <div className="w-7 h-7 rounded-full bg-[#d4af37] text-black flex items-center justify-center font-bold text-base">
+                      {table}
+                    </div>
+                    <span className="font-['Playfair_Display'] font-bold text-lg tracking-wider text-[#d4af37]">TABLE {table}</span>
                   </div>
-                  <h2 className="text-gray-500 uppercase tracking-widest text-xs font-bold">Table Number</h2>
-                  <h1 className="text-4xl font-bold font-['Playfair_Display']">TABLE {table}</h1>
+
+                  <h1 className="text-3xl font-black font-['Playfair_Display'] text-gray-900 tracking-tight">
+                    SCAN TO ORDER
+                  </h1>
                 </div>
-                <div className="flex flex-col items-center justify-center z-10 my-4">
-                  <div className="bg-white p-4 border-4 border-[#d4af37] rounded-3xl shadow-xl transform transition-transform hover:scale-105">
-                    <QRCodeSVG id={`qr-svg-${table}`} value={url} size={210} level="H" fgColor="#000000" />
+
+                {/* Center: High-Impact QR Code */}
+                <div className="flex flex-col items-center justify-center z-10 my-2">
+                  <div className="mb-2 bg-black text-[#d4af37] text-[11px] font-black tracking-widest uppercase px-3.5 py-1 rounded-full border border-[#d4af37] shadow-md flex items-center gap-1">
+                    <span>📷</span> POINT CAMERA HERE
                   </div>
+
+                  <div className="bg-white p-3 border-[6px] border-[#d4af37] rounded-3xl shadow-[0_15px_35px_rgba(212,175,55,0.25)]">
+                    <QRCodeSVG id={`qr-svg-${table}`} value={url} size={230} level="H" fgColor="#000000" />
+                  </div>
+                  
                   <button
                     onClick={() => handleDownloadCard(table)}
-                    className="print:hidden mt-3 bg-[#222] hover:bg-black text-white text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition-colors border border-gray-700 shadow"
+                    className="print:hidden mt-3 bg-black text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-1.5 transition-colors border border-[#d4af37] shadow hover:bg-gray-800"
                   >
                     <Download size={14} /> Download Card PNG
                   </button>
                 </div>
+
+                {/* Bottom: Visual Steps & Wi-Fi */}
                 <div className="w-full flex flex-col items-center z-10 text-center">
-                  <h3 className="text-2xl font-bold text-gray-800 border-b-2 border-[#d4af37] pb-1 mb-3 font-['Playfair_Display']">Scan & Order</h3>
-                  <ol className="text-sm font-medium text-gray-700 space-y-1 mb-4 text-left max-w-xs">
-                    <li>1. Open your phone's camera</li>
-                    <li>2. Point it at the QR code</li>
-                    <li>3. Browse our digital menu & order</li>
-                  </ol>
-                  <div className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl border border-gray-300 shadow-sm w-full">
-                    <p className="font-bold text-base text-gray-800 tracking-wider">Wi-Fi: <span className="text-[#d4af37]">Best Khmer</span></p>
-                    <p className="font-bold text-xs text-gray-600 tracking-wider mt-0.5">Pass: <span className="text-[#d4af37]">Bkr@0168</span></p>
+                  <div className="w-full space-y-1.5 mb-3 text-left">
+                    <div className="flex items-center gap-2 bg-white/90 p-2 rounded-xl border border-gray-200 shadow-sm">
+                      <span className="w-6 h-6 rounded-lg bg-[#d4af37]/20 text-[#b08d29] font-black flex items-center justify-center text-xs border border-[#d4af37]/40 flex-shrink-0">1</span>
+                      <span className="font-bold text-xs text-gray-800">Open Camera & Scan QR</span>
+                    </div>
+                    <div className="flex items-center gap-2 bg-white/90 p-2 rounded-xl border border-gray-200 shadow-sm">
+                      <span className="w-6 h-6 rounded-lg bg-[#d4af37]/20 text-[#b08d29] font-black flex items-center justify-center text-xs border border-[#d4af37]/40 flex-shrink-0">2</span>
+                      <span className="font-bold text-xs text-gray-800">Browse Menu & Order</span>
+                    </div>
                   </div>
-                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-4">Best Khmer Restaurant</p>
+
+                  <div className="bg-white/90 p-2.5 rounded-xl border border-gray-300 w-full text-center shadow-sm">
+                    <p className="font-extrabold text-sm text-gray-900 tracking-wide">📶 Wi-Fi: <span className="text-[#b08d29]">Best Khmer</span></p>
+                    <p className="font-bold text-xs text-gray-600 tracking-wide mt-0.5">🔑 Pass: <span className="text-[#b08d29]">Bkr@0168</span></p>
+                  </div>
+
+                  <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-3">Best Khmer Restaurant</p>
                 </div>
               </div>
             );
