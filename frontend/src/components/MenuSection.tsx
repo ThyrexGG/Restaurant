@@ -5,7 +5,7 @@ import { format, quality } from '@cloudinary/url-gen/actions/delivery';
 import { cld } from '../cloudinary';
 import { useCart } from '../context/CartContext';
 import menuDataFallback from '../assets/menu.json';
-import { Search } from 'lucide-react';
+import { Search, Layers, ChevronDown } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import ItemModal, { type MenuItem } from './ItemModal';
 
@@ -57,10 +57,11 @@ function MenuItemCard({ item, onSelect, isPopular = false }: { item: MenuItem, o
       className="glass-panel overflow-hidden group flex flex-row md:flex-col items-center md:items-stretch hover:-translate-y-1 md:hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(212,175,55,0.15)] transition-all p-3 md:p-0 gap-3 md:gap-0 cursor-pointer"
     >
       {localImage ? (
-        <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none">
+        <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none bg-black">
           <img 
             src={localImage} 
             alt={displayName} 
+            loading="lazy"
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
             style={{ objectPosition: item.imagePosition || 'center' }}
           />
@@ -71,7 +72,7 @@ function MenuItemCard({ item, onSelect, isPopular = false }: { item: MenuItem, o
           )}
         </div>
       ) : cloudinaryImg ? (
-        <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none">
+        <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none bg-black">
           <AdvancedImage 
             cldImg={cloudinaryImg} 
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
@@ -113,47 +114,58 @@ function MenuItemCard({ item, onSelect, isPopular = false }: { item: MenuItem, o
             )}
           </div>
 
-          <div className="md:hidden mb-2">
-             <p className="text-gray-400 text-xs line-clamp-2">
-               {displayDesc || "Delicious and authentic cuisine."}
-             </p>
+          <div className="mb-2 md:hidden">
+            <p className={`text-gray-400 text-xs transition-all duration-300 ${isExpanded ? '' : 'line-clamp-1'}`}>
+              {displayDesc || "Delicious and authentic cuisine."}
+            </p>
           </div>
         </div>
 
-        <button 
-          onClick={handleAdd} 
-          disabled={!isAvailable}
-          className={`${isAvailable ? 'bg-[#d4af37] text-black hover:bg-[#b08d29]' : 'bg-gray-800 text-gray-500 cursor-not-allowed'} font-bold rounded-lg py-1.5 px-3 md:py-3 text-sm md:text-base self-start md:w-full transition-colors shadow-lg`}
-        >
-          <span className="hidden md:inline">{isAvailable ? 'Add to Order' : 'Sold Out'}</span>
-          <span className="md:hidden">{isAvailable ? '+ Add' : 'Sold Out'}</span>
-        </button>
+        <div className="flex justify-between items-center mt-auto">
+          {item.sku || item.SKU ? (
+            <span className="text-xs text-gray-500 font-mono font-bold bg-black/40 px-2 py-0.5 rounded border border-gray-800">
+              #{item.sku || item.SKU}
+            </span>
+          ) : <span></span>}
+
+          {isAvailable ? (
+            <button
+              onClick={handleAdd}
+              className="bg-[#d4af37] text-black font-bold text-xs md:text-sm px-4 py-2 rounded-xl hover:bg-[#b08d29] hover:scale-105 active:scale-95 transition-all shadow-[0_4px_15px_rgba(212,175,55,0.3)]"
+            >
+              + Add
+            </button>
+          ) : (
+            <span className="text-xs text-red-500 font-bold bg-red-500/10 px-3 py-1.5 rounded-xl border border-red-500/20">
+              Sold Out
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );
 }
 
 export default function MenuSection() {
+  const { addToCart } = useCart();
   const [activeCategory, setActiveCategory] = React.useState<string>('Recommendations');
   const [searchQuery, setSearchQuery] = React.useState('');
-  const [selectedItem, setSelectedItem] = React.useState<MenuItem | null>(null);
-  const [menuItems, setMenuItems] = React.useState<MenuItem[]>([]);
+  const [menuItems, setMenuItems] = React.useState<any[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const { addToCart } = useCart();
+  const [selectedItem, setSelectedItem] = React.useState<MenuItem | null>(null);
 
-  // Drag to scroll logic
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = React.useState(false);
   const [startX, setStartX] = React.useState(0);
-  const [scrollLeftPos, setScrollLeftPos] = React.useState(0);
+  const [scrollLeft, setScrollLeft] = React.useState(0);
   const [dragDistance, setDragDistance] = React.useState(0);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollContainerRef.current) return;
     setIsDragging(true);
-    setDragDistance(0);
     setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
-    setScrollLeftPos(scrollContainerRef.current.scrollLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+    setDragDistance(0);
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -161,48 +173,53 @@ export default function MenuSection() {
     e.preventDefault();
     const x = e.pageX - scrollContainerRef.current.offsetLeft;
     const walk = (x - startX) * 2;
-    setDragDistance(prev => prev + Math.abs(x - startX));
-    scrollContainerRef.current.scrollLeft = scrollLeftPos - walk;
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+    setDragDistance(Math.abs(x - startX));
   };
-  
+
   React.useEffect(() => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
     fetch(`${backendUrl}/api/menu`)
       .then(res => res.json())
       .then(data => {
-        if (data && data.length > 0) {
-          setMenuItems(data);
-        } else {
-          setMenuItems(menuDataFallback as MenuItem[]);
-        }
+        if (data && data.length > 0) setMenuItems(data);
+        else setMenuItems(menuDataFallback as any[]);
       })
       .catch(err => {
-        console.error("Failed to fetch menu from DB", err);
-        setMenuItems(menuDataFallback as MenuItem[]);
+        console.error("Failed to fetch menu from API, falling back to local menu.json", err);
+        setMenuItems(menuDataFallback as any[]);
       })
       .finally(() => setIsLoading(false));
   }, []);
 
-  // Extract unique categories
   const categoryOrder = [
-    'New Menu',
-    'Vegetarian Food',
-    'Breakfast',
+    'Recommendations',
+    'Special Dishes',
+    'Local Special Dish',
+    'Special Khmer Noodle Soup',
+    'Special Pad Thai',
+    'English Fried Rice',
+    'English Lok Lak',
+    'English Noodle',
+    'Appetizer',
+    'Pork Ribs',
     'Fried Rice',
     'Fried Noodle',
     'Grilled',
     'Soup',
     'Salad',
-    'Stir-fried',
-    'Iced Drink',
-    'Soda',
-    'Frappe',
+    'Traditional Khmer Food',
+    'Vegetarian Food',
+    'Breakfast',
+    'Sandwich / Burger',
+    'Extra',
+    'Special Drink',
+    'Fresh Juice',
     'Smoothie',
     'Macchiato',
     'Hot Drink',
     'Beverage',
-    'Dessert',
-    'Cocktails'
+    'Dessert'
   ];
 
   const rawCategories = Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean))).sort((a, b) => {
@@ -212,12 +229,12 @@ export default function MenuSection() {
     const bIndex = categoryOrder.indexOf(bStr);
     
     if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
-    if (aIndex !== -1) return -1; // a comes first
-    if (bIndex !== -1) return 1;  // b comes first
+    if (aIndex !== -1) return -1;
+    if (bIndex !== -1) return 1;
     
     return aStr.localeCompare(bStr);
   });
-  const categories = ['Recommendations', 'All', ...rawCategories];
+  const categories = React.useMemo(() => ['Recommendations', 'All', ...rawCategories], [rawCategories]);
 
   // Pre-calculate recommended items
   const recommendedItemIds = React.useMemo(() => {
@@ -228,6 +245,18 @@ export default function MenuSection() {
         .map(i => i.id)
     );
   }, [menuItems]);
+
+  const categoryCounts = React.useMemo(() => {
+    const counts: Record<string, number> = {
+      'Recommendations': recommendedItemIds.size,
+      'All': menuItems.length
+    };
+    menuItems.forEach(item => {
+      const cat = item.category?.name || item.Category || 'Uncategorized';
+      counts[cat] = (counts[cat] || 0) + 1;
+    });
+    return counts;
+  }, [menuItems, recommendedItemIds]);
 
   // Filter and sort items
   const displayItems = menuItems.filter(item => {
@@ -255,33 +284,28 @@ export default function MenuSection() {
     if (searchQuery) {
       const lowerQuery = searchQuery.toLowerCase();
 
-      // 1. Exact SKU match
       const aExactSku = skuA === lowerQuery;
       const bExactSku = skuB === lowerQuery;
       if (aExactSku && !bExactSku) return -1;
       if (!aExactSku && bExactSku) return 1;
 
-      // 2. SKU starts with query
       const aStartsSku = skuA.startsWith(lowerQuery);
       const bStartsSku = skuB.startsWith(lowerQuery);
       if (aStartsSku && !bStartsSku) return -1;
       if (!aStartsSku && bStartsSku) return 1;
 
-      // 3. Name starts with query
       const aStartsName = nameA.startsWith(lowerQuery);
       const bStartsName = nameB.startsWith(lowerQuery);
       if (aStartsName && !bStartsName) return -1;
       if (!aStartsName && bStartsName) return 1;
     }
 
-    // Default sorting by SKU
     if (skuA && !skuB) return -1;
     if (!skuA && skuB) return 1;
     if (skuA && skuB) {
       return skuA.localeCompare(skuB, undefined, { numeric: true, sensitivity: 'base' });
     }
     
-    // Fallback to name if no SKU
     return nameA.localeCompare(nameB);
   });
 
@@ -296,55 +320,101 @@ export default function MenuSection() {
   return (
     <section id="menu" className="py-20 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold mb-4">Our Menu</h2>
-        <p className="text-[#aaaaaa]">Discover our authentic and delicious dishes.</p>
+        <h2 className="text-4xl font-bold mb-4 font-['Playfair_Display']">Our Menu</h2>
+        <p className="text-[#aaaaaa]">Select a category below or search for your favorite dish.</p>
       </div>
 
-      {/* Search and Category Filter */}
-      <div className="bg-[#0a0a0c]/90 backdrop-blur-md py-4 -mx-6 px-6 mb-12 border-b border-gray-800 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-        <div className="max-w-7xl mx-auto flex flex-col gap-4">
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
-            <input 
-              type="text"
-              placeholder="Search for a dish..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-gray-900 border border-gray-700 rounded-full py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#d4af37] transition-colors"
-            />
+      {/* Prominent Category Dropdown & Search Filter */}
+      <div className="bg-[#0a0a0c]/95 backdrop-blur-md py-6 -mx-6 px-6 mb-12 border-y border-gray-800 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-stretch md:items-center">
+          
+          {/* Category Dropdown Selector */}
+          <div className="flex-1 relative">
+            <label className="text-xs font-bold text-[#d4af37] uppercase tracking-wider block mb-1.5 flex items-center gap-1.5">
+              <Layers size={14} /> Select Menu Category (Dropdown)
+            </label>
+            <div className="relative">
+              <select
+                value={activeCategory}
+                onChange={(e) => setActiveCategory(e.target.value)}
+                className="w-full bg-black border-2 border-[#d4af37] text-white font-bold py-3.5 px-4 pr-10 rounded-2xl appearance-none focus:outline-none focus:ring-2 focus:ring-[#d4af37] shadow-lg cursor-pointer text-base"
+              >
+                {categories.map((cat, idx) => (
+                  <option key={idx} value={cat as string} className="bg-gray-900 text-white font-semibold py-2">
+                    {cat === 'Recommendations' ? '⭐ Chef\'s Recommendations' : cat === 'All' ? '🍽️ All Dishes' : `📁 ${cat}`} ({categoryCounts[cat as string] || 0})
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={20} className="absolute right-4 top-1/2 -translate-y-1/2 text-[#d4af37] pointer-events-none" />
+            </div>
           </div>
+
+          {/* Search Input */}
+          <div className="flex-1 relative">
+            <label className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1.5">
+              Search Dishes & SKU
+            </label>
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+              <input 
+                type="text"
+                placeholder="Search by dish name or SKU (e.g. B16)..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-gray-900 border border-gray-700 rounded-2xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-[#d4af37] transition-colors text-base"
+              />
+            </div>
+          </div>
+
+        </div>
+
+        {/* Quick Horizontal Pills */}
+        <div className="max-w-7xl mx-auto mt-4 pt-4 border-t border-gray-800/60">
           <div 
             ref={scrollContainerRef}
             onMouseDown={handleMouseDown}
             onMouseLeave={() => setIsDragging(false)}
             onMouseUp={() => setIsDragging(false)}
             onMouseMove={handleMouseMove}
-            className={`flex overflow-x-auto hide-scrollbar gap-3 px-4 py-4 -mx-4 items-center select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`flex overflow-x-auto hide-scrollbar gap-2.5 pb-2 items-center select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
-          {categories.map((cat, idx) => (
-            <button 
-              key={idx}
-              onClick={() => {
-                if (dragDistance > 10) return;
-                setActiveCategory(cat as string);
-              }}
-              className={`whitespace-nowrap px-6 py-2.5 rounded-full font-bold transition-all ${
-                activeCategory === cat 
-                  ? 'bg-[#d4af37] text-black shadow-[0_0_20px_rgba(212,175,55,0.4)] scale-105' 
-                  : 'bg-gray-900 border border-gray-700 text-gray-400 hover:border-[#d4af37] hover:text-[#d4af37]'
-              }`}
-            >
-              {cat as string}
-            </button>
-          ))}
+            {categories.map((cat, idx) => (
+              <button 
+                key={idx}
+                onClick={() => {
+                  if (dragDistance > 10) return;
+                  setActiveCategory(cat as string);
+                }}
+                className={`whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+                  activeCategory === cat 
+                    ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.4)] scale-105' 
+                    : 'bg-gray-900/80 border border-gray-800 text-gray-400 hover:border-[#d4af37] hover:text-[#d4af37]'
+                }`}
+              >
+                {cat as string} <span className="opacity-70 text-[10px]">({categoryCounts[cat as string] || 0})</span>
+              </button>
+            ))}
           </div>
         </div>
       </div>
       
+      {/* Clear Section Header */}
+      <div className="flex items-center justify-between mb-8 pb-3 border-b border-gray-800">
+        <div>
+          <span className="text-xs font-bold text-[#d4af37] uppercase tracking-widest block mb-1">Current Menu Section</span>
+          <h3 className="text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white">
+            {activeCategory === 'Recommendations' ? '⭐ Chef\'s Recommendations' : activeCategory === 'All' ? '🍽️ All Dishes' : `📁 ${activeCategory}`}
+          </h3>
+        </div>
+        <span className="bg-gray-900 border border-gray-700 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-full">
+          {displayItems.length} {displayItems.length === 1 ? 'Dish' : 'Dishes'}
+        </span>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
         {displayItems.map((item, index) => (
           <MenuItemCard 
-            key={index} 
+            key={item.id || index} 
             item={item} 
             onSelect={() => setSelectedItem(item)} 
             isPopular={recommendedItemIds.has(item.id)}
@@ -358,7 +428,7 @@ export default function MenuSection() {
           <ItemModal 
             item={selectedItem} 
             onClose={() => setSelectedItem(null)} 
-            addToCart={addToCart} 
+            addToCart={addToCart}
           />
         )}
       </AnimatePresence>
