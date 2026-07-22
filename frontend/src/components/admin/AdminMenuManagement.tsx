@@ -88,6 +88,13 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
   });
   const categories = ['All', ...rawCategories];
   
+  const hasValidImage = (item: any) => {
+    const img = item.image || item.Cloudinary_ID;
+    if (!img) return false;
+    const str = String(img).trim().toLowerCase();
+    return str !== '' && str !== 'null' && str !== 'undefined' && str !== 'none';
+  };
+
   const displayItems = menuItems.filter(item => {
     const categoryName = item.category?.name || 'Uncategorized';
     const matchesCategory = activeCategory === 'All' || categoryName === activeCategory;
@@ -96,8 +103,8 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
                           (item.sku || item.SKU || '').toLowerCase().includes(searchQuery.toLowerCase());
                           
     let matchesImage = true;
-    if (imageFilter === 'WITH_IMAGE') matchesImage = !!item.image;
-    if (imageFilter === 'NO_IMAGE') matchesImage = !item.image;
+    if (imageFilter === 'WITH_IMAGE') matchesImage = hasValidImage(item);
+    if (imageFilter === 'NO_IMAGE') matchesImage = !hasValidImage(item);
 
     return matchesCategory && matchesSearch && matchesImage;
   }).sort((a, b) => {
@@ -222,7 +229,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
   };
 
   const totalItemsCount = menuItems.length;
-  const itemsWithImageCount = menuItems.filter(item => item.image || item.Cloudinary_ID).length;
+  const itemsWithImageCount = menuItems.filter(hasValidImage).length;
   const imageCompletionPercentage = totalItemsCount > 0 ? Math.round((itemsWithImageCount / totalItemsCount) * 100) : 0;
 
   return (
