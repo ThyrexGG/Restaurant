@@ -52,9 +52,6 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
   const [imageFilter, setImageFilter] = useState<'ALL' | 'WITH_IMAGE' | 'NO_IMAGE'>('ALL');
   
   const [removedImageBackup, setRemovedImageBackup] = useState<string | null>(null);
-  const [pendingDeletes, setPendingDeletes] = useState<string[]>([]);
-  const [toast, setToast] = useState<{id: string, message: string, onUndo: () => void} | null>(null);
-  const deleteTimers = useRef<{[key: string]: ReturnType<typeof setTimeout>}>({});
 
   const categoryOrder = [
     'New Menu',
@@ -92,7 +89,6 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
   const categories = ['All', ...rawCategories];
   
   const displayItems = menuItems.filter(item => {
-    if (pendingDeletes.includes(item.id)) return false;
     const categoryName = item.category?.name || 'Uncategorized';
     const matchesCategory = activeCategory === 'All' || categoryName === activeCategory;
     const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -555,19 +551,6 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
             </button>
           </div>
         </div>
-      </div>
-    )}
-
-    {/* Global Toast */}
-    {toast && (
-      <div className="fixed bottom-6 right-6 bg-gray-900 border border-gray-700 shadow-2xl rounded-xl p-4 flex items-center gap-4 z-[200]">
-        <span className="text-white font-bold">{toast.message}</span>
-        <button 
-          onClick={toast.onUndo}
-          className="bg-[#d4af37] text-black px-4 py-2 rounded-lg font-bold hover:scale-105 transition-transform"
-        >
-          Undo
-        </button>
       </div>
     )}
 
