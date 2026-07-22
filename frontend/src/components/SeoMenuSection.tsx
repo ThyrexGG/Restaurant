@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Layers, ChevronDown } from 'lucide-react';
+import { Search, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
@@ -183,7 +183,7 @@ export default function SeoMenuSection() {
           {/* Category Dropdown Selector (Scroll Jump) */}
           <div className="flex-1 relative">
             <label className="text-[11px] font-bold text-[#d4af37] uppercase tracking-wider block mb-1 flex items-center gap-1.5">
-              <Layers size={13} /> Quick Jump To Category (Dropdown)
+              Quick Jump To Category
             </label>
             <div className="relative">
               <select
@@ -193,7 +193,7 @@ export default function SeoMenuSection() {
               >
                 {categories.map((cat, idx) => (
                   <option key={idx} value={cat as string} className="bg-gray-900 text-white font-semibold py-2">
-                    {cat === 'Recommendations' ? '⭐ Chef\'s Recommendations' : cat === 'All' ? '🍽️ All Dishes (Full Menu)' : `📁 ${cat}`} ({categoryCounts[cat as string] || 0})
+                    {cat === 'Recommendations' ? 'Chef\'s Recommendations' : cat === 'All' ? 'All Dishes (Full Menu)' : cat} ({categoryCounts[cat as string] || 0})
                   </option>
                 ))}
               </select>
@@ -249,7 +249,7 @@ export default function SeoMenuSection() {
               <div>
                 <span className="text-xs font-bold text-[#d4af37] uppercase tracking-widest block mb-0.5">Special Highlights</span>
                 <h3 className="text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white">
-                  ⭐ Chef's Recommendations
+                  Chef's Recommendations
                 </h3>
               </div>
               <span className="bg-[#d4af37]/20 border border-[#d4af37]/50 text-[#d4af37] text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow">
@@ -290,7 +290,7 @@ export default function SeoMenuSection() {
                 <div>
                   <span className="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Category</span>
                   <h3 className="text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white">
-                    📁 {catName}
+                    {catName}
                   </h3>
                 </div>
                 <span className="bg-gray-900 border border-gray-700 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-full">

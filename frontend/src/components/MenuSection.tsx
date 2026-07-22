@@ -5,7 +5,7 @@ import { format, quality } from '@cloudinary/url-gen/actions/delivery';
 import { cld } from '../cloudinary';
 import { useCart } from '../context/CartContext';
 import menuDataFallback from '../assets/menu.json';
-import { Search, Layers, ChevronDown } from 'lucide-react';
+import { Search, ChevronDown } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import ItemModal, { type MenuItem } from './ItemModal';
 
@@ -307,7 +307,7 @@ export default function MenuSection() {
           {/* Category Dropdown Selector (Scroll Jump) */}
           <div className="flex-1 relative">
             <label className="text-[11px] font-bold text-[#d4af37] uppercase tracking-wider block mb-1 flex items-center gap-1.5">
-              <Layers size={13} /> Quick Jump To Category (Dropdown)
+              Quick Jump To Category
             </label>
             <div className="relative">
               <select
@@ -317,7 +317,7 @@ export default function MenuSection() {
               >
                 {categories.map((cat, idx) => (
                   <option key={idx} value={cat as string} className="bg-gray-900 text-white font-semibold py-2">
-                    {cat === 'Recommendations' ? '⭐ Chef\'s Recommendations' : cat === 'All' ? '🍽️ All Dishes (Full Menu)' : `📁 ${cat}`} ({categoryCounts[cat as string] || 0})
+                    {cat === 'Recommendations' ? 'Chef\'s Recommendations' : cat === 'All' ? 'All Dishes (Full Menu)' : cat} ({categoryCounts[cat as string] || 0})
                   </option>
                 ))}
               </select>
@@ -433,7 +433,7 @@ export default function MenuSection() {
                 <div>
                   <span className="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Category</span>
                   <h3 className="text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white">
-                    📁 {catName}
+                    {catName}
                   </h3>
                 </div>
                 <span className="bg-gray-900 border border-gray-700 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-full">
