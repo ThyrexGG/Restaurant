@@ -552,7 +552,10 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
                 })
                 .then(res => res.json())
                 .then(updated => {
-                  setMenuItems(prev => prev.map(item => item.id === updated.id ? updated : item));
+                  setMenuItems(prev => prev.map(item => (
+                    (item.id && updated.id && String(item.id) === String(updated.id)) ||
+                    (item.sku && updated.sku && String(item.sku).toLowerCase() === String(updated.sku).toLowerCase())
+                  ) ? { ...item, ...updated } : item));
                   setEditingItem(null);
                 });
               }}

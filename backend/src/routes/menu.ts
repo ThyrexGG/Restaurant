@@ -106,7 +106,8 @@ export default function menuRoutes(io: Server) {
           ...(sku !== undefined && { sku }),
           ...(imagePosition !== undefined && { imagePosition }),
           ...(image !== undefined && { image })
-        }
+        },
+        include: { category: true }
       });
       
       // Broadcast menu update to connected clients

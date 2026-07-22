@@ -75,9 +75,15 @@ export default function AdminDashboard() {
     
     socket.on('menu_updated', (updatedItem: any) => {
       setMenuItems((prev) => {
-        const exists = prev.find(i => i.id === updatedItem.id);
+        const exists = prev.find(i => 
+          (i.id && updatedItem.id && String(i.id) === String(updatedItem.id)) ||
+          (i.sku && updatedItem.sku && String(i.sku).toLowerCase() === String(updatedItem.sku).toLowerCase())
+        );
         if (exists) {
-          return prev.map(i => i.id === updatedItem.id ? updatedItem : i);
+          return prev.map(i => (
+            (i.id && updatedItem.id && String(i.id) === String(updatedItem.id)) ||
+            (i.sku && updatedItem.sku && String(i.sku).toLowerCase() === String(updatedItem.sku).toLowerCase())
+          ) ? { ...i, ...updatedItem } : i);
         }
         return [...prev, updatedItem];
       });

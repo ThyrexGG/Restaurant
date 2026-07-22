@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Printer } from 'lucide-react';
+import { Printer, Download } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { QRCodeSVG } from 'qrcode.react';
 
@@ -9,6 +9,35 @@ interface AdminAnalyticsProps {
 
 export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
   const [showPreview, setShowPreview] = useState(false);
+
+  const handleDownloadQR = (tableNum: number) => {
+    const svgElement = document.getElementById(`qr-svg-${tableNum}`);
+    if (!svgElement) return;
+
+    const svgData = new XMLSerializer().serializeToString(svgElement);
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+
+    img.onload = () => {
+      canvas.width = 400;
+      canvas.height = 400;
+      if (ctx) {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 50, 50, 300, 300);
+        const pngUrl = canvas.toDataURL('image/png');
+        const downloadLink = document.createElement('a');
+        downloadLink.href = pngUrl;
+        downloadLink.download = `Table-${tableNum}-QR.png`;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+      }
+    };
+
+    img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+  };
 
   if (showPreview) {
     return (
@@ -33,20 +62,33 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
           `}
         </style>
 
-        <div className="max-w-7xl mx-auto print:hidden flex justify-between items-center mb-8">
+        <div className="max-w-7xl mx-auto print:hidden flex flex-wrap justify-between items-center mb-8 gap-4">
           <button
             onClick={() => setShowPreview(false)}
             className="bg-black text-white px-6 py-3 rounded-xl font-bold hover:bg-gray-800 transition-colors"
           >
             ← Back to Dashboard
           </button>
-          <button
-            onClick={() => window.print()}
-            className="bg-[#d4af37] text-black px-8 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-[#c19b2e] transition-colors shadow-lg"
-          >
-            <Printer size={20} />
-            Print QR Codes
-          </button>
+          <div className="flex gap-3">
+            <button
+              onClick={() => {
+                [1,2,3,4,5,6,7,8,9,10,11,12].forEach((t, i) => {
+                  setTimeout(() => handleDownloadQR(t), i * 200);
+                });
+              }}
+              className="bg-gray-900 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-black transition-colors shadow-lg"
+            >
+              <Download size={20} />
+              Download All PNGs
+            </button>
+            <button
+              onClick={() => window.print()}
+              className="bg-[#d4af37] text-black px-8 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-[#c19b2e] transition-colors shadow-lg"
+            >
+              <Printer size={20} />
+              Print QR Codes
+            </button>
+          </div>
         </div>
 
         <div className="flex flex-col items-center gap-[2cm] py-4 bg-white">
@@ -101,13 +143,19 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
 
                 {/* Right Side: QR Code */}
                 <div className="w-[45%] flex flex-col items-center justify-center border-l-2 border-dashed border-gray-300 pl-8 h-full z-10">
-                  <div className="bg-white p-4 border-4 border-[#d4af37] rounded-3xl shadow-xl transform transition-transform hover:scale-105">
-                    <QRCodeSVG value={url} size={220} level="H" fgColor="#000000" />
+                  <div className="bg-white p-4 border-4 border-[#d4af37] rounded-3xl shadow-xl transform transition-transform hover:scale-105 relative group">
+                    <QRCodeSVG id={`qr-svg-${table}`} value={url} size={220} level="H" fgColor="#000000" />
                   </div>
-                  <div className="mt-6 flex flex-col items-center">
+                  <div className="mt-4 flex flex-col items-center">
+                    <button
+                      onClick={() => handleDownloadQR(table)}
+                      className="print:hidden mb-2 bg-[#222] hover:bg-black text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 transition-colors border border-gray-700 shadow"
+                    >
+                      <Download size={14} /> Download PNG
+                    </button>
                     <p className="font-bold text-lg text-gray-800 tracking-wider">Wi-Fi: <span className="text-[#d4af37]">Best Khmer</span></p>
                     <p className="font-bold text-sm text-gray-600 tracking-wider mt-1">Pass: <span className="text-[#d4af37]">Bkr@0168</span></p>
-                    <p className="text-sm text-gray-500 font-mono mt-2">{url.replace('https://', '').replace('http://', '')}</p>
+                    <p className="text-sm text-gray-500 font-mono mt-1">{url.replace('https://', '').replace('http://', '')}</p>
                   </div>
                 </div>
               </div>
