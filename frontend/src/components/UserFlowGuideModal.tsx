@@ -10,45 +10,58 @@ interface UserFlowGuideModalProps {
 const STEPS = [
   {
     id: 1,
-    title: "Step 1: Tap Dish & Customize Options",
-    voiceText: "Step 1: Tap any dish or drink. Choose your meat option like Chicken or Pork, or set drink sugar level 100%, 50% or 0%, then tap Add.",
-    shortDesc: "Tap any item on the menu. Select your meat choice (Chicken/Pork) or drink sweetness (100%, 50%, 0%), then tap Add.",
+    title: "Step 1: Tap Item & Customize Options",
+    voiceText: "Step 1: Tap Beef Lok Lak. Select your meat choice like Beef, Pork, or Chicken, add extras like fried egg, then tap Add.",
+    shortDesc: "Tap Beef Lok Lak on the menu. Select your meat choice (Beef/Pork/Chicken) and optional extras (Fried Egg), then tap + Add.",
     visual: (
       <div className="bg-[#0a0a0c] p-4 rounded-2xl border border-gray-800 space-y-4 font-sans">
-        <div className="flex justify-between items-center bg-gray-900 p-3 rounded-xl border border-gray-800">
-          <div>
-            <h5 className="text-sm font-bold text-white">Special Amok (Curry)</h5>
-            <span className="text-xs text-[#d4af37] font-bold">$5.00 <span className="text-gray-400 font-normal">(20,000 ៛)</span></span>
+        {/* Real Dish Showcase Card */}
+        <div className="flex gap-3 bg-gray-900/90 p-3 rounded-xl border border-gray-800 items-center">
+          <img 
+            src="/images/beef-lok-lak.webp" 
+            alt="Beef Lok Lak with Rice" 
+            className="w-16 h-16 object-cover rounded-lg border border-[#d4af37]/40 flex-shrink-0"
+          />
+          <div className="flex-1 min-w-0">
+            <div className="flex justify-between items-start">
+              <h5 className="text-xs md:text-sm font-bold text-white truncate">Beef Lok Lak with Rice</h5>
+              <span className="text-xs font-bold text-[#d4af37]">$4.00</span>
+            </div>
+            <p className="text-[10px] text-gray-400 truncate">SKU: F1 • Authentic Khmer stir-fry</p>
+            <span className="inline-block text-[10px] font-bold text-[#d4af37] mt-1">16,000 ៛</span>
           </div>
-          <span className="bg-[#d4af37] text-black font-bold text-xs px-3 py-1.5 rounded-lg">+ Add</span>
         </div>
 
-        {/* Meat / Options Selector */}
+        {/* Meat Choice Selector */}
         <div className="space-y-1.5">
-          <span className="text-xs font-bold text-[#d4af37] block">Select Meat Option:</span>
-          <div className="grid grid-cols-3 gap-1.5 text-xs text-center font-bold">
-            <span className="bg-[#d4af37] text-black py-1.5 rounded-lg shadow">Chicken</span>
+          <div className="flex justify-between text-xs">
+            <span className="font-bold text-[#d4af37]">Select Meat Option:</span>
+            <span className="font-bold text-white bg-gray-900 px-2 py-0.5 rounded text-[10px] border border-gray-800">Beef</span>
+          </div>
+          <div className="grid grid-cols-4 gap-1.5 text-xs text-center font-bold">
+            <span className="bg-[#d4af37] text-black py-1.5 rounded-lg shadow">Beef</span>
             <span className="bg-gray-900 text-gray-400 py-1.5 rounded-lg border border-gray-800">Pork</span>
-            <span className="bg-gray-900 text-gray-400 py-1.5 rounded-lg border border-gray-800">Beef</span>
+            <span className="bg-gray-900 text-gray-400 py-1.5 rounded-lg border border-gray-800">Chicken</span>
+            <span className="bg-gray-900 text-gray-400 py-1.5 rounded-lg border border-gray-800">Tofu</span>
           </div>
         </div>
 
-        {/* Drink Sugar Level Selector */}
-        <div className="space-y-1.5 pt-1">
-          <span className="text-xs font-bold text-cyan-400 block">Drink Sugar Sweetness:</span>
-          <div className="flex gap-1.5 text-xs font-bold">
-            <span className="bg-gray-900 text-gray-400 px-3 py-1 rounded-lg border border-gray-800">100%</span>
-            <span className="bg-cyan-500 text-black px-3 py-1 rounded-lg shadow">50% (Half)</span>
-            <span className="bg-gray-900 text-gray-400 px-3 py-1 rounded-lg border border-gray-800">0% (No Sugar)</span>
-          </div>
+        {/* Add Extra Egg */}
+        <div className="flex justify-between items-center bg-gray-900 p-2.5 rounded-xl border border-gray-800 text-xs">
+          <span className="text-gray-300 font-semibold">Add Fried Egg</span>
+          <span className="font-bold text-[#d4af37]">+$0.50</span>
         </div>
+
+        <button className="w-full bg-[#d4af37] text-black font-extrabold text-xs md:text-sm py-2.5 rounded-xl shadow-lg">
+          + Add to Order • $4.50 (18,000 ៛)
+        </button>
       </div>
     )
   },
   {
     id: 2,
     title: "Step 2: Open Cart & Confirm Order",
-    voiceText: "Step 2: Open your cart at the bottom, select Dine-In with your table number or Takeaway, and tap Confirm Order. Review your order before sending!",
+    voiceText: "Step 2: Open your cart at the bottom, select Dine-In with your table number or Takeaway, review items, and tap Confirm Order.",
     shortDesc: "Open your cart at the bottom, pick Dine In (Table #) or Take Away, review items, and tap Confirm Order to send to the kitchen!",
     visual: (
       <div className="bg-[#0a0a0c] p-4 rounded-2xl border border-gray-800 space-y-4 font-sans">
@@ -62,21 +75,28 @@ const STEPS = [
           </div>
         </div>
 
-        {/* Order Review Box */}
-        <div className="bg-gray-900/90 p-3 rounded-xl border border-gray-800 space-y-1.5 text-xs">
-          <div className="flex justify-between text-white font-bold">
-            <span>1x Special Amok (Chicken)</span>
-            <span className="text-[#d4af37]">$5.00</span>
+        {/* Order Review Box with Real Lok Lak */}
+        <div className="bg-gray-900/90 p-3 rounded-xl border border-gray-800 space-y-2 text-xs">
+          <div className="flex justify-between items-center text-white font-bold border-b border-gray-800/80 pb-2">
+            <div className="flex items-center gap-2">
+              <img src="/images/beef-lok-lak.webp" alt="Lok Lak" className="w-8 h-8 rounded object-cover" />
+              <div>
+                <div className="truncate">1x Beef Lok Lak with Rice</div>
+                <div className="text-[10px] text-gray-400 font-normal">Meat: Beef • Add Fried Egg</div>
+              </div>
+            </div>
+            <span className="text-[#d4af37]">$4.50</span>
           </div>
-          <div className="flex justify-between text-white font-bold">
-            <span>1x Smoothie (Sugar 50%)</span>
+
+          <div className="flex justify-between items-center text-white font-bold pt-1">
+            <span>1x Mango Smoothie (Sugar 50%)</span>
             <span className="text-[#d4af37]">$2.50</span>
           </div>
         </div>
 
         {/* Confirm Order Button */}
-        <button className="w-full bg-[#d4af37] text-black font-extrabold text-sm py-3 rounded-xl shadow-lg">
-          Confirm Order • Total $7.50 (30,000 ៛)
+        <button className="w-full bg-[#d4af37] text-black font-extrabold text-xs md:text-sm py-3 rounded-xl shadow-lg">
+          Confirm Order • Total $7.00 (28,000 ៛)
         </button>
       </div>
     )
@@ -131,7 +151,7 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
           <div className="flex justify-between items-center pb-3 border-b border-gray-800">
             <div>
               <h3 className="text-xl font-bold text-white font-['Playfair_Display']">How to Order</h3>
-              <p className="text-xs text-gray-400">Simple 2-step ordering guide</p>
+              <p className="text-xs text-gray-400">Step-by-step Lok Lak ordering guide</p>
             </div>
             <div className="flex items-center gap-2">
               <button 
@@ -166,7 +186,7 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
             </div>
           </div>
 
-          {/* Clean Step Card without Cluster */}
+          {/* Clean Step Card */}
           <div className="space-y-4">
             <div className="flex justify-between items-center gap-2">
               <h4 className="text-sm font-bold text-[#d4af37]">
@@ -177,14 +197,14 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
               </span>
             </div>
 
-            {/* Visual Example Box */}
+            {/* Visual Example Box with Real Dish Photo */}
             {current.visual}
 
             {/* Collapsible Info Tip */}
             <div className="pt-1">
               <button
                 onClick={() => setShowInfo(!showInfo)}
-                className="flex items-center gap-1.5 text-xs font-bold text-gray-400 hover:text-[#d4af37] transition-colors py-1 px-2 rounded-lg bg-gray-900/60 border border-gray-800"
+                className="flex items-center gap-1.5 text-xs font-bold text-gray-400 hover:text-[#d4af37] transition-colors py-1 px-2.5 rounded-lg bg-gray-900/60 border border-gray-800"
               >
                 <Info size={14} />
                 <span>{showInfo ? 'Hide Tip' : 'Show Tip Details'}</span>
