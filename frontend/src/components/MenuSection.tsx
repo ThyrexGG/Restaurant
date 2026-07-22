@@ -404,7 +404,7 @@ export default function MenuSection() {
               <div className="min-w-0">
                 <span className="text-[10px] md:text-xs font-bold text-[#d4af37] uppercase tracking-widest block mb-0.5 whitespace-nowrap">Special Highlights</span>
                 <h3 className="text-lg sm:text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white whitespace-nowrap truncate">
-                  ⭐ Chef's Recommendations
+                  Chef's Recommendations
                 </h3>
               </div>
               <span className="bg-[#d4af37]/20 border border-[#d4af37]/50 text-[#d4af37] text-xs font-extrabold px-3 py-1.5 rounded-full shadow whitespace-nowrap flex-shrink-0">

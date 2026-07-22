@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, ChevronRight, ChevronLeft, Volume2, VolumeX, ShoppingBag, CheckCircle2 } from 'lucide-react';
+import { X, ChevronRight, ChevronLeft, Volume2, VolumeX } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface UserFlowGuideModalProps {
@@ -12,10 +12,9 @@ const STEPS = [
     id: 1,
     title: "Step 1: Tap Dish & Customize Options",
     voiceText: "Step 1: Tap any dish or drink. Choose your meat option like Chicken or Pork, or set drink sugar level 100%, 50% or 0%, then tap Add.",
-    shortDesc: "Tap any item on the menu. Select your meat choice (Chicken/Pork) or drink sweetness (100%, 50%, 0%), then tap + Add.",
-    icon: ShoppingBag,
+    shortDesc: "Tap any item on the menu. Select your meat choice (Chicken/Pork) or drink sweetness (100%, 50%, 0%), then tap Add.",
     visual: (
-      <div className="bg-[#0a0a0c] p-4 rounded-2xl border border-gray-800 space-y-3 font-sans">
+      <div className="bg-[#0a0a0c] p-4 rounded-2xl border border-gray-800 space-y-4 font-sans">
         <div className="flex justify-between items-center bg-gray-900 p-3 rounded-xl border border-gray-800">
           <div>
             <h5 className="text-sm font-bold text-white">Special Amok (Curry)</h5>
@@ -25,8 +24,8 @@ const STEPS = [
         </div>
 
         {/* Meat / Options Selector */}
-        <div className="space-y-1">
-          <span className="text-[11px] font-bold text-[#d4af37]">🍗 Select Meat Option:</span>
+        <div className="space-y-1.5">
+          <span className="text-xs font-bold text-[#d4af37] block">Select Meat Option:</span>
           <div className="grid grid-cols-3 gap-1.5 text-xs text-center font-bold">
             <span className="bg-[#d4af37] text-black py-1.5 rounded-lg shadow">Chicken</span>
             <span className="bg-gray-900 text-gray-400 py-1.5 rounded-lg border border-gray-800">Pork</span>
@@ -35,8 +34,8 @@ const STEPS = [
         </div>
 
         {/* Drink Sugar Level Selector */}
-        <div className="space-y-1 pt-1">
-          <span className="text-[11px] font-bold text-cyan-400">🍬 Drink Sugar Sweetness:</span>
+        <div className="space-y-1.5 pt-1">
+          <span className="text-xs font-bold text-cyan-400 block">Drink Sugar Sweetness:</span>
           <div className="flex gap-1.5 text-xs font-bold">
             <span className="bg-gray-900 text-gray-400 px-3 py-1 rounded-lg border border-gray-800">100%</span>
             <span className="bg-cyan-500 text-black px-3 py-1 rounded-lg shadow">50% (Half)</span>
@@ -51,21 +50,20 @@ const STEPS = [
     title: "Step 2: Open Cart & Confirm Order",
     voiceText: "Step 2: Open your cart at the bottom, select Dine-In with your table number or Takeaway, and tap Confirm Order. Review your order before sending!",
     shortDesc: "Open your cart at the bottom, pick Dine In (Table #) or Take Away, review items, and tap Confirm Order to send to the kitchen!",
-    icon: CheckCircle2,
     visual: (
-      <div className="bg-[#0a0a0c] p-4 rounded-2xl border border-gray-800 space-y-3 font-sans">
+      <div className="bg-[#0a0a0c] p-4 rounded-2xl border border-gray-800 space-y-4 font-sans">
         {/* Dining Type Selector */}
         <div className="grid grid-cols-2 gap-2 bg-gray-900 p-1.5 rounded-xl border border-gray-800">
           <div className="bg-[#d4af37] text-black text-xs font-bold py-2 text-center rounded-lg shadow">
-            🍽️ Dine In (Table #5)
+            Dine In (Table #5)
           </div>
           <div className="text-gray-400 text-xs font-bold py-2 text-center rounded-lg">
-            🥡 Take Away
+            Take Away
           </div>
         </div>
 
         {/* Order Review Box */}
-        <div className="bg-gray-900/90 p-3 rounded-xl border border-gray-800 space-y-1 text-xs">
+        <div className="bg-gray-900/90 p-3 rounded-xl border border-gray-800 space-y-1.5 text-xs">
           <div className="flex justify-between text-white font-bold">
             <span>1x Special Amok (Chicken)</span>
             <span className="text-[#d4af37]">$5.00</span>
@@ -128,11 +126,11 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           className="relative w-full max-w-lg bg-[#0a0a0c] border border-[#d4af37]/40 rounded-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.9)] space-y-5"
         >
-          {/* Minimal Header */}
+          {/* Header */}
           <div className="flex justify-between items-center pb-3 border-b border-gray-800">
             <div>
-              <h3 className="text-xl font-bold text-white font-['Playfair_Display']">How to Order (2 Easy Steps)</h3>
-              <p className="text-xs text-gray-400">Simple guide for new customers</p>
+              <h3 className="text-xl font-bold text-white font-['Playfair_Display']">How to Order</h3>
+              <p className="text-xs text-gray-400">Simple 2-step ordering guide</p>
             </div>
             <div className="flex items-center gap-2">
               <button 
@@ -167,20 +165,22 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
             </div>
           </div>
 
-          {/* Clean Step Card */}
-          <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-sm font-bold text-[#d4af37] bg-[#d4af37]/10 px-3 py-1 rounded-full border border-[#d4af37]/30">
+          {/* Clean Step Card without Cluster */}
+          <div className="space-y-4">
+            <div className="flex justify-between items-center gap-2">
+              <h4 className="text-sm font-bold text-[#d4af37]">
                 {current.title}
+              </h4>
+              <span className="text-xs font-semibold text-gray-400 whitespace-nowrap">
+                Step {current.id} of 2
               </span>
-              <span className="text-xs font-semibold text-gray-400">Step {current.id} of 2</span>
             </div>
 
             {/* Visual Example Box */}
             {current.visual}
 
-            <p className="text-xs text-gray-300 bg-gray-900/90 p-3 rounded-xl border border-gray-800 leading-relaxed">
-              💡 {current.shortDesc}
+            <p className="text-xs text-gray-300 bg-gray-900/90 p-3.5 rounded-xl border border-gray-800 leading-relaxed">
+              {current.shortDesc}
             </p>
           </div>
 

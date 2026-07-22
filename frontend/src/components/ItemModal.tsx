@@ -266,8 +266,8 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
                 {/* Sugar Level */}
                 <div>
                   <div className="flex justify-between items-center mb-2">
-                    <h4 className="font-bold text-white text-xs md:text-sm uppercase tracking-wider flex items-center gap-1.5">
-                      <span>🍬</span> Sugar Level
+                    <h4 className="font-bold text-white text-xs md:text-sm uppercase tracking-wider">
+                      Sugar Level
                     </h4>
                     <span className="text-xs font-bold text-[#d4af37] bg-[#d4af37]/10 px-2.5 py-0.5 rounded-full border border-[#d4af37]/30">
                       {sugarLevel}
@@ -294,8 +294,8 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
                 {/* Ice Level */}
                 <div>
                   <div className="flex justify-between items-center mb-2">
-                    <h4 className="font-bold text-white text-xs md:text-sm uppercase tracking-wider flex items-center gap-1.5">
-                      <span>🧊</span> Ice Level
+                    <h4 className="font-bold text-white text-xs md:text-sm uppercase tracking-wider">
+                      Ice Level
                     </h4>
                     <span className="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/30">
                       {iceLevel}

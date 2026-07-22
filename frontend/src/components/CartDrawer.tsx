@@ -123,21 +123,16 @@ export default function CartDrawer() {
           <div className="bg-[#0a0a0c] border-2 border-[#d4af37] rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-[0_20px_60px_rgba(0,0,0,0.9)] space-y-5 animate-in fade-in zoom-in duration-200">
             
             {/* Header Alert */}
-            <div className="flex items-center gap-3 border-b border-gray-800 pb-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#d4af37]/20 border border-[#d4af37]/50 flex items-center justify-center text-[#d4af37] text-2xl font-bold">
-                ⚠️
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white font-['Playfair_Display']">Review Your Order</h3>
-                <p className="text-xs text-gray-400">Please verify items before sending to kitchen</p>
-              </div>
+            <div className="border-b border-gray-800 pb-3">
+              <h3 className="text-xl font-bold text-white font-['Playfair_Display']">Review Your Order</h3>
+              <p className="text-xs text-gray-400">Please verify items before sending to kitchen</p>
             </div>
 
             {/* Dining Badge */}
             <div className="bg-gray-900/90 p-3 rounded-2xl border border-gray-800 flex justify-between items-center text-xs">
               <span className="text-gray-400 font-bold uppercase tracking-wider">Dining Option:</span>
               <span className="bg-[#d4af37] text-black font-extrabold px-3 py-1 rounded-xl shadow">
-                {diningType === 'Take Away' ? '🥡 Take Away' : `🍽️ Dine In (Table #${tableId || '1'})`}
+                {diningType === 'Take Away' ? 'Take Away' : `Dine In (Table #${tableId || '1'})`}
               </span>
             </div>
 
@@ -169,13 +164,13 @@ export default function CartDrawer() {
                 onClick={() => setShowConfirmDialog(false)}
                 className="w-full bg-gray-900 hover:bg-gray-800 text-gray-300 font-bold text-xs md:text-sm py-3.5 px-4 rounded-xl border border-gray-700 transition-all"
               >
-                ✏️ Edit Cart
+                Edit Cart
               </button>
               <button
                 onClick={handleFinalCheckout}
                 className="w-full bg-[#d4af37] hover:bg-[#b08d29] text-black font-extrabold text-xs md:text-sm py-3.5 px-4 rounded-xl shadow-[0_4px_20px_rgba(212,175,55,0.4)] transition-all hover:scale-105"
               >
-                Yes, Send to Kitchen! →
+                Send to Kitchen →
               </button>
             </div>
 
