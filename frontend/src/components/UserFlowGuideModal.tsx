@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, Play, Pause, ChevronRight, ChevronLeft, HelpCircle, RotateCcw } from 'lucide-react';
+import { X, Play, Pause, ChevronRight, ChevronLeft, HelpCircle, RotateCcw, Volume2, VolumeX, MousePointer } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface UserFlowGuideModalProps {
@@ -10,24 +10,30 @@ interface UserFlowGuideModalProps {
 const STEPS = [
   {
     id: 1,
-    title: "1. Browse Menu & Select Category",
+    title: "1. Pick Category & Find Dish",
     time: "00:05",
-    desc: "Browse our continuous scroll menu, pick a category from the dropdown (or drag quick category pills), or search for dishes & SKU codes.",
+    voiceText: "Step 1: Select a category from the dropdown or search for your favorite dish.",
+    shortDesc: "Tap the dropdown menu or swipe category pills to jump to any section.",
     visual: (
-      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-3 font-sans">
+      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-3 font-sans relative">
+        {/* Animated Pointer Arrow Callout */}
+        <div className="absolute top-10 right-4 z-20 bg-[#d4af37] text-black font-extrabold text-[10px] px-2.5 py-1 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.8)] flex items-center gap-1 animate-bounce">
+          <MousePointer size={12} /> TAP CATEGORY DROPDOWN ⬇️
+        </div>
+
         {/* Web Navbar Mockup */}
-        <div className="flex justify-between items-center bg-black/60 p-2.5 rounded-lg border border-gray-800">
+        <div className="flex justify-between items-center bg-black/60 p-2 rounded-lg border border-gray-800">
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="Logo" className="w-6 h-6 rounded-full" />
+            <img src="/logo.png" alt="Logo" className="w-5 h-5 rounded-full" />
             <span className="text-xs font-bold text-[#d4af37]">Best Khmer</span>
           </div>
           <span className="text-[10px] text-gray-400 bg-gray-900 px-2 py-0.5 rounded border border-gray-800">Menu</span>
         </div>
 
         {/* Category Selector Card */}
-        <div className="bg-black p-2.5 rounded-xl border border-[#d4af37]/60 space-y-2">
-          <div className="text-[9px] font-bold text-[#d4af37] uppercase">Select Category (Dropdown)</div>
-          <div className="bg-gray-900 p-2 rounded-lg text-xs text-white font-bold flex justify-between items-center border border-gray-800">
+        <div className="bg-black p-2.5 rounded-xl border-2 border-[#d4af37] space-y-2 relative shadow-lg">
+          <div className="text-[9px] font-bold text-[#d4af37] uppercase">Select Category</div>
+          <div className="bg-gray-900 p-2 rounded-lg text-xs text-white font-bold flex justify-between items-center border border-gray-700">
             <span>⭐ Chef's Recommendations (8)</span>
             <span className="text-[#d4af37]">▼</span>
           </div>
@@ -61,13 +67,19 @@ const STEPS = [
   },
   {
     id: 2,
-    title: "2. Customize Drink Sugar Level & Add to Cart",
+    title: "2. Set Sugar Level & Add Drink",
     time: "00:15",
-    desc: "Tap any drink to open customization options: select Sugar Level (100%, 75%, 50%, 25%, 0%) and Ice Level, then tap '+ Add to Order'.",
+    voiceText: "Step 2: Tap any drink to customize sugar levels 100%, 50% or no sugar, then add to order.",
+    shortDesc: "Pick your sweetness (100%, 50%, 0%) & ice preference, then tap Add.",
     visual: (
-      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-2.5 font-sans">
+      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-2.5 font-sans relative">
+        {/* Animated Pointer Arrow Callout */}
+        <div className="absolute top-16 right-4 z-20 bg-[#d4af37] text-black font-extrabold text-[10px] px-2.5 py-1 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.8)] flex items-center gap-1 animate-pulse">
+          <MousePointer size={12} /> SELECT SWEETNESS 👈
+        </div>
+
         {/* Item Modal Mockup */}
-        <div className="bg-black/90 p-3 rounded-xl border border-[#d4af37] space-y-2 shadow-lg">
+        <div className="bg-black/90 p-3 rounded-xl border-2 border-[#d4af37] space-y-2 shadow-xl">
           <div className="flex justify-between items-start">
             <div>
               <h5 className="text-xs font-bold text-white">Strawberry Smoothie</h5>
@@ -77,14 +89,14 @@ const STEPS = [
           </div>
 
           {/* Sugar Level Selector */}
-          <div className="bg-gray-900/90 p-2 rounded-lg border border-gray-800 space-y-1.5">
+          <div className="bg-gray-900/90 p-2 rounded-lg border border-[#d4af37]/60 space-y-1.5">
             <div className="flex justify-between items-center text-[10px]">
-              <span className="font-bold text-white">🍬 Sugar Level</span>
-              <span className="font-bold text-[#d4af37]">50% (Half Sugar)</span>
+              <span className="font-bold text-white flex items-center gap-1">🍬 Sugar Level</span>
+              <span className="font-bold text-[#d4af37] bg-[#d4af37]/20 px-1.5 py-0.5 rounded">50% (Half)</span>
             </div>
             <div className="flex flex-wrap gap-1 text-[9px]">
               <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">100%</span>
-              <span className="bg-[#d4af37] text-black font-bold px-2 py-0.5 rounded shadow">50%</span>
+              <span className="bg-[#d4af37] text-black font-bold px-2 py-0.5 rounded shadow scale-105">50%</span>
               <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">25%</span>
               <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">0%</span>
             </div>
@@ -93,7 +105,7 @@ const STEPS = [
           {/* Ice Level Selector */}
           <div className="bg-gray-900/90 p-2 rounded-lg border border-gray-800 space-y-1.5">
             <div className="flex justify-between items-center text-[10px]">
-              <span className="font-bold text-white">🧊 Ice Level</span>
+              <span className="font-bold text-white flex items-center gap-1">🧊 Ice Level</span>
               <span className="font-bold text-cyan-400">Normal Ice</span>
             </div>
             <div className="flex gap-1 text-[9px]">
@@ -112,11 +124,17 @@ const STEPS = [
   },
   {
     id: 3,
-    title: "3. Pick Dine-In or Takeaway & Confirm Order",
+    title: "3. Choose Dine-In / Takeaway & Confirm",
     time: "00:30",
-    desc: "Open your cart at the bottom, select your Dining Option (Dine In with Table Number or Take Away), and click 'Confirm Order'.",
+    voiceText: "Step 3: Select Dine-In with your table number or Takeaway, then confirm order.",
+    shortDesc: "Tap the floating cart, choose Dine In (Table) or Take Away, then tap Confirm.",
     visual: (
-      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-2.5 font-sans">
+      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-2.5 font-sans relative">
+        {/* Animated Pointer Arrow Callout */}
+        <div className="absolute top-10 right-4 z-20 bg-[#d4af37] text-black font-extrabold text-[10px] px-2.5 py-1 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.8)] flex items-center gap-1 animate-bounce">
+          <MousePointer size={12} /> PICK DINE-IN TABLE ⬇️
+        </div>
+
         {/* Cart Drawer Mockup */}
         <div className="bg-gray-950 p-3 rounded-xl border border-gray-800 space-y-2.5">
           <div className="flex justify-between items-center text-xs pb-1.5 border-b border-gray-800">
@@ -125,7 +143,7 @@ const STEPS = [
           </div>
 
           {/* Dining Option Toggle */}
-          <div className="grid grid-cols-2 gap-1.5 bg-gray-900 p-1 rounded-lg border border-gray-800">
+          <div className="grid grid-cols-2 gap-1.5 bg-gray-900 p-1 rounded-lg border-2 border-[#d4af37]">
             <div className="bg-[#d4af37] text-black text-[10px] font-bold py-1.5 text-center rounded shadow">Dine In (Table 5)</div>
             <div className="text-gray-400 text-[10px] font-bold py-1.5 text-center rounded">Take Away</div>
           </div>
@@ -143,7 +161,7 @@ const STEPS = [
           </div>
 
           {/* Confirm Button */}
-          <button className="w-full bg-[#d4af37] text-black font-black text-xs py-2 rounded-lg shadow-md">
+          <button className="w-full bg-[#d4af37] text-black font-black text-xs py-2 rounded-lg shadow-md animate-pulse">
             Confirm Order • Total: $6.00 (24,000 ៛)
           </button>
         </div>
@@ -152,11 +170,17 @@ const STEPS = [
   },
   {
     id: 4,
-    title: "4. Auto Ticket Printing & View Receipts in Riel",
+    title: "4. Kitchen Ticket Auto Prints",
     time: "00:45",
-    desc: "Your order is immediately sent to the kitchen printer automatically! Tap 'My Bill' at the top anytime to view your detailed receipt.",
+    voiceText: "Step 4: Your order is confirmed and printed automatically to our kitchen printer!",
+    shortDesc: "Ticket is sent to kitchen printer instantly. View your receipt anytime in 'My Bill'.",
     visual: (
-      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-2 font-sans">
+      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-2 font-sans relative">
+        {/* Animated Pointer Arrow Callout */}
+        <div className="absolute top-2 right-4 z-20 bg-green-500 text-black font-extrabold text-[10px] px-2.5 py-1 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.8)] flex items-center gap-1 animate-pulse">
+          ✨ INSTANT KITCHEN PRINT!
+        </div>
+
         {/* Thermal Receipt Mockup */}
         <div className="bg-white text-black p-3 rounded-lg font-mono text-[10px] space-y-1.5 shadow-xl border border-gray-300">
           <div className="text-center font-bold text-xs border-b border-dashed border-gray-400 pb-1">
@@ -180,7 +204,7 @@ const STEPS = [
 
         <div className="text-center">
           <span className="inline-block bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-3 py-1 rounded-full">
-            ✓ Ticket Printed Automatically to Kitchen
+            ✓ Sent to Kitchen Printer Automatically
           </span>
         </div>
       </div>
@@ -191,8 +215,37 @@ const STEPS = [
 export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideModalProps) {
   const [activeStep, setActiveStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [hasRealVideo, setHasRealVideo] = useState(false);
   const [progress, setProgress] = useState(0);
+
+  // AI Voice Synthesis Speech Engine
+  const speakVoiceOver = (text: string) => {
+    if (isMuted || !('speechSynthesis' in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.95;
+      utterance.pitch = 1.0;
+      window.speechSynthesis.speak(utterance);
+    } catch {
+      // Ignore audio synthesis errors silently if browser restricts autoplay audio
+    }
+  };
+
+  // Speak step whenever step changes
+  useEffect(() => {
+    if (isOpen && !hasRealVideo && !isMuted) {
+      speakVoiceOver(STEPS[activeStep].voiceText);
+    }
+  }, [activeStep, isOpen, isMuted, hasRealVideo]);
+
+  // Cancel speech on close
+  useEffect(() => {
+    if (!isOpen && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+  }, [isOpen]);
 
   // Check if a real MP4 video exists and is actually a video file
   useEffect(() => {
@@ -213,7 +266,7 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
     if (!isPlaying || hasRealVideo || !isOpen) return;
 
     const interval = 50; // ms
-    const stepDuration = 4500; // ms per step
+    const stepDuration = 5000; // ms per step
     const increment = (interval / stepDuration) * 100;
 
     const timer = setInterval(() => {
@@ -249,12 +302,15 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
                 <HelpCircle size={22} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white font-['Playfair_Display']">How to Order (Website Showcase)</h3>
-                <p className="text-xs text-gray-400">Step-by-step visual demonstration of the ordering flow</p>
+                <h3 className="text-xl font-bold text-white font-['Playfair_Display']">How to Order (Interactive Video)</h3>
+                <p className="text-xs text-gray-400">Step-by-step screen demo with AI Voice Over narration</p>
               </div>
             </div>
             <button 
-              onClick={onClose} 
+              onClick={() => {
+                if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+                onClose();
+              }} 
               className="p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-800/80 transition-colors"
             >
               <X size={20} />
@@ -288,6 +344,28 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
                   </div>
                   
                   <div className="flex items-center gap-2">
+                    {/* Voice Over Toggle Button */}
+                    <button 
+                      onClick={() => {
+                        const newMuteState = !isMuted;
+                        setIsMuted(newMuteState);
+                        if (newMuteState && 'speechSynthesis' in window) {
+                          window.speechSynthesis.cancel();
+                        } else {
+                          speakVoiceOver(current.voiceText);
+                        }
+                      }}
+                      className={`flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border transition-all ${
+                        !isMuted 
+                          ? 'bg-[#d4af37] text-black border-[#d4af37] shadow-[0_0_10px_rgba(212,175,55,0.4)]' 
+                          : 'bg-gray-800 text-gray-400 border-gray-700 hover:text-white'
+                      }`}
+                      title="Toggle AI Voice Over Narration"
+                    >
+                      {!isMuted ? <Volume2 size={13} /> : <VolumeX size={13} />}
+                      <span>{!isMuted ? 'Voice On' : 'Voice Muted'}</span>
+                    </button>
+
                     <button 
                       onClick={() => { setActiveStep(0); setProgress(0); setIsPlaying(true); }}
                       className="text-gray-400 hover:text-[#d4af37] transition-colors p-1"
@@ -322,8 +400,8 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
                     {current.visual}
                   </div>
 
-                  <p className="text-xs text-gray-300 leading-relaxed bg-black/60 p-3 rounded-xl border border-gray-800/80">
-                    {current.desc}
+                  <p className="text-xs text-[#d4af37] font-semibold leading-relaxed bg-black/60 p-3 rounded-xl border border-[#d4af37]/30">
+                    💡 {current.shortDesc}
                   </p>
                 </div>
 
@@ -375,7 +453,10 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
           {/* Footer Action */}
           <div className="mt-6 pt-4 border-t border-gray-800/80 flex justify-end">
             <button 
-              onClick={onClose}
+              onClick={() => {
+                if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+                onClose();
+              }}
               className="bg-[#d4af37] text-black font-bold text-sm px-6 py-2.5 rounded-xl hover:bg-[#b08d29] transition-all shadow-[0_4px_15px_rgba(212,175,55,0.3)]"
             >
               Got it, let's order!
