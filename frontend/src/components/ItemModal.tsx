@@ -57,6 +57,20 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
     !nameLower.includes('burger') && !nameLower.includes('soup') &&
     !catLower.includes('burger') && !catLower.includes('soup');
 
+  const isDrink = 
+    catLower.includes('drink') || catLower.includes('beverage') || catLower.includes('smoothie') || 
+    catLower.includes('juice') || catLower.includes('macchiato') || catLower.includes('coffee') || 
+    catLower.includes('tea') || catLower.includes('cocktail') || catLower.includes('iced') ||
+    nameLower.includes('smoothie') || nameLower.includes('juice') || nameLower.includes('tea') || 
+    nameLower.includes('coffee') || nameLower.includes('macchiato') || nameLower.includes('soda') || 
+    nameLower.includes('frappe') || nameLower.includes('shake') || nameLower.includes('drink') || nameLower.includes('latte');
+
+  const [sugarLevel, setSugarLevel] = React.useState<string>('100% (Normal)');
+  const [iceLevel, setIceLevel] = React.useState<string>('Normal Ice');
+
+  const sugarOptions = ['100% (Normal)', '75% (Less Sweet)', '50% (Half Sugar)', '25% (Little Sugar)', '0% (No Sugar)'];
+  const iceOptions = ['Normal Ice', 'Less Ice', 'No Ice'];
+
   const eggPrice = addEgg ? 0.50 : 0;
   const basePriceValue = Number(item.price || item['Price [Best Khmer (Golden Cafe) Restaurant]'] || 5) + eggPrice;
   const totalPrice = basePriceValue * quantity;
@@ -84,10 +98,17 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
 
   const handleAddToCart = (e: React.MouseEvent) => {
     let finalNotes = specialInstructions.trim();
+
+    if (isDrink) {
+      const drinkNotes = `Sugar: ${sugarLevel} | Ice: ${iceLevel}`;
+      finalNotes = finalNotes ? `${drinkNotes} | ${finalNotes}` : drinkNotes;
+    }
+
     if (options.length > 0) {
       const optionText = `Choice: ${selectedOption}`;
       finalNotes = finalNotes ? `${optionText} | ${finalNotes}` : optionText;
     }
+
     if (addEgg) {
       finalNotes = finalNotes ? `Add Fried Egg (+$0.50) | ${finalNotes}` : `Add Fried Egg (+$0.50)`;
     }
@@ -237,6 +258,66 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
                   </div>
                   <span>+$0.50</span>
                 </label>
+              </div>
+            )}
+
+            {isDrink && (
+              <div className="mb-6 space-y-4 bg-gray-900/60 p-4 rounded-2xl border border-gray-800">
+                {/* Sugar Level */}
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <h4 className="font-bold text-white text-xs md:text-sm uppercase tracking-wider flex items-center gap-1.5">
+                      <span>🍬</span> Sugar Level
+                    </h4>
+                    <span className="text-xs font-bold text-[#d4af37] bg-[#d4af37]/10 px-2.5 py-0.5 rounded-full border border-[#d4af37]/30">
+                      {sugarLevel}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {sugarOptions.map((sug, idx) => (
+                      <button
+                        type="button"
+                        key={idx}
+                        onClick={() => setSugarLevel(sug)}
+                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
+                          sugarLevel === sug 
+                            ? 'bg-[#d4af37] text-black border-[#d4af37] shadow-[0_0_10px_rgba(212,175,55,0.4)] scale-105' 
+                            : 'bg-black border-gray-800 text-gray-400 hover:border-gray-600 hover:text-white'
+                        }`}
+                      >
+                        {sug}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Ice Level */}
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <h4 className="font-bold text-white text-xs md:text-sm uppercase tracking-wider flex items-center gap-1.5">
+                      <span>🧊</span> Ice Level
+                    </h4>
+                    <span className="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/30">
+                      {iceLevel}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {iceOptions.map((ice, idx) => (
+                      <button
+                        type="button"
+                        key={idx}
+                        onClick={() => setIceLevel(ice)}
+                        className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all border ${
+                          iceLevel === ice 
+                            ? 'bg-cyan-500 text-black border-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.4)] scale-105' 
+                            : 'bg-black border-gray-800 text-gray-400 hover:border-gray-600 hover:text-white'
+                        }`}
+                      >
+                        {ice}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             )}
 
