@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, ChevronRight, ChevronLeft, Volume2, VolumeX } from 'lucide-react';
+import { X, ChevronRight, ChevronLeft, Volume2, VolumeX, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface UserFlowGuideModalProps {
@@ -86,6 +86,7 @@ const STEPS = [
 export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideModalProps) {
   const [activeStep, setActiveStep] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
 
   // Speech Voice Over
   const speakVoiceOver = (text: string) => {
@@ -179,9 +180,29 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
             {/* Visual Example Box */}
             {current.visual}
 
-            <p className="text-xs text-gray-300 bg-gray-900/90 p-3.5 rounded-xl border border-gray-800 leading-relaxed">
-              {current.shortDesc}
-            </p>
+            {/* Collapsible Info Tip */}
+            <div className="pt-1">
+              <button
+                onClick={() => setShowInfo(!showInfo)}
+                className="flex items-center gap-1.5 text-xs font-bold text-gray-400 hover:text-[#d4af37] transition-colors py-1 px-2 rounded-lg bg-gray-900/60 border border-gray-800"
+              >
+                <Info size={14} />
+                <span>{showInfo ? 'Hide Tip' : 'Show Tip Details'}</span>
+              </button>
+
+              <AnimatePresence>
+                {showInfo && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="text-xs text-gray-300 bg-gray-900/90 p-3.5 rounded-xl border border-gray-800 leading-relaxed mt-2 overflow-hidden"
+                  >
+                    {current.shortDesc}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Navigation Controls */}
