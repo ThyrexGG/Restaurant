@@ -223,9 +223,18 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
                       <Download size={14} /> Download Card PNG
                     </button>
                     
-                    <div className="bg-white/90 p-2.5 rounded-xl border border-gray-300 w-full text-center shadow-sm">
-                      <p className="font-extrabold text-sm text-gray-900 tracking-wide">📶 Wi-Fi: <span className="text-[#b08d29]">Best Khmer</span></p>
-                      <p className="font-bold text-xs text-gray-600 tracking-wide mt-0.5">🔑 Pass: <span className="text-[#b08d29]">Bkr@0168</span></p>
+                    <div className="bg-black text-white p-3 rounded-2xl border-2 border-[#d4af37] w-full text-center shadow-lg">
+                      <div className="flex justify-around items-center">
+                        <div>
+                          <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider block">📶 Free Wi-Fi</span>
+                          <span className="font-black text-lg text-[#d4af37] tracking-wide">Best Khmer</span>
+                        </div>
+                        <div className="w-[1px] h-8 bg-gray-700"></div>
+                        <div>
+                          <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider block">🔑 Password</span>
+                          <span className="font-black text-lg text-white font-mono tracking-wider">Bkr@0168</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -297,9 +306,18 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
                     </div>
                   </div>
 
-                  <div className="bg-white/90 p-2.5 rounded-xl border border-gray-300 w-full text-center shadow-sm">
-                    <p className="font-extrabold text-sm text-gray-900 tracking-wide">📶 Wi-Fi: <span className="text-[#b08d29]">Best Khmer</span></p>
-                    <p className="font-bold text-xs text-gray-600 tracking-wide mt-0.5">🔑 Pass: <span className="text-[#b08d29]">Bkr@0168</span></p>
+                  <div className="bg-black text-white p-3 rounded-2xl border-2 border-[#d4af37] w-full text-center shadow-lg">
+                    <div className="flex justify-around items-center">
+                      <div>
+                        <span className="text-[9px] text-gray-400 font-bold uppercase tracking-wider block">📶 Wi-Fi</span>
+                        <span className="font-black text-base text-[#d4af37] tracking-wide">Best Khmer</span>
+                      </div>
+                      <div className="w-[1px] h-7 bg-gray-700"></div>
+                      <div>
+                        <span className="text-[9px] text-gray-400 font-bold uppercase tracking-wider block">🔑 Password</span>
+                        <span className="font-black text-base text-white font-mono tracking-wider">Bkr@0168</span>
+                      </div>
+                    </div>
                   </div>
 
                   <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-3">Best Khmer Restaurant</p>
