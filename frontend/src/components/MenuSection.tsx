@@ -5,9 +5,10 @@ import { format, quality } from '@cloudinary/url-gen/actions/delivery';
 import { cld } from '../cloudinary';
 import { useCart } from '../context/CartContext';
 import menuDataFallback from '../assets/menu.json';
-import { Search, ChevronDown, ArrowLeftRight } from 'lucide-react';
+import { Search, ChevronDown, ArrowLeftRight, HelpCircle } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import ItemModal, { type MenuItem } from './ItemModal';
+import UserFlowGuideModal from './UserFlowGuideModal';
 
 const extractCloudinaryPublicId = (urlOrId: string | undefined | null): string | null => {
   if (!urlOrId) return null;
@@ -153,6 +154,7 @@ export default function MenuSection() {
   const [menuItems, setMenuItems] = React.useState<any[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [selectedItem, setSelectedItem] = React.useState<MenuItem | null>(null);
+  const [showGuideModal, setShowGuideModal] = React.useState(false);
 
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = React.useState(false);
@@ -295,9 +297,17 @@ export default function MenuSection() {
 
   return (
     <section id="menu" className="py-12 px-6 max-w-7xl mx-auto">
-      <div className="text-center mb-8">
+      <div className="text-center mb-8 flex flex-col items-center">
         <h2 className="text-4xl font-bold mb-3 font-['Playfair_Display']">Our Menu</h2>
-        <p className="text-[#aaaaaa]">All items in one continuous scroll. Use the dropdown or pills to jump to any category.</p>
+        <p className="text-[#aaaaaa] mb-4">All items in one continuous scroll. Use the dropdown or pills to jump to any category.</p>
+        
+        <button
+          onClick={() => setShowGuideModal(true)}
+          className="inline-flex items-center gap-2 bg-[#d4af37]/10 border border-[#d4af37]/40 text-[#d4af37] hover:bg-[#d4af37]/20 font-bold text-xs md:text-sm px-4 py-2 rounded-2xl transition-all shadow-md hover:scale-105"
+        >
+          <HelpCircle size={16} />
+          <span>New Customer? Watch 1-Min Ordering Video Guide</span>
+        </button>
       </div>
 
       {/* Quick-Jump Category Dropdown & Search Filter */}
@@ -477,6 +487,9 @@ export default function MenuSection() {
           />
         )}
       </AnimatePresence>
+
+      {/* Video Ordering Guide Modal */}
+      <UserFlowGuideModal isOpen={showGuideModal} onClose={() => setShowGuideModal(false)} />
     </section>
   );
 }

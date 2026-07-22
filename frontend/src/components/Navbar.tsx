@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { ShoppingCart, CheckCircle, Receipt } from 'lucide-react';
+import { ShoppingCart, CheckCircle, Receipt, HelpCircle } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import BillModal from './BillModal';
+import UserFlowGuideModal from './UserFlowGuideModal';
 
 export default function Navbar() {
   const { totalItems, toggleCart, orderHistory } = useCart();
   const [showToast, setShowToast] = useState(false);
   const [showBill, setShowBill] = useState(false);
+  const [showGuide, setShowGuide] = useState(false);
 
   const handleBookTable = () => {
     setShowToast(true);
@@ -48,7 +50,16 @@ export default function Navbar() {
           <li><a href="#menu" onClick={scrollToMenu} className="hover:text-[#d4af37] transition-colors relative group text-gray-300">Menu<span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#d4af37] transition-all group-hover:w-full"></span></a></li>
         </ul>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 md:gap-6">
+          <button 
+            onClick={() => setShowGuide(true)}
+            className="text-xs md:text-sm font-bold text-[#d4af37] bg-[#d4af37]/10 hover:bg-[#d4af37]/20 border border-[#d4af37]/30 px-3 py-1.5 rounded-xl flex items-center gap-1.5 transition-all shadow-sm"
+            title="How to Order Video Guide"
+          >
+            <HelpCircle size={16} />
+            <span className="hidden sm:inline">How to Order</span>
+          </button>
+
           {orderHistory.length > 0 && (
             <button 
               onClick={() => setShowBill(true)}
@@ -78,6 +89,9 @@ export default function Navbar() {
           </button>
         </div>
       </nav>
+
+      {/* How to Order Guide Modal */}
+      <UserFlowGuideModal isOpen={showGuide} onClose={() => setShowGuide(false)} />
 
       {/* Toast Notification */}
       <div className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 transform ${showToast ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}>
