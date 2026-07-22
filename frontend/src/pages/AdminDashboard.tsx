@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
-import { connectPrinter, autoConnectPrinter } from '../utils/printer';
+import { connectPrinter, autoConnectPrinter, printOrderReceipt } from '../utils/printer';
 import { Printer, UtensilsCrossed, Settings2 } from 'lucide-react';
 
 import AdminLiveOrders from '../components/admin/AdminLiveOrders';
@@ -62,6 +62,9 @@ export default function AdminDashboard() {
 
     socket.on('new_order_received', (orderData: any) => {
       setLiveOrders((prev) => [...prev, orderData]);
+      printOrderReceipt(orderData).catch(err => {
+        console.error('Auto-print error:', err);
+      });
     });
 
     socket.on('order_status_changed', ({ orderId, status }) => {

@@ -113,7 +113,12 @@ export const autoConnectPrinter = async (): Promise<boolean> => {
 
 export const printOrderReceipt = async (order: any) => {
   if (!printerCharacteristic) {
-    console.warn('Printer not connected');
+    console.log('Printer characteristic null, attempting autoConnectPrinter...');
+    await autoConnectPrinter();
+  }
+
+  if (!printerCharacteristic) {
+    console.warn('Printer not connected - auto-print skipped');
     return;
   }
 
