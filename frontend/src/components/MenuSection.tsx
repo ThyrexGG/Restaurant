@@ -300,14 +300,14 @@ export default function MenuSection() {
         <p className="text-[#aaaaaa]">All items in one continuous scroll. Use the dropdown or pills to jump to any category.</p>
       </div>
 
-      {/* Sticky Top Filter & Quick-Jump Dropdown */}
-      <div className="sticky top-0 z-[80] bg-[#0a0a0c]/95 backdrop-blur-md py-4 -mx-6 px-6 mb-12 border-y border-gray-800 shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
+      {/* Quick-Jump Category Dropdown & Search Filter */}
+      <div className="bg-[#0a0a0c] py-5 px-6 mb-10 border border-gray-800/80 rounded-3xl shadow-xl">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-stretch md:items-center">
           
           {/* Category Dropdown Selector (Scroll Jump) */}
           <div className="flex-1 relative">
-            <label className="text-[11px] font-bold text-[#d4af37] uppercase tracking-wider block mb-1 flex items-center gap-1.5">
-              Quick Jump To Category
+            <label className="text-[11px] font-bold text-[#d4af37] uppercase tracking-wider block mb-1">
+              Select Category
             </label>
             <div className="relative">
               <select
