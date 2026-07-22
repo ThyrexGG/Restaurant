@@ -64,5 +64,16 @@ export default function analyticsRoutes() {
     }
   });
 
+  router.delete('/clear-orders', async (req, res) => {
+    try {
+      await prisma.orderItem.deleteMany();
+      await prisma.order.deleteMany();
+      res.json({ success: true, message: 'All order history cleared.' });
+    } catch (error) {
+      console.error('Failed to clear orders:', error);
+      res.status(500).json({ error: 'Failed to clear order history' });
+    }
+  });
+
   return router;
 }
