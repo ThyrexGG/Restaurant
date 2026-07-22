@@ -61,8 +61,8 @@ export default function MenuItemPage() {
   return (
     <div className="min-h-screen bg-[#0a0a0c] text-[#f5f5f5]">
       <Helmet>
-        <title>{displayName} - Menu | Golden Cafe</title>
-        <meta name="description" content={`Try our delicious ${displayName} for just $${price.toFixed(2)}. ${displayDesc} Golden Cafe is the best Khmer restaurant in Phnom Penh.`} />
+        <title>{displayName} - Menu | Best Khmer Restaurant</title>
+        <meta name="description" content={`Try our delicious ${displayName} for just $${price.toFixed(2)}. ${displayDesc} Best Khmer Restaurant is the premier dining destination in Phnom Penh.`} />
         {/* We would dynamically set og:image here if we generated full URLs */}
       </Helmet>
       
