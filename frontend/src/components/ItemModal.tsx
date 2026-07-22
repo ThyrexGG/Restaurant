@@ -3,6 +3,7 @@ import { X, Minus, Plus } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { AdvancedImage } from '@cloudinary/react';
 import { fill } from '@cloudinary/url-gen/actions/resize';
+import { format, quality } from '@cloudinary/url-gen/actions/delivery';
 import { cld } from '../cloudinary';
 
 export type MenuItem = {
@@ -165,7 +166,7 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
           ) : cloudinaryImgId ? (
             <div className="h-48 md:h-64 w-full flex-shrink-0 relative">
               <AdvancedImage 
-                cldImg={cld.image(cloudinaryImgId).resize(fill().width(800).height(600))} 
+                cldImg={cld.image(cloudinaryImgId).resize(fill().width(800).height(600)).delivery(format('auto')).delivery(quality('auto'))} 
                 className="w-full h-full object-cover" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-transparent to-transparent" />

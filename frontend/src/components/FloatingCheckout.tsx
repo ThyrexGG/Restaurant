@@ -3,11 +3,11 @@ import { ShoppingCart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function FloatingCheckout() {
-  const { totalItems, totalPrice, toggleCart } = useCart();
+  const { totalItems, totalPrice, toggleCart, isCartOpen } = useCart();
 
   return (
     <AnimatePresence>
-      {totalItems > 0 && (
+      {totalItems > 0 && !isCartOpen && (
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
