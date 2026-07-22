@@ -6,7 +6,7 @@ const INITIAL_REVIEWS = [
     name: "Sarah Jenkins",
     platform: "Google",
     date: "2 weeks ago",
-    text: "Absolutely incredible! The Fish Amok here is the best I've had in Phnom Penh. The flavors were perfectly balanced, and the presentation was stunning. Highly recommend!",
+    text: "Absolutely incredible! The Fish Amok here is the best I've had in Siem Reap. The flavors were perfectly balanced, and the presentation was stunning. Highly recommend!",
     rating: 5,
   },
   {
@@ -74,8 +74,8 @@ export default function CustomerReviews() {
     }, 1500);
   };
 
-  const googleReviewUrl = "https://www.google.com/search?q=Best+Khmer+Restaurant+Phnom+Penh+reviews";
-  const tripAdvisorUrl = "https://www.tripadvisor.com/Search?q=Best+Khmer+Restaurant+Phnom+Penh";
+  const googleReviewUrl = "https://maps.app.goo.gl/qxXp6twPy4PXQPbu5";
+  const tripAdvisorUrl = "https://www.tripadvisor.com/Restaurant_Review-g297390-d27098799-Reviews-Best_Khmer_Restaurant_Golden_Cafe-Siem_Reap_Siem_Reap_Province.html";
 
   return (
     <section className="py-24 px-6 bg-[#050505] border-t border-gray-900">
