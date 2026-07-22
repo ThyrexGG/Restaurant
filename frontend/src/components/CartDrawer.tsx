@@ -5,10 +5,17 @@ import { X, Plus, Minus, Trash2 } from 'lucide-react';
 
 export default function CartDrawer() {
   const [diningType, setDiningType] = useState('Dine In');
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const { id: tableId } = useParams<{ id: string }>();
   const { cart, isCartOpen, toggleCart, removeFromCart, updateQuantity, totalPrice, checkout } = useCart();
 
   if (!isCartOpen) return null;
+
+  const handleFinalCheckout = () => {
+    setShowConfirmDialog(false);
+    toggleCart();
+    checkout(tableId || 'Takeaway', diningType === 'Take Away' ? 'TAKE_AWAY' : 'DINE_IN');
+  };
 
   return (
     <>
@@ -101,17 +108,80 @@ export default function CartDrawer() {
               </div>
             </div>
             <button 
-              onClick={() => {
-                toggleCart();
-                checkout(tableId || 'Takeaway', diningType === 'Take Away' ? 'TAKE_AWAY' : 'DINE_IN');
-              }} 
-              className="w-full btn-primary py-4 text-lg"
+              onClick={() => setShowConfirmDialog(true)}
+              className="w-full btn-primary py-4 text-lg font-bold shadow-[0_4px_25px_rgba(212,175,55,0.4)]"
             >
-              Confirm Order
+              Confirm Order ({cart.length} {cart.length === 1 ? 'Item' : 'Items'})
             </button>
           </div>
         )}
       </div>
+
+      {/* Double-Check Order Review & Confirmation Modal */}
+      {showConfirmDialog && (
+        <div className="fixed inset-0 z-[150] bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="bg-[#0a0a0c] border-2 border-[#d4af37] rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-[0_20px_60px_rgba(0,0,0,0.9)] space-y-5 animate-in fade-in zoom-in duration-200">
+            
+            {/* Header Alert */}
+            <div className="flex items-center gap-3 border-b border-gray-800 pb-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#d4af37]/20 border border-[#d4af37]/50 flex items-center justify-center text-[#d4af37] text-2xl font-bold">
+                ⚠️
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white font-['Playfair_Display']">Review Your Order</h3>
+                <p className="text-xs text-gray-400">Please verify items before sending to kitchen</p>
+              </div>
+            </div>
+
+            {/* Dining Badge */}
+            <div className="bg-gray-900/90 p-3 rounded-2xl border border-gray-800 flex justify-between items-center text-xs">
+              <span className="text-gray-400 font-bold uppercase tracking-wider">Dining Option:</span>
+              <span className="bg-[#d4af37] text-black font-extrabold px-3 py-1 rounded-xl shadow">
+                {diningType === 'Take Away' ? '🥡 Take Away' : `🍽️ Dine In (Table #${tableId || '1'})`}
+              </span>
+            </div>
+
+            {/* Items Breakdown */}
+            <div className="bg-black/60 p-4 rounded-2xl border border-gray-800/80 max-h-48 overflow-y-auto space-y-2.5 hide-scrollbar">
+              {cart.map((item, idx) => (
+                <div key={idx} className="flex justify-between items-start text-xs border-b border-gray-800/60 pb-2 last:border-0 last:pb-0">
+                  <div>
+                    <span className="font-bold text-white">{item.quantity}x {item.name}</span>
+                    {item.notes && <p className="text-[10px] text-[#d4af37] font-semibold">{item.notes}</p>}
+                  </div>
+                  <span className="font-bold text-[#d4af37]">${((item.price + (item.addons?.reduce((s, a) => s + a.price, 0) || 0)) * item.quantity).toFixed(2)}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Total Summary */}
+            <div className="flex justify-between items-center pt-2">
+              <span className="text-base font-bold text-gray-300">Total Amount:</span>
+              <div className="text-right">
+                <span className="text-2xl font-black text-[#d4af37]">${totalPrice.toFixed(2)}</span>
+                <span className="block text-xs font-bold text-gray-400">({(totalPrice * 4000).toLocaleString()} ៛)</span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="grid grid-cols-2 gap-3 pt-2">
+              <button
+                onClick={() => setShowConfirmDialog(false)}
+                className="w-full bg-gray-900 hover:bg-gray-800 text-gray-300 font-bold text-xs md:text-sm py-3.5 px-4 rounded-xl border border-gray-700 transition-all"
+              >
+                ✏️ Edit Cart
+              </button>
+              <button
+                onClick={handleFinalCheckout}
+                className="w-full bg-[#d4af37] hover:bg-[#b08d29] text-black font-extrabold text-xs md:text-sm py-3.5 px-4 rounded-xl shadow-[0_4px_20px_rgba(212,175,55,0.4)] transition-all hover:scale-105"
+              >
+                Yes, Send to Kitchen! →
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
     </>
   );
 }

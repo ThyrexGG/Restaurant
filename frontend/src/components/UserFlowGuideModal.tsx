@@ -70,8 +70,8 @@ const STEPS = [
     id: 2,
     title: "2. Open Cart & Confirm Order",
     time: "00:15",
-    voiceText: "Step 2: Open your cart, select Dine-In with your table number or Takeaway, and tap Confirm Order. Your ticket prints automatically to the kitchen!",
-    shortDesc: "Select Dine In (Table Number) or Take Away, tap Confirm Order, and kitchen ticket prints automatically!",
+    voiceText: "Step 2: Open your cart, select Dine-In or Takeaway, and tap Confirm Order. Review your items in the confirmation modal before sending to kitchen!",
+    shortDesc: "Review items in the Order Review modal to prevent accidental orders, then tap Send to Kitchen!",
     visual: (
       <div className="bg-[#0a0a0c] rounded-2xl p-4 border border-gray-800 space-y-3 font-sans relative">
         {/* Animated Pointer Arrow Callouts */}
