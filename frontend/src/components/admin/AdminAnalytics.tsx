@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Printer, Download } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { QRCodeSVG } from 'qrcode.react';
+import { toPng } from 'html-to-image';
 
 interface AdminAnalyticsProps {
   analytics: any;
@@ -9,34 +10,40 @@ interface AdminAnalyticsProps {
 
 export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
   const [showPreview, setShowPreview] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
 
-  const handleDownloadQR = (tableNum: number) => {
-    const svgElement = document.getElementById(`qr-svg-${tableNum}`);
-    if (!svgElement) return;
+  const handleDownloadCard = async (tableNum: number) => {
+    const cardElement = document.getElementById(`table-card-${tableNum}`);
+    if (!cardElement) return;
 
-    const svgData = new XMLSerializer().serializeToString(svgElement);
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    const img = new Image();
+    try {
+      const dataUrl = await toPng(cardElement, {
+        pixelRatio: 2,
+        filter: (node) => {
+          if (node instanceof HTMLElement && node.classList.contains('print:hidden')) {
+            return false;
+          }
+          return true;
+        }
+      });
+      const downloadLink = document.createElement('a');
+      downloadLink.href = dataUrl;
+      downloadLink.download = `Table-${tableNum}-Card.png`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    } catch (err) {
+      console.error('Failed to download card image:', err);
+    }
+  };
 
-    img.onload = () => {
-      canvas.width = 400;
-      canvas.height = 400;
-      if (ctx) {
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(img, 50, 50, 300, 300);
-        const pngUrl = canvas.toDataURL('image/png');
-        const downloadLink = document.createElement('a');
-        downloadLink.href = pngUrl;
-        downloadLink.download = `Table-${tableNum}-QR.png`;
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
-      }
-    };
-
-    img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+  const handleDownloadAllCards = async () => {
+    setIsDownloading(true);
+    for (let table = 1; table <= 12; table++) {
+      await handleDownloadCard(table);
+      await new Promise(r => setTimeout(r, 250));
+    }
+    setIsDownloading(false);
   };
 
   if (showPreview) {
@@ -71,15 +78,12 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
           </button>
           <div className="flex gap-3">
             <button
-              onClick={() => {
-                [1,2,3,4,5,6,7,8,9,10,11,12].forEach((t, i) => {
-                  setTimeout(() => handleDownloadQR(t), i * 200);
-                });
-              }}
-              className="bg-gray-900 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-black transition-colors shadow-lg"
+              onClick={handleDownloadAllCards}
+              disabled={isDownloading}
+              className="bg-gray-900 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-black transition-colors shadow-lg disabled:opacity-50"
             >
               <Download size={20} />
-              Download All PNGs
+              {isDownloading ? 'Downloading All...' : 'Download All Cards (PNG)'}
             </button>
             <button
               onClick={() => window.print()}
@@ -97,6 +101,7 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
             return (
               <div
                 key={table}
+                id={`table-card-${table}`}
                 className="relative overflow-hidden flex flex-row items-center justify-between border-[6px] border-[#d4af37] rounded-3xl p-10 shadow-2xl text-black"
                 style={{
                   width: '23cm',
@@ -148,10 +153,10 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
                   </div>
                   <div className="mt-4 flex flex-col items-center">
                     <button
-                      onClick={() => handleDownloadQR(table)}
-                      className="print:hidden mb-2 bg-[#222] hover:bg-black text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 transition-colors border border-gray-700 shadow"
+                      onClick={() => handleDownloadCard(table)}
+                      className="print:hidden mb-2 bg-[#222] hover:bg-black text-white text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition-colors border border-gray-700 shadow"
                     >
-                      <Download size={14} /> Download PNG
+                      <Download size={14} /> Download Card PNG
                     </button>
                     <p className="font-bold text-lg text-gray-800 tracking-wider">Wi-Fi: <span className="text-[#d4af37]">Best Khmer</span></p>
                     <p className="font-bold text-sm text-gray-600 tracking-wider mt-1">Pass: <span className="text-[#d4af37]">Bkr@0168</span></p>
