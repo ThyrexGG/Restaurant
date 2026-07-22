@@ -116,7 +116,7 @@ export default function AdminDashboard() {
 
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-[#d4af37] selection:text-black flex flex-col">
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-[#d4af37] selection:text-black flex flex-col print:bg-white print:text-black print:min-h-0">
       {/* Top Navbar */}
       <nav className="print:hidden bg-[#0a0a0c]/95 backdrop-blur-xl border-b border-gray-800 px-6 py-4 flex flex-col md:flex-row justify-between items-center shadow-[0_4px_24px_rgba(0,0,0,0.8)] sticky top-0 z-50 gap-4">
         <div className="flex items-center gap-6 w-full md:w-auto justify-between md:justify-start">
@@ -168,21 +168,25 @@ export default function AdminDashboard() {
       </nav>
 
       {/* Main Content Area */}
-      <main className="print:hidden flex-1 p-4 lg:p-8 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-900 via-[#050505] to-[#050505]">
+      <main className="flex-1 p-4 lg:p-8 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-900 via-[#050505] to-[#050505] print:bg-white print:p-0 print:m-0">
         {activeTab === 'Dashboard' && (
-          <AdminLiveOrders 
-            kitchenOrders={kitchenOrders} 
-            activeTables={activeTables} 
-            updateStatus={updateStatus} 
-          />
+          <div className="print:hidden">
+            <AdminLiveOrders 
+              kitchenOrders={kitchenOrders} 
+              activeTables={activeTables} 
+              updateStatus={updateStatus} 
+            />
+          </div>
         )}
         
         {activeTab === 'Menu Management' && (
-          <AdminMenuManagement 
-            menuItems={menuItems} 
-            setMenuItems={setMenuItems} 
-            backendUrl={backendUrl} 
-          />
+          <div className="print:hidden">
+            <AdminMenuManagement 
+              menuItems={menuItems} 
+              setMenuItems={setMenuItems} 
+              backendUrl={backendUrl} 
+            />
+          </div>
         )}
 
         {activeTab === 'Analytics' && (

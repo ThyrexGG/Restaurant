@@ -16,14 +16,19 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
         <style>
           {`
             @media print {
-              @page { margin: 1cm; size: auto; }
-              body, html, #root { 
+              @page { margin: 0.5cm; size: auto; }
+              body, html, #root, main { 
                 background-color: white !important; 
+                background: white !important; 
                 color: black !important;
-                -webkit-print-color-adjust: exact; 
-                print-color-adjust: exact; 
+                margin: 0 !important;
+                padding: 0 !important;
+                -webkit-print-color-adjust: exact !important; 
+                print-color-adjust: exact !important; 
               }
-              body > *:not(#root) { display: none !important; }
+              .print\\:hidden {
+                display: none !important;
+              }
             }
           `}
         </style>
