@@ -6,9 +6,11 @@ import { toPng } from 'html-to-image';
 
 interface AdminAnalyticsProps {
   analytics: any;
+  backendUrl?: string;
+  setAnalytics?: (data: any) => void;
 }
 
-export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
+export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: AdminAnalyticsProps) {
   const [showPreview, setShowPreview] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   const [orientation, setOrientation] = useState<'landscape' | 'portrait'>('landscape');
@@ -51,7 +53,7 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
     if (!window.confirm('Are you sure you want to clear all order history from the system? This action cannot be undone.')) return;
     
     try {
-      const apiHost = window.location.origin.includes(':5173') ? 'http://localhost:3000' : window.location.origin;
+      const apiHost = backendUrl || import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
       const res = await fetch(`${apiHost}/api/analytics/clear-orders`, { method: 'DELETE' });
       if (res.ok) {
         Object.keys(localStorage).forEach(key => {
@@ -59,6 +61,15 @@ export default function AdminAnalytics({ analytics }: AdminAnalyticsProps) {
             localStorage.removeItem(key);
           }
         });
+        if (setAnalytics) {
+          setAnalytics({
+            totalRevenue: 0,
+            totalOrders: 0,
+            recentOrders: [],
+            topItems: [],
+            salesChart: []
+          });
+        }
         alert('Order history cleared successfully!');
         window.location.reload();
       }

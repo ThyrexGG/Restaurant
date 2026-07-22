@@ -204,7 +204,7 @@ export default function AdminDashboard() {
         )}
 
         {activeTab === 'Analytics' && (
-          <AdminAnalytics analytics={analytics} />
+          <AdminAnalytics analytics={analytics} backendUrl={backendUrl} setAnalytics={setAnalytics} />
         )}
       </main>
     </div>

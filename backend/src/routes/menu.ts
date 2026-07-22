@@ -23,6 +23,7 @@ export default function menuRoutes(io: Server) {
       
       for (const item of menuData) {
         if (!item.Name) continue;
+        const cleanName = item.Name.trim();
         
         const categoryName = item.Category || 'Uncategorized';
         let category = await prisma.category.findFirst({ where: { name: categoryName } });
@@ -33,11 +34,13 @@ export default function menuRoutes(io: Server) {
         
         const priceValue = Number(item['Price [Best Khmer (Golden Cafe) Restaurant]']) || 5.00;
         
-        const existingItem = await prisma.menuItem.findFirst({ where: { name: item.Name } });
+        const existingItem = await prisma.menuItem.findFirst({ 
+          where: { name: { equals: cleanName, mode: 'insensitive' } } 
+        });
         if (!existingItem) {
           await prisma.menuItem.create({
             data: {
-              name: item.Name,
+              name: cleanName,
               sku: item.SKU || null,
               description: item.Description,
               price: priceValue,
@@ -62,7 +65,14 @@ export default function menuRoutes(io: Server) {
       const items = await prisma.menuItem.findMany({
         include: { category: true }
       });
-      res.json(items);
+      // Sanitize items where image is literal string "null" or "undefined"
+      const sanitized = items.map(item => {
+        if (item.image === 'null' || item.image === 'undefined') {
+          return { ...item, image: null };
+        }
+        return item;
+      });
+      res.json(sanitized);
     } catch (error) {
       console.error('Failed to fetch menu:', error);
       res.status(500).json({ error: 'Failed to fetch menu' });
