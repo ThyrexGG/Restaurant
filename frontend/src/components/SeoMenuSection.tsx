@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search } from 'lucide-react';
+import { Search, Layers, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
@@ -41,10 +41,11 @@ function SeoMenuItemCard({ item, isPopular = false }: { item: any, isPopular?: b
       className="glass-panel overflow-hidden group flex flex-row md:flex-col items-center md:items-stretch hover:-translate-y-1 md:hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(212,175,55,0.15)] transition-all p-3 md:p-0 gap-3 md:gap-0 cursor-pointer block"
     >
       {localImage ? (
-        <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none">
+        <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none bg-black">
           <img 
             src={localImage} 
-            alt={displayName} 
+            alt={displayName}
+            loading="lazy"
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
             style={{ objectPosition: item.imagePosition || 'center' }}
           />
@@ -55,7 +56,7 @@ function SeoMenuItemCard({ item, isPopular = false }: { item: any, isPopular?: b
           )}
         </div>
       ) : cloudinaryImg ? (
-        <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none">
+        <div className="w-28 h-28 md:w-full md:h-48 flex-shrink-0 relative overflow-hidden rounded-xl md:rounded-none bg-black">
           <AdvancedImage 
             cldImg={cloudinaryImg} 
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
@@ -109,7 +110,9 @@ export default function SeoMenuSection() {
       .finally(() => setIsLoading(false));
   }, []);
 
-  const categories = ['Recommendations', 'All', ...Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean)))];
+  const categories = React.useMemo(() => {
+    return ['Recommendations', 'All', ...Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean)))];
+  }, [menuItems]);
 
   const recommendedItemIds = React.useMemo(() => {
     return new Set(
@@ -119,6 +122,18 @@ export default function SeoMenuSection() {
         .map(i => i.id)
     );
   }, [menuItems]);
+
+  const categoryCounts = React.useMemo(() => {
+    const counts: Record<string, number> = {
+      'Recommendations': recommendedItemIds.size,
+      'All': menuItems.length
+    };
+    menuItems.forEach(item => {
+      const cat = item.category?.name || item.Category || 'Uncategorized';
+      counts[cat] = (counts[cat] || 0) + 1;
+    });
+    return counts;
+  }, [menuItems, recommendedItemIds]);
 
   const displayItems = menuItems.filter(item => {
     const categoryName = item.category?.name || item.Category || 'Uncategorized';
@@ -148,43 +163,89 @@ export default function SeoMenuSection() {
     <section className="py-20 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold mb-4 font-['Playfair_Display']">Explore Our Menu</h2>
-        <p className="text-[#aaaaaa]">Click on any dish to learn more.</p>
+        <p className="text-[#aaaaaa]">Select a category below or search for your favorite dish.</p>
       </div>
 
-      <div className="bg-[#0a0a0c]/90 backdrop-blur-md py-4 -mx-6 px-6 mb-12 border-b border-gray-800">
-        <div className="max-w-7xl mx-auto flex flex-col gap-4">
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
-            <input 
-              type="text"
-              placeholder="Search for a dish..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-gray-900 border border-gray-700 rounded-full py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#d4af37] transition-colors"
-            />
+      <div className="bg-[#0a0a0c]/90 backdrop-blur-md py-6 -mx-6 px-6 mb-12 border-y border-gray-800 shadow-xl">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-stretch md:items-center">
+          
+          {/* Prominent Category Dropdown for Easy Browsing */}
+          <div className="flex-1 relative">
+            <label className="text-xs font-bold text-[#d4af37] uppercase tracking-wider block mb-1.5 flex items-center gap-1.5">
+              <Layers size={14} /> Select Category (Dropdown)
+            </label>
+            <div className="relative">
+              <select
+                value={activeCategory}
+                onChange={(e) => setActiveCategory(e.target.value)}
+                className="w-full bg-black border-2 border-[#d4af37] text-white font-bold py-3.5 px-4 pr-10 rounded-2xl appearance-none focus:outline-none focus:ring-2 focus:ring-[#d4af37] shadow-lg cursor-pointer text-base"
+              >
+                {categories.map((cat, idx) => (
+                  <option key={idx} value={cat as string} className="bg-gray-900 text-white font-semibold py-2">
+                    {cat === 'Recommendations' ? '⭐ Chef\'s Recommendations' : cat === 'All' ? '🍽️ All Dishes' : `📁 ${cat}`} ({categoryCounts[cat as string] || 0})
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={20} className="absolute right-4 top-1/2 -translate-y-1/2 text-[#d4af37] pointer-events-none" />
+            </div>
           </div>
-          <div className="flex overflow-x-auto hide-scrollbar gap-3 px-4 py-4 -mx-4 items-center">
-          {categories.map((cat, idx) => (
-            <button 
-              key={idx}
-              onClick={() => setActiveCategory(cat as string)}
-              className={`whitespace-nowrap px-6 py-2.5 rounded-full font-bold transition-all ${
-                activeCategory === cat 
-                  ? 'bg-[#d4af37] text-black shadow-[0_0_20px_rgba(212,175,55,0.4)] scale-105' 
-                  : 'bg-gray-900 border border-gray-700 text-gray-400 hover:border-[#d4af37] hover:text-[#d4af37]'
-              }`}
-            >
-              {cat as string}
-            </button>
-          ))}
+
+          {/* Search Box */}
+          <div className="flex-1 relative">
+            <label className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1.5">
+              Search Dishes
+            </label>
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+              <input 
+                type="text"
+                placeholder="Search by dish name..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-gray-900 border border-gray-700 rounded-2xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-[#d4af37] transition-colors text-base"
+              />
+            </div>
+          </div>
+
+        </div>
+
+        {/* Quick-Scroll Category Pills */}
+        <div className="max-w-7xl mx-auto mt-4 pt-4 border-t border-gray-800/60">
+          <div className="flex overflow-x-auto hide-scrollbar gap-2.5 pb-2 items-center">
+            {categories.map((cat, idx) => (
+              <button 
+                key={idx}
+                onClick={() => setActiveCategory(cat as string)}
+                className={`whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+                  activeCategory === cat 
+                    ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.4)] scale-105' 
+                    : 'bg-gray-900/80 border border-gray-800 text-gray-400 hover:border-[#d4af37] hover:text-[#d4af37]'
+                }`}
+              >
+                {cat as string} <span className="opacity-70 text-[10px]">({categoryCounts[cat as string] || 0})</span>
+              </button>
+            ))}
           </div>
         </div>
       </div>
       
+      {/* Clear Category Header */}
+      <div className="flex items-center justify-between mb-8 pb-3 border-b border-gray-800">
+        <div>
+          <span className="text-xs font-bold text-[#d4af37] uppercase tracking-widest block mb-1">Current Section</span>
+          <h3 className="text-2xl md:text-3xl font-black font-['Playfair_Display'] text-white">
+            {activeCategory === 'Recommendations' ? '⭐ Chef\'s Recommendations' : activeCategory === 'All' ? '🍽️ All Dishes' : `📁 ${activeCategory}`}
+          </h3>
+        </div>
+        <span className="bg-gray-900 border border-gray-700 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-full">
+          {displayItems.length} {displayItems.length === 1 ? 'Dish' : 'Dishes'} Available
+        </span>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
         {displayItems.map((item, index) => (
           <SeoMenuItemCard 
-            key={index} 
+            key={item.id || index} 
             item={item} 
             isPopular={recommendedItemIds.has(item.id)}
           />
