@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
+import { format, quality } from '@cloudinary/url-gen/actions/delivery';
 import { AdvancedImage } from '@cloudinary/react';
 
 const cld = new Cloudinary({ cloud: { cloudName: 'dcizelppo' } });
@@ -55,7 +56,7 @@ export default function MenuItemPage() {
   const localImage = item.image?.startsWith('/images/') ? item.image : null;
   const rawCloudinaryId = !localImage ? (item.image || item.Cloudinary_ID) : null;
   const cloudinaryImgId = extractCloudinaryPublicId(rawCloudinaryId);
-  const cloudinaryImg = cloudinaryImgId ? cld.image(cloudinaryImgId).resize(fill().width(1200).height(800)) : null;
+  const cloudinaryImg = cloudinaryImgId ? cld.image(cloudinaryImgId).resize(fill().width(1200).height(800)).delivery(format('auto')).delivery(quality('auto')) : null;
 
   return (
     <div className="min-h-screen bg-[#0a0a0c] text-[#f5f5f5]">

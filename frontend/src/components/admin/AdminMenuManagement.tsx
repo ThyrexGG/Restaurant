@@ -2,6 +2,7 @@ import React, { useState, useRef, useCallback } from 'react';
 import { Search, Image as ImageIcon, UtensilsCrossed } from 'lucide-react';
 import Cropper from 'react-easy-crop';
 import { getCroppedImg } from '../../utils/cropImage';
+import { getOptimizedImage } from '../../utils/image';
 
 const DraggableScrollContainer = ({ children, className }: { children: React.ReactNode, className?: string }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -475,7 +476,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
                 {editingItem.image ? (
                   <div className="flex-1 h-32 bg-gray-900 border border-gray-700 rounded-xl overflow-hidden relative">
                     <img 
-                      src={editingItem.image} 
+                      src={getOptimizedImage(editingItem.image, 600) || editingItem.image} 
                       alt="Preview" 
                       className="w-full h-full object-cover"
                       style={{ objectPosition: editingItem.imagePosition || 'center' }}

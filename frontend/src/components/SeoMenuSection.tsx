@@ -3,6 +3,7 @@ import { Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
+import { format, quality } from '@cloudinary/url-gen/actions/delivery';
 import { AdvancedImage } from '@cloudinary/react';
 
 // Setup Cloudinary
@@ -32,7 +33,7 @@ function SeoMenuItemCard({ item, isPopular = false }: { item: any, isPopular?: b
   const localImage = item.image?.startsWith('/images/') ? item.image : null;
   const rawCloudinaryId = !localImage ? (item.image || item.Cloudinary_ID) : null;
   const cloudinaryImgId = extractCloudinaryPublicId(rawCloudinaryId);
-  const cloudinaryImg = cloudinaryImgId ? cld.image(cloudinaryImgId).resize(fill().width(600).height(400)) : null;
+  const cloudinaryImg = cloudinaryImgId ? cld.image(cloudinaryImgId).resize(fill().width(600).height(400)).delivery(format('auto')).delivery(quality('auto')) : null;
 
   return (
     <Link 
