@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, Play, Pause, ChevronRight, ChevronLeft, HelpCircle, RotateCcw, Volume2, VolumeX, MousePointer } from 'lucide-react';
+import { X, ChevronRight, ChevronLeft, Volume2, VolumeX, ShoppingBag, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface UserFlowGuideModalProps {
@@ -10,116 +10,76 @@ interface UserFlowGuideModalProps {
 const STEPS = [
   {
     id: 1,
-    title: "1. Tap Item & Select Options (Meat / Sugar)",
-    time: "00:05",
-    voiceText: "Step 1: Tap any item. Choose your meat option like Chicken, Pork, or Beef, and select drink sugar levels 100%, 50%, or 0%, then tap Add to Order.",
-    shortDesc: "Select meat choice (Chicken/Pork/Beef) or drink sweetness (100%, 50%, 0%), then tap Add to Order.",
+    title: "Step 1: Tap Dish & Customize Options",
+    voiceText: "Step 1: Tap any dish or drink. Choose your meat option like Chicken or Pork, or set drink sugar level 100%, 50% or 0%, then tap Add.",
+    shortDesc: "Tap any item on the menu. Select your meat choice (Chicken/Pork) or drink sweetness (100%, 50%, 0%), then tap + Add.",
+    icon: ShoppingBag,
     visual: (
-      <div className="bg-[#0a0a0c] rounded-2xl p-4 border border-gray-800 space-y-3 font-sans relative">
-        {/* Animated Pointer Arrow Callouts */}
-        <div className="absolute top-10 right-4 z-20 bg-[#d4af37] text-black font-extrabold text-[10px] px-2.5 py-1 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.8)] flex items-center gap-1 animate-bounce">
-          <MousePointer size={12} /> PICK MEAT & SUGAR LEVEL ⬇️
+      <div className="bg-[#0a0a0c] p-4 rounded-2xl border border-gray-800 space-y-3 font-sans">
+        <div className="flex justify-between items-center bg-gray-900 p-3 rounded-xl border border-gray-800">
+          <div>
+            <h5 className="text-sm font-bold text-white">Special Amok (Curry)</h5>
+            <span className="text-xs text-[#d4af37] font-bold">$5.00 <span className="text-gray-400 font-normal">(20,000 ៛)</span></span>
+          </div>
+          <span className="bg-[#d4af37] text-black font-bold text-xs px-3 py-1.5 rounded-lg">+ Add</span>
         </div>
 
-        {/* Item Customization Modal Mockup */}
-        <div className="bg-black/95 p-3.5 rounded-2xl border-2 border-[#d4af37] space-y-3 shadow-2xl">
-          <div className="flex justify-between items-start">
-            <div>
-              <h5 className="text-xs font-bold text-white">Special Amok (Chicken/Fish/Pork)</h5>
-              <span className="text-[10px] text-gray-400">Authentic Cambodian Curry</span>
-            </div>
-            <span className="text-xs font-bold text-[#d4af37]">$5.00 <span className="text-[8px] text-gray-400 font-normal">(20,000 ៛)</span></span>
+        {/* Meat / Options Selector */}
+        <div className="space-y-1">
+          <span className="text-[11px] font-bold text-[#d4af37]">🍗 Select Meat Option:</span>
+          <div className="grid grid-cols-3 gap-1.5 text-xs text-center font-bold">
+            <span className="bg-[#d4af37] text-black py-1.5 rounded-lg shadow">Chicken</span>
+            <span className="bg-gray-900 text-gray-400 py-1.5 rounded-lg border border-gray-800">Pork</span>
+            <span className="bg-gray-900 text-gray-400 py-1.5 rounded-lg border border-gray-800">Beef</span>
           </div>
+        </div>
 
-          {/* Option 1: Meat Choice Selector */}
-          <div className="bg-gray-900/90 p-2 rounded-xl border border-[#d4af37]/60 space-y-1.5">
-            <div className="flex justify-between items-center text-[10px]">
-              <span className="font-bold text-white flex items-center gap-1">🍗 Choose Meat Choice:</span>
-              <span className="font-bold text-[#d4af37] bg-[#d4af37]/20 px-1.5 py-0.5 rounded">Chicken</span>
-            </div>
-            <div className="grid grid-cols-4 gap-1 text-[9px] text-center font-bold">
-              <span className="bg-[#d4af37] text-black py-1 rounded shadow">Chicken</span>
-              <span className="bg-gray-800 text-gray-400 py-1 rounded border border-gray-700">Pork</span>
-              <span className="bg-gray-800 text-gray-400 py-1 rounded border border-gray-700">Beef</span>
-              <span className="bg-gray-800 text-gray-400 py-1 rounded border border-gray-700">Fish</span>
-            </div>
+        {/* Drink Sugar Level Selector */}
+        <div className="space-y-1 pt-1">
+          <span className="text-[11px] font-bold text-cyan-400">🍬 Drink Sugar Sweetness:</span>
+          <div className="flex gap-1.5 text-xs font-bold">
+            <span className="bg-gray-900 text-gray-400 px-3 py-1 rounded-lg border border-gray-800">100%</span>
+            <span className="bg-cyan-500 text-black px-3 py-1 rounded-lg shadow">50% (Half)</span>
+            <span className="bg-gray-900 text-gray-400 px-3 py-1 rounded-lg border border-gray-800">0% (No Sugar)</span>
           </div>
-
-          {/* Option 2: Drink Sugar Level Selector */}
-          <div className="bg-gray-900/90 p-2 rounded-xl border border-cyan-500/40 space-y-1.5">
-            <div className="flex justify-between items-center text-[10px]">
-              <span className="font-bold text-white flex items-center gap-1">🍬 Drink Sugar Level:</span>
-              <span className="font-bold text-cyan-400 bg-cyan-500/20 px-1.5 py-0.5 rounded">50% (Half Sugar)</span>
-            </div>
-            <div className="flex flex-wrap gap-1 text-[9px] font-bold">
-              <span className="bg-gray-800 text-gray-400 px-2 py-0.5 rounded border border-gray-700">100%</span>
-              <span className="bg-cyan-500 text-black px-2 py-0.5 rounded shadow scale-105">50%</span>
-              <span className="bg-gray-800 text-gray-400 px-2 py-0.5 rounded border border-gray-700">25%</span>
-              <span className="bg-gray-800 text-gray-400 px-2 py-0.5 rounded border border-gray-700">0%</span>
-            </div>
-          </div>
-
-          <button className="w-full bg-[#d4af37] text-black font-black text-xs py-2.5 rounded-xl shadow-lg animate-pulse">
-            + Add to Order • $5.00 (20,000 ៛)
-          </button>
         </div>
       </div>
     )
   },
   {
     id: 2,
-    title: "2. Open Cart & Confirm Order",
-    time: "00:15",
-    voiceText: "Step 2: Open your cart, select Dine-In or Takeaway, and tap Confirm Order. Review your items in the confirmation modal before sending to kitchen!",
-    shortDesc: "Review items in the Order Review modal to prevent accidental orders, then tap Send to Kitchen!",
+    title: "Step 2: Open Cart & Confirm Order",
+    voiceText: "Step 2: Open your cart at the bottom, select Dine-In with your table number or Takeaway, and tap Confirm Order. Review your order before sending!",
+    shortDesc: "Open your cart at the bottom, pick Dine In (Table #) or Take Away, review items, and tap Confirm Order to send to the kitchen!",
+    icon: CheckCircle2,
     visual: (
-      <div className="bg-[#0a0a0c] rounded-2xl p-4 border border-gray-800 space-y-3 font-sans relative">
-        {/* Animated Pointer Arrow Callouts */}
-        <div className="absolute top-10 right-4 z-20 bg-green-500 text-black font-extrabold text-[10px] px-2.5 py-1 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.8)] flex items-center gap-1 animate-bounce">
-          <MousePointer size={12} /> TAP CONFIRM ORDER ⬇️
-        </div>
-
-        {/* Cart Drawer & Order Checkout Mockup */}
-        <div className="bg-gray-950 p-3.5 rounded-2xl border border-gray-800 space-y-3 shadow-2xl">
-          <div className="flex justify-between items-center text-xs pb-1.5 border-b border-gray-800">
-            <span className="font-bold text-white">Your Cart (2 Items)</span>
-            <span className="text-xs font-bold text-[#d4af37]">$7.50</span>
+      <div className="bg-[#0a0a0c] p-4 rounded-2xl border border-gray-800 space-y-3 font-sans">
+        {/* Dining Type Selector */}
+        <div className="grid grid-cols-2 gap-2 bg-gray-900 p-1.5 rounded-xl border border-gray-800">
+          <div className="bg-[#d4af37] text-black text-xs font-bold py-2 text-center rounded-lg shadow">
+            🍽️ Dine In (Table #5)
           </div>
-
-          {/* Dine-In Table vs Takeaway Selector */}
-          <div className="grid grid-cols-2 gap-1.5 bg-gray-900 p-1 rounded-xl border-2 border-[#d4af37]">
-            <div className="bg-[#d4af37] text-black text-[10px] font-extrabold py-1.5 text-center rounded-lg shadow">
-              Dine In (Table #5)
-            </div>
-            <div className="text-gray-400 text-[10px] font-bold py-1.5 text-center rounded-lg">
-              Take Away
-            </div>
-          </div>
-
-          {/* Order Items with Customization Specs */}
-          <div className="space-y-1.5 text-[10px] bg-black/60 p-2 rounded-xl border border-gray-800/80">
-            <div className="flex justify-between text-gray-200 font-bold">
-              <span>1x Special Amok <span className="text-[#d4af37]">(Choice: Chicken)</span></span>
-              <span>$5.00</span>
-            </div>
-            <div className="flex justify-between text-gray-200 font-bold">
-              <span>1x Strawberry Smoothie <span className="text-cyan-400">(Sugar 50%)</span></span>
-              <span>$2.50</span>
-            </div>
-          </div>
-
-          {/* Confirm Button */}
-          <button className="w-full bg-[#d4af37] text-black font-black text-xs py-2.5 rounded-xl shadow-lg border border-[#d4af37]">
-            Confirm Order • Total: $7.50 (30,000 ៛)
-          </button>
-
-          {/* Kitchen Printer Notification Badge */}
-          <div className="text-center pt-1">
-            <span className="inline-block bg-green-500/20 text-green-400 border border-green-500/40 text-[10px] font-extrabold px-3 py-1 rounded-full shadow-sm">
-              ✓ Sent to Kitchen Printer Automatically
-            </span>
+          <div className="text-gray-400 text-xs font-bold py-2 text-center rounded-lg">
+            🥡 Take Away
           </div>
         </div>
+
+        {/* Order Review Box */}
+        <div className="bg-gray-900/90 p-3 rounded-xl border border-gray-800 space-y-1 text-xs">
+          <div className="flex justify-between text-white font-bold">
+            <span>1x Special Amok (Chicken)</span>
+            <span className="text-[#d4af37]">$5.00</span>
+          </div>
+          <div className="flex justify-between text-white font-bold">
+            <span>1x Smoothie (Sugar 50%)</span>
+            <span className="text-[#d4af37]">$2.50</span>
+          </div>
+        </div>
+
+        {/* Confirm Order Button */}
+        <button className="w-full bg-[#d4af37] text-black font-extrabold text-sm py-3 rounded-xl shadow-lg">
+          Confirm Order • Total $7.50 (30,000 ៛)
+        </button>
       </div>
     )
   }
@@ -127,12 +87,9 @@ const STEPS = [
 
 export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideModalProps) {
   const [activeStep, setActiveStep] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
-  const [hasRealVideo, setHasRealVideo] = useState(false);
-  const [progress, setProgress] = useState(0);
 
-  // AI Voice Synthesis Speech Engine
+  // Speech Voice Over
   const speakVoiceOver = (text: string) => {
     if (isMuted || !('speechSynthesis' in window)) return;
     try {
@@ -142,58 +99,21 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
       utterance.pitch = 1.0;
       window.speechSynthesis.speak(utterance);
     } catch {
-      // Ignore audio synthesis errors silently
+      // Ignore audio synthesis errors
     }
   };
 
-  // Speak step whenever step changes
   useEffect(() => {
-    if (isOpen && !hasRealVideo && !isMuted) {
+    if (isOpen && !isMuted) {
       speakVoiceOver(STEPS[activeStep].voiceText);
     }
-  }, [activeStep, isOpen, isMuted, hasRealVideo]);
+  }, [activeStep, isOpen, isMuted]);
 
-  // Cancel speech on close
   useEffect(() => {
     if (!isOpen && 'speechSynthesis' in window) {
       window.speechSynthesis.cancel();
     }
   }, [isOpen]);
-
-  // Check if a real MP4 video exists and is actually a video file
-  useEffect(() => {
-    fetch('/video-guide.mp4', { method: 'HEAD' })
-      .then(res => {
-        const contentType = res.headers.get('content-type') || '';
-        if (res.ok && contentType.includes('video')) {
-          setHasRealVideo(true);
-        } else {
-          setHasRealVideo(false);
-        }
-      })
-      .catch(() => setHasRealVideo(false));
-  }, []);
-
-  // Video Demo playback timer & progress bar
-  useEffect(() => {
-    if (!isPlaying || hasRealVideo || !isOpen) return;
-
-    const interval = 50; // ms
-    const stepDuration = 6000; // ms per step
-    const increment = (interval / stepDuration) * 100;
-
-    const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          setActiveStep((current) => (current + 1) % STEPS.length);
-          return 0;
-        }
-        return prev + increment;
-      });
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, [isPlaying, hasRealVideo, isOpen, activeStep]);
 
   if (!isOpen) return null;
 
@@ -206,175 +126,105 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-2xl bg-[#0a0a0c] border border-[#d4af37]/40 rounded-3xl p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.9)] overflow-hidden"
+          className="relative w-full max-w-lg bg-[#0a0a0c] border border-[#d4af37]/40 rounded-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.9)] space-y-5"
         >
-          {/* Header */}
-          <div className="flex justify-between items-center pb-4 mb-4 border-b border-gray-800">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#d4af37]/20 border border-[#d4af37]/40 flex items-center justify-center text-[#d4af37]">
-                <HelpCircle size={22} />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white font-['Playfair_Display']">Easy 2-Step Ordering Guide</h3>
-                <p className="text-xs text-gray-400">Watch the quick demo with AI Voice Over narration</p>
-              </div>
+          {/* Minimal Header */}
+          <div className="flex justify-between items-center pb-3 border-b border-gray-800">
+            <div>
+              <h3 className="text-xl font-bold text-white font-['Playfair_Display']">How to Order (2 Easy Steps)</h3>
+              <p className="text-xs text-gray-400">Simple guide for new customers</p>
             </div>
-            <button 
-              onClick={() => {
-                if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-                onClose();
-              }} 
-              className="p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-800/80 transition-colors"
+            <div className="flex items-center gap-2">
+              <button 
+                onClick={() => {
+                  const newMuted = !isMuted;
+                  setIsMuted(newMuted);
+                  if (newMuted && 'speechSynthesis' in window) {
+                    window.speechSynthesis.cancel();
+                  } else {
+                    speakVoiceOver(current.voiceText);
+                  }
+                }}
+                className={`p-2 rounded-full text-xs font-bold transition-all border ${
+                  !isMuted 
+                    ? 'bg-[#d4af37] text-black border-[#d4af37]' 
+                    : 'bg-gray-900 text-gray-400 border-gray-800'
+                }`}
+                title="Toggle Voice Over"
+              >
+                {!isMuted ? <Volume2 size={16} /> : <VolumeX size={16} />}
+              </button>
+
+              <button 
+                onClick={() => {
+                  if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+                  onClose();
+                }} 
+                className="p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
+              >
+                <X size={20} />
+              </button>
+            </div>
+          </div>
+
+          {/* Clean Step Card */}
+          <div className="space-y-3">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-bold text-[#d4af37] bg-[#d4af37]/10 px-3 py-1 rounded-full border border-[#d4af37]/30">
+                {current.title}
+              </span>
+              <span className="text-xs font-semibold text-gray-400">Step {current.id} of 2</span>
+            </div>
+
+            {/* Visual Example Box */}
+            {current.visual}
+
+            <p className="text-xs text-gray-300 bg-gray-900/90 p-3 rounded-xl border border-gray-800 leading-relaxed">
+              💡 {current.shortDesc}
+            </p>
+          </div>
+
+          {/* Navigation Controls */}
+          <div className="flex items-center justify-between pt-2">
+            <button
+              disabled={activeStep === 0}
+              onClick={() => setActiveStep(0)}
+              className="flex items-center gap-1 text-xs font-bold text-gray-400 hover:text-white disabled:opacity-30 transition-colors"
             >
-              <X size={20} />
+              <ChevronLeft size={16} /> Step 1
+            </button>
+
+            <div className="flex gap-1.5">
+              {STEPS.map((s, idx) => (
+                <button
+                  key={s.id}
+                  onClick={() => setActiveStep(idx)}
+                  className={`h-2.5 rounded-full transition-all ${
+                    activeStep === idx ? 'w-8 bg-[#d4af37]' : 'w-2.5 bg-gray-700'
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              disabled={activeStep === 1}
+              onClick={() => setActiveStep(1)}
+              className="flex items-center gap-1 text-xs font-bold text-[#d4af37] hover:text-[#f3e5ab] disabled:opacity-30 transition-colors"
+            >
+              Step 2 <ChevronRight size={16} />
             </button>
           </div>
 
-          {/* Real MP4 Video or 2-Step Interactive Demo Player */}
-          {hasRealVideo ? (
-            <div className="relative rounded-2xl overflow-hidden bg-black border border-gray-800 mb-6 aspect-video">
-              <video 
-                src="/video-guide.mp4" 
-                controls 
-                autoPlay 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {/* Mini-Browser Web Showcase Frame */}
-              <div className="relative bg-gradient-to-br from-gray-950 via-black to-gray-900 rounded-2xl border border-gray-800 overflow-hidden shadow-2xl">
-                
-                {/* Browser Top Window Bar */}
-                <div className="bg-black/90 px-4 py-2.5 border-b border-gray-800 flex justify-between items-center text-xs">
-                  <div className="flex items-center gap-2">
-                    <div className="flex gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-                    </div>
-                    <span className="text-[10px] text-gray-400 font-mono hidden sm:inline">https://bestkhmer-restaurant.com/menu</span>
-                  </div>
-                  
-                  <div className="flex items-center gap-2">
-                    {/* Voice Over Toggle Button */}
-                    <button 
-                      onClick={() => {
-                        const newMuteState = !isMuted;
-                        setIsMuted(newMuteState);
-                        if (newMuteState && 'speechSynthesis' in window) {
-                          window.speechSynthesis.cancel();
-                        } else {
-                          speakVoiceOver(current.voiceText);
-                        }
-                      }}
-                      className={`flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border transition-all ${
-                        !isMuted 
-                          ? 'bg-[#d4af37] text-black border-[#d4af37] shadow-[0_0_10px_rgba(212,175,55,0.4)]' 
-                          : 'bg-gray-800 text-gray-400 border-gray-700 hover:text-white'
-                      }`}
-                      title="Toggle AI Voice Over Narration"
-                    >
-                      {!isMuted ? <Volume2 size={13} /> : <VolumeX size={13} />}
-                      <span>{!isMuted ? 'Voice On' : 'Voice Muted'}</span>
-                    </button>
-
-                    <button 
-                      onClick={() => { setActiveStep(0); setProgress(0); setIsPlaying(true); }}
-                      className="text-gray-400 hover:text-[#d4af37] transition-colors p-1"
-                      title="Replay Showcase"
-                    >
-                      <RotateCcw size={14} />
-                    </button>
-                    <button 
-                      onClick={() => setIsPlaying(!isPlaying)}
-                      className="flex items-center gap-1 text-xs font-bold text-[#d4af37] bg-[#d4af37]/10 px-2.5 py-1 rounded-full border border-[#d4af37]/30 hover:bg-[#d4af37]/20 transition-all"
-                    >
-                      {isPlaying ? <Pause size={12} /> : <Play size={12} />}
-                      <span>{isPlaying ? 'Pause' : 'Play'}</span>
-                    </button>
-                  </div>
-                </div>
-
-                {/* Animated Showcase Content */}
-                <div className="p-4 md:p-6 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h4 className="text-sm md:text-base font-bold text-white flex items-center gap-2">
-                      <span className="bg-[#d4af37] text-black w-6 h-6 rounded-lg text-xs font-black flex items-center justify-center">
-                        {current.id}
-                      </span>
-                      {current.title}
-                    </h4>
-                    <span className="text-xs font-mono text-[#d4af37]">{current.time}</span>
-                  </div>
-
-                  {/* UI Showcase Mockup */}
-                  <div className="my-2">
-                    {current.visual}
-                  </div>
-
-                  <p className="text-xs text-[#d4af37] font-semibold leading-relaxed bg-black/60 p-3 rounded-xl border border-[#d4af37]/30">
-                    💡 {current.shortDesc}
-                  </p>
-                </div>
-
-                {/* Video Progress Bar */}
-                <div className="w-full bg-gray-900 h-1.5 relative overflow-hidden">
-                  <div 
-                    className="bg-gradient-to-r from-[#d4af37] to-[#f3e5ab] h-full transition-all duration-75"
-                    style={{ width: `${((activeStep + (progress / 100)) / STEPS.length) * 100}%` }}
-                  />
-                </div>
-              </div>
-
-              {/* Step Navigation Bar */}
-              <div className="flex items-center justify-between px-2 pt-1">
-                <button
-                  disabled={activeStep === 0}
-                  onClick={() => { setActiveStep(prev => Math.max(0, prev - 1)); setProgress(0); }}
-                  className="flex items-center gap-1 text-xs font-bold text-gray-400 hover:text-white disabled:opacity-30 disabled:hover:text-gray-400 transition-colors"
-                >
-                  <ChevronLeft size={16} /> Step 1
-                </button>
-
-                <div className="flex items-center gap-2">
-                  {STEPS.map((step, idx) => (
-                    <button
-                      key={step.id}
-                      onClick={() => { setActiveStep(idx); setProgress(0); }}
-                      className={`h-2.5 rounded-full transition-all duration-300 ${
-                        activeStep === idx 
-                          ? 'w-8 bg-[#d4af37]' 
-                          : 'w-2.5 bg-gray-700 hover:bg-gray-500'
-                      }`}
-                      title={`Step ${step.id}`}
-                    />
-                  ))}
-                </div>
-
-                <button
-                  disabled={activeStep === STEPS.length - 1}
-                  onClick={() => { setActiveStep(prev => Math.min(STEPS.length - 1, prev + 1)); setProgress(0); }}
-                  className="flex items-center gap-1 text-xs font-bold text-[#d4af37] hover:text-[#f3e5ab] disabled:opacity-30 disabled:hover:text-[#d4af37] transition-colors"
-                >
-                  Step 2 <ChevronRight size={16} />
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Footer Action */}
-          <div className="mt-6 pt-4 border-t border-gray-800/80 flex justify-end">
-            <button 
-              onClick={() => {
-                if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-                onClose();
-              }}
-              className="bg-[#d4af37] text-black font-bold text-sm px-6 py-2.5 rounded-xl hover:bg-[#b08d29] transition-all shadow-[0_4px_15px_rgba(212,175,55,0.3)]"
-            >
-              Got it, let's order!
-            </button>
-          </div>
+          {/* Big Action Button */}
+          <button 
+            onClick={() => {
+              if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+              onClose();
+            }}
+            className="w-full bg-[#d4af37] text-black font-extrabold text-sm py-3.5 rounded-xl hover:bg-[#b08d29] transition-all shadow-[0_4px_20px_rgba(212,175,55,0.3)] mt-2"
+          >
+            Got it! Start Ordering
+          </button>
         </motion.div>
       </div>
     </AnimatePresence>
