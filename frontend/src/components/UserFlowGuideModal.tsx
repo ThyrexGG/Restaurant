@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, Play, Pause, ChevronRight, ChevronLeft, HelpCircle, CheckCircle2, ShoppingBag, Utensils, Receipt, RotateCcw } from 'lucide-react';
+import { X, Play, Pause, ChevronRight, ChevronLeft, HelpCircle, RotateCcw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface UserFlowGuideModalProps {
@@ -10,78 +10,179 @@ interface UserFlowGuideModalProps {
 const STEPS = [
   {
     id: 1,
-    title: "Step 1: Browse Menu & Select Category",
+    title: "1. Browse Menu & Select Category",
     time: "00:05",
-    desc: "Use the top Category Selector or drag the quick pills horizontally to jump straight to your favorite section (Fried Rice, Soup, Breakfast, Beverages). You can also search by dish name or SKU code (e.g. B16).",
-    icon: Utensils,
+    desc: "Browse our continuous scroll menu, pick a category from the dropdown (or drag quick category pills), or search for dishes & SKU codes.",
     visual: (
-      <div className="bg-gray-950 p-4 rounded-xl border border-gray-800 space-y-3 shadow-inner">
-        <div className="bg-black p-3 rounded-lg border border-[#d4af37] text-xs font-bold text-[#d4af37] flex justify-between items-center shadow-md">
-          <span>Select Category</span>
-          <span>▼</span>
+      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-3 font-sans">
+        {/* Web Navbar Mockup */}
+        <div className="flex justify-between items-center bg-black/60 p-2.5 rounded-lg border border-gray-800">
+          <div className="flex items-center gap-2">
+            <img src="/logo.png" alt="Logo" className="w-6 h-6 rounded-full" />
+            <span className="text-xs font-bold text-[#d4af37]">Best Khmer</span>
+          </div>
+          <span className="text-[10px] text-gray-400 bg-gray-900 px-2 py-0.5 rounded border border-gray-800">Menu</span>
         </div>
-        <div className="flex gap-2 overflow-x-auto pb-1">
-          <span className="bg-[#d4af37] text-black text-xs font-bold px-3 py-1 rounded-lg">Chef's Recommendations (8)</span>
-          <span className="bg-gray-900 text-gray-400 text-xs font-bold px-3 py-1 rounded-lg border border-gray-800">Breakfast (12)</span>
-          <span className="bg-gray-900 text-gray-400 text-xs font-bold px-3 py-1 rounded-lg border border-gray-800">Fried Rice (18)</span>
+
+        {/* Category Selector Card */}
+        <div className="bg-black p-2.5 rounded-xl border border-[#d4af37]/60 space-y-2">
+          <div className="text-[9px] font-bold text-[#d4af37] uppercase">Select Category (Dropdown)</div>
+          <div className="bg-gray-900 p-2 rounded-lg text-xs text-white font-bold flex justify-between items-center border border-gray-800">
+            <span>⭐ Chef's Recommendations (8)</span>
+            <span className="text-[#d4af37]">▼</span>
+          </div>
+          <div className="flex gap-1.5 overflow-x-auto text-[10px] pb-1">
+            <span className="bg-[#d4af37] text-black font-bold px-2.5 py-1 rounded-md whitespace-nowrap">Recommendations (8)</span>
+            <span className="bg-gray-900 text-gray-400 font-bold px-2.5 py-1 rounded-md border border-gray-800 whitespace-nowrap">Breakfast (12)</span>
+            <span className="bg-gray-900 text-gray-400 font-bold px-2.5 py-1 rounded-md border border-gray-800 whitespace-nowrap">Fried Rice (18)</span>
+          </div>
+        </div>
+
+        {/* Dish Grid Preview */}
+        <div className="grid grid-cols-2 gap-2">
+          <div className="bg-gray-900 p-2 rounded-lg border border-gray-800 flex flex-col justify-between">
+            <div className="space-y-0.5">
+              <span className="text-[10px] font-bold text-white block truncate">Grilled Pork Rice</span>
+              <span className="text-[10px] font-bold text-[#d4af37]">$3.50 <span className="text-[8px] text-gray-400 font-normal">(14,000 ៛)</span></span>
+            </div>
+            <span className="bg-[#d4af37] text-black text-[9px] font-bold text-center py-1 rounded mt-1.5">+ Add</span>
+          </div>
+
+          <div className="bg-gray-900 p-2 rounded-lg border border-gray-800 flex flex-col justify-between">
+            <div className="space-y-0.5">
+              <span className="text-[10px] font-bold text-white block truncate">Strawberry Smoothie</span>
+              <span className="text-[10px] font-bold text-[#d4af37]">$2.50 <span className="text-[8px] text-gray-400 font-normal">(10,000 ៛)</span></span>
+            </div>
+            <span className="bg-[#d4af37] text-black text-[9px] font-bold text-center py-1 rounded mt-1.5">+ Add</span>
+          </div>
         </div>
       </div>
     )
   },
   {
     id: 2,
-    title: "Step 2: Customize Drink Sugar & Add to Order",
+    title: "2. Customize Drink Sugar Level & Add to Cart",
     time: "00:15",
-    desc: "Tap any dish or drink to view ingredients and customize your Sugar Level (100%, 50%, 0%) and Ice Level. Click '+ Add' to put items into your shopping cart.",
-    icon: ShoppingBag,
+    desc: "Tap any drink to open customization options: select Sugar Level (100%, 75%, 50%, 25%, 0%) and Ice Level, then tap '+ Add to Order'.",
     visual: (
-      <div className="bg-gray-950 p-4 rounded-xl border border-gray-800 space-y-3 shadow-inner">
-        <div className="flex justify-between items-center">
-          <span className="text-xs font-bold text-white">Strawberry Smoothie</span>
-          <span className="text-xs font-bold text-[#d4af37]">$2.50 (10,000 ៛)</span>
-        </div>
-        <div className="space-y-1.5">
-          <span className="text-[10px] font-bold text-gray-400 uppercase">🍬 Sugar Level</span>
-          <div className="flex gap-1.5">
-            <span className="bg-[#d4af37] text-black text-[10px] font-bold px-2 py-0.5 rounded">100% (Normal)</span>
-            <span className="bg-gray-900 text-gray-400 text-[10px] font-bold px-2 py-0.5 rounded border border-gray-800">50% (Half)</span>
-            <span className="bg-gray-900 text-gray-400 text-[10px] font-bold px-2 py-0.5 rounded border border-gray-800">0% (No Sugar)</span>
+      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-2.5 font-sans">
+        {/* Item Modal Mockup */}
+        <div className="bg-black/90 p-3 rounded-xl border border-[#d4af37] space-y-2 shadow-lg">
+          <div className="flex justify-between items-start">
+            <div>
+              <h5 className="text-xs font-bold text-white">Strawberry Smoothie</h5>
+              <span className="text-[10px] text-gray-400">Fresh blended fruit smoothie</span>
+            </div>
+            <span className="text-xs font-bold text-[#d4af37]">$2.50</span>
           </div>
+
+          {/* Sugar Level Selector */}
+          <div className="bg-gray-900/90 p-2 rounded-lg border border-gray-800 space-y-1.5">
+            <div className="flex justify-between items-center text-[10px]">
+              <span className="font-bold text-white">🍬 Sugar Level</span>
+              <span className="font-bold text-[#d4af37]">50% (Half Sugar)</span>
+            </div>
+            <div className="flex flex-wrap gap-1 text-[9px]">
+              <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">100%</span>
+              <span className="bg-[#d4af37] text-black font-bold px-2 py-0.5 rounded shadow">50%</span>
+              <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">25%</span>
+              <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">0%</span>
+            </div>
+          </div>
+
+          {/* Ice Level Selector */}
+          <div className="bg-gray-900/90 p-2 rounded-lg border border-gray-800 space-y-1.5">
+            <div className="flex justify-between items-center text-[10px]">
+              <span className="font-bold text-white">🧊 Ice Level</span>
+              <span className="font-bold text-cyan-400">Normal Ice</span>
+            </div>
+            <div className="flex gap-1 text-[9px]">
+              <span className="bg-cyan-500 text-black font-bold px-2 py-0.5 rounded shadow">Normal Ice</span>
+              <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">Less Ice</span>
+              <span className="bg-gray-800 text-gray-400 font-bold px-2 py-0.5 rounded border border-gray-700">No Ice</span>
+            </div>
+          </div>
+
+          <button className="w-full bg-[#d4af37] text-black font-extrabold text-xs py-2 rounded-lg shadow-md">
+            Add to Order - $2.50 <span className="text-[9px] opacity-90">(10,000 ៛)</span>
+          </button>
         </div>
-        <button className="w-full bg-[#d4af37] text-black font-bold text-xs py-2 rounded-xl shadow-lg">
-          + Add to Order - $2.50
-        </button>
       </div>
     )
   },
   {
     id: 3,
-    title: "Step 3: Choose Dine-In or Takeaway & Confirm",
-    desc: "Open your cart at the bottom, select your Dining Option (Dine In or Take Away), enter your Table Number if seated, and tap 'Confirm Order'.",
-    icon: CheckCircle2,
+    title: "3. Pick Dine-In or Takeaway & Confirm Order",
+    time: "00:30",
+    desc: "Open your cart at the bottom, select your Dining Option (Dine In with Table Number or Take Away), and click 'Confirm Order'.",
     visual: (
-      <div className="bg-gray-950 p-4 rounded-xl border border-gray-800 space-y-3 shadow-inner">
-        <div className="grid grid-cols-2 gap-2">
-          <div className="bg-[#d4af37] text-black text-xs font-bold p-2 text-center rounded-lg shadow-sm">Dine In (Table 5)</div>
-          <div className="bg-gray-900 text-gray-400 text-xs font-bold p-2 text-center rounded-lg border border-gray-800">Take Away</div>
-        </div>
-        <div className="bg-[#d4af37] text-black text-center text-xs font-extrabold p-2.5 rounded-xl shadow-md">
-          Confirm Order • $6.00 (24,000 ៛)
+      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-2.5 font-sans">
+        {/* Cart Drawer Mockup */}
+        <div className="bg-gray-950 p-3 rounded-xl border border-gray-800 space-y-2.5">
+          <div className="flex justify-between items-center text-xs pb-1.5 border-b border-gray-800">
+            <span className="font-bold text-white">Your Cart (2 Items)</span>
+            <span className="text-xs font-bold text-[#d4af37]">$6.00</span>
+          </div>
+
+          {/* Dining Option Toggle */}
+          <div className="grid grid-cols-2 gap-1.5 bg-gray-900 p-1 rounded-lg border border-gray-800">
+            <div className="bg-[#d4af37] text-black text-[10px] font-bold py-1.5 text-center rounded shadow">Dine In (Table 5)</div>
+            <div className="text-gray-400 text-[10px] font-bold py-1.5 text-center rounded">Take Away</div>
+          </div>
+
+          {/* Order Item List */}
+          <div className="space-y-1 text-[10px] text-gray-300">
+            <div className="flex justify-between">
+              <span>1x Grilled Pork Rice</span>
+              <span className="text-white font-bold">$3.50</span>
+            </div>
+            <div className="flex justify-between">
+              <span>1x Strawberry Smoothie <span className="text-[#d4af37]">(Sugar 50%)</span></span>
+              <span className="text-white font-bold">$2.50</span>
+            </div>
+          </div>
+
+          {/* Confirm Button */}
+          <button className="w-full bg-[#d4af37] text-black font-black text-xs py-2 rounded-lg shadow-md">
+            Confirm Order • Total: $6.00 (24,000 ៛)
+          </button>
         </div>
       </div>
     )
   },
   {
     id: 4,
-    title: "Step 4: Auto Ticket Printing & View Bill",
-    desc: "Your order is immediately sent to the kitchen printer automatically! Tap 'My Bill' at the top anytime to view your order receipt.",
-    icon: Receipt,
+    title: "4. Auto Ticket Printing & View Receipts in Riel",
+    time: "00:45",
+    desc: "Your order is immediately sent to the kitchen printer automatically! Tap 'My Bill' at the top anytime to view your detailed receipt.",
     visual: (
-      <div className="bg-gray-950 p-4 rounded-xl border border-gray-800 text-center space-y-2.5 shadow-inner">
-        <div className="inline-block bg-green-500/20 text-green-400 border border-green-500/30 text-xs font-bold px-3 py-1 rounded-full">
-          ✓ Kitchen Ticket Printed Automatically
+      <div className="bg-[#0a0a0c] rounded-xl p-3 border border-gray-800 space-y-2 font-sans">
+        {/* Thermal Receipt Mockup */}
+        <div className="bg-white text-black p-3 rounded-lg font-mono text-[10px] space-y-1.5 shadow-xl border border-gray-300">
+          <div className="text-center font-bold text-xs border-b border-dashed border-gray-400 pb-1">
+            BEST KHMER RESTAURANT
+            <div className="text-[9px] font-normal text-gray-600">Siem Reap, Cambodia</div>
+          </div>
+          <div className="flex justify-between text-[9px] font-bold">
+            <span>ORDER #1042</span>
+            <span>DINE IN (TABLE #5)</span>
+          </div>
+          <div className="border-t border-b border-dashed border-gray-400 py-1 space-y-0.5">
+            <div className="flex justify-between"><span>1x Grilled Pork Rice</span><span>$3.50</span></div>
+            <div className="flex justify-between"><span>1x Strawberry Smoothie</span><span>$2.50</span></div>
+            <div className="text-[8px] text-gray-600 pl-2">└ Sugar: 50% | Ice: Normal</div>
+          </div>
+          <div className="flex justify-between font-bold text-xs pt-0.5">
+            <span>TOTAL:</span>
+            <span>$6.00 (24,000 ៛)</span>
+          </div>
         </div>
-        <div className="text-xs text-gray-300">Dual Currency Total: $6.00 USD / 24,000 KHR ៛</div>
+
+        <div className="text-center">
+          <span className="inline-block bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-3 py-1 rounded-full">
+            ✓ Ticket Printed Automatically to Kitchen
+          </span>
+        </div>
       </div>
     )
   }
@@ -148,8 +249,8 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
                 <HelpCircle size={22} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white font-['Playfair_Display']">How to Order (Video Walkthrough)</h3>
-                <p className="text-xs text-gray-400">Watch the 1-minute quick guide to start ordering</p>
+                <h3 className="text-xl font-bold text-white font-['Playfair_Display']">How to Order (Website Showcase)</h3>
+                <p className="text-xs text-gray-400">Step-by-step visual demonstration of the ordering flow</p>
               </div>
             </div>
             <button 
@@ -160,7 +261,7 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
             </button>
           </div>
 
-          {/* Real MP4 Video or Animated Interactive Demo Player */}
+          {/* Real MP4 Video or Authentic Website Showcase Simulation Player */}
           {hasRealVideo ? (
             <div className="relative rounded-2xl overflow-hidden bg-black border border-gray-800 mb-6 aspect-video">
               <video 
@@ -172,22 +273,25 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
             </div>
           ) : (
             <div className="space-y-4">
-              {/* Simulated Video Player Screen */}
+              {/* Mini-Browser Web Showcase Frame */}
               <div className="relative bg-gradient-to-br from-gray-950 via-black to-gray-900 rounded-2xl border border-gray-800 overflow-hidden shadow-2xl">
                 
-                {/* Video Header Bar */}
-                <div className="bg-black/80 px-4 py-2.5 border-b border-gray-800 flex justify-between items-center text-xs">
+                {/* Browser Top Window Bar */}
+                <div className="bg-black/90 px-4 py-2.5 border-b border-gray-800 flex justify-between items-center text-xs">
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
-                    <span className="font-bold text-red-500 uppercase tracking-wider text-[10px]">VIDEO DEMO</span>
-                    <span className="text-gray-500">|</span>
-                    <span className="text-gray-300 font-mono">{current.time}</span>
+                    <div className="flex gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+                    </div>
+                    <span className="text-[10px] text-gray-400 font-mono hidden sm:inline">https://bestkhmer-restaurant.com/menu</span>
                   </div>
+                  
                   <div className="flex items-center gap-2">
                     <button 
                       onClick={() => { setActiveStep(0); setProgress(0); setIsPlaying(true); }}
                       className="text-gray-400 hover:text-[#d4af37] transition-colors p-1"
-                      title="Replay from start"
+                      title="Replay Showcase"
                     >
                       <RotateCcw size={14} />
                     </button>
@@ -201,17 +305,19 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
                   </div>
                 </div>
 
-                {/* Animated Screen Content */}
-                <div className="p-5 md:p-6 space-y-4">
+                {/* Animated Showcase Content */}
+                <div className="p-4 md:p-6 space-y-3">
                   <div className="flex items-center justify-between">
-                    <h4 className="text-base font-bold text-white flex items-center gap-2">
+                    <h4 className="text-sm md:text-base font-bold text-white flex items-center gap-2">
                       <span className="bg-[#d4af37] text-black w-6 h-6 rounded-lg text-xs font-black flex items-center justify-center">
                         {current.id}
                       </span>
                       {current.title}
                     </h4>
+                    <span className="text-xs font-mono text-[#d4af37]">{current.time}</span>
                   </div>
 
+                  {/* Pixel-Perfect UI Showcase Mockup */}
                   <div className="my-2">
                     {current.visual}
                   </div>
