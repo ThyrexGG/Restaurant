@@ -7963,5 +7963,155 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "Cloudinary_ID": null,
         "image": "/images/Addons/avocado slice.jfif"
+    },
+    {
+        "Handle": "M3B",
+        "SKU": "M3B",
+        "Name": "Pineapple Fried Rice Cashew Nut (Chicken/Pork/Tofu)",
+        "Category": "New Menu",
+        "Description": "Flavorful Pineapple Fried Rice Cashew Nut with Choice of Chicken, Pork, or Tofu.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "image": ""
+    },
+    {
+        "Handle": "F28",
+        "SKU": "F28",
+        "Name": "Fried Glass Noodle (Beef/Seafood)",
+        "Category": "Fried Noodle",
+        "Description": "Classic Fried Glass Noodle (Beef/Seafood). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch. Choose your favorite variation for a personalized touch.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
+        "image": ""
+    },
+    {
+        "Handle": "F17",
+        "SKU": "F17",
+        "Name": "Pad Thai (Beef/Shrimp)",
+        "Category": "Fried Noodle",
+        "Description": "Vibrant Special Pad Thai (Beef/Shrimp). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients. Choose your favorite variation for a personalized touch.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "image": ""
+    },
+    {
+        "Handle": "VF21",
+        "SKU": "VF21",
+        "Name": "Green Mango Salad with Tofu",
+        "Category": "Vegetarian Food",
+        "Description": "Green Mango Salad with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "image": "/images/Vegetarian Food/green mango salad tofu.jpg"
+    },
+    {
+        "Handle": "F21",
+        "SKU": "F21",
+        "Name": "Fried Flat Noodle (Beef/Shrimp)",
+        "Category": "Fried Noodle",
+        "Description": "Scrumptious Fried Flat Noodle (Beef/Seafood). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Enjoy every bite. Choose your favorite variation for a personalized touch.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
+        "image": ""
+    },
+    {
+        "Handle": "VF19",
+        "SKU": "VF19",
+        "Name": "Tofu Noodle Soup",
+        "Category": "Vegetarian Food",
+        "Description": "Tofu Noodle Soup. Freshly prepared authentic Cambodian vegetarian option.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "image": "/images/Vegetarian Food/tofu noodle soup.jpg"
+    },
+    {
+        "Handle": "VF3",
+        "SKU": "VF3",
+        "Name": "Deep Fried Tofu",
+        "Category": "Vegetarian Food",
+        "Description": "Deep Fried Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
+        "image": "/images/Vegetarian Food/Deep fry tofu.jpg"
+    },
+    {
+        "Handle": "VF20",
+        "SKU": "VF20",
+        "Name": "Flat Noodle with Tofu",
+        "Category": "Vegetarian Food",
+        "Description": "Flat Noodle with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "image": "/images/Vegetarian Food/Flat noodle tofu.jpg"
+    },
+    {
+        "Handle": "VF24",
+        "SKU": "VF24",
+        "Name": "Stir-Fried Morning Glory with Tofu",
+        "Category": "Vegetarian Food",
+        "Description": "Stir-Fried Morning Glory with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "image": "/images/Vegetarian Food/morning glory tofu.jpg"
+    },
+    {
+        "Handle": "VF25",
+        "SKU": "VF25",
+        "Name": "Stir-Fried Bok Choy with Tofu",
+        "Category": "Vegetarian Food",
+        "Description": "Stir-Fried Bok Choy with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "image": "/images/Vegetarian Food/Bok Choy tofu.jpg"
+    },
+    {
+        "Handle": "G17",
+        "SKU": "G17",
+        "Name": "English Lok lak (Beef)",
+        "Category": "Grilled",
+        "Description": "Authentic English Lok lak (Beef). Tender beef seared with garlic, black pepper, and lime dip. Served with fresh salad.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
+        "image": "/images/Grilled/English Lok lak (Beef).jpg"
+    },
+    {
+        "Handle": "VF23",
+        "SKU": "VF23",
+        "Name": "Deep Fried Tofu with Sauce",
+        "Category": "Vegetarian Food",
+        "Description": "Deep Fried Tofu with Sauce. Freshly prepared authentic Cambodian vegetarian option.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
+        "image": ""
+    },
+    {
+        "Handle": "F23",
+        "SKU": "F23",
+        "Name": "Fried Instant Noodle (Beef/Shrimp)",
+        "Category": "Fried Noodle",
+        "Description": "Savory Fried instant Noodle (Beef/Shrimp). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
+        "image": ""
+    },
+    {
+        "Handle": "F18",
+        "SKU": "F18",
+        "Name": "Pad Thai (Chicken/Pork/Tofu)",
+        "Category": "Fried Noodle",
+        "Description": "Zesty Special Pad Thai (Chicken/Pork/Tofu). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
+        "image": ""
+    },
+    {
+        "Handle": "VF13",
+        "SKU": "VF13",
+        "Name": "Pad Thai with Tofu",
+        "Category": "Vegetarian Food",
+        "Description": "Delectable Special Pad Thai with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. A delightful culinary experience.",
+        "Sold by weight": "N",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
+        "image": ""
     }
 ]
