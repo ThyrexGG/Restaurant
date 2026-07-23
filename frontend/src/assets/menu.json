@@ -1785,28 +1785,13 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b19",
-        "SKU": "B19",
-        "Name": "French fries",
-        "Category": "Breakfast",
-        "Description": "Mouth-watering French fries. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Enjoy every bite.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Handle": "add3",
+        "SKU": "ADD3",
+        "Name": "French Fries",
+        "Category": "Addons",
+        "Description": "Crispy golden French fries.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
+        "Cloudinary_ID": "/images/fries.webp"
     },
     {
         "Handle": "dessert1",
@@ -1881,28 +1866,13 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b57",
-        "SKU": "B57",
+        "Handle": "add1",
+        "SKU": "ADD1",
         "Name": "Fried Egg",
-        "Category": "Breakfast",
-        "Description": "Exquisite Fried Egg. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Served fresh and hot.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
+        "Category": "Addons",
+        "Description": "Extra sunny-side-up fried egg.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/egg-burger-with-cheese.png"
     },
     {
         "Handle": "b8",
@@ -7564,5 +7534,41 @@
         "Description": "Savory Pork Lok Lak seared with garlic and lime pepper dip over rice.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "Cloudinary_ID": "/images/pork-lok-lak.webp"
+    },
+    {
+        "Handle": "add2",
+        "SKU": "ADD2",
+        "Name": "White Rice",
+        "Category": "Addons",
+        "Description": "Extra bowl of steamed white jasmine rice.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
+        "Cloudinary_ID": "/images/amok.webp"
+    },
+    {
+        "Handle": "add4",
+        "SKU": "ADD4",
+        "Name": "Extra Cheese",
+        "Category": "Addons",
+        "Description": "Melted cheddar cheese slice.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
+        "Cloudinary_ID": "/images/egg-burger-with-cheese.png"
+    },
+    {
+        "Handle": "add5",
+        "SKU": "ADD5",
+        "Name": "Extra Bacon",
+        "Category": "Addons",
+        "Description": "Crispy grilled bacon slices.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
+        "Cloudinary_ID": "/images/roast-beef-on-strip.webp"
+    },
+    {
+        "Handle": "add6",
+        "SKU": "ADD6",
+        "Name": "Extra Avocado",
+        "Category": "Addons",
+        "Description": "Freshly sliced avocado.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
+        "Cloudinary_ID": "/images/avocado-slice.webp"
     }
 ]
