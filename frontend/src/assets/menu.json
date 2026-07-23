@@ -21,7 +21,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "Fish_Amok_with_Rice_stm4c8"
+        "Cloudinary_ID": "/images/amok-(2).webp"
     },
     {
         "Handle": "s2",
@@ -45,7 +45,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/amok.webp"
     },
     {
         "Handle": "bv11",
@@ -93,7 +93,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/angkor-can.webp"
     },
     {
         "Handle": "bv10",
@@ -141,7 +141,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/pine-apple-smoothie.webp"
     },
     {
         "Handle": "b60",
@@ -165,7 +165,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/avocado-slice.webp"
     },
     {
         "Handle": "d52",
@@ -189,7 +189,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/avocado-smoothie.webp"
     },
     {
         "Handle": "d57",
@@ -213,7 +213,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/banana-smoothie.webp"
     },
     {
         "Handle": "dessert4",
@@ -237,7 +237,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/banana-in-coconut-milk.webp"
     },
     {
         "Handle": "b46",
@@ -261,7 +261,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-burger.webp"
     },
     {
         "Handle": "b49",
@@ -285,7 +285,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-burger.webp"
     },
     {
         "Handle": "b47",
@@ -309,7 +309,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-burger-with-cheese-or-cheese-burger.webp"
     },
     {
         "Handle": "k15",
@@ -333,7 +333,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-lab-(2).webp"
     },
     {
         "Handle": "f7",
@@ -357,7 +357,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-lok-lak.webp"
     },
     {
         "Handle": "f3",
@@ -381,7 +381,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-lok-lak-with-fried-rice.webp"
     },
     {
         "Handle": "g6",
@@ -390,7 +390,7 @@
         "Category": "Grilled",
         "Description": "Authentic Cambodian Beef Lok Lak seared with lime-pepper dip over rice.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
-        "Cloudinary_ID": "/images/beef-lok-lak.webp"
+        "Cloudinary_ID": "/images/beef-lok-lak-with-fried-rice.webp"
     },
     {
         "Handle": "b11",
@@ -414,7 +414,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-noodle-soup-2.webp"
     },
     {
         "Handle": "k3",
@@ -438,7 +438,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-salad-with-deep-fried-morning-glory-(2).webp"
     },
     {
         "Handle": "d78",
@@ -486,7 +486,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/blue-hawaii.webp"
     },
     {
         "Handle": "ckt3",
@@ -534,7 +534,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/blueberry-smoothie.webp"
     },
     {
         "Handle": "d43",
@@ -654,7 +654,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/cambodia-can.webp"
     },
     {
         "Handle": "d37",
@@ -750,7 +750,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/carrot-smoothie.webp"
     },
     {
         "Handle": "b59",
@@ -774,7 +774,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-burger-with-cheese-or-cheese-burger.webp"
     },
     {
         "Handle": "b48",
@@ -798,7 +798,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/chicken-burger-with-cheese.webp"
     },
     {
         "Handle": "b12",
@@ -1038,7 +1038,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/coconut-smoothie.webp"
     },
     {
         "Handle": "d36",
@@ -1134,7 +1134,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/crispy-chicken-burger-with-cheese.webp"
     },
     {
         "Handle": "b44",
@@ -1158,7 +1158,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/crispy-chicken-burger-with-cheese.webp"
     },
     {
         "Handle": "b50",
@@ -1182,7 +1182,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/crispy-chicken-sandwich.webp"
     },
     {
         "Handle": "b42",
@@ -1206,7 +1206,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/crispy-fish-burger.webp"
     },
     {
         "Handle": "b45",
@@ -1230,7 +1230,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/crispy-fish-burger-with-cheese.webp"
     },
     {
         "Handle": "g24",
@@ -1494,7 +1494,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/deep-fried-fish-with-sweet-and-sour-sauce.webp"
     },
     {
         "Handle": "sf31",
@@ -1566,7 +1566,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/deep-fried-hotdog-flour.webp"
     },
     {
         "Handle": "b30",
@@ -1662,7 +1662,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/deep-fried-shrimp-with-flour.webp"
     },
     {
         "Handle": "b22",
@@ -1758,7 +1758,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/durian-smoothie.webp"
     },
     {
         "Handle": "b43",
@@ -1782,7 +1782,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/egg-burger-with-cheese.png"
     },
     {
         "Handle": "add3",
@@ -1872,7 +1872,7 @@
         "Category": "Addons",
         "Description": "Extra sunny-side-up fried egg.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
-        "Cloudinary_ID": null
+        "Cloudinary_ID": "/images/2-fried-egg-with-bread.webp"
     },
     {
         "Handle": "b8",
@@ -1968,7 +1968,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/tofu-salad-with-deep-fried-glass-noodle.webp"
     },
     {
         "Handle": "f24",
@@ -2064,7 +2064,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/fried-rice-2.webp"
     },
     {
         "Handle": "f12",
@@ -2088,7 +2088,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/fried-rice-2.webp"
     },
     {
         "Handle": "f13",
@@ -2112,7 +2112,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/fried-rice-basil.webp"
     },
     {
         "Handle": "f14",
@@ -2136,7 +2136,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/fried-rice-basil.webp"
     },
     {
         "Handle": "f15",
@@ -2160,7 +2160,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-fried-rice.webp"
     },
     {
         "Handle": "f26",
@@ -2184,7 +2184,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-fried-rice.webp"
     },
     {
         "Handle": "f27",
@@ -2208,7 +2208,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-fried-rice.webp"
     },
     {
         "Handle": "f19",
@@ -2280,7 +2280,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/stir-fried-ginger-with-fish.webp"
     },
     {
         "Handle": "k10",
@@ -2304,7 +2304,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/glass-noodle-salad.webp"
     },
     {
         "Handle": "k9",
@@ -2328,7 +2328,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/glass-noodle-salad-with-shrimp.webp"
     },
     {
         "Handle": "ckt1",
@@ -2376,7 +2376,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/grape-smoothie.png"
     },
     {
         "Handle": "s5",
@@ -2400,7 +2400,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "Green-Curry_v61f6z"
+        "Cloudinary_ID": "/images/green-curry.webp"
     },
     {
         "Handle": "vf6",
@@ -2457,7 +2457,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/green-mango-salad-with-smoked-fish.webp"
     },
     {
         "Handle": "k1",
@@ -2481,7 +2481,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/green-papaya-salad-with-dried-shrimp.webp"
     },
     {
         "Handle": "vf14",
@@ -2766,7 +2766,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/ham-cheese-sandwich.webp"
     },
     {
         "Handle": "b56",
@@ -2910,7 +2910,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/deep-fried-hotdog-flour.webp"
     },
     {
         "Handle": "h1",
@@ -4014,7 +4014,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/jackfruit-smoothie.webp"
     },
     {
         "Handle": "d75",
@@ -4086,7 +4086,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/khmer-beef-salad.webp"
     },
     {
         "Handle": "k6",
@@ -4191,7 +4191,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/khmer-shrimp-salad.webp"
     },
     {
         "Handle": "s16",
@@ -4263,7 +4263,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-lab-(2).webp"
     },
     {
         "Handle": "d61",
@@ -4287,7 +4287,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/lemon-smoothie.webp"
     },
     {
         "Handle": "f8",
@@ -4335,7 +4335,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-lok-lak-with-fried-rice.webp"
     },
     {
         "Handle": "f2",
@@ -4359,7 +4359,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-lok-lak-with-fried-rice.webp"
     },
     {
         "Handle": "ckt8",
@@ -4407,7 +4407,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/lychee-smoothie.webp"
     },
     {
         "Handle": "ckt5",
@@ -4455,7 +4455,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/mango-smoothie.webp"
     },
     {
         "Handle": "dessert2",
@@ -4479,7 +4479,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/mango-sticky-rice.webp"
     },
     {
         "Handle": "d42",
@@ -4671,7 +4671,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/mixed-vegetable-salad.webp"
     },
     {
         "Handle": "k12",
@@ -4695,7 +4695,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/mixed-vegetable-salad.webp"
     },
     {
         "Handle": "k11",
@@ -4719,7 +4719,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/mixed-vegetable-salad.webp"
     },
     {
         "Handle": "d39",
@@ -4863,7 +4863,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/onion-ring.webp"
     },
     {
         "Handle": "d41",
@@ -5040,7 +5040,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/papaya-smoothie.webp"
     },
     {
         "Handle": "d77",
@@ -5088,7 +5088,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/passion-smoothie.webp"
     },
     {
         "Handle": "ckt6",
@@ -5112,7 +5112,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/pina.webp"
     },
     {
         "Handle": "m10",
@@ -5265,7 +5265,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/pumpkin-coconut-milk.webp"
     },
     {
         "Handle": "s4",
@@ -5289,7 +5289,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/red-curry-with-tofu.webp"
     },
     {
         "Handle": "s3",
@@ -5313,7 +5313,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/red-curry-with-tofu.webp"
     },
     {
         "Handle": "vf7",
@@ -5394,7 +5394,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/beef-fried-rice.webp"
     },
     {
         "Handle": "10000",
@@ -5418,7 +5418,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/roast-beef-on-strip.webp"
     },
     {
         "Handle": "d79",
@@ -5466,7 +5466,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/deep-fried-chick-drumstick.webp"
     },
     {
         "Handle": "b6",
@@ -5643,7 +5643,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/shrimp-paste-fried-rice.webp"
     },
     {
         "Handle": "f6",
@@ -5667,7 +5667,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/shrimp-paste-fried-rice.webp"
     },
     {
         "Handle": "ckt4",
@@ -5739,7 +5739,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/soft-drinks.webp"
     },
     {
         "Handle": "s15",
@@ -5787,7 +5787,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/soursop-smoothie.webp"
     },
     {
         "Handle": "b40",
@@ -6750,7 +6750,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/strawberry-lychee-smoothie.png"
     },
     {
         "Handle": "b55",
@@ -6798,7 +6798,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/strawberry-smoothie.webp"
     },
     {
         "Handle": "s11",
@@ -7092,7 +7092,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/big-water.webp"
     },
     {
         "Handle": "bv6",
@@ -7116,7 +7116,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/big-water.webp"
     },
     {
         "Handle": "d68",
@@ -7140,7 +7140,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/water-melon-smoothie.webp"
     },
     {
         "Handle": "w1",
@@ -7188,7 +7188,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "/images/winter-melon-smoothie.webp"
     },
     {
         "Handle": "b9",
@@ -7317,7 +7317,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "/images/fried-instant-noodle.webp"
+        "Cloudinary_ID": "/images/tofu-salad-with-deep-fried-glass-noodle.webp"
     },
     {
         "Handle": "f23",
@@ -7461,7 +7461,7 @@
         "Category": "Vegetarian Food",
         "Description": "Deep Fried Tofu. Freshly prepared authentic Cambodian vegetarian option.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
-        "Cloudinary_ID": null
+        "Cloudinary_ID": "/images/tofu-salad-with-deep-fried-glass-noodle.webp"
     },
     {
         "Handle": "vf19",
