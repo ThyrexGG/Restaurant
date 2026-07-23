@@ -17,10 +17,11 @@ async function main() {
 
   let updated = 0;
   for (const item of menuData) {
-    if (!item.Name || !item.image) continue;
+    if (!item.Name) continue;
 
     const sku = item.SKU ? item.SKU.trim() : null;
     const name = item.Name.trim();
+    const imageVal = item.image ? item.image : null;
 
     // Try finding by SKU first, then by Name
     let dbItem = null;
@@ -34,7 +35,7 @@ async function main() {
     if (dbItem) {
       await prisma.menuItem.update({
         where: { id: dbItem.id },
-        data: { image: item.image }
+        data: { image: imageVal }
       });
       updated++;
     }
