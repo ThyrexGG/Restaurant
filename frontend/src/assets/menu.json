@@ -1,7 +1,7 @@
 [
     {
         "Handle": "s1",
-        "SKU": "S1",
+        "SKU": "s1",
         "Name": "Amok (Chicken/Fish/Tofu)",
         "Category": "Soup",
         "Description": "Delicious Amok (Chicken/Fish/Tofu). A traditional Cambodian delicacy featuring a rich, aromatic coconut curry base flavored with lemongrass, kaffir lime, and galangal, gently steamed to perfection. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch.",
@@ -21,11 +21,11 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": "Fish_Amok_with_Rice_stm4c8"
     },
     {
         "Handle": "s2",
-        "SKU": "S2",
+        "SKU": "s2",
         "Name": "Amok Seafood",
         "Category": "Soup",
         "Description": "Hearty Amok Seafood. A traditional Cambodian delicacy featuring a rich, aromatic coconut curry base flavored with lemongrass, kaffir lime, and galangal, gently steamed to perfection. Perfect for any time of the day.",
@@ -45,10 +45,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "bv11",
+        "Handle": "angkor-big-bottle",
         "SKU": "BV11",
         "Name": "Angkor Big Bottle",
         "Category": "Beverage",
@@ -72,7 +72,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "bv9",
+        "Handle": "angkor-can",
         "SKU": "BV9",
         "Name": "Angkor Can",
         "Category": "Beverage",
@@ -93,10 +93,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "bv10",
+        "Handle": "angkor-small-bottle",
         "SKU": "BV10",
         "Name": "Angkor Small Bottle",
         "Category": "Beverage",
@@ -120,7 +120,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d64",
+        "Handle": "D64",
         "SKU": "D64",
         "Name": "Apple Smoothie",
         "Category": "Smoothie",
@@ -141,10 +141,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b60",
+        "Handle": "avocado-slice",
         "SKU": "B60",
         "Name": "Avocado Slice",
         "Category": "Breakfast",
@@ -165,10 +165,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d52",
+        "Handle": "D52",
         "SKU": "D52",
         "Name": "Avocado Smoothie",
         "Category": "Smoothie",
@@ -189,10 +189,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d57",
+        "Handle": "D57",
         "SKU": "D57",
         "Name": "Banana Smoothie",
         "Category": "Smoothie",
@@ -213,11 +213,11 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "dessert4",
-        "SKU": "DESSERT4",
+        "Handle": "Dessert4",
+        "SKU": "Dessert4",
         "Name": "Banana with Coconut Milk",
         "Category": "Dessert",
         "Description": "Scrumptious Banana with Coconut Milk. A carefully prepared dessert showcasing premium ingredients and balanced flavors. Enjoy every bite.",
@@ -237,10 +237,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b46",
+        "Handle": "B46",
         "SKU": "B46",
         "Name": "Beef Burger",
         "Category": "Breakfast",
@@ -261,10 +261,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b49",
+        "Handle": "B49",
         "SKU": "B49",
         "Name": "Beef Burger Cheese with French fries",
         "Category": "Breakfast",
@@ -285,10 +285,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b47",
+        "Handle": "B47",
         "SKU": "B47",
         "Name": "Beef Burger with Cheese",
         "Category": "Breakfast",
@@ -309,10 +309,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k15",
+        "Handle": "K15",
         "SKU": "K15",
         "Name": "Beef Lab",
         "Category": "Salad",
@@ -333,10 +333,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f7",
+        "Handle": "F7",
         "SKU": "F7",
         "Name": "Beef Lok Lak Bok Choy with Rice",
         "Category": "Fried Rice",
@@ -357,10 +357,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f3",
+        "Handle": "F3",
         "SKU": "F3",
         "Name": "Beef Lok lak with Fried Rice",
         "Category": "Fried Rice",
@@ -381,19 +381,34 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "g6",
-        "SKU": "G6",
-        "Name": "Beef Lok Lak with Rice",
-        "Category": "Grilled",
-        "Description": "Authentic Cambodian Beef Lok Lak seared with lime-pepper dip over rice.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Handle": "F1",
+        "SKU": "F1",
+        "Name": "Beef Lok lak with Rice",
+        "Category": "Fried Rice",
+        "Description": "Fresh Beef Lok lak with Rice. A classic Khmer dish of tender, marinated meat stir-fried in a savory brown sauce, traditionally served with crisp lettuce, tomatoes, and a tangy lime-pepper dipping sauce. Prepared with our chef's special touch.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b11",
+        "Handle": "B11",
         "SKU": "B11",
         "Name": "Beef Noodle Soup",
         "Category": "Breakfast",
@@ -414,10 +429,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k3",
+        "Handle": "K3",
         "SKU": "K3",
         "Name": "Beef Salad with Deep fried morning glory",
         "Category": "Salad",
@@ -438,10 +453,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d78",
+        "Handle": "D78",
         "SKU": "D78",
         "Name": "Black Tea Macchiato",
         "Category": "Macchiato",
@@ -465,7 +480,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "ckt2",
+        "Handle": "CKT2",
         "SKU": "CKT2",
         "Name": "Blue Hawai",
         "Category": "Cocktails",
@@ -486,10 +501,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "ckt3",
+        "Handle": "CKT3",
         "SKU": "CKT3",
         "Name": "Blue Magarita",
         "Category": "Cocktails",
@@ -513,7 +528,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d56",
+        "Handle": "D56",
         "SKU": "D56",
         "Name": "Blueberry Smoothie",
         "Category": "Smoothie",
@@ -534,10 +549,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d43",
+        "Handle": "D43",
         "SKU": "D43",
         "Name": "Brown Suger Frappe",
         "Category": "Frappe",
@@ -561,7 +576,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d80",
+        "Handle": "D80",
         "SKU": "D80",
         "Name": "Brown Suger Macchiato",
         "Category": "Macchiato",
@@ -585,7 +600,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d45",
+        "Handle": "D45",
         "SKU": "D45",
         "Name": "Butterfly Tea Frappe",
         "Category": "Frappe",
@@ -609,7 +624,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d76",
+        "Handle": "D76",
         "SKU": "D76",
         "Name": "Butterfly Tea Macchiato",
         "Category": "Macchiato",
@@ -633,7 +648,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "bv8",
+        "Handle": "cambodia-can",
         "SKU": "BV8",
         "Name": "Cambodia Can",
         "Category": "Beverage",
@@ -654,10 +669,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d37",
+        "Handle": "D37",
         "SKU": "D37",
         "Name": "Cappuccino Frappe",
         "Category": "Frappe",
@@ -681,7 +696,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d44",
+        "Handle": "D44",
         "SKU": "D44",
         "Name": "Caramel Frappe",
         "Category": "Frappe",
@@ -705,7 +720,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d72",
+        "Handle": "D72",
         "SKU": "D72",
         "Name": "Caramel Macchiato",
         "Category": "Macchiato",
@@ -729,7 +744,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d60",
+        "Handle": "D60",
         "SKU": "D60",
         "Name": "Carrot Smoothie",
         "Category": "Smoothie",
@@ -750,10 +765,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b59",
+        "Handle": "cheese",
         "SKU": "B59",
         "Name": "Cheese",
         "Category": "Breakfast",
@@ -774,10 +789,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b48",
+        "Handle": "B48",
         "SKU": "B48",
         "Name": "Chicken Burger with Cheese",
         "Category": "Breakfast",
@@ -798,10 +813,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b12",
+        "Handle": "B12",
         "SKU": "B12",
         "Name": "Chicken Noodle Soup",
         "Category": "Breakfast",
@@ -822,10 +837,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "m7",
+        "Handle": "M7",
         "SKU": "M7",
         "Name": "Chicken Pasta",
         "Category": "New Menu",
@@ -846,10 +861,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "s10",
+        "Handle": "S10",
         "SKU": "S10",
         "Name": "Chicken Soup with Fermented Limes",
         "Category": "Soup",
@@ -870,10 +885,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d38",
+        "Handle": "D38",
         "SKU": "D38",
         "Name": "Chocolate Frappe",
         "Category": "Frappe",
@@ -897,7 +912,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d73",
+        "Handle": "D73",
         "SKU": "D73",
         "Name": "Chocolate Macchiato",
         "Category": "Macchiato",
@@ -921,7 +936,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b54",
+        "Handle": "B54",
         "SKU": "B54",
         "Name": "Chocolate Pancake (3)",
         "Category": "Breakfast",
@@ -945,7 +960,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "bv2",
+        "Handle": "coca-cola",
         "SKU": "BV2",
         "Name": "Coca Cola",
         "Category": "Beverage",
@@ -969,7 +984,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "bv3",
+        "Handle": "coca-cola-light",
         "SKU": "BV3",
         "Name": "Coca Cola Light",
         "Category": "Beverage",
@@ -993,7 +1008,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "bv4",
+        "Handle": "coca-cola-zero",
         "SKU": "BV4",
         "Name": "Coca Cola Zero",
         "Category": "Beverage",
@@ -1017,7 +1032,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d50",
+        "Handle": "D50",
         "SKU": "D50",
         "Name": "Coconut Smoothie",
         "Category": "Smoothie",
@@ -1038,10 +1053,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d36",
+        "Handle": "D36",
         "SKU": "D36",
         "Name": "Coffee Frappe",
         "Category": "Frappe",
@@ -1065,7 +1080,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d71",
+        "Handle": "D71",
         "SKU": "D71",
         "Name": "Coffee Macchiato",
         "Category": "Macchiato",
@@ -1089,7 +1104,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b52",
+        "Handle": "B52",
         "SKU": "B52",
         "Name": "Crab Meat Sandwich with Cheese",
         "Category": "Breakfast",
@@ -1113,7 +1128,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b41",
+        "Handle": "B41",
         "SKU": "B41",
         "Name": "Crispy Chicken Burger",
         "Category": "Breakfast",
@@ -1134,10 +1149,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b44",
+        "Handle": "B44",
         "SKU": "B44",
         "Name": "Crispy Chicken Burger with Cheese",
         "Category": "Breakfast",
@@ -1158,10 +1173,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b50",
+        "Handle": "B50",
         "SKU": "B50",
         "Name": "Crispy Chicken Sandwich with Cheese",
         "Category": "Breakfast",
@@ -1182,10 +1197,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b42",
+        "Handle": "B42",
         "SKU": "B42",
         "Name": "Crispy Fish Burger",
         "Category": "Breakfast",
@@ -1206,10 +1221,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b45",
+        "Handle": "B45",
         "SKU": "B45",
         "Name": "Crispy Fish Burger with Cheese",
         "Category": "Breakfast",
@@ -1230,10 +1245,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "g24",
+        "Handle": "deep-fried-beef-meatballs-(4)",
         "SKU": "G24",
         "Name": "Deep Fried Beef Meatballs (4)",
         "Category": "Grilled",
@@ -1254,10 +1269,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "g23",
+        "Handle": "G23",
         "SKU": "G23",
         "Name": "Deep Fried Beef Meatballs with Spicy",
         "Category": "Grilled",
@@ -1278,10 +1293,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b26",
+        "Handle": "B26",
         "SKU": "B26",
         "Name": "Deep Fried Chicken (2)",
         "Category": "Breakfast",
@@ -1302,10 +1317,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b21",
+        "Handle": "B21",
         "SKU": "B21",
         "Name": "Deep Fried Chicken Breast & Fries",
         "Category": "Breakfast",
@@ -1326,10 +1341,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b25",
+        "Handle": "B25",
         "SKU": "B25",
         "Name": "Deep Fried Chicken Spring Rolls (4)",
         "Category": "Breakfast",
@@ -1350,10 +1365,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "m9",
+        "Handle": "M9",
         "SKU": "M9",
         "Name": "Deep Fried Chicken with Rice",
         "Category": "New Menu",
@@ -1374,10 +1389,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f32",
+        "Handle": "F32",
         "SKU": "F32",
         "Name": "Deep Fried Circle Chive Cake (3)",
         "Category": "Fried Noodle",
@@ -1398,10 +1413,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "g11",
+        "Handle": "G11",
         "SKU": "G11",
         "Name": "Deep Fried Drumstick Chicken with Fish Cheese",
         "Category": "Grilled",
@@ -1422,10 +1437,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b14",
+        "Handle": "B14",
         "SKU": "B14",
         "Name": "Deep Fried Drumstick Chicken with Rice",
         "Category": "Breakfast",
@@ -1446,10 +1461,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "m8",
+        "Handle": "M8",
         "SKU": "M8",
         "Name": "Deep Fried Fish with Mango Salad and Rice",
         "Category": "New Menu",
@@ -1470,10 +1485,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf32",
+        "Handle": "SF32",
         "SKU": "SF32",
         "Name": "Deep Fried Fish with Sweet Sour Sauce",
         "Category": "Stir-fried",
@@ -1494,10 +1509,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf31",
+        "Handle": "SF31",
         "SKU": "SF31",
         "Name": "Deep Fried Fish with Sweet Sour Vegetables",
         "Category": "Stir-fried",
@@ -1518,10 +1533,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf30",
+        "Handle": "SF30",
         "SKU": "SF30",
         "Name": "Deep Fried Fish with Sweet Soybean",
         "Category": "Stir-fried",
@@ -1542,10 +1557,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b31",
+        "Handle": "B31",
         "SKU": "B31",
         "Name": "Deep Fried Hot Dog with flour",
         "Category": "Breakfast",
@@ -1566,10 +1581,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b30",
+        "Handle": "B30",
         "SKU": "B30",
         "Name": "Deep Fried Hot Dog with Toast",
         "Category": "Breakfast",
@@ -1590,10 +1605,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k16",
+        "Handle": "K16",
         "SKU": "K16",
         "Name": "Deep fried Khmer Fish Cheese",
         "Category": "Salad",
@@ -1614,10 +1629,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b28",
+        "Handle": "B28",
         "SKU": "B28",
         "Name": "Deep Fried Mushrooms with flour",
         "Category": "Breakfast",
@@ -1638,10 +1653,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b23",
+        "Handle": "B23",
         "SKU": "B23",
         "Name": "Deep Fried Shrimp with flour (6)",
         "Category": "Breakfast",
@@ -1662,10 +1677,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b22",
+        "Handle": "B22",
         "SKU": "B22",
         "Name": "Deep Fried Tofu with flour",
         "Category": "Breakfast",
@@ -1686,10 +1701,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b24",
+        "Handle": "B24",
         "SKU": "B24",
         "Name": "Deep Fried Vegetable Spring Rolls (4)",
         "Category": "Breakfast",
@@ -1710,10 +1725,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b27",
+        "Handle": "B27",
         "SKU": "B27",
         "Name": "Deep Fried Wonton (5)",
         "Category": "Breakfast",
@@ -1734,10 +1749,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d51",
+        "Handle": "D51",
         "SKU": "D51",
         "Name": "Durian Smoothie",
         "Category": "Smoothie",
@@ -1758,10 +1773,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b43",
+        "Handle": "B43",
         "SKU": "B43",
         "Name": "Egg Burger with Cheese",
         "Category": "Breakfast",
@@ -1782,20 +1797,35 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "add3",
-        "SKU": "ADD3",
-        "Name": "French Fries",
-        "Category": "Addons",
-        "Description": "Crispy golden French fries.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Handle": "B19",
+        "SKU": "B19",
+        "Name": "French fries",
+        "Category": "Breakfast",
+        "Description": "Mouth-watering French fries. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Enjoy every bite.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "dessert1",
-        "SKU": "DESSERT1",
+        "Handle": "Dessert1",
+        "SKU": "Dessert1",
         "Name": "Fresh Coconut",
         "Category": "Dessert",
         "Description": "Flavorful Fresh Coconut. A carefully prepared dessert showcasing premium ingredients and balanced flavors. A must-try for food lovers.",
@@ -1818,7 +1848,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "fs1",
+        "Handle": "fresh-fruits-sliced",
         "SKU": "FS1",
         "Name": "Fresh Fruits Sliced",
         "Category": "Dessert",
@@ -1842,7 +1872,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b34",
+        "Handle": "B34",
         "SKU": "B34",
         "Name": "Fresh Spring Rolls (Chicken/Pork) (4)",
         "Category": "Breakfast",
@@ -1863,19 +1893,34 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "add1",
-        "SKU": "ADD1",
+        "Handle": "fried-egg",
+        "SKU": "B57",
         "Name": "Fried Egg",
-        "Category": "Addons",
-        "Description": "Extra sunny-side-up fried egg.",
+        "Category": "Breakfast",
+        "Description": "Exquisite Fried Egg. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Served fresh and hot.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b8",
+        "Handle": "B8",
         "SKU": "B8",
         "Name": "Fried Egg Hotdog with bread or toast",
         "Category": "Breakfast",
@@ -1896,10 +1941,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b7",
+        "Handle": "B7",
         "SKU": "B7",
         "Name": "Fried Egg with bread or toast",
         "Category": "Breakfast",
@@ -1920,10 +1965,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f22",
+        "Handle": "F22",
         "SKU": "F22",
         "Name": "Fried Flat Noodle (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -1944,10 +1989,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f29",
+        "Handle": "F29",
         "SKU": "F29",
         "Name": "Fried Glass Noodle (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -1968,10 +2013,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f24",
+        "Handle": "F24",
         "SKU": "F24",
         "Name": "Fried Mama Noodle (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -1995,7 +2040,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "f25",
+        "Handle": "F25",
         "SKU": "F25",
         "Name": "Fried Mama Noodle with Beef Meatball",
         "Category": "Fried Noodle",
@@ -2019,7 +2064,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf1",
+        "Handle": "SF1",
         "SKU": "SF1",
         "Name": "Fried Prama Fish with Egg",
         "Category": "Stir-fried",
@@ -2043,7 +2088,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "f11",
+        "Handle": "F11",
         "SKU": "F11",
         "Name": "Fried Rice (Beef/Seafood)",
         "Category": "Fried Rice",
@@ -2064,10 +2109,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f12",
+        "Handle": "F12",
         "SKU": "F12",
         "Name": "Fried Rice (Chicken/Pork/Tofu)",
         "Category": "Fried Rice",
@@ -2088,10 +2133,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f13",
+        "Handle": "F13",
         "SKU": "F13",
         "Name": "Fried Rice Basil (Beef/Seafood)",
         "Category": "Fried Rice",
@@ -2112,10 +2157,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f14",
+        "Handle": "F14",
         "SKU": "F14",
         "Name": "Fried Rice Basil (Chicken/Pork/Tofu)",
         "Category": "Fried Rice",
@@ -2136,10 +2181,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f15",
+        "Handle": "F15",
         "SKU": "F15",
         "Name": "Fried Rice Sausage with Basil",
         "Category": "Fried Rice",
@@ -2160,10 +2205,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f26",
+        "Handle": "F26",
         "SKU": "F26",
         "Name": "Fried Rice Stick Noodle (Beef/Seafood)",
         "Category": "Fried Noodle",
@@ -2184,10 +2229,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f27",
+        "Handle": "F27",
         "SKU": "F27",
         "Name": "Fried Rice Stick Noodle (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -2208,10 +2253,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f19",
+        "Handle": "F19",
         "SKU": "F19",
         "Name": "Fried Yellow Noodle (Beef/Seafood)",
         "Category": "Fried Noodle",
@@ -2232,10 +2277,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f20",
+        "Handle": "F20",
         "SKU": "F20",
         "Name": "Fried Yellow Noodle (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -2256,10 +2301,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "w3",
+        "Handle": "gin",
         "SKU": "W3",
         "Name": "Gin",
         "Category": "Cocktails",
@@ -2280,10 +2325,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k10",
+        "Handle": "K10",
         "SKU": "K10",
         "Name": "Glass Noodle Salad (Chicken/Pork)",
         "Category": "Salad",
@@ -2304,10 +2349,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k9",
+        "Handle": "K9",
         "SKU": "K9",
         "Name": "Glass Noodle Salad Seafood",
         "Category": "Salad",
@@ -2328,10 +2373,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "ckt1",
+        "Handle": "CKT1",
         "SKU": "CKT1",
         "Name": "Golden Bacardi",
         "Category": "Cocktails",
@@ -2355,7 +2400,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d63",
+        "Handle": "D63",
         "SKU": "D63",
         "Name": "Grape Smoothie",
         "Category": "Smoothie",
@@ -2376,11 +2421,11 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
         "Handle": "s5",
-        "SKU": "S5",
+        "SKU": "s5",
         "Name": "Green Curry (Chicken/Fish/Tofu)",
         "Category": "Soup",
         "Description": "Zesty Green Curry (Chicken/Fish/Tofu). A carefully prepared soup showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch.",
@@ -2400,19 +2445,34 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": "Green-Curry_v61f6z"
     },
     {
-        "Handle": "vf6",
+        "Handle": "VF6",
         "SKU": "VF6",
         "Name": "Green Curry with Tofu",
         "Category": "Vegetarian Food",
-        "Description": "Green Curry with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Signature Green Curry with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": "Green-Curry_v61f6z"
     },
     {
-        "Handle": "k8",
+        "Handle": "K8",
         "SKU": "K8",
         "Name": "Green Mango Salad with Dry shrimp",
         "Category": "Salad",
@@ -2433,10 +2493,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k7",
+        "Handle": "K7",
         "SKU": "K7",
         "Name": "Green Mango Salad with Smoked Fish",
         "Category": "Salad",
@@ -2457,10 +2517,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k1",
+        "Handle": "K1",
         "SKU": "K1",
         "Name": "Green Papaya Salad with dried shrimp",
         "Category": "Salad",
@@ -2481,19 +2541,34 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf14",
+        "Handle": "VF14",
         "SKU": "VF14",
         "Name": "Green Papaya Salad with Tofu",
         "Category": "Vegetarian Food",
-        "Description": "Green Papaya Salad with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Exquisite Green Papaya Salad with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. A must-try for food lovers.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k2",
+        "Handle": "K2",
         "SKU": "K2",
         "Name": "Green Payaya Salad with Shrimp",
         "Category": "Salad",
@@ -2514,10 +2589,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d47",
+        "Handle": "D47",
         "SKU": "D47",
         "Name": "Green Tea Frappe",
         "Category": "Frappe",
@@ -2541,7 +2616,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d74",
+        "Handle": "D74",
         "SKU": "D74",
         "Name": "Green Tea Macchiato",
         "Category": "Macchiato",
@@ -2565,7 +2640,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "g9",
+        "Handle": "G9",
         "SKU": "G9",
         "Name": "Grilled Beef BBQ (3)",
         "Category": "Grilled",
@@ -2589,7 +2664,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "g19",
+        "Handle": "G19",
         "SKU": "G19",
         "Name": "Grilled Beef with Black pepper sauce",
         "Category": "Grilled",
@@ -2613,7 +2688,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "g13",
+        "Handle": "G13",
         "SKU": "G13",
         "Name": "Grilled Beef with Fish Cheese",
         "Category": "Grilled",
@@ -2637,16 +2712,31 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "g1",
-        "SKU": "G1",
+        "Handle": "B17",
+        "SKU": "B17",
         "Name": "Grilled Beef with Rice",
-        "Category": "Grilled",
-        "Description": "Tender grilled beef served with jasmine rice and dipping sauce.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Category": "Breakfast",
+        "Description": "Hearty Grilled Beef with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Perfect for any time of the day.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "g10",
+        "Handle": "G10",
         "SKU": "G10",
         "Name": "Grilled Chicken BBQ (3)",
         "Category": "Grilled",
@@ -2670,7 +2760,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "g18",
+        "Handle": "G18",
         "SKU": "G18",
         "Name": "Grilled Chicken with Black pepper sauce",
         "Category": "Grilled",
@@ -2694,25 +2784,55 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "g3",
-        "SKU": "G3",
+        "Handle": "B15",
+        "SKU": "B15",
         "Name": "Grilled Chicken with Rice",
-        "Category": "Grilled",
-        "Description": "Juicy BBQ grilled chicken served with warm rice and side salad.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Category": "Breakfast",
+        "Description": "Authentic Grilled Chicken with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Served fresh and hot.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "g4",
-        "SKU": "G4",
+        "Handle": "B18",
+        "SKU": "B18",
         "Name": "Grilled Fish with Rice",
-        "Category": "Grilled",
-        "Description": "Freshly grilled fish fillet served with jasmine rice and traditional sauce.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784650716/bsxudivcejeug9qltp9w.png"
+        "Category": "Breakfast",
+        "Description": "Classic Grilled Fish with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Served fresh and hot.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "g12",
+        "Handle": "G12",
         "SKU": "G12",
         "Name": "Grilled Mackerel Fish with Spicy Sauce",
         "Category": "Grilled",
@@ -2733,19 +2853,34 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "g2",
-        "SKU": "G2",
+        "Handle": "B16",
+        "SKU": "B16",
         "Name": "Grilled Pork with Rice",
-        "Category": "Grilled",
-        "Description": "Flavorful marinated grilled pork served over fragrant jasmine rice.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Category": "Breakfast",
+        "Description": "Fresh Grilled Pork with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b51",
+        "Handle": "B51",
         "SKU": "B51",
         "Name": "Ham and Cheese Sandwich",
         "Category": "Breakfast",
@@ -2766,10 +2901,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b56",
+        "Handle": "B56",
         "SKU": "B56",
         "Name": "Honey Pancake (3)",
         "Category": "Breakfast",
@@ -2790,10 +2925,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "h2",
+        "Handle": "H2",
         "SKU": "H2",
         "Name": "Hot Americano",
         "Category": "Hot Drink",
@@ -2817,7 +2952,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "h4",
+        "Handle": "H4",
         "SKU": "H4",
         "Name": "Hot Cappuccino",
         "Category": "Hot Drink",
@@ -2841,7 +2976,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "h7",
+        "Handle": "H7",
         "SKU": "H7",
         "Name": "Hot Chocolate",
         "Category": "Hot Drink",
@@ -2865,7 +3000,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "h6",
+        "Handle": "H6",
         "SKU": "H6",
         "Name": "Hot Coffee with Milk",
         "Category": "Hot Drink",
@@ -2889,7 +3024,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b32",
+        "Handle": "B32",
         "SKU": "B32",
         "Name": "Hot Dog (2)",
         "Category": "Breakfast",
@@ -2910,10 +3045,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "h1",
+        "Handle": "H1",
         "SKU": "H1",
         "Name": "Hot Expresso",
         "Category": "Hot Drink",
@@ -2937,7 +3072,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "h11",
+        "Handle": "H11",
         "SKU": "H11",
         "Name": "Hot Green Tea",
         "Category": "Hot Drink",
@@ -2961,7 +3096,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "h3",
+        "Handle": "H3",
         "SKU": "H3",
         "Name": "Hot Latte",
         "Category": "Hot Drink",
@@ -2985,7 +3120,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "h13",
+        "Handle": "H13",
         "SKU": "H13",
         "Name": "Hot Lemon Green Tea",
         "Category": "Hot Drink",
@@ -3009,7 +3144,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "h14",
+        "Handle": "H14",
         "SKU": "H14",
         "Name": "Hot Lemon Red Tea",
         "Category": "Hot Drink",
@@ -3033,7 +3168,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "h8",
+        "Handle": "H8",
         "SKU": "H8",
         "Name": "Hot Milo",
         "Category": "Hot Drink",
@@ -3057,7 +3192,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "h5",
+        "Handle": "H5",
         "SKU": "H5",
         "Name": "Hot Mocha",
         "Category": "Hot Drink",
@@ -3081,7 +3216,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "h9",
+        "Handle": "H9",
         "SKU": "H9",
         "Name": "Hot Ovaltine",
         "Category": "Hot Drink",
@@ -3105,7 +3240,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "h12",
+        "Handle": "H12",
         "SKU": "H12",
         "Name": "Hot Red Tea",
         "Category": "Hot Drink",
@@ -3129,7 +3264,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "h10",
+        "Handle": "H10",
         "SKU": "H10",
         "Name": "Hot Vanilla",
         "Category": "Hot Drink",
@@ -3153,7 +3288,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d8",
+        "Handle": "D8",
         "SKU": "D8",
         "Name": "Iced Black Coffee",
         "Category": "Iced Drink",
@@ -3177,7 +3312,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d12",
+        "Handle": "D12",
         "SKU": "D12",
         "Name": "Iced Black Milk Tea",
         "Category": "Iced Drink",
@@ -3201,7 +3336,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d29",
+        "Handle": "D29",
         "SKU": "D29",
         "Name": "Iced Blue Curacao Soda",
         "Category": "Iced Drink",
@@ -3225,7 +3360,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d15",
+        "Handle": "D15",
         "SKU": "D15",
         "Name": "Iced Blueberry Milk",
         "Category": "Iced Drink",
@@ -3249,7 +3384,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d34",
+        "Handle": "D34",
         "SKU": "D34",
         "Name": "Iced Blueberry Soda",
         "Category": "Iced Drink",
@@ -3273,7 +3408,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d23",
+        "Handle": "D23",
         "SKU": "D23",
         "Name": "Iced Brown Suger Fresh Milk with Pearl",
         "Category": "Iced Drink",
@@ -3297,7 +3432,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d10",
+        "Handle": "D10",
         "SKU": "D10",
         "Name": "Iced Butterfly Milk Tea",
         "Category": "Iced Drink",
@@ -3321,7 +3456,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d3",
+        "Handle": "D3",
         "SKU": "D3",
         "Name": "Iced Cappuccino",
         "Category": "Iced Drink",
@@ -3345,7 +3480,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d22",
+        "Handle": "D22",
         "SKU": "D22",
         "Name": "Iced Caramel Fresh Milk with Pearl",
         "Category": "Iced Drink",
@@ -3369,7 +3504,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d5",
+        "Handle": "D5",
         "SKU": "D5",
         "Name": "Iced Chocolate",
         "Category": "Iced Drink",
@@ -3393,7 +3528,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d1",
+        "Handle": "D1",
         "SKU": "D1",
         "Name": "Iced Coffee Milk",
         "Category": "Iced Drink",
@@ -3417,7 +3552,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d13",
+        "Handle": "D13",
         "SKU": "D13",
         "Name": "Iced Green Milk Tea",
         "Category": "Iced Drink",
@@ -3441,7 +3576,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d20",
+        "Handle": "D20",
         "SKU": "D20",
         "Name": "Iced Green Milk Tea with Pearl",
         "Category": "Iced Drink",
@@ -3465,7 +3600,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d11",
+        "Handle": "D11",
         "SKU": "D11",
         "Name": "Iced Jasmine Milk Tea",
         "Category": "Iced Drink",
@@ -3489,7 +3624,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d32",
+        "Handle": "D32",
         "SKU": "D32",
         "Name": "Iced Kiwi Soda",
         "Category": "Iced Drink",
@@ -3513,7 +3648,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d2",
+        "Handle": "D2",
         "SKU": "D2",
         "Name": "Iced Latte",
         "Category": "Iced Drink",
@@ -3537,7 +3672,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d27",
+        "Handle": "D27",
         "SKU": "D27",
         "Name": "Iced Lemon Black Tea",
         "Category": "Iced Drink",
@@ -3561,7 +3696,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d28",
+        "Handle": "D28",
         "SKU": "D28",
         "Name": "Iced Lemon Butterfly Tea",
         "Category": "Iced Drink",
@@ -3585,7 +3720,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d25",
+        "Handle": "D25",
         "SKU": "D25",
         "Name": "Iced Lemon Green Tea",
         "Category": "Iced Drink",
@@ -3609,7 +3744,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d26",
+        "Handle": "D26",
         "SKU": "D26",
         "Name": "Iced Lemon Jasmine Tea",
         "Category": "Iced Drink",
@@ -3633,7 +3768,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d24",
+        "Handle": "D24",
         "SKU": "D24",
         "Name": "Iced Lemon Red Tea",
         "Category": "Iced Drink",
@@ -3657,7 +3792,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d35",
+        "Handle": "D35",
         "SKU": "D35",
         "Name": "Iced Lychee Soda",
         "Category": "Iced Drink",
@@ -3681,7 +3816,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d21",
+        "Handle": "D21",
         "SKU": "D21",
         "Name": "Iced Milk Tea with Pearl",
         "Category": "Iced Drink",
@@ -3705,7 +3840,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d6",
+        "Handle": "D6",
         "SKU": "D6",
         "Name": "Iced Milo",
         "Category": "Iced Drink",
@@ -3729,7 +3864,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d4",
+        "Handle": "D4",
         "SKU": "D4",
         "Name": "Iced Mocha",
         "Category": "Iced Drink",
@@ -3753,7 +3888,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d7",
+        "Handle": "D7",
         "SKU": "D7",
         "Name": "Iced Ovaltine",
         "Category": "Iced Drink",
@@ -3777,7 +3912,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d17",
+        "Handle": "D17",
         "SKU": "D17",
         "Name": "Iced Passion Milk",
         "Category": "Iced Drink",
@@ -3801,7 +3936,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d30",
+        "Handle": "D30",
         "SKU": "D30",
         "Name": "Iced Passion Soda",
         "Category": "Iced Drink",
@@ -3825,7 +3960,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d9",
+        "Handle": "D9",
         "SKU": "D9",
         "Name": "Iced Red Milk Tea",
         "Category": "Iced Drink",
@@ -3849,7 +3984,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d16",
+        "Handle": "D16",
         "SKU": "D16",
         "Name": "Iced Strawberry Milk",
         "Category": "Iced Drink",
@@ -3873,7 +4008,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d31",
+        "Handle": "D31",
         "SKU": "D31",
         "Name": "Iced Strawberry Soda",
         "Category": "Iced Drink",
@@ -3897,7 +4032,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d18",
+        "Handle": "D18",
         "SKU": "D18",
         "Name": "Iced Syrup Fresh Milk",
         "Category": "Iced Drink",
@@ -3921,7 +4056,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d19",
+        "Handle": "D19",
         "SKU": "D19",
         "Name": "Iced Tamarind Fresh Milk",
         "Category": "Iced Drink",
@@ -3945,7 +4080,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d33",
+        "Handle": "D33",
         "SKU": "D33",
         "Name": "Iced Tamarind Soda",
         "Category": "Iced Drink",
@@ -3969,7 +4104,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d14",
+        "Handle": "D14",
         "SKU": "D14",
         "Name": "Iced Vanilla Latte",
         "Category": "Iced Drink",
@@ -3993,7 +4128,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d54",
+        "Handle": "D54",
         "SKU": "D54",
         "Name": "Jack Fruit Smoothie",
         "Category": "Smoothie",
@@ -4014,10 +4149,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d75",
+        "Handle": "D75",
         "SKU": "D75",
         "Name": "Jasmine Tea Macchiato",
         "Category": "Macchiato",
@@ -4041,7 +4176,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "s9",
+        "Handle": "S9",
         "SKU": "S9",
         "Name": "Jrouk Krav Chuang (Chicken/Fish)",
         "Category": "Soup",
@@ -4065,7 +4200,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "k5",
+        "Handle": "K5",
         "SKU": "K5",
         "Name": "Khmer Beef Salad",
         "Category": "Salad",
@@ -4086,10 +4221,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k6",
+        "Handle": "K6",
         "SKU": "K6",
         "Name": "Khmer Fish Salad",
         "Category": "Salad",
@@ -4110,10 +4245,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "s13",
+        "Handle": "S13",
         "SKU": "S13",
         "Name": "Khmer Fish Sour Soup with Green Papaya",
         "Category": "Soup",
@@ -4137,7 +4272,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "s14",
+        "Handle": "S14",
         "SKU": "S14",
         "Name": "Khmer Fish Sour Soup with Morning glory",
         "Category": "Soup",
@@ -4161,16 +4296,31 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf16",
+        "Handle": "VF16",
         "SKU": "VF16",
         "Name": "Khmer Salad with Tofu",
         "Category": "Vegetarian Food",
-        "Description": "Khmer Salad with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Zesty Khmer Salad with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Enjoy every bite.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k4",
+        "Handle": "K4",
         "SKU": "K4",
         "Name": "Khmer Shrimp Salad",
         "Category": "Salad",
@@ -4191,10 +4341,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "s16",
+        "Handle": "S16",
         "SKU": "S16",
         "Name": "Khmer Sour Soup (Fish/Shrimp)",
         "Category": "Soup",
@@ -4218,7 +4368,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "s12",
+        "Handle": "S12",
         "SKU": "S12",
         "Name": "Khmer Spicy Sour Soup (Beef/Chicken/Fish)",
         "Category": "Soup",
@@ -4239,10 +4389,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k14",
+        "Handle": "K14",
         "SKU": "K14",
         "Name": "Lab (Chicken/Pork)",
         "Category": "Salad",
@@ -4263,10 +4413,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d61",
+        "Handle": "D61",
         "SKU": "D61",
         "Name": "Lemon Smoothie",
         "Category": "Smoothie",
@@ -4287,10 +4437,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f8",
+        "Handle": "F8",
         "SKU": "F8",
         "Name": "Lok lak Pok Choy with Rice (Chicken/Pork/Tofu)",
         "Category": "Fried Rice",
@@ -4311,10 +4461,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f4",
+        "Handle": "F4",
         "SKU": "F4",
         "Name": "Lok lak with Fried Rice (Chicken/Pork/Tofu)",
         "Category": "Fried Rice",
@@ -4335,10 +4485,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f2",
+        "Handle": "F2",
         "SKU": "F2",
         "Name": "Lok lak with Rice (Chicken/Pork/Tofu)",
         "Category": "Fried Rice",
@@ -4359,10 +4509,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "ckt8",
+        "Handle": "CKT8",
         "SKU": "CKT8",
         "Name": "Long Island Ice Tea",
         "Category": "Cocktails",
@@ -4386,7 +4536,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d59",
+        "Handle": "D59",
         "SKU": "D59",
         "Name": "Lychee Smoothie",
         "Category": "Smoothie",
@@ -4407,10 +4557,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "ckt5",
+        "Handle": "CKT5",
         "SKU": "CKT5",
         "Name": "Magarita",
         "Category": "Cocktails",
@@ -4434,7 +4584,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d53",
+        "Handle": "D53",
         "SKU": "D53",
         "Name": "Mango Smoothie",
         "Category": "Smoothie",
@@ -4455,11 +4605,11 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "dessert2",
-        "SKU": "DESSERT2",
+        "Handle": "Dessert2",
+        "SKU": "Dessert2",
         "Name": "Mango Sticky rice",
         "Category": "Dessert",
         "Description": "Scrumptious Mango Sticky rice. A carefully prepared dessert showcasing premium ingredients and balanced flavors. A delightful culinary experience.",
@@ -4479,10 +4629,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d42",
+        "Handle": "D42",
         "SKU": "D42",
         "Name": "Milo Frappe",
         "Category": "Frappe",
@@ -4506,7 +4656,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d83",
+        "Handle": "D83",
         "SKU": "D83",
         "Name": "Milo Macchiato",
         "Category": "Macchiato",
@@ -4530,7 +4680,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "g21",
+        "Handle": "G21",
         "SKU": "G21",
         "Name": "Mixed Deep Fried Meatballes",
         "Category": "Grilled",
@@ -4551,10 +4701,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "g22",
+        "Handle": "G22",
         "SKU": "G22",
         "Name": "Mixed Deep Fried Meatballes with Flour",
         "Category": "Grilled",
@@ -4575,10 +4725,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d70",
+        "Handle": "D70",
         "SKU": "D70",
         "Name": "Mixed Fruits Smoothie",
         "Category": "Smoothie",
@@ -4602,7 +4752,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b37",
+        "Handle": "B37",
         "SKU": "B37",
         "Name": "Mixed Salad with Chicken",
         "Category": "Breakfast",
@@ -4623,10 +4773,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k13",
+        "Handle": "K13",
         "SKU": "K13",
         "Name": "Mixed Spicy Beef",
         "Category": "Salad",
@@ -4647,10 +4797,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b36",
+        "Handle": "B36",
         "SKU": "B36",
         "Name": "Mixed Vegetable Salad",
         "Category": "Breakfast",
@@ -4671,10 +4821,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k12",
+        "Handle": "K12",
         "SKU": "K12",
         "Name": "Mixed Vegetable Salad (Chicken/Pork)",
         "Category": "Salad",
@@ -4695,10 +4845,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "k11",
+        "Handle": "K11",
         "SKU": "K11",
         "Name": "Mixed Vegetable Salad Seafood",
         "Category": "Salad",
@@ -4719,10 +4869,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d39",
+        "Handle": "D39",
         "SKU": "D39",
         "Name": "Mocha Frappe",
         "Category": "Frappe",
@@ -4746,7 +4896,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "ckt7",
+        "Handle": "CKT7",
         "SKU": "CKT7",
         "Name": "Mojito",
         "Category": "Cocktails",
@@ -4770,7 +4920,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b3",
+        "Handle": "B3",
         "SKU": "B3",
         "Name": "Omelet Cheese with bread or toast",
         "Category": "Breakfast",
@@ -4794,7 +4944,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b2",
+        "Handle": "B2",
         "SKU": "B2",
         "Name": "Omelet Chicken/Pork with bread or toast",
         "Category": "Breakfast",
@@ -4818,7 +4968,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b1",
+        "Handle": "B1",
         "SKU": "B1",
         "Name": "Omelet Vegetable with bread or toast",
         "Category": "Breakfast",
@@ -4839,10 +4989,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b29",
+        "Handle": "B29",
         "SKU": "B29",
         "Name": "Onion Rings",
         "Category": "Breakfast",
@@ -4863,10 +5013,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d41",
+        "Handle": "D41",
         "SKU": "D41",
         "Name": "Oreo Frappe",
         "Category": "Frappe",
@@ -4890,7 +5040,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d40",
+        "Handle": "D40",
         "SKU": "D40",
         "Name": "Ovaltine Frappe",
         "Category": "Frappe",
@@ -4914,7 +5064,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d84",
+        "Handle": "D84",
         "SKU": "D84",
         "Name": "Ovaltine Macchiato",
         "Category": "Macchiato",
@@ -4938,7 +5088,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "f9",
+        "Handle": "F9",
         "SKU": "F9",
         "Name": "Pad kra pai (Beef/Seafood)",
         "Category": "Fried Rice",
@@ -4962,7 +5112,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "f10",
+        "Handle": "F10",
         "SKU": "F10",
         "Name": "Pad kra pai (Chicken/Pork/Tofu)",
         "Category": "Fried Rice",
@@ -4986,16 +5136,31 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf4",
+        "Handle": "VF4",
         "SKU": "VF4",
         "Name": "Pad kra pao with Tofu",
         "Category": "Vegetarian Food",
-        "Description": "Pad kra pao with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Delicious Pad kra pao with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b53",
+        "Handle": "B53",
         "SKU": "B53",
         "Name": "Pancake with Cream Coconut (3)",
         "Category": "Breakfast",
@@ -5019,7 +5184,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d65",
+        "Handle": "D65",
         "SKU": "D65",
         "Name": "Papaya Smoothie",
         "Category": "Smoothie",
@@ -5040,10 +5205,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d77",
+        "Handle": "D77",
         "SKU": "D77",
         "Name": "Passion Macchiato",
         "Category": "Macchiato",
@@ -5067,7 +5232,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d62",
+        "Handle": "D62",
         "SKU": "D62",
         "Name": "Passion Smoothie",
         "Category": "Smoothie",
@@ -5088,10 +5253,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "ckt6",
+        "Handle": "CKT6",
         "SKU": "CKT6",
         "Name": "Pinacolada",
         "Category": "Cocktails",
@@ -5112,10 +5277,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "m10",
+        "Handle": "pineapple-fried-rice-(chicken/pork/tofu/egg)",
         "SKU": "M10",
         "Name": "Pineapple Fried Rice (Chicken/Pork/Tofu/Egg)",
         "Category": "New Menu",
@@ -5136,10 +5301,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "m4",
+        "Handle": "M4",
         "SKU": "M4",
         "Name": "Pineapple Fried Rice (Seafood/Beef)",
         "Category": "New Menu",
@@ -5160,10 +5325,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "m3",
+        "Handle": "M3",
         "SKU": "M3",
         "Name": "Pineapple Fried Rice Cashew Nut (Seafood/Beef)",
         "Category": "New Menu",
@@ -5184,19 +5349,34 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf18",
+        "Handle": "VF18",
         "SKU": "VF18",
         "Name": "Pineapple Fried Rice Cashew Nut with Tofu",
         "Category": "Vegetarian Food",
-        "Description": "Pineapple Fried Rice Cashew Nut with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Delectable Pineapple Fried Rice Cashew Nut with Tofu. Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. Experience the true taste of Cambodia.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d58",
+        "Handle": "D58",
         "SKU": "D58",
         "Name": "Pineapple Smoothie",
         "Category": "Smoothie",
@@ -5217,10 +5397,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "m1",
+        "Handle": "M1",
         "SKU": "M1",
         "Name": "Pumpkin Soup with Bread",
         "Category": "New Menu",
@@ -5241,11 +5421,11 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "dessert3",
-        "SKU": "DESSERT3",
+        "Handle": "Dessert3",
+        "SKU": "Dessert3",
         "Name": "Pumpkin with Coconut Milk",
         "Category": "Dessert",
         "Description": "Classic Pumpkin with Coconut Milk. A carefully prepared dessert showcasing premium ingredients and balanced flavors. A delightful culinary experience.",
@@ -5265,11 +5445,11 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
         "Handle": "s4",
-        "SKU": "S4",
+        "SKU": "s4",
         "Name": "Red Curry (Chicken/Fish/Tofu)",
         "Category": "Soup",
         "Description": "Scrumptious Red Curry (Chicken/Fish/Tofu). A carefully prepared soup showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia. Choose your favorite variation for a personalized touch.",
@@ -5289,11 +5469,11 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
         "Handle": "s3",
-        "SKU": "S3",
+        "SKU": "s3",
         "Name": "Red Curry Seafood",
         "Category": "Soup",
         "Description": "Traditional Red Curry Seafood. A carefully prepared soup showcasing premium ingredients and balanced flavors. Enjoy every bite.",
@@ -5313,19 +5493,34 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf7",
+        "Handle": "VF7",
         "SKU": "VF7",
         "Name": "Red Curry with Tofu",
         "Category": "Vegetarian Food",
-        "Description": "Red Curry with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Delectable Red Curry with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Perfect for any time of the day.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d46",
+        "Handle": "D46",
         "SKU": "D46",
         "Name": "Red Tea Frappe",
         "Category": "Frappe",
@@ -5349,7 +5544,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d81",
+        "Handle": "D81",
         "SKU": "D81",
         "Name": "Red Tea Macchiato",
         "Category": "Macchiato",
@@ -5373,7 +5568,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b58",
+        "Handle": "rice",
         "SKU": "B58",
         "Name": "Rice",
         "Category": "Breakfast",
@@ -5394,10 +5589,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "10000",
+        "Handle": "M5",
         "SKU": "10000",
         "Name": "Roast Beef on Strip",
         "Category": "New Menu",
@@ -5418,10 +5613,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d79",
+        "Handle": "D79",
         "SKU": "D79",
         "Name": "Rose Tea Macchiato",
         "Category": "Macchiato",
@@ -5445,7 +5640,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "w2",
+        "Handle": "rum",
         "SKU": "W2",
         "Name": "Rum",
         "Category": "Cocktails",
@@ -5466,10 +5661,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b6",
+        "Handle": "B6",
         "SKU": "B6",
         "Name": "Sandwich Egg with French fries",
         "Category": "Breakfast",
@@ -5490,10 +5685,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f16",
+        "Handle": "F16",
         "SKU": "F16",
         "Name": "Sausage Fried Rice",
         "Category": "Fried Rice",
@@ -5514,10 +5709,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b5",
+        "Handle": "B5",
         "SKU": "B5",
         "Name": "Scrambled Egg Hotdog with bread or toast",
         "Category": "Breakfast",
@@ -5541,7 +5736,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b4",
+        "Handle": "B4",
         "SKU": "B4",
         "Name": "Scrambled Egg with bread or toast",
         "Category": "Breakfast",
@@ -5562,10 +5757,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b13",
+        "Handle": "B13",
         "SKU": "B13",
         "Name": "Seafood Noodle Soup",
         "Category": "Breakfast",
@@ -5586,10 +5781,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b35",
+        "Handle": "B35",
         "SKU": "B35",
         "Name": "Shrimp Fresh Spring Rolls (4)",
         "Category": "Breakfast",
@@ -5610,19 +5805,34 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf5",
+        "Handle": "VF5",
         "SKU": "VF5",
         "Name": "Shrimp Paste Fried Rice Golden Cafe",
         "Category": "Vegetarian Food",
-        "Description": "Shrimp Paste Fried Rice Golden Cafe. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Authentic Shrimp Paste Fried Rice Golden Cafe. Wok-tossed to smoky perfection with premium jasmine rice, eggs, and fresh vegetables. Enjoy every bite.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f5",
+        "Handle": "F5",
         "SKU": "F5",
         "Name": "Shrimp Paste Fried Rice Golden Cafe (Beef/ Seafood)",
         "Category": "Fried Rice",
@@ -5643,10 +5853,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "f6",
+        "Handle": "F6",
         "SKU": "F6",
         "Name": "Shrimp Paste Fried Rice Golden Cafe (Chicken/ Pork)",
         "Category": "Fried Rice",
@@ -5667,10 +5877,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "ckt4",
+        "Handle": "CKT4",
         "SKU": "CKT4",
         "Name": "Singapore Sling",
         "Category": "Cocktails",
@@ -5694,7 +5904,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "bv5",
+        "Handle": "soda-water",
         "SKU": "BV5",
         "Name": "Soda Water",
         "Category": "Beverage",
@@ -5715,10 +5925,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "bv1",
+        "Handle": "7-up",
         "SKU": "BV1",
         "Name": "Soft drink (7up/Sprite/Pepsi)",
         "Category": "Beverage",
@@ -5739,10 +5949,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "s15",
+        "Handle": "S15",
         "SKU": "S15",
         "Name": "Somlor Kor Ko (Fish/Pork/Chicken)",
         "Category": "Soup",
@@ -5766,7 +5976,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d66",
+        "Handle": "D66",
         "SKU": "D66",
         "Name": "Soursop Smoothie",
         "Category": "Smoothie",
@@ -5787,10 +5997,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b40",
+        "Handle": "B40",
         "SKU": "B40",
         "Name": "Spaghetti (Beef/Seafood)",
         "Category": "Breakfast",
@@ -5811,10 +6021,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b39",
+        "Handle": "B39",
         "SKU": "B39",
         "Name": "Spaghetti (Pork/Chicken)",
         "Category": "Breakfast",
@@ -5835,10 +6045,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "m6",
+        "Handle": "M6",
         "SKU": "M6",
         "Name": "Spaghetti Cabonara",
         "Category": "New Menu",
@@ -5862,7 +6072,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b38",
+        "Handle": "B38",
         "SKU": "B38",
         "Name": "Spaghetti with Tomato Sauce",
         "Category": "Breakfast",
@@ -5883,10 +6093,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "g16",
+        "Handle": "G16",
         "SKU": "G16",
         "Name": "Steamed Shrimp with Coconut Cream",
         "Category": "Grilled",
@@ -5910,7 +6120,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "g15",
+        "Handle": "G15",
         "SKU": "G15",
         "Name": "Steamed Shrimp with Glass Noodle",
         "Category": "Grilled",
@@ -5934,7 +6144,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "g14",
+        "Handle": "G14",
         "SKU": "G14",
         "Name": "Steamed Shrimp with Lemongrass",
         "Category": "Grilled",
@@ -5955,10 +6165,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf26",
+        "Handle": "SF26",
         "SKU": "SF26",
         "Name": "Stir-Fried Bean Sprout (Chicken/Pork/Tofu)",
         "Category": "Stir-fried",
@@ -5979,10 +6189,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf4",
+        "Handle": "SF4",
         "SKU": "SF4",
         "Name": "Stir-Fried Bell Pepper (Seafood/Beef)",
         "Category": "Stir-fried",
@@ -6006,7 +6216,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf14",
+        "Handle": "SF14",
         "SKU": "SF14",
         "Name": "Stir-Fried Bok Choy (Chicken/Pork/Tofu)",
         "Category": "Stir-fried",
@@ -6027,10 +6237,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf13",
+        "Handle": "SF13",
         "SKU": "SF13",
         "Name": "Stir-Fried Bok Choy (Seafood/Beef)",
         "Category": "Stir-fried",
@@ -6051,10 +6261,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf27",
+        "Handle": "SF27",
         "SKU": "SF27",
         "Name": "Stir-Fried Bok Choy with Oyster Sauce",
         "Category": "Stir-fried",
@@ -6075,10 +6285,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf16",
+        "Handle": "SF16",
         "SKU": "SF16",
         "Name": "Stir-Fried Broccoli (Chicken/Pork/Tofu)",
         "Category": "Stir-fried",
@@ -6102,7 +6312,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf15",
+        "Handle": "SF15",
         "SKU": "SF15",
         "Name": "Stir-Fried Broccoli (Seafood/Beef)",
         "Category": "Stir-fried",
@@ -6126,7 +6336,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf29",
+        "Handle": "SF29",
         "SKU": "SF29",
         "Name": "Stir-Fried Cabbage (Chicken/Pork/Tofu)",
         "Category": "Stir-fried",
@@ -6150,7 +6360,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf12",
+        "Handle": "SF12",
         "SKU": "SF12",
         "Name": "Stir-Fried Cauliflower (Chicken/Pork/Tofu)",
         "Category": "Stir-fried",
@@ -6174,7 +6384,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf11",
+        "Handle": "SF11",
         "SKU": "SF11",
         "Name": "Stir-Fried Cauliflower (Seafood/Beef)",
         "Category": "Stir-fried",
@@ -6198,7 +6408,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf2",
+        "Handle": "SF2",
         "SKU": "SF2",
         "Name": "Stir-Fried Chicken with Salt and Chili",
         "Category": "Stir-fried",
@@ -6222,7 +6432,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf3",
+        "Handle": "SF3",
         "SKU": "SF3",
         "Name": "Stir-Fried Eggplant (Pork/Chicken/fish/Tofu)",
         "Category": "Stir-fried",
@@ -6243,19 +6453,34 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf12",
+        "Handle": "VF12",
         "SKU": "VF12",
         "Name": "Stir-Fried Eggplant with Tofu",
         "Category": "Vegetarian Food",
-        "Description": "Stir-Fried Eggplant with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Tempting Stir-Fried Eggplant with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. A must-try for food lovers.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf9",
+        "Handle": "SF9",
         "SKU": "SF9",
         "Name": "Stir-Fried Ginger (Chicken/Pork/fish/Tofu)",
         "Category": "Stir-fried",
@@ -6276,10 +6501,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf10",
+        "Handle": "SF10",
         "SKU": "SF10",
         "Name": "Stir-Fried Ginger with Beef",
         "Category": "Stir-fried",
@@ -6300,10 +6525,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf7",
+        "Handle": "SF7",
         "SKU": "SF7",
         "Name": "Stir-Fried Hot Basil Chicken",
         "Category": "Stir-fried",
@@ -6327,7 +6552,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf19",
+        "Handle": "SF19",
         "SKU": "SF19",
         "Name": "Stir-Fried Kale with Beef",
         "Category": "Stir-fried",
@@ -6351,7 +6576,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf6",
+        "Handle": "SF6",
         "SKU": "SF6",
         "Name": "Stir-Fried Khmer Spicy String bean (Pork/Chicken/fish/Tofu)",
         "Category": "Stir-fried",
@@ -6372,10 +6597,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf8",
+        "Handle": "SF8",
         "SKU": "SF8",
         "Name": "Stir-Fried Khmer Spicy String bean (Seafood/Beef)",
         "Category": "Stir-fried",
@@ -6396,10 +6621,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "g20",
+        "Handle": "G20",
         "SKU": "G20",
         "Name": "Stir-fried Mixed Meatballs",
         "Category": "Grilled",
@@ -6423,16 +6648,31 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf11",
+        "Handle": "VF11",
         "SKU": "VF11",
         "Name": "Stir-Fried Mixed Vegetable with Tofu And Cashew Nut",
         "Category": "Vegetarian Food",
-        "Description": "Stir-Fried Mixed Vegetable with Tofu And Cashew Nut. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Scrumptious Stir-Fried Mixed Vegetable with Tofu And Cashew Nut. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Served fresh and hot.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf24",
+        "Handle": "SF24",
         "SKU": "SF24",
         "Name": "Stir-Fried Morning Glory (Chicken/Pork/fish/Tofu)",
         "Category": "Stir-fried",
@@ -6453,10 +6693,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf28",
+        "Handle": "SF28",
         "SKU": "SF28",
         "Name": "Stir-Fried Morning Glory with Oyster Sauce",
         "Category": "Stir-fried",
@@ -6477,10 +6717,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf17",
+        "Handle": "SF17",
         "SKU": "SF17",
         "Name": "Stir-Fried Mushrooms (Chicken/Pork/fish/Tofu)",
         "Category": "Stir-fried",
@@ -6504,7 +6744,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf23",
+        "Handle": "SF23",
         "SKU": "SF23",
         "Name": "Stir-Fried Onion (Chicken/Pork/Fish/Tofu)",
         "Category": "Stir-fried",
@@ -6528,7 +6768,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf20",
+        "Handle": "SF20",
         "SKU": "SF20",
         "Name": "Stir-Fried Pineapple (Chicken/Pork/Fish/Tofu)",
         "Category": "Stir-fried",
@@ -6549,10 +6789,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf18",
+        "Handle": "SF18",
         "SKU": "SF18",
         "Name": "Stir-Fried Shitake Mushrooms (Chicken/Pork/Fish/Tofu)",
         "Category": "Stir-fried",
@@ -6576,7 +6816,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "f30",
+        "Handle": "F30",
         "SKU": "F30",
         "Name": "Stir-fried Silver Pin Noodle (Beef/Seafood)",
         "Category": "Fried Noodle",
@@ -6600,7 +6840,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "f31",
+        "Handle": "F31",
         "SKU": "F31",
         "Name": "Stir-fried Silver Pin Noodle (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -6624,7 +6864,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf5",
+        "Handle": "SF5",
         "SKU": "SF5",
         "Name": "Stir-Fried Squid with Green Pepper",
         "Category": "Stir-fried",
@@ -6648,7 +6888,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf21",
+        "Handle": "SF21",
         "SKU": "SF21",
         "Name": "Stir-Fried String Bean (Chicken/Pork/Fish/Tofu)",
         "Category": "Stir-fried",
@@ -6672,7 +6912,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf22",
+        "Handle": "SF22",
         "SKU": "SF22",
         "Name": "Stir-Fried Sweet Sour Vegetables with Crispy (Fish/Chicken)",
         "Category": "Stir-fried",
@@ -6696,16 +6936,31 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf9",
+        "Handle": "VF9",
         "SKU": "VF9",
         "Name": "Stir-Fried Sweet Sour Vegetables with Tofu",
         "Category": "Vegetarian Food",
-        "Description": "Stir-Fried Sweet Sour Vegetables with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Fresh Stir-Fried Sweet Sour Vegetables with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "sf25",
+        "Handle": "SF25",
         "SKU": "SF25",
         "Name": "Stir-Fried Tomato (Chicken/Pork/Fish/Tofu)",
         "Category": "Stir-fried",
@@ -6729,7 +6984,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d67",
+        "Handle": "D67",
         "SKU": "D67",
         "Name": "Strawberry & Lychee Smoothie",
         "Category": "Smoothie",
@@ -6750,10 +7005,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b55",
+        "Handle": "B55",
         "SKU": "B55",
         "Name": "Strawberry Pancake (3)",
         "Category": "Breakfast",
@@ -6777,7 +7032,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d55",
+        "Handle": "D55",
         "SKU": "D55",
         "Name": "Strawberry Smoothie",
         "Category": "Smoothie",
@@ -6798,10 +7053,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "s11",
+        "Handle": "S11",
         "SKU": "S11",
         "Name": "Sweet and Sour Soup (Chicken/Fish)",
         "Category": "Soup",
@@ -6826,7 +7081,7 @@
     },
     {
         "Handle": "s6",
-        "SKU": "S6",
+        "SKU": "s6",
         "Name": "Sweet Sour Pineapple & Coconut Soup (Chicken/Fish/Tofu)",
         "Category": "Soup",
         "Description": "Flavorful Sweet Sour Pineapple & Coconut Soup (Chicken/Fish/Tofu). A carefully prepared soup showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch.",
@@ -6846,10 +7101,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d48",
+        "Handle": "D48",
         "SKU": "D48",
         "Name": "Syrup Fresh Milk Frappe",
         "Category": "Frappe",
@@ -6873,44 +7128,104 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf2",
+        "Handle": "VF2",
         "SKU": "VF2",
         "Name": "Tofu Amok",
         "Category": "Vegetarian Food",
-        "Description": "Tofu Amok. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Hearty Tofu Amok. A traditional Cambodian delicacy featuring a rich, aromatic coconut curry base flavored with lemongrass, kaffir lime, and galangal, gently steamed to perfection. A must-try for food lovers.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "g8",
-        "SKU": "G8",
-        "Name": "Tofu Lok Lak with Rice",
-        "Category": "Grilled",
-        "Description": "Golden Tofu Lok Lak seared with Cambodian pepper sauce over rice.",
+        "Handle": "VF1",
+        "SKU": "VF1",
+        "Name": "Tofu Lok lak with Rice",
+        "Category": "Vegetarian Food",
+        "Description": "Tempting Tofu Lok lak with Rice. A classic Khmer dish of tender, marinated meat stir-fried in a savory brown sauce, traditionally served with crisp lettuce, tomatoes, and a tangy lime-pepper dipping sauce. Perfect for any time of the day.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf15",
+        "Handle": "VF15",
         "SKU": "VF15",
         "Name": "Tofu Salad with deep fried glass noodle",
         "Category": "Vegetarian Food",
-        "Description": "Tofu Salad with deep fried glass noodle. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Delectable Tofu Salad with deep fried glass noodle. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. Served fresh and hot.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf17",
+        "Handle": "VF17",
         "SKU": "VF17",
         "Name": "Tofu Salad with Deep fried morning glory",
         "Category": "Vegetarian Food",
-        "Description": "Tofu Salad with Deep fried morning glory. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Hearty Tofu Salad with Deep fried morning glory. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. A delightful culinary experience.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
         "Handle": "s8",
-        "SKU": "S8",
+        "SKU": "s8",
         "Name": "Tom Yum (Chicken/Fish/Tofu)",
         "Category": "Soup",
         "Description": "Vibrant Tom Yum (Chicken/Fish/Tofu). A carefully prepared soup showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch.",
@@ -6934,7 +7249,7 @@
     },
     {
         "Handle": "s7",
-        "SKU": "S7",
+        "SKU": "s7",
         "Name": "Tom Yum Seafood",
         "Category": "Soup",
         "Description": "Savory Tom Yum Seafood. A carefully prepared soup showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings.",
@@ -6957,7 +7272,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "m2",
+        "Handle": "M2",
         "SKU": "M2",
         "Name": "Tomato Soup with Bread",
         "Category": "New Menu",
@@ -6978,10 +7293,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d49",
+        "Handle": "D49",
         "SKU": "D49",
         "Name": "Vanila Frappe",
         "Category": "Frappe",
@@ -7005,7 +7320,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d82",
+        "Handle": "D82",
         "SKU": "D82",
         "Name": "Vanilla Macchiato",
         "Category": "Macchiato",
@@ -7029,7 +7344,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "b33",
+        "Handle": "B33",
         "SKU": "B33",
         "Name": "Vegetable Fresh Spring Rolls (4)",
         "Category": "Breakfast",
@@ -7050,28 +7365,58 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf8",
+        "Handle": "VF8",
         "SKU": "VF8",
         "Name": "Vegetable Fresh Spring Rolls with Tofu (4)",
         "Category": "Vegetarian Food",
-        "Description": "Vegetable Fresh Spring Rolls with Tofu (4). Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Savory Vegetable Fresh Spring Rolls with Tofu (4). Crispy or fresh rolls packed with vibrant ingredients and served with a complementary dipping sauce. Enjoy every bite. Choose your favorite variation for a personalized touch.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b10",
+        "Handle": "B10",
         "SKU": "B10",
         "Name": "Vegetable Noodle Soup",
         "Category": "Breakfast",
-        "Description": "Delicious Vegetable Noodle Soup with fresh greens and savory broth.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784627933/ulinljf3kmtjhlsdpvxo.png"
+        "Description": "Authentic Vegetable Noodle Soup. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Perfect for any time of the day.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "bv7",
+        "Handle": "water-(big)",
         "SKU": "BV7",
         "Name": "Water (big)",
         "Category": "Beverage",
@@ -7092,10 +7437,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "bv6",
+        "Handle": "water-(small)",
         "SKU": "BV6",
         "Name": "Water (small)",
         "Category": "Beverage",
@@ -7116,10 +7461,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "d68",
+        "Handle": "D68",
         "SKU": "D68",
         "Name": "Water Melon Smoothie",
         "Category": "Smoothie",
@@ -7140,10 +7485,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "w1",
+        "Handle": "wine-by-glass",
         "SKU": "W1",
         "Name": "Wine by Glass",
         "Category": "Cocktails",
@@ -7167,7 +7512,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "d69",
+        "Handle": "D69",
         "SKU": "D69",
         "Name": "Winter melon Smoothie",
         "Category": "Smoothie",
@@ -7188,10 +7533,10 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "b9",
+        "Handle": "B9",
         "SKU": "B9",
         "Name": "Wonton Soup",
         "Category": "Breakfast",
@@ -7212,16 +7557,31 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+        "Cloudinary_ID": ""
     },
     {
-        "Handle": "vf10",
+        "Handle": "VF10",
         "SKU": "VF10",
         "Name": "Yellow Curry with Tofu",
         "Category": "Vegetarian Food",
-        "Description": "Yellow Curry with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
+        "Description": "Vibrant Yellow Curry with Tofu. A carefully prepared vegetarian food showcasing premium ingredients and balanced flavors. A delightful culinary experience.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": null
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": ""
     },
     {
         "Handle": "b20",
@@ -7248,159 +7608,6 @@
         "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784650716/bsxudivcejeug9qltp9w.png"
     },
     {
-        "Handle": "g17",
-        "SKU": "G17",
-        "Name": "English Lok lak (Beef/Chicken)",
-        "Category": "Grilled",
-        "Description": "Hearty English Lok lak (Beef/Chicken). A classic Khmer dish of tender, marinated meat stir-fried in a savory brown sauce, traditionally served with crisp lettuce, tomatoes, and a tangy lime-pepper dipping sauce. A must-try for food lovers. Choose your favorite variation for a personalized touch.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
-    },
-    {
-        "Handle": "f21",
-        "SKU": "F21",
-        "Name": "Fried Flat Noodle (Beef/Seafood)",
-        "Category": "Fried Noodle",
-        "Description": "Scrumptious Fried Flat Noodle (Beef/Seafood). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Enjoy every bite. Choose your favorite variation for a personalized touch.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784644385/wzark7hzyzotr0ivtdyz.png"
-    },
-    {
-        "Handle": "f28",
-        "SKU": "F28",
-        "Name": "Fried Glass Noodle (Beef/Seafood)",
-        "Category": "Fried Noodle",
-        "Description": "Classic Fried Glass Noodle (Beef/Seafood). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Prepared with our chef's special touch. Choose your favorite variation for a personalized touch.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784627284/ybbabbny0g7rwba9ydqu.png"
-    },
-    {
-        "Handle": "f23",
-        "SKU": "F23",
-        "Name": "Fried Mama Noodle (Beef/Seafood)",
-        "Category": "Fried Noodle",
-        "Description": "Savory Fried Mama Noodle (Beef/Seafood). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784627933/ulinljf3kmtjhlsdpvxo.png"
-    },
-    {
-        "Handle": "f17",
-        "SKU": "F17",
-        "Name": "Special Pad Thai (Beef/Seafood)",
-        "Category": "Fried Noodle",
-        "Description": "Vibrant Special Pad Thai (Beef/Seafood). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Crafted with the finest ingredients. Choose your favorite variation for a personalized touch.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784560068/d5i01u4o8izepkv988gk.png"
-    },
-    {
-        "Handle": "f18",
-        "SKU": "F18",
-        "Name": "Special Pad Thai (Chicken/Pork/Tofu)",
-        "Category": "Fried Noodle",
-        "Description": "Zesty Special Pad Thai (Chicken/Pork/Tofu). A carefully prepared fried noodle showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784560068/d5i01u4o8izepkv988gk.png"
-    },
-    {
-        "Handle": "vf13",
-        "SKU": "VF13",
-        "Name": "Special Pad Thai with Tofu",
-        "Category": "Vegetarian Food",
-        "Description": "Special Pad Thai with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
-    },
-    {
         "Handle": "10001",
         "SKU": "10001",
         "Name": "Roast Chicken on Strip",
@@ -7419,30 +7626,12 @@
         "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
     },
     {
-        "Handle": "g17",
-        "SKU": "G17",
-        "Name": "English Lok lak (Beef)",
-        "Category": "Grilled",
-        "Description": "Authentic English Lok lak (Beef). Tender beef seared with garlic, black pepper, and lime dip. Served with fresh salad.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
-    },
-    {
         "Handle": "g17c",
         "SKU": "G17C",
         "Name": "English Lok lak (Chicken)",
         "Category": "Grilled",
         "Description": "Authentic English Lok lak (Chicken). Tender chicken seared with garlic, black pepper, and lime dip. Served with fresh salad.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.0",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
-    },
-    {
-        "Handle": "m3b",
-        "SKU": "M3B",
-        "Name": "Pineapple Fried Rice Cashew Nut (Chicken/Pork/Tofu)",
-        "Category": "New Menu",
-        "Description": "Flavorful Pineapple Fried Rice Cashew Nut with Choice of Chicken, Pork, or Tofu.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
     },
     {
@@ -7455,84 +7644,12 @@
         "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
     },
     {
-        "Handle": "vf3",
-        "SKU": "VF3",
-        "Name": "Deep Fried Tofu",
-        "Category": "Vegetarian Food",
-        "Description": "Deep Fried Tofu. Freshly prepared authentic Cambodian vegetarian option.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
-    },
-    {
-        "Handle": "vf19",
-        "SKU": "VF19",
-        "Name": "Tofu Noodle Soup",
-        "Category": "Vegetarian Food",
-        "Description": "Tofu Noodle Soup. Freshly prepared authentic Cambodian vegetarian option.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
-    },
-    {
-        "Handle": "vf20",
-        "SKU": "VF20",
-        "Name": "Flat Noodle with Tofu",
-        "Category": "Vegetarian Food",
-        "Description": "Flat Noodle with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
-    },
-    {
-        "Handle": "vf21",
-        "SKU": "VF21",
-        "Name": "Green Mango Salad with Tofu",
-        "Category": "Vegetarian Food",
-        "Description": "Green Mango Salad with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
-    },
-    {
-        "Handle": "vf23",
-        "SKU": "VF23",
-        "Name": "Deep Fried Tofu with Sauce",
-        "Category": "Vegetarian Food",
-        "Description": "Deep Fried Tofu with Sauce. Freshly prepared authentic Cambodian vegetarian option.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
-    },
-    {
-        "Handle": "vf24",
-        "SKU": "VF24",
-        "Name": "Stir-Fried Morning Glory with Tofu",
-        "Category": "Vegetarian Food",
-        "Description": "Stir-Fried Morning Glory with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
-    },
-    {
-        "Handle": "vf25",
-        "SKU": "VF25",
-        "Name": "Stir-Fried Bok Choy with Tofu",
-        "Category": "Vegetarian Food",
-        "Description": "Stir-Fried Bok Choy with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
-    },
-    {
         "Handle": "g5",
         "SKU": "G5",
         "Name": "Chicken Steak with French Fries",
         "Category": "Grilled",
         "Description": "Sizzling chicken steak served with crispy French fries and black pepper sauce.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
-        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
-    },
-    {
-        "Handle": "g7",
-        "SKU": "G7",
-        "Name": "Pork Lok Lak with Rice",
-        "Category": "Grilled",
-        "Description": "Savory Pork Lok Lak seared with garlic and lime pepper dip over rice.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
     },
     {
