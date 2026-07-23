@@ -1872,7 +1872,7 @@
         "Category": "Addons",
         "Description": "Extra sunny-side-up fried egg.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
-        "Cloudinary_ID": "/images/egg-burger-with-cheese.png"
+        "Cloudinary_ID": null
     },
     {
         "Handle": "b8",
@@ -7059,7 +7059,7 @@
         "Category": "Vegetarian Food",
         "Description": "Vegetable Fresh Spring Rolls with Tofu (4). Freshly prepared authentic Cambodian vegetarian option.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
-        "Cloudinary_ID": "/images/fresh-fruit-slice.webp"
+        "Cloudinary_ID": null
     },
     {
         "Handle": "b10",
@@ -7221,7 +7221,7 @@
         "Category": "Vegetarian Food",
         "Description": "Yellow Curry with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "/images/green-curry-with-tofu.webp"
+        "Cloudinary_ID": null
     },
     {
         "Handle": "b20",
@@ -7269,7 +7269,7 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
     },
     {
         "Handle": "f21",
@@ -7407,7 +7407,7 @@
         "Category": "New Menu",
         "Description": "Flavorful Roast Chicken on Strip. A carefully prepared new menu showcasing premium ingredients and balanced flavors. Perfect for any time of the day.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": "/images/roast-beef-on-strip.webp"
+        "Cloudinary_ID": null
     },
     {
         "Handle": "m5",
@@ -7461,7 +7461,7 @@
         "Category": "Vegetarian Food",
         "Description": "Deep Fried Tofu. Freshly prepared authentic Cambodian vegetarian option.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
-        "Cloudinary_ID": "/images/chive-cake.webp"
+        "Cloudinary_ID": null
     },
     {
         "Handle": "vf19",
@@ -7497,7 +7497,7 @@
         "Category": "Vegetarian Food",
         "Description": "Deep Fried Tofu with Sauce. Freshly prepared authentic Cambodian vegetarian option.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
-        "Cloudinary_ID": "/images/chive-cake.webp"
+        "Cloudinary_ID": null
     },
     {
         "Handle": "vf24",
@@ -7542,7 +7542,7 @@
         "Category": "Addons",
         "Description": "Extra bowl of steamed white jasmine rice.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
-        "Cloudinary_ID": "/images/amok.webp"
+        "Cloudinary_ID": null
     },
     {
         "Handle": "add4",
@@ -7551,7 +7551,7 @@
         "Category": "Addons",
         "Description": "Melted cheddar cheese slice.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
-        "Cloudinary_ID": "/images/egg-burger-with-cheese.png"
+        "Cloudinary_ID": null
     },
     {
         "Handle": "add5",
@@ -7560,7 +7560,7 @@
         "Category": "Addons",
         "Description": "Crispy grilled bacon slices.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
-        "Cloudinary_ID": "/images/roast-beef-on-strip.webp"
+        "Cloudinary_ID": null
     },
     {
         "Handle": "add6",
