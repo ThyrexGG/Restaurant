@@ -232,6 +232,15 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
   const itemsWithImageCount = menuItems.filter(hasValidImage).length;
   const imageCompletionPercentage = totalItemsCount > 0 ? Math.round((itemsWithImageCount / totalItemsCount) * 100) : 0;
 
+  const categoryCounts = React.useMemo(() => {
+    const counts: Record<string, number> = { 'All': menuItems.length };
+    menuItems.forEach(item => {
+      const cat = item.category?.name || item.Category || 'Uncategorized';
+      counts[cat] = (counts[cat] || 0) + 1;
+    });
+    return counts;
+  }, [menuItems]);
+
   const [isImporting, setIsImporting] = useState(false);
 
   const handleImportMenu = () => {
@@ -254,9 +263,26 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
 
   return (
     <div className="max-w-6xl mx-auto">
-      {/* ... (Menu Management implementation extracted from AdminDashboard) */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
-        <h1 className="text-4xl font-bold font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Menu Management</h1>
+      {/* ... (Menu Management header with top dish counter badges) */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+        <div>
+          <h1 className="text-4xl font-bold font-['Playfair_Display'] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#d4af37]">Menu Management</h1>
+          <div className="flex flex-wrap items-center gap-3 mt-3">
+            <span className="bg-[#d4af37]/10 text-[#d4af37] border border-[#d4af37]/30 px-3.5 py-1 rounded-full text-xs font-bold tracking-wide flex items-center gap-1.5 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></span>
+              {totalItemsCount} Total Dishes
+            </span>
+            <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3.5 py-1 rounded-full text-xs font-bold tracking-wide flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+              {displayItems.length} Showing Now
+            </span>
+            {activeCategory !== 'All' && (
+              <span className="bg-gray-800 text-gray-300 border border-gray-700 px-3.5 py-1 rounded-full text-xs font-bold tracking-wide">
+                Category: {activeCategory} ({categoryCounts[activeCategory] || 0})
+              </span>
+            )}
+          </div>
+        </div>
         
         {totalItemsCount > 0 && (
           <div className="w-full md:w-64 bg-gray-900/60 p-4 rounded-2xl border border-gray-800 shadow-lg">
@@ -271,7 +297,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
               ></div>
             </div>
             <div className="text-xs text-gray-500 mt-2 text-right">
-              {itemsWithImageCount} of {totalItemsCount} items
+              {itemsWithImageCount} of {totalItemsCount} dishes with photos
             </div>
           </div>
         )}
@@ -295,13 +321,18 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
               <button 
                 key={idx}
                 onClick={() => setActiveCategory(cat as string)}
-                className={`whitespace-nowrap px-6 py-2.5 rounded-full font-bold transition-all ${
+                className={`whitespace-nowrap px-5 py-2.5 rounded-full font-bold text-sm transition-all flex items-center gap-2 ${
                   activeCategory === cat 
                     ? 'bg-[#d4af37] text-[#000000] shadow-[0_0_15px_rgba(212,175,55,0.4)]' 
                     : 'bg-gray-900 border border-gray-700 text-gray-400 hover:border-[#d4af37] hover:text-[#d4af37]'
                 }`}
               >
-                {cat as string}
+                <span>{cat as string}</span>
+                <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
+                  activeCategory === cat ? 'bg-black/20 text-black' : 'bg-gray-800 text-gray-400'
+                }`}>
+                  {categoryCounts[cat as string] || 0}
+                </span>
               </button>
             ))}
           </DraggableScrollContainer>
