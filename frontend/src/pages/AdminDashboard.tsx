@@ -24,13 +24,13 @@ export default function AdminDashboard() {
   }, []);
 
   useEffect(() => {
-    if (activeTab === 'Menu Management' && menuItems.length === 0) {
-      fetch(`${backendUrl}/api/menu`)
-        .then(res => res.json())
-        .then(data => setMenuItems(data))
-        .catch(err => console.error("Failed to fetch menu", err));
-    }
-  }, [activeTab, backendUrl, menuItems.length]);
+    fetch(`${backendUrl}/api/menu`)
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) setMenuItems(data);
+      })
+      .catch(err => console.error("Failed to fetch menu", err));
+  }, [backendUrl]);
 
   useEffect(() => {
     if (activeTab === 'Analytics' && !analytics) {

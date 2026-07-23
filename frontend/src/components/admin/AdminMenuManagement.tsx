@@ -232,6 +232,26 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
   const itemsWithImageCount = menuItems.filter(hasValidImage).length;
   const imageCompletionPercentage = totalItemsCount > 0 ? Math.round((itemsWithImageCount / totalItemsCount) * 100) : 0;
 
+  const [isImporting, setIsImporting] = useState(false);
+
+  const handleImportMenu = () => {
+    setIsImporting(true);
+    fetch(`${backendUrl}/api/menu/seed`, { method: 'POST' })
+      .then(res => res.json())
+      .then(() => {
+        fetch(`${backendUrl}/api/menu`)
+          .then(res => res.json())
+          .then(data => {
+            if (Array.isArray(data)) setMenuItems(data);
+          });
+      })
+      .catch(err => {
+        console.error("Import failed:", err);
+        alert("Failed to import menu.");
+      })
+      .finally(() => setIsImporting(false));
+  };
+
   return (
     <div className="max-w-6xl mx-auto">
       {/* ... (Menu Management implementation extracted from AdminDashboard) */}
@@ -277,7 +297,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
                 onClick={() => setActiveCategory(cat as string)}
                 className={`whitespace-nowrap px-6 py-2.5 rounded-full font-bold transition-all ${
                   activeCategory === cat 
-                    ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.4)]' 
+                    ? 'bg-[#d4af37] text-[#000000] shadow-[0_0_15px_rgba(212,175,55,0.4)]' 
                     : 'bg-gray-900 border border-gray-700 text-gray-400 hover:border-[#d4af37] hover:text-[#d4af37]'
                 }`}
               >
@@ -328,14 +348,11 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
         <h3 className="text-2xl font-bold mb-2">No Menu Items in Database</h3>
         <p className="text-gray-400 mb-8 max-w-md">Your cloud database currently has no menu items. You can automatically import your existing JSON menu to get started.</p>
         <button 
-          onClick={() => {
-            fetch(`${backendUrl}/api/menu/seed`, { method: 'POST' })
-              .then(res => res.json())
-              .then(() => fetch(`${backendUrl}/api/menu`).then(res => res.json()).then(data => setMenuItems(data)));
-          }}
-          className="bg-[#d4af37] text-black font-bold py-3 px-8 rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:scale-105 transition-transform"
+          onClick={handleImportMenu}
+          disabled={isImporting}
+          className={`bg-[#d4af37] text-black font-bold py-3 px-8 rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:scale-105 transition-all ${isImporting ? 'opacity-50 cursor-wait' : ''}`}
         >
-          Import from menu.json
+          {isImporting ? 'Importing Menu...' : 'Import from menu.json'}
         </button>
       </div>
     ) : (
