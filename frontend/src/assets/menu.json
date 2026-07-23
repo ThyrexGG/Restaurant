@@ -1,7 +1,7 @@
 [
     {
         "Handle": "s1",
-        "SKU": "s1",
+        "SKU": "S1",
         "Name": "Amok (Chicken/Fish/Tofu)",
         "Category": "Soup",
         "Description": "Delicious Amok (Chicken/Fish/Tofu). A traditional Cambodian delicacy featuring a rich, aromatic coconut curry base flavored with lemongrass, kaffir lime, and galangal, gently steamed to perfection. Guaranteed to satisfy your cravings. Choose your favorite variation for a personalized touch.",
@@ -25,7 +25,7 @@
     },
     {
         "Handle": "s2",
-        "SKU": "s2",
+        "SKU": "S2",
         "Name": "Amok Seafood",
         "Category": "Soup",
         "Description": "Hearty Amok Seafood. A traditional Cambodian delicacy featuring a rich, aromatic coconut curry base flavored with lemongrass, kaffir lime, and galangal, gently steamed to perfection. Perfect for any time of the day.",
@@ -48,7 +48,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "angkor-big-bottle",
+        "Handle": "bv11",
         "SKU": "BV11",
         "Name": "Angkor Big Bottle",
         "Category": "Beverage",
@@ -72,7 +72,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "angkor-can",
+        "Handle": "bv9",
         "SKU": "BV9",
         "Name": "Angkor Can",
         "Category": "Beverage",
@@ -96,7 +96,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "angkor-small-bottle",
+        "Handle": "bv10",
         "SKU": "BV10",
         "Name": "Angkor Small Bottle",
         "Category": "Beverage",
@@ -120,7 +120,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D64",
+        "Handle": "d64",
         "SKU": "D64",
         "Name": "Apple Smoothie",
         "Category": "Smoothie",
@@ -144,7 +144,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "avocado-slice",
+        "Handle": "b60",
         "SKU": "B60",
         "Name": "Avocado Slice",
         "Category": "Breakfast",
@@ -168,7 +168,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D52",
+        "Handle": "d52",
         "SKU": "D52",
         "Name": "Avocado Smoothie",
         "Category": "Smoothie",
@@ -192,7 +192,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D57",
+        "Handle": "d57",
         "SKU": "D57",
         "Name": "Banana Smoothie",
         "Category": "Smoothie",
@@ -216,8 +216,8 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "Dessert4",
-        "SKU": "Dessert4",
+        "Handle": "dessert4",
+        "SKU": "DESSERT4",
         "Name": "Banana with Coconut Milk",
         "Category": "Dessert",
         "Description": "Scrumptious Banana with Coconut Milk. A carefully prepared dessert showcasing premium ingredients and balanced flavors. Enjoy every bite.",
@@ -240,7 +240,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B46",
+        "Handle": "b46",
         "SKU": "B46",
         "Name": "Beef Burger",
         "Category": "Breakfast",
@@ -264,7 +264,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B49",
+        "Handle": "b49",
         "SKU": "B49",
         "Name": "Beef Burger Cheese with French fries",
         "Category": "Breakfast",
@@ -288,7 +288,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B47",
+        "Handle": "b47",
         "SKU": "B47",
         "Name": "Beef Burger with Cheese",
         "Category": "Breakfast",
@@ -312,7 +312,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K15",
+        "Handle": "k15",
         "SKU": "K15",
         "Name": "Beef Lab",
         "Category": "Salad",
@@ -336,7 +336,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F7",
+        "Handle": "f7",
         "SKU": "F7",
         "Name": "Beef Lok Lak Bok Choy with Rice",
         "Category": "Fried Rice",
@@ -360,7 +360,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F3",
+        "Handle": "f3",
         "SKU": "F3",
         "Name": "Beef Lok lak with Fried Rice",
         "Category": "Fried Rice",
@@ -384,31 +384,16 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F1",
-        "SKU": "F1",
-        "Name": "Beef Lok lak with Rice",
-        "Category": "Fried Rice",
-        "Description": "Fresh Beef Lok lak with Rice. A classic Khmer dish of tender, marinated meat stir-fried in a savory brown sauce, traditionally served with crisp lettuce, tomatoes, and a tangy lime-pepper dipping sauce. Prepared with our chef's special touch.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Handle": "g6",
+        "SKU": "G6",
+        "Name": "Beef Lok Lak with Rice",
+        "Category": "Grilled",
+        "Description": "Authentic Cambodian Beef Lok Lak seared with lime-pepper dip over rice.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
+        "Cloudinary_ID": "/images/beef-lok-lak.webp"
     },
     {
-        "Handle": "B11",
+        "Handle": "b11",
         "SKU": "B11",
         "Name": "Beef Noodle Soup",
         "Category": "Breakfast",
@@ -432,7 +417,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K3",
+        "Handle": "k3",
         "SKU": "K3",
         "Name": "Beef Salad with Deep fried morning glory",
         "Category": "Salad",
@@ -456,7 +441,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D78",
+        "Handle": "d78",
         "SKU": "D78",
         "Name": "Black Tea Macchiato",
         "Category": "Macchiato",
@@ -480,7 +465,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "CKT2",
+        "Handle": "ckt2",
         "SKU": "CKT2",
         "Name": "Blue Hawai",
         "Category": "Cocktails",
@@ -504,7 +489,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "CKT3",
+        "Handle": "ckt3",
         "SKU": "CKT3",
         "Name": "Blue Magarita",
         "Category": "Cocktails",
@@ -528,7 +513,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D56",
+        "Handle": "d56",
         "SKU": "D56",
         "Name": "Blueberry Smoothie",
         "Category": "Smoothie",
@@ -552,7 +537,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D43",
+        "Handle": "d43",
         "SKU": "D43",
         "Name": "Brown Suger Frappe",
         "Category": "Frappe",
@@ -576,7 +561,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D80",
+        "Handle": "d80",
         "SKU": "D80",
         "Name": "Brown Suger Macchiato",
         "Category": "Macchiato",
@@ -600,7 +585,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D45",
+        "Handle": "d45",
         "SKU": "D45",
         "Name": "Butterfly Tea Frappe",
         "Category": "Frappe",
@@ -624,7 +609,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D76",
+        "Handle": "d76",
         "SKU": "D76",
         "Name": "Butterfly Tea Macchiato",
         "Category": "Macchiato",
@@ -648,7 +633,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "cambodia-can",
+        "Handle": "bv8",
         "SKU": "BV8",
         "Name": "Cambodia Can",
         "Category": "Beverage",
@@ -672,7 +657,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D37",
+        "Handle": "d37",
         "SKU": "D37",
         "Name": "Cappuccino Frappe",
         "Category": "Frappe",
@@ -696,7 +681,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D44",
+        "Handle": "d44",
         "SKU": "D44",
         "Name": "Caramel Frappe",
         "Category": "Frappe",
@@ -720,7 +705,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D72",
+        "Handle": "d72",
         "SKU": "D72",
         "Name": "Caramel Macchiato",
         "Category": "Macchiato",
@@ -744,7 +729,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D60",
+        "Handle": "d60",
         "SKU": "D60",
         "Name": "Carrot Smoothie",
         "Category": "Smoothie",
@@ -768,7 +753,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "cheese",
+        "Handle": "b59",
         "SKU": "B59",
         "Name": "Cheese",
         "Category": "Breakfast",
@@ -792,7 +777,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B48",
+        "Handle": "b48",
         "SKU": "B48",
         "Name": "Chicken Burger with Cheese",
         "Category": "Breakfast",
@@ -816,7 +801,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B12",
+        "Handle": "b12",
         "SKU": "B12",
         "Name": "Chicken Noodle Soup",
         "Category": "Breakfast",
@@ -840,7 +825,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "M7",
+        "Handle": "m7",
         "SKU": "M7",
         "Name": "Chicken Pasta",
         "Category": "New Menu",
@@ -864,7 +849,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "S10",
+        "Handle": "s10",
         "SKU": "S10",
         "Name": "Chicken Soup with Fermented Limes",
         "Category": "Soup",
@@ -888,7 +873,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D38",
+        "Handle": "d38",
         "SKU": "D38",
         "Name": "Chocolate Frappe",
         "Category": "Frappe",
@@ -912,7 +897,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D73",
+        "Handle": "d73",
         "SKU": "D73",
         "Name": "Chocolate Macchiato",
         "Category": "Macchiato",
@@ -936,7 +921,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B54",
+        "Handle": "b54",
         "SKU": "B54",
         "Name": "Chocolate Pancake (3)",
         "Category": "Breakfast",
@@ -960,7 +945,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "coca-cola",
+        "Handle": "bv2",
         "SKU": "BV2",
         "Name": "Coca Cola",
         "Category": "Beverage",
@@ -984,7 +969,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "coca-cola-light",
+        "Handle": "bv3",
         "SKU": "BV3",
         "Name": "Coca Cola Light",
         "Category": "Beverage",
@@ -1008,7 +993,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "coca-cola-zero",
+        "Handle": "bv4",
         "SKU": "BV4",
         "Name": "Coca Cola Zero",
         "Category": "Beverage",
@@ -1032,7 +1017,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D50",
+        "Handle": "d50",
         "SKU": "D50",
         "Name": "Coconut Smoothie",
         "Category": "Smoothie",
@@ -1056,7 +1041,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D36",
+        "Handle": "d36",
         "SKU": "D36",
         "Name": "Coffee Frappe",
         "Category": "Frappe",
@@ -1080,7 +1065,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D71",
+        "Handle": "d71",
         "SKU": "D71",
         "Name": "Coffee Macchiato",
         "Category": "Macchiato",
@@ -1104,7 +1089,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B52",
+        "Handle": "b52",
         "SKU": "B52",
         "Name": "Crab Meat Sandwich with Cheese",
         "Category": "Breakfast",
@@ -1128,7 +1113,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B41",
+        "Handle": "b41",
         "SKU": "B41",
         "Name": "Crispy Chicken Burger",
         "Category": "Breakfast",
@@ -1152,7 +1137,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B44",
+        "Handle": "b44",
         "SKU": "B44",
         "Name": "Crispy Chicken Burger with Cheese",
         "Category": "Breakfast",
@@ -1176,7 +1161,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B50",
+        "Handle": "b50",
         "SKU": "B50",
         "Name": "Crispy Chicken Sandwich with Cheese",
         "Category": "Breakfast",
@@ -1200,7 +1185,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B42",
+        "Handle": "b42",
         "SKU": "B42",
         "Name": "Crispy Fish Burger",
         "Category": "Breakfast",
@@ -1224,7 +1209,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B45",
+        "Handle": "b45",
         "SKU": "B45",
         "Name": "Crispy Fish Burger with Cheese",
         "Category": "Breakfast",
@@ -1248,7 +1233,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "deep-fried-beef-meatballs-(4)",
+        "Handle": "g24",
         "SKU": "G24",
         "Name": "Deep Fried Beef Meatballs (4)",
         "Category": "Grilled",
@@ -1272,7 +1257,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G23",
+        "Handle": "g23",
         "SKU": "G23",
         "Name": "Deep Fried Beef Meatballs with Spicy",
         "Category": "Grilled",
@@ -1296,7 +1281,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B26",
+        "Handle": "b26",
         "SKU": "B26",
         "Name": "Deep Fried Chicken (2)",
         "Category": "Breakfast",
@@ -1320,7 +1305,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B21",
+        "Handle": "b21",
         "SKU": "B21",
         "Name": "Deep Fried Chicken Breast & Fries",
         "Category": "Breakfast",
@@ -1344,7 +1329,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B25",
+        "Handle": "b25",
         "SKU": "B25",
         "Name": "Deep Fried Chicken Spring Rolls (4)",
         "Category": "Breakfast",
@@ -1368,7 +1353,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "M9",
+        "Handle": "m9",
         "SKU": "M9",
         "Name": "Deep Fried Chicken with Rice",
         "Category": "New Menu",
@@ -1392,7 +1377,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F32",
+        "Handle": "f32",
         "SKU": "F32",
         "Name": "Deep Fried Circle Chive Cake (3)",
         "Category": "Fried Noodle",
@@ -1416,7 +1401,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G11",
+        "Handle": "g11",
         "SKU": "G11",
         "Name": "Deep Fried Drumstick Chicken with Fish Cheese",
         "Category": "Grilled",
@@ -1440,7 +1425,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B14",
+        "Handle": "b14",
         "SKU": "B14",
         "Name": "Deep Fried Drumstick Chicken with Rice",
         "Category": "Breakfast",
@@ -1464,7 +1449,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "M8",
+        "Handle": "m8",
         "SKU": "M8",
         "Name": "Deep Fried Fish with Mango Salad and Rice",
         "Category": "New Menu",
@@ -1488,7 +1473,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF32",
+        "Handle": "sf32",
         "SKU": "SF32",
         "Name": "Deep Fried Fish with Sweet Sour Sauce",
         "Category": "Stir-fried",
@@ -1512,7 +1497,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF31",
+        "Handle": "sf31",
         "SKU": "SF31",
         "Name": "Deep Fried Fish with Sweet Sour Vegetables",
         "Category": "Stir-fried",
@@ -1536,7 +1521,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF30",
+        "Handle": "sf30",
         "SKU": "SF30",
         "Name": "Deep Fried Fish with Sweet Soybean",
         "Category": "Stir-fried",
@@ -1560,7 +1545,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B31",
+        "Handle": "b31",
         "SKU": "B31",
         "Name": "Deep Fried Hot Dog with flour",
         "Category": "Breakfast",
@@ -1584,7 +1569,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B30",
+        "Handle": "b30",
         "SKU": "B30",
         "Name": "Deep Fried Hot Dog with Toast",
         "Category": "Breakfast",
@@ -1608,7 +1593,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K16",
+        "Handle": "k16",
         "SKU": "K16",
         "Name": "Deep fried Khmer Fish Cheese",
         "Category": "Salad",
@@ -1632,7 +1617,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B28",
+        "Handle": "b28",
         "SKU": "B28",
         "Name": "Deep Fried Mushrooms with flour",
         "Category": "Breakfast",
@@ -1656,7 +1641,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B23",
+        "Handle": "b23",
         "SKU": "B23",
         "Name": "Deep Fried Shrimp with flour (6)",
         "Category": "Breakfast",
@@ -1680,7 +1665,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B22",
+        "Handle": "b22",
         "SKU": "B22",
         "Name": "Deep Fried Tofu with flour",
         "Category": "Breakfast",
@@ -1704,7 +1689,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B24",
+        "Handle": "b24",
         "SKU": "B24",
         "Name": "Deep Fried Vegetable Spring Rolls (4)",
         "Category": "Breakfast",
@@ -1728,7 +1713,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B27",
+        "Handle": "b27",
         "SKU": "B27",
         "Name": "Deep Fried Wonton (5)",
         "Category": "Breakfast",
@@ -1752,7 +1737,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D51",
+        "Handle": "d51",
         "SKU": "D51",
         "Name": "Durian Smoothie",
         "Category": "Smoothie",
@@ -1776,7 +1761,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B43",
+        "Handle": "b43",
         "SKU": "B43",
         "Name": "Egg Burger with Cheese",
         "Category": "Breakfast",
@@ -1800,7 +1785,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B19",
+        "Handle": "b19",
         "SKU": "B19",
         "Name": "French fries",
         "Category": "Breakfast",
@@ -1824,8 +1809,8 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "Dessert1",
-        "SKU": "Dessert1",
+        "Handle": "dessert1",
+        "SKU": "DESSERT1",
         "Name": "Fresh Coconut",
         "Category": "Dessert",
         "Description": "Flavorful Fresh Coconut. A carefully prepared dessert showcasing premium ingredients and balanced flavors. A must-try for food lovers.",
@@ -1848,7 +1833,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "fresh-fruits-sliced",
+        "Handle": "fs1",
         "SKU": "FS1",
         "Name": "Fresh Fruits Sliced",
         "Category": "Dessert",
@@ -1872,7 +1857,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B34",
+        "Handle": "b34",
         "SKU": "B34",
         "Name": "Fresh Spring Rolls (Chicken/Pork) (4)",
         "Category": "Breakfast",
@@ -1896,7 +1881,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "fried-egg",
+        "Handle": "b57",
         "SKU": "B57",
         "Name": "Fried Egg",
         "Category": "Breakfast",
@@ -1920,7 +1905,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B8",
+        "Handle": "b8",
         "SKU": "B8",
         "Name": "Fried Egg Hotdog with bread or toast",
         "Category": "Breakfast",
@@ -1944,7 +1929,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B7",
+        "Handle": "b7",
         "SKU": "B7",
         "Name": "Fried Egg with bread or toast",
         "Category": "Breakfast",
@@ -1968,7 +1953,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F22",
+        "Handle": "f22",
         "SKU": "F22",
         "Name": "Fried Flat Noodle (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -1992,7 +1977,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F29",
+        "Handle": "f29",
         "SKU": "F29",
         "Name": "Fried Glass Noodle (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -2016,7 +2001,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F24",
+        "Handle": "f24",
         "SKU": "F24",
         "Name": "Fried Mama Noodle (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -2040,7 +2025,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F25",
+        "Handle": "f25",
         "SKU": "F25",
         "Name": "Fried Mama Noodle with Beef Meatball",
         "Category": "Fried Noodle",
@@ -2064,7 +2049,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF1",
+        "Handle": "sf1",
         "SKU": "SF1",
         "Name": "Fried Prama Fish with Egg",
         "Category": "Stir-fried",
@@ -2088,7 +2073,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F11",
+        "Handle": "f11",
         "SKU": "F11",
         "Name": "Fried Rice (Beef/Seafood)",
         "Category": "Fried Rice",
@@ -2112,7 +2097,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F12",
+        "Handle": "f12",
         "SKU": "F12",
         "Name": "Fried Rice (Chicken/Pork/Tofu)",
         "Category": "Fried Rice",
@@ -2136,7 +2121,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F13",
+        "Handle": "f13",
         "SKU": "F13",
         "Name": "Fried Rice Basil (Beef/Seafood)",
         "Category": "Fried Rice",
@@ -2160,7 +2145,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F14",
+        "Handle": "f14",
         "SKU": "F14",
         "Name": "Fried Rice Basil (Chicken/Pork/Tofu)",
         "Category": "Fried Rice",
@@ -2184,7 +2169,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F15",
+        "Handle": "f15",
         "SKU": "F15",
         "Name": "Fried Rice Sausage with Basil",
         "Category": "Fried Rice",
@@ -2208,7 +2193,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F26",
+        "Handle": "f26",
         "SKU": "F26",
         "Name": "Fried Rice Stick Noodle (Beef/Seafood)",
         "Category": "Fried Noodle",
@@ -2232,7 +2217,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F27",
+        "Handle": "f27",
         "SKU": "F27",
         "Name": "Fried Rice Stick Noodle (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -2256,7 +2241,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F19",
+        "Handle": "f19",
         "SKU": "F19",
         "Name": "Fried Yellow Noodle (Beef/Seafood)",
         "Category": "Fried Noodle",
@@ -2280,7 +2265,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F20",
+        "Handle": "f20",
         "SKU": "F20",
         "Name": "Fried Yellow Noodle (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -2304,7 +2289,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "gin",
+        "Handle": "w3",
         "SKU": "W3",
         "Name": "Gin",
         "Category": "Cocktails",
@@ -2328,7 +2313,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K10",
+        "Handle": "k10",
         "SKU": "K10",
         "Name": "Glass Noodle Salad (Chicken/Pork)",
         "Category": "Salad",
@@ -2352,7 +2337,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K9",
+        "Handle": "k9",
         "SKU": "K9",
         "Name": "Glass Noodle Salad Seafood",
         "Category": "Salad",
@@ -2376,7 +2361,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "CKT1",
+        "Handle": "ckt1",
         "SKU": "CKT1",
         "Name": "Golden Bacardi",
         "Category": "Cocktails",
@@ -2400,7 +2385,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D63",
+        "Handle": "d63",
         "SKU": "D63",
         "Name": "Grape Smoothie",
         "Category": "Smoothie",
@@ -2425,7 +2410,7 @@
     },
     {
         "Handle": "s5",
-        "SKU": "s5",
+        "SKU": "S5",
         "Name": "Green Curry (Chicken/Fish/Tofu)",
         "Category": "Soup",
         "Description": "Zesty Green Curry (Chicken/Fish/Tofu). A carefully prepared soup showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch.",
@@ -2457,7 +2442,7 @@
         "Cloudinary_ID": "/images/green-curry-with-tofu.webp"
     },
     {
-        "Handle": "K8",
+        "Handle": "k8",
         "SKU": "K8",
         "Name": "Green Mango Salad with Dry shrimp",
         "Category": "Salad",
@@ -2481,7 +2466,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K7",
+        "Handle": "k7",
         "SKU": "K7",
         "Name": "Green Mango Salad with Smoked Fish",
         "Category": "Salad",
@@ -2505,7 +2490,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K1",
+        "Handle": "k1",
         "SKU": "K1",
         "Name": "Green Papaya Salad with dried shrimp",
         "Category": "Salad",
@@ -2538,7 +2523,7 @@
         "Cloudinary_ID": "/images/green-mango-salad-with-tofu.webp"
     },
     {
-        "Handle": "K2",
+        "Handle": "k2",
         "SKU": "K2",
         "Name": "Green Payaya Salad with Shrimp",
         "Category": "Salad",
@@ -2562,7 +2547,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D47",
+        "Handle": "d47",
         "SKU": "D47",
         "Name": "Green Tea Frappe",
         "Category": "Frappe",
@@ -2586,7 +2571,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D74",
+        "Handle": "d74",
         "SKU": "D74",
         "Name": "Green Tea Macchiato",
         "Category": "Macchiato",
@@ -2610,7 +2595,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G9",
+        "Handle": "g9",
         "SKU": "G9",
         "Name": "Grilled Beef BBQ (3)",
         "Category": "Grilled",
@@ -2634,7 +2619,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G19",
+        "Handle": "g19",
         "SKU": "G19",
         "Name": "Grilled Beef with Black pepper sauce",
         "Category": "Grilled",
@@ -2658,7 +2643,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G13",
+        "Handle": "g13",
         "SKU": "G13",
         "Name": "Grilled Beef with Fish Cheese",
         "Category": "Grilled",
@@ -2682,31 +2667,16 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B17",
-        "SKU": "B17",
+        "Handle": "g1",
+        "SKU": "G1",
         "Name": "Grilled Beef with Rice",
-        "Category": "Breakfast",
-        "Description": "Hearty Grilled Beef with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Perfect for any time of the day.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Category": "Grilled",
+        "Description": "Tender grilled beef served with jasmine rice and dipping sauce.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
+        "Cloudinary_ID": "/images/grilled-beef-with-rice.webp"
     },
     {
-        "Handle": "G10",
+        "Handle": "g10",
         "SKU": "G10",
         "Name": "Grilled Chicken BBQ (3)",
         "Category": "Grilled",
@@ -2730,7 +2700,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G18",
+        "Handle": "g18",
         "SKU": "G18",
         "Name": "Grilled Chicken with Black pepper sauce",
         "Category": "Grilled",
@@ -2754,55 +2724,25 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B15",
-        "SKU": "B15",
+        "Handle": "g3",
+        "SKU": "G3",
         "Name": "Grilled Chicken with Rice",
-        "Category": "Breakfast",
-        "Description": "Authentic Grilled Chicken with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Served fresh and hot.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Category": "Grilled",
+        "Description": "Juicy BBQ grilled chicken served with warm rice and side salad.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "Cloudinary_ID": "/images/chicken-bbq.webp"
     },
     {
-        "Handle": "B18",
-        "SKU": "B18",
+        "Handle": "g4",
+        "SKU": "G4",
         "Name": "Grilled Fish with Rice",
-        "Category": "Breakfast",
-        "Description": "Classic Grilled Fish with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Served fresh and hot.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Category": "Grilled",
+        "Description": "Freshly grilled fish fillet served with jasmine rice and traditional sauce.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
+        "Cloudinary_ID": "/images/grilled-fish-with-rice.webp"
     },
     {
-        "Handle": "G12",
+        "Handle": "g12",
         "SKU": "G12",
         "Name": "Grilled Mackerel Fish with Spicy Sauce",
         "Category": "Grilled",
@@ -2826,31 +2766,16 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B16",
-        "SKU": "B16",
+        "Handle": "g2",
+        "SKU": "G2",
         "Name": "Grilled Pork with Rice",
-        "Category": "Breakfast",
-        "Description": "Fresh Grilled Pork with Rice. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings.",
-        "Sold by weight": "N",
-        "Option 1 name": "",
-        "Option 1 value": "",
-        "Option 2 name": "",
-        "Option 2 value": "",
-        "Option 3 name": "",
-        "Option 3 value": "",
-        "Cost": "0",
-        "Barcode": "",
-        "SKU of included item": "",
-        "Quantity of included item": "",
-        "Track stock": "N",
-        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
-        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Category": "Grilled",
+        "Description": "Flavorful marinated grilled pork served over fragrant jasmine rice.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "Cloudinary_ID": "/images/grilled-pork-with-rice.webp"
     },
     {
-        "Handle": "B51",
+        "Handle": "b51",
         "SKU": "B51",
         "Name": "Ham and Cheese Sandwich",
         "Category": "Breakfast",
@@ -2874,7 +2799,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B56",
+        "Handle": "b56",
         "SKU": "B56",
         "Name": "Honey Pancake (3)",
         "Category": "Breakfast",
@@ -2898,7 +2823,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H2",
+        "Handle": "h2",
         "SKU": "H2",
         "Name": "Hot Americano",
         "Category": "Hot Drink",
@@ -2922,7 +2847,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H4",
+        "Handle": "h4",
         "SKU": "H4",
         "Name": "Hot Cappuccino",
         "Category": "Hot Drink",
@@ -2946,7 +2871,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H7",
+        "Handle": "h7",
         "SKU": "H7",
         "Name": "Hot Chocolate",
         "Category": "Hot Drink",
@@ -2970,7 +2895,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H6",
+        "Handle": "h6",
         "SKU": "H6",
         "Name": "Hot Coffee with Milk",
         "Category": "Hot Drink",
@@ -2994,7 +2919,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B32",
+        "Handle": "b32",
         "SKU": "B32",
         "Name": "Hot Dog (2)",
         "Category": "Breakfast",
@@ -3018,7 +2943,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H1",
+        "Handle": "h1",
         "SKU": "H1",
         "Name": "Hot Expresso",
         "Category": "Hot Drink",
@@ -3042,7 +2967,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H11",
+        "Handle": "h11",
         "SKU": "H11",
         "Name": "Hot Green Tea",
         "Category": "Hot Drink",
@@ -3066,7 +2991,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H3",
+        "Handle": "h3",
         "SKU": "H3",
         "Name": "Hot Latte",
         "Category": "Hot Drink",
@@ -3090,7 +3015,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H13",
+        "Handle": "h13",
         "SKU": "H13",
         "Name": "Hot Lemon Green Tea",
         "Category": "Hot Drink",
@@ -3114,7 +3039,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H14",
+        "Handle": "h14",
         "SKU": "H14",
         "Name": "Hot Lemon Red Tea",
         "Category": "Hot Drink",
@@ -3138,7 +3063,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H8",
+        "Handle": "h8",
         "SKU": "H8",
         "Name": "Hot Milo",
         "Category": "Hot Drink",
@@ -3162,7 +3087,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H5",
+        "Handle": "h5",
         "SKU": "H5",
         "Name": "Hot Mocha",
         "Category": "Hot Drink",
@@ -3186,7 +3111,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H9",
+        "Handle": "h9",
         "SKU": "H9",
         "Name": "Hot Ovaltine",
         "Category": "Hot Drink",
@@ -3210,7 +3135,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H12",
+        "Handle": "h12",
         "SKU": "H12",
         "Name": "Hot Red Tea",
         "Category": "Hot Drink",
@@ -3234,7 +3159,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "H10",
+        "Handle": "h10",
         "SKU": "H10",
         "Name": "Hot Vanilla",
         "Category": "Hot Drink",
@@ -3258,7 +3183,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D8",
+        "Handle": "d8",
         "SKU": "D8",
         "Name": "Iced Black Coffee",
         "Category": "Iced Drink",
@@ -3282,7 +3207,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D12",
+        "Handle": "d12",
         "SKU": "D12",
         "Name": "Iced Black Milk Tea",
         "Category": "Iced Drink",
@@ -3306,7 +3231,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D29",
+        "Handle": "d29",
         "SKU": "D29",
         "Name": "Iced Blue Curacao Soda",
         "Category": "Iced Drink",
@@ -3330,7 +3255,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D15",
+        "Handle": "d15",
         "SKU": "D15",
         "Name": "Iced Blueberry Milk",
         "Category": "Iced Drink",
@@ -3354,7 +3279,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D34",
+        "Handle": "d34",
         "SKU": "D34",
         "Name": "Iced Blueberry Soda",
         "Category": "Iced Drink",
@@ -3378,7 +3303,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D23",
+        "Handle": "d23",
         "SKU": "D23",
         "Name": "Iced Brown Suger Fresh Milk with Pearl",
         "Category": "Iced Drink",
@@ -3402,7 +3327,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D10",
+        "Handle": "d10",
         "SKU": "D10",
         "Name": "Iced Butterfly Milk Tea",
         "Category": "Iced Drink",
@@ -3426,7 +3351,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D3",
+        "Handle": "d3",
         "SKU": "D3",
         "Name": "Iced Cappuccino",
         "Category": "Iced Drink",
@@ -3450,7 +3375,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D22",
+        "Handle": "d22",
         "SKU": "D22",
         "Name": "Iced Caramel Fresh Milk with Pearl",
         "Category": "Iced Drink",
@@ -3474,7 +3399,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D5",
+        "Handle": "d5",
         "SKU": "D5",
         "Name": "Iced Chocolate",
         "Category": "Iced Drink",
@@ -3498,7 +3423,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D1",
+        "Handle": "d1",
         "SKU": "D1",
         "Name": "Iced Coffee Milk",
         "Category": "Iced Drink",
@@ -3522,7 +3447,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D13",
+        "Handle": "d13",
         "SKU": "D13",
         "Name": "Iced Green Milk Tea",
         "Category": "Iced Drink",
@@ -3546,7 +3471,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D20",
+        "Handle": "d20",
         "SKU": "D20",
         "Name": "Iced Green Milk Tea with Pearl",
         "Category": "Iced Drink",
@@ -3570,7 +3495,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D11",
+        "Handle": "d11",
         "SKU": "D11",
         "Name": "Iced Jasmine Milk Tea",
         "Category": "Iced Drink",
@@ -3594,7 +3519,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D32",
+        "Handle": "d32",
         "SKU": "D32",
         "Name": "Iced Kiwi Soda",
         "Category": "Iced Drink",
@@ -3618,7 +3543,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D2",
+        "Handle": "d2",
         "SKU": "D2",
         "Name": "Iced Latte",
         "Category": "Iced Drink",
@@ -3642,7 +3567,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D27",
+        "Handle": "d27",
         "SKU": "D27",
         "Name": "Iced Lemon Black Tea",
         "Category": "Iced Drink",
@@ -3666,7 +3591,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D28",
+        "Handle": "d28",
         "SKU": "D28",
         "Name": "Iced Lemon Butterfly Tea",
         "Category": "Iced Drink",
@@ -3690,7 +3615,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D25",
+        "Handle": "d25",
         "SKU": "D25",
         "Name": "Iced Lemon Green Tea",
         "Category": "Iced Drink",
@@ -3714,7 +3639,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D26",
+        "Handle": "d26",
         "SKU": "D26",
         "Name": "Iced Lemon Jasmine Tea",
         "Category": "Iced Drink",
@@ -3738,7 +3663,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D24",
+        "Handle": "d24",
         "SKU": "D24",
         "Name": "Iced Lemon Red Tea",
         "Category": "Iced Drink",
@@ -3762,7 +3687,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D35",
+        "Handle": "d35",
         "SKU": "D35",
         "Name": "Iced Lychee Soda",
         "Category": "Iced Drink",
@@ -3786,7 +3711,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D21",
+        "Handle": "d21",
         "SKU": "D21",
         "Name": "Iced Milk Tea with Pearl",
         "Category": "Iced Drink",
@@ -3810,7 +3735,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D6",
+        "Handle": "d6",
         "SKU": "D6",
         "Name": "Iced Milo",
         "Category": "Iced Drink",
@@ -3834,7 +3759,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D4",
+        "Handle": "d4",
         "SKU": "D4",
         "Name": "Iced Mocha",
         "Category": "Iced Drink",
@@ -3858,7 +3783,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D7",
+        "Handle": "d7",
         "SKU": "D7",
         "Name": "Iced Ovaltine",
         "Category": "Iced Drink",
@@ -3882,7 +3807,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D17",
+        "Handle": "d17",
         "SKU": "D17",
         "Name": "Iced Passion Milk",
         "Category": "Iced Drink",
@@ -3906,7 +3831,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D30",
+        "Handle": "d30",
         "SKU": "D30",
         "Name": "Iced Passion Soda",
         "Category": "Iced Drink",
@@ -3930,7 +3855,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D9",
+        "Handle": "d9",
         "SKU": "D9",
         "Name": "Iced Red Milk Tea",
         "Category": "Iced Drink",
@@ -3954,7 +3879,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D16",
+        "Handle": "d16",
         "SKU": "D16",
         "Name": "Iced Strawberry Milk",
         "Category": "Iced Drink",
@@ -3978,7 +3903,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D31",
+        "Handle": "d31",
         "SKU": "D31",
         "Name": "Iced Strawberry Soda",
         "Category": "Iced Drink",
@@ -4002,7 +3927,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D18",
+        "Handle": "d18",
         "SKU": "D18",
         "Name": "Iced Syrup Fresh Milk",
         "Category": "Iced Drink",
@@ -4026,7 +3951,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D19",
+        "Handle": "d19",
         "SKU": "D19",
         "Name": "Iced Tamarind Fresh Milk",
         "Category": "Iced Drink",
@@ -4050,7 +3975,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D33",
+        "Handle": "d33",
         "SKU": "D33",
         "Name": "Iced Tamarind Soda",
         "Category": "Iced Drink",
@@ -4074,7 +3999,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D14",
+        "Handle": "d14",
         "SKU": "D14",
         "Name": "Iced Vanilla Latte",
         "Category": "Iced Drink",
@@ -4098,7 +4023,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D54",
+        "Handle": "d54",
         "SKU": "D54",
         "Name": "Jack Fruit Smoothie",
         "Category": "Smoothie",
@@ -4122,7 +4047,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D75",
+        "Handle": "d75",
         "SKU": "D75",
         "Name": "Jasmine Tea Macchiato",
         "Category": "Macchiato",
@@ -4146,7 +4071,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "S9",
+        "Handle": "s9",
         "SKU": "S9",
         "Name": "Jrouk Krav Chuang (Chicken/Fish)",
         "Category": "Soup",
@@ -4170,7 +4095,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K5",
+        "Handle": "k5",
         "SKU": "K5",
         "Name": "Khmer Beef Salad",
         "Category": "Salad",
@@ -4194,7 +4119,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K6",
+        "Handle": "k6",
         "SKU": "K6",
         "Name": "Khmer Fish Salad",
         "Category": "Salad",
@@ -4218,7 +4143,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "S13",
+        "Handle": "s13",
         "SKU": "S13",
         "Name": "Khmer Fish Sour Soup with Green Papaya",
         "Category": "Soup",
@@ -4242,7 +4167,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "S14",
+        "Handle": "s14",
         "SKU": "S14",
         "Name": "Khmer Fish Sour Soup with Morning glory",
         "Category": "Soup",
@@ -4275,7 +4200,7 @@
         "Cloudinary_ID": "/images/mixed-vegetable-salad.webp"
     },
     {
-        "Handle": "K4",
+        "Handle": "k4",
         "SKU": "K4",
         "Name": "Khmer Shrimp Salad",
         "Category": "Salad",
@@ -4299,7 +4224,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "S16",
+        "Handle": "s16",
         "SKU": "S16",
         "Name": "Khmer Sour Soup (Fish/Shrimp)",
         "Category": "Soup",
@@ -4323,7 +4248,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "S12",
+        "Handle": "s12",
         "SKU": "S12",
         "Name": "Khmer Spicy Sour Soup (Beef/Chicken/Fish)",
         "Category": "Soup",
@@ -4347,7 +4272,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K14",
+        "Handle": "k14",
         "SKU": "K14",
         "Name": "Lab (Chicken/Pork)",
         "Category": "Salad",
@@ -4371,7 +4296,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D61",
+        "Handle": "d61",
         "SKU": "D61",
         "Name": "Lemon Smoothie",
         "Category": "Smoothie",
@@ -4395,7 +4320,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F8",
+        "Handle": "f8",
         "SKU": "F8",
         "Name": "Lok lak Pok Choy with Rice (Chicken/Pork/Tofu)",
         "Category": "Fried Rice",
@@ -4419,7 +4344,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F4",
+        "Handle": "f4",
         "SKU": "F4",
         "Name": "Lok lak with Fried Rice (Chicken/Pork/Tofu)",
         "Category": "Fried Rice",
@@ -4443,7 +4368,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F2",
+        "Handle": "f2",
         "SKU": "F2",
         "Name": "Lok lak with Rice (Chicken/Pork/Tofu)",
         "Category": "Fried Rice",
@@ -4467,7 +4392,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "CKT8",
+        "Handle": "ckt8",
         "SKU": "CKT8",
         "Name": "Long Island Ice Tea",
         "Category": "Cocktails",
@@ -4491,7 +4416,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D59",
+        "Handle": "d59",
         "SKU": "D59",
         "Name": "Lychee Smoothie",
         "Category": "Smoothie",
@@ -4515,7 +4440,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "CKT5",
+        "Handle": "ckt5",
         "SKU": "CKT5",
         "Name": "Magarita",
         "Category": "Cocktails",
@@ -4539,7 +4464,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D53",
+        "Handle": "d53",
         "SKU": "D53",
         "Name": "Mango Smoothie",
         "Category": "Smoothie",
@@ -4563,8 +4488,8 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "Dessert2",
-        "SKU": "Dessert2",
+        "Handle": "dessert2",
+        "SKU": "DESSERT2",
         "Name": "Mango Sticky rice",
         "Category": "Dessert",
         "Description": "Scrumptious Mango Sticky rice. A carefully prepared dessert showcasing premium ingredients and balanced flavors. A delightful culinary experience.",
@@ -4587,7 +4512,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D42",
+        "Handle": "d42",
         "SKU": "D42",
         "Name": "Milo Frappe",
         "Category": "Frappe",
@@ -4611,7 +4536,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D83",
+        "Handle": "d83",
         "SKU": "D83",
         "Name": "Milo Macchiato",
         "Category": "Macchiato",
@@ -4635,7 +4560,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G21",
+        "Handle": "g21",
         "SKU": "G21",
         "Name": "Mixed Deep Fried Meatballes",
         "Category": "Grilled",
@@ -4659,7 +4584,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G22",
+        "Handle": "g22",
         "SKU": "G22",
         "Name": "Mixed Deep Fried Meatballes with Flour",
         "Category": "Grilled",
@@ -4683,7 +4608,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D70",
+        "Handle": "d70",
         "SKU": "D70",
         "Name": "Mixed Fruits Smoothie",
         "Category": "Smoothie",
@@ -4707,7 +4632,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B37",
+        "Handle": "b37",
         "SKU": "B37",
         "Name": "Mixed Salad with Chicken",
         "Category": "Breakfast",
@@ -4731,7 +4656,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K13",
+        "Handle": "k13",
         "SKU": "K13",
         "Name": "Mixed Spicy Beef",
         "Category": "Salad",
@@ -4755,7 +4680,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B36",
+        "Handle": "b36",
         "SKU": "B36",
         "Name": "Mixed Vegetable Salad",
         "Category": "Breakfast",
@@ -4779,7 +4704,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K12",
+        "Handle": "k12",
         "SKU": "K12",
         "Name": "Mixed Vegetable Salad (Chicken/Pork)",
         "Category": "Salad",
@@ -4803,7 +4728,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "K11",
+        "Handle": "k11",
         "SKU": "K11",
         "Name": "Mixed Vegetable Salad Seafood",
         "Category": "Salad",
@@ -4827,7 +4752,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D39",
+        "Handle": "d39",
         "SKU": "D39",
         "Name": "Mocha Frappe",
         "Category": "Frappe",
@@ -4851,7 +4776,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "CKT7",
+        "Handle": "ckt7",
         "SKU": "CKT7",
         "Name": "Mojito",
         "Category": "Cocktails",
@@ -4875,7 +4800,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B3",
+        "Handle": "b3",
         "SKU": "B3",
         "Name": "Omelet Cheese with bread or toast",
         "Category": "Breakfast",
@@ -4899,7 +4824,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B2",
+        "Handle": "b2",
         "SKU": "B2",
         "Name": "Omelet Chicken/Pork with bread or toast",
         "Category": "Breakfast",
@@ -4923,7 +4848,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B1",
+        "Handle": "b1",
         "SKU": "B1",
         "Name": "Omelet Vegetable with bread or toast",
         "Category": "Breakfast",
@@ -4947,7 +4872,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B29",
+        "Handle": "b29",
         "SKU": "B29",
         "Name": "Onion Rings",
         "Category": "Breakfast",
@@ -4971,7 +4896,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D41",
+        "Handle": "d41",
         "SKU": "D41",
         "Name": "Oreo Frappe",
         "Category": "Frappe",
@@ -4995,7 +4920,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D40",
+        "Handle": "d40",
         "SKU": "D40",
         "Name": "Ovaltine Frappe",
         "Category": "Frappe",
@@ -5019,7 +4944,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D84",
+        "Handle": "d84",
         "SKU": "D84",
         "Name": "Ovaltine Macchiato",
         "Category": "Macchiato",
@@ -5043,7 +4968,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F9",
+        "Handle": "f9",
         "SKU": "F9",
         "Name": "Pad kra pai (Beef/Seafood)",
         "Category": "Fried Rice",
@@ -5067,7 +4992,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F10",
+        "Handle": "f10",
         "SKU": "F10",
         "Name": "Pad kra pai (Chicken/Pork/Tofu)",
         "Category": "Fried Rice",
@@ -5100,7 +5025,7 @@
         "Cloudinary_ID": "/images/pad-krapao-with-tofu.webp"
     },
     {
-        "Handle": "B53",
+        "Handle": "b53",
         "SKU": "B53",
         "Name": "Pancake with Cream Coconut (3)",
         "Category": "Breakfast",
@@ -5124,7 +5049,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D65",
+        "Handle": "d65",
         "SKU": "D65",
         "Name": "Papaya Smoothie",
         "Category": "Smoothie",
@@ -5148,7 +5073,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D77",
+        "Handle": "d77",
         "SKU": "D77",
         "Name": "Passion Macchiato",
         "Category": "Macchiato",
@@ -5172,7 +5097,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D62",
+        "Handle": "d62",
         "SKU": "D62",
         "Name": "Passion Smoothie",
         "Category": "Smoothie",
@@ -5196,7 +5121,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "CKT6",
+        "Handle": "ckt6",
         "SKU": "CKT6",
         "Name": "Pinacolada",
         "Category": "Cocktails",
@@ -5220,7 +5145,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "pineapple-fried-rice-(chicken/pork/tofu/egg)",
+        "Handle": "m10",
         "SKU": "M10",
         "Name": "Pineapple Fried Rice (Chicken/Pork/Tofu/Egg)",
         "Category": "New Menu",
@@ -5244,7 +5169,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "M4",
+        "Handle": "m4",
         "SKU": "M4",
         "Name": "Pineapple Fried Rice (Seafood/Beef)",
         "Category": "New Menu",
@@ -5268,7 +5193,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "M3",
+        "Handle": "m3",
         "SKU": "M3",
         "Name": "Pineapple Fried Rice Cashew Nut (Seafood/Beef)",
         "Category": "New Menu",
@@ -5301,7 +5226,7 @@
         "Cloudinary_ID": "/images/pine-apple-fried-rice-with-tofu-cashew-nut.webp"
     },
     {
-        "Handle": "D58",
+        "Handle": "d58",
         "SKU": "D58",
         "Name": "Pineapple Smoothie",
         "Category": "Smoothie",
@@ -5325,7 +5250,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "M1",
+        "Handle": "m1",
         "SKU": "M1",
         "Name": "Pumpkin Soup with Bread",
         "Category": "New Menu",
@@ -5349,8 +5274,8 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "Dessert3",
-        "SKU": "Dessert3",
+        "Handle": "dessert3",
+        "SKU": "DESSERT3",
         "Name": "Pumpkin with Coconut Milk",
         "Category": "Dessert",
         "Description": "Classic Pumpkin with Coconut Milk. A carefully prepared dessert showcasing premium ingredients and balanced flavors. A delightful culinary experience.",
@@ -5374,7 +5299,7 @@
     },
     {
         "Handle": "s4",
-        "SKU": "s4",
+        "SKU": "S4",
         "Name": "Red Curry (Chicken/Fish/Tofu)",
         "Category": "Soup",
         "Description": "Scrumptious Red Curry (Chicken/Fish/Tofu). A carefully prepared soup showcasing premium ingredients and balanced flavors. Experience the true taste of Cambodia. Choose your favorite variation for a personalized touch.",
@@ -5398,7 +5323,7 @@
     },
     {
         "Handle": "s3",
-        "SKU": "s3",
+        "SKU": "S3",
         "Name": "Red Curry Seafood",
         "Category": "Soup",
         "Description": "Traditional Red Curry Seafood. A carefully prepared soup showcasing premium ingredients and balanced flavors. Enjoy every bite.",
@@ -5430,7 +5355,7 @@
         "Cloudinary_ID": "/images/red-curry-with-tofu.webp"
     },
     {
-        "Handle": "D46",
+        "Handle": "d46",
         "SKU": "D46",
         "Name": "Red Tea Frappe",
         "Category": "Frappe",
@@ -5454,7 +5379,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D81",
+        "Handle": "d81",
         "SKU": "D81",
         "Name": "Red Tea Macchiato",
         "Category": "Macchiato",
@@ -5478,7 +5403,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "rice",
+        "Handle": "b58",
         "SKU": "B58",
         "Name": "Rice",
         "Category": "Breakfast",
@@ -5502,7 +5427,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "M5",
+        "Handle": "10000",
         "SKU": "10000",
         "Name": "Roast Beef on Strip",
         "Category": "New Menu",
@@ -5526,7 +5451,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D79",
+        "Handle": "d79",
         "SKU": "D79",
         "Name": "Rose Tea Macchiato",
         "Category": "Macchiato",
@@ -5550,7 +5475,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "rum",
+        "Handle": "w2",
         "SKU": "W2",
         "Name": "Rum",
         "Category": "Cocktails",
@@ -5574,7 +5499,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B6",
+        "Handle": "b6",
         "SKU": "B6",
         "Name": "Sandwich Egg with French fries",
         "Category": "Breakfast",
@@ -5598,7 +5523,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F16",
+        "Handle": "f16",
         "SKU": "F16",
         "Name": "Sausage Fried Rice",
         "Category": "Fried Rice",
@@ -5622,7 +5547,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B5",
+        "Handle": "b5",
         "SKU": "B5",
         "Name": "Scrambled Egg Hotdog with bread or toast",
         "Category": "Breakfast",
@@ -5646,7 +5571,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B4",
+        "Handle": "b4",
         "SKU": "B4",
         "Name": "Scrambled Egg with bread or toast",
         "Category": "Breakfast",
@@ -5670,7 +5595,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B13",
+        "Handle": "b13",
         "SKU": "B13",
         "Name": "Seafood Noodle Soup",
         "Category": "Breakfast",
@@ -5694,7 +5619,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B35",
+        "Handle": "b35",
         "SKU": "B35",
         "Name": "Shrimp Fresh Spring Rolls (4)",
         "Category": "Breakfast",
@@ -5727,7 +5652,7 @@
         "Cloudinary_ID": "/images/shrimp-paste-fried-rice.webp"
     },
     {
-        "Handle": "F5",
+        "Handle": "f5",
         "SKU": "F5",
         "Name": "Shrimp Paste Fried Rice Golden Cafe (Beef/ Seafood)",
         "Category": "Fried Rice",
@@ -5751,7 +5676,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F6",
+        "Handle": "f6",
         "SKU": "F6",
         "Name": "Shrimp Paste Fried Rice Golden Cafe (Chicken/ Pork)",
         "Category": "Fried Rice",
@@ -5775,7 +5700,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "CKT4",
+        "Handle": "ckt4",
         "SKU": "CKT4",
         "Name": "Singapore Sling",
         "Category": "Cocktails",
@@ -5799,7 +5724,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "soda-water",
+        "Handle": "bv5",
         "SKU": "BV5",
         "Name": "Soda Water",
         "Category": "Beverage",
@@ -5823,7 +5748,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "7-up",
+        "Handle": "bv1",
         "SKU": "BV1",
         "Name": "Soft drink (7up/Sprite/Pepsi)",
         "Category": "Beverage",
@@ -5847,7 +5772,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "S15",
+        "Handle": "s15",
         "SKU": "S15",
         "Name": "Somlor Kor Ko (Fish/Pork/Chicken)",
         "Category": "Soup",
@@ -5871,7 +5796,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D66",
+        "Handle": "d66",
         "SKU": "D66",
         "Name": "Soursop Smoothie",
         "Category": "Smoothie",
@@ -5895,7 +5820,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B40",
+        "Handle": "b40",
         "SKU": "B40",
         "Name": "Spaghetti (Beef/Seafood)",
         "Category": "Breakfast",
@@ -5919,7 +5844,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B39",
+        "Handle": "b39",
         "SKU": "B39",
         "Name": "Spaghetti (Pork/Chicken)",
         "Category": "Breakfast",
@@ -5943,7 +5868,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "M6",
+        "Handle": "m6",
         "SKU": "M6",
         "Name": "Spaghetti Cabonara",
         "Category": "New Menu",
@@ -5967,7 +5892,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B38",
+        "Handle": "b38",
         "SKU": "B38",
         "Name": "Spaghetti with Tomato Sauce",
         "Category": "Breakfast",
@@ -5991,7 +5916,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G16",
+        "Handle": "g16",
         "SKU": "G16",
         "Name": "Steamed Shrimp with Coconut Cream",
         "Category": "Grilled",
@@ -6015,7 +5940,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G15",
+        "Handle": "g15",
         "SKU": "G15",
         "Name": "Steamed Shrimp with Glass Noodle",
         "Category": "Grilled",
@@ -6039,7 +5964,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G14",
+        "Handle": "g14",
         "SKU": "G14",
         "Name": "Steamed Shrimp with Lemongrass",
         "Category": "Grilled",
@@ -6063,7 +5988,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF26",
+        "Handle": "sf26",
         "SKU": "SF26",
         "Name": "Stir-Fried Bean Sprout (Chicken/Pork/Tofu)",
         "Category": "Stir-fried",
@@ -6087,7 +6012,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF4",
+        "Handle": "sf4",
         "SKU": "SF4",
         "Name": "Stir-Fried Bell Pepper (Seafood/Beef)",
         "Category": "Stir-fried",
@@ -6111,7 +6036,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF14",
+        "Handle": "sf14",
         "SKU": "SF14",
         "Name": "Stir-Fried Bok Choy (Chicken/Pork/Tofu)",
         "Category": "Stir-fried",
@@ -6135,7 +6060,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF13",
+        "Handle": "sf13",
         "SKU": "SF13",
         "Name": "Stir-Fried Bok Choy (Seafood/Beef)",
         "Category": "Stir-fried",
@@ -6159,7 +6084,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF27",
+        "Handle": "sf27",
         "SKU": "SF27",
         "Name": "Stir-Fried Bok Choy with Oyster Sauce",
         "Category": "Stir-fried",
@@ -6183,7 +6108,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF16",
+        "Handle": "sf16",
         "SKU": "SF16",
         "Name": "Stir-Fried Broccoli (Chicken/Pork/Tofu)",
         "Category": "Stir-fried",
@@ -6207,7 +6132,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF15",
+        "Handle": "sf15",
         "SKU": "SF15",
         "Name": "Stir-Fried Broccoli (Seafood/Beef)",
         "Category": "Stir-fried",
@@ -6231,7 +6156,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF29",
+        "Handle": "sf29",
         "SKU": "SF29",
         "Name": "Stir-Fried Cabbage (Chicken/Pork/Tofu)",
         "Category": "Stir-fried",
@@ -6255,7 +6180,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF12",
+        "Handle": "sf12",
         "SKU": "SF12",
         "Name": "Stir-Fried Cauliflower (Chicken/Pork/Tofu)",
         "Category": "Stir-fried",
@@ -6279,7 +6204,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF11",
+        "Handle": "sf11",
         "SKU": "SF11",
         "Name": "Stir-Fried Cauliflower (Seafood/Beef)",
         "Category": "Stir-fried",
@@ -6303,7 +6228,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF2",
+        "Handle": "sf2",
         "SKU": "SF2",
         "Name": "Stir-Fried Chicken with Salt and Chili",
         "Category": "Stir-fried",
@@ -6327,7 +6252,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF3",
+        "Handle": "sf3",
         "SKU": "SF3",
         "Name": "Stir-Fried Eggplant (Pork/Chicken/fish/Tofu)",
         "Category": "Stir-fried",
@@ -6360,7 +6285,7 @@
         "Cloudinary_ID": "/images/stir-fried-eggplant.webp"
     },
     {
-        "Handle": "SF9",
+        "Handle": "sf9",
         "SKU": "SF9",
         "Name": "Stir-Fried Ginger (Chicken/Pork/fish/Tofu)",
         "Category": "Stir-fried",
@@ -6384,7 +6309,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF10",
+        "Handle": "sf10",
         "SKU": "SF10",
         "Name": "Stir-Fried Ginger with Beef",
         "Category": "Stir-fried",
@@ -6408,7 +6333,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF7",
+        "Handle": "sf7",
         "SKU": "SF7",
         "Name": "Stir-Fried Hot Basil Chicken",
         "Category": "Stir-fried",
@@ -6432,7 +6357,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF19",
+        "Handle": "sf19",
         "SKU": "SF19",
         "Name": "Stir-Fried Kale with Beef",
         "Category": "Stir-fried",
@@ -6456,7 +6381,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF6",
+        "Handle": "sf6",
         "SKU": "SF6",
         "Name": "Stir-Fried Khmer Spicy String bean (Pork/Chicken/fish/Tofu)",
         "Category": "Stir-fried",
@@ -6480,7 +6405,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF8",
+        "Handle": "sf8",
         "SKU": "SF8",
         "Name": "Stir-Fried Khmer Spicy String bean (Seafood/Beef)",
         "Category": "Stir-fried",
@@ -6504,7 +6429,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G20",
+        "Handle": "g20",
         "SKU": "G20",
         "Name": "Stir-fried Mixed Meatballs",
         "Category": "Grilled",
@@ -6537,7 +6462,7 @@
         "Cloudinary_ID": "/images/pine-apple-fried-rice-with-tofu-cashew-nut.webp"
     },
     {
-        "Handle": "SF24",
+        "Handle": "sf24",
         "SKU": "SF24",
         "Name": "Stir-Fried Morning Glory (Chicken/Pork/fish/Tofu)",
         "Category": "Stir-fried",
@@ -6561,7 +6486,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF28",
+        "Handle": "sf28",
         "SKU": "SF28",
         "Name": "Stir-Fried Morning Glory with Oyster Sauce",
         "Category": "Stir-fried",
@@ -6585,7 +6510,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF17",
+        "Handle": "sf17",
         "SKU": "SF17",
         "Name": "Stir-Fried Mushrooms (Chicken/Pork/fish/Tofu)",
         "Category": "Stir-fried",
@@ -6609,7 +6534,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF23",
+        "Handle": "sf23",
         "SKU": "SF23",
         "Name": "Stir-Fried Onion (Chicken/Pork/Fish/Tofu)",
         "Category": "Stir-fried",
@@ -6633,7 +6558,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF20",
+        "Handle": "sf20",
         "SKU": "SF20",
         "Name": "Stir-Fried Pineapple (Chicken/Pork/Fish/Tofu)",
         "Category": "Stir-fried",
@@ -6657,7 +6582,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF18",
+        "Handle": "sf18",
         "SKU": "SF18",
         "Name": "Stir-Fried Shitake Mushrooms (Chicken/Pork/Fish/Tofu)",
         "Category": "Stir-fried",
@@ -6681,7 +6606,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F30",
+        "Handle": "f30",
         "SKU": "F30",
         "Name": "Stir-fried Silver Pin Noodle (Beef/Seafood)",
         "Category": "Fried Noodle",
@@ -6705,7 +6630,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F31",
+        "Handle": "f31",
         "SKU": "F31",
         "Name": "Stir-fried Silver Pin Noodle (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -6729,7 +6654,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF5",
+        "Handle": "sf5",
         "SKU": "SF5",
         "Name": "Stir-Fried Squid with Green Pepper",
         "Category": "Stir-fried",
@@ -6753,7 +6678,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF21",
+        "Handle": "sf21",
         "SKU": "SF21",
         "Name": "Stir-Fried String Bean (Chicken/Pork/Fish/Tofu)",
         "Category": "Stir-fried",
@@ -6777,7 +6702,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "SF22",
+        "Handle": "sf22",
         "SKU": "SF22",
         "Name": "Stir-Fried Sweet Sour Vegetables with Crispy (Fish/Chicken)",
         "Category": "Stir-fried",
@@ -6810,7 +6735,7 @@
         "Cloudinary_ID": "/images/stir-fried-sweet-and-sour-veggi.webp"
     },
     {
-        "Handle": "SF25",
+        "Handle": "sf25",
         "SKU": "SF25",
         "Name": "Stir-Fried Tomato (Chicken/Pork/Fish/Tofu)",
         "Category": "Stir-fried",
@@ -6834,7 +6759,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D67",
+        "Handle": "d67",
         "SKU": "D67",
         "Name": "Strawberry & Lychee Smoothie",
         "Category": "Smoothie",
@@ -6858,7 +6783,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B55",
+        "Handle": "b55",
         "SKU": "B55",
         "Name": "Strawberry Pancake (3)",
         "Category": "Breakfast",
@@ -6882,7 +6807,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D55",
+        "Handle": "d55",
         "SKU": "D55",
         "Name": "Strawberry Smoothie",
         "Category": "Smoothie",
@@ -6906,7 +6831,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "S11",
+        "Handle": "s11",
         "SKU": "S11",
         "Name": "Sweet and Sour Soup (Chicken/Fish)",
         "Category": "Soup",
@@ -6931,7 +6856,7 @@
     },
     {
         "Handle": "s6",
-        "SKU": "s6",
+        "SKU": "S6",
         "Name": "Sweet Sour Pineapple & Coconut Soup (Chicken/Fish/Tofu)",
         "Category": "Soup",
         "Description": "Flavorful Sweet Sour Pineapple & Coconut Soup (Chicken/Fish/Tofu). A carefully prepared soup showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch.",
@@ -6954,7 +6879,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D48",
+        "Handle": "d48",
         "SKU": "D48",
         "Name": "Syrup Fresh Milk Frappe",
         "Category": "Frappe",
@@ -6987,11 +6912,11 @@
         "Cloudinary_ID": "/images/amok.webp"
     },
     {
-        "Handle": "vf1",
-        "SKU": "VF1",
-        "Name": "Tofu Lok lak with Rice",
-        "Category": "Vegetarian Food",
-        "Description": "Tofu Lok lak with Rice. Freshly prepared authentic Cambodian vegetarian option.",
+        "Handle": "g8",
+        "SKU": "G8",
+        "Name": "Tofu Lok Lak with Rice",
+        "Category": "Grilled",
+        "Description": "Golden Tofu Lok Lak seared with Cambodian pepper sauce over rice.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "Cloudinary_ID": "/images/tofu-lok-lak.webp"
     },
@@ -7015,7 +6940,7 @@
     },
     {
         "Handle": "s8",
-        "SKU": "s8",
+        "SKU": "S8",
         "Name": "Tom Yum (Chicken/Fish/Tofu)",
         "Category": "Soup",
         "Description": "Vibrant Tom Yum (Chicken/Fish/Tofu). A carefully prepared soup showcasing premium ingredients and balanced flavors. Served fresh and hot. Choose your favorite variation for a personalized touch.",
@@ -7039,7 +6964,7 @@
     },
     {
         "Handle": "s7",
-        "SKU": "s7",
+        "SKU": "S7",
         "Name": "Tom Yum Seafood",
         "Category": "Soup",
         "Description": "Savory Tom Yum Seafood. A carefully prepared soup showcasing premium ingredients and balanced flavors. Guaranteed to satisfy your cravings.",
@@ -7062,7 +6987,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "M2",
+        "Handle": "m2",
         "SKU": "M2",
         "Name": "Tomato Soup with Bread",
         "Category": "New Menu",
@@ -7086,7 +7011,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D49",
+        "Handle": "d49",
         "SKU": "D49",
         "Name": "Vanila Frappe",
         "Category": "Frappe",
@@ -7110,7 +7035,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D82",
+        "Handle": "d82",
         "SKU": "D82",
         "Name": "Vanilla Macchiato",
         "Category": "Macchiato",
@@ -7134,7 +7059,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B33",
+        "Handle": "b33",
         "SKU": "B33",
         "Name": "Vegetable Fresh Spring Rolls (4)",
         "Category": "Breakfast",
@@ -7167,16 +7092,16 @@
         "Cloudinary_ID": "/images/fresh-fruit-slice.webp"
     },
     {
-        "Handle": "vf22",
-        "SKU": "VF22",
+        "Handle": "b10",
+        "SKU": "B10",
         "Name": "Vegetable Noodle Soup",
-        "Category": "Vegetarian Food",
-        "Description": "Vegetable Noodle Soup. Freshly prepared authentic Cambodian vegetarian option.",
+        "Category": "Breakfast",
+        "Description": "Delicious Vegetable Noodle Soup with fresh greens and savory broth.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "Cloudinary_ID": "/images/fried-instant-noodle.webp"
     },
     {
-        "Handle": "water-(big)",
+        "Handle": "bv7",
         "SKU": "BV7",
         "Name": "Water (big)",
         "Category": "Beverage",
@@ -7200,7 +7125,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "water-(small)",
+        "Handle": "bv6",
         "SKU": "BV6",
         "Name": "Water (small)",
         "Category": "Beverage",
@@ -7224,7 +7149,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D68",
+        "Handle": "d68",
         "SKU": "D68",
         "Name": "Water Melon Smoothie",
         "Category": "Smoothie",
@@ -7248,7 +7173,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "wine-by-glass",
+        "Handle": "w1",
         "SKU": "W1",
         "Name": "Wine by Glass",
         "Category": "Cocktails",
@@ -7272,7 +7197,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "D69",
+        "Handle": "d69",
         "SKU": "D69",
         "Name": "Winter melon Smoothie",
         "Category": "Smoothie",
@@ -7296,7 +7221,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "B9",
+        "Handle": "b9",
         "SKU": "B9",
         "Name": "Wonton Soup",
         "Category": "Breakfast",
@@ -7329,7 +7254,7 @@
         "Cloudinary_ID": "/images/green-curry-with-tofu.webp"
     },
     {
-        "Handle": "B20",
+        "Handle": "b20",
         "SKU": "B20",
         "Name": "Deep Fried fish & French fries",
         "Category": "Breakfast",
@@ -7353,7 +7278,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "G17",
+        "Handle": "g17",
         "SKU": "G17",
         "Name": "English Lok lak (Beef/Chicken)",
         "Category": "Grilled",
@@ -7377,7 +7302,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F21",
+        "Handle": "f21",
         "SKU": "F21",
         "Name": "Fried Flat Noodle (Beef/Seafood)",
         "Category": "Fried Noodle",
@@ -7401,7 +7326,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F28",
+        "Handle": "f28",
         "SKU": "F28",
         "Name": "Fried Glass Noodle (Beef/Seafood)",
         "Category": "Fried Noodle",
@@ -7425,7 +7350,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F23",
+        "Handle": "f23",
         "SKU": "F23",
         "Name": "Fried Mama Noodle (Beef/Seafood)",
         "Category": "Fried Noodle",
@@ -7449,7 +7374,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F17",
+        "Handle": "f17",
         "SKU": "F17",
         "Name": "Special Pad Thai (Beef/Seafood)",
         "Category": "Fried Noodle",
@@ -7473,7 +7398,7 @@
         "Cloudinary_ID": ""
     },
     {
-        "Handle": "F18",
+        "Handle": "f18",
         "SKU": "F18",
         "Name": "Special Pad Thai (Chicken/Pork/Tofu)",
         "Category": "Fried Noodle",
@@ -7506,7 +7431,7 @@
         "Cloudinary_ID": "/images/pad-thai-tofu.webp"
     },
     {
-        "Handle": "roast-chicken-on-strip",
+        "Handle": "10001",
         "SKU": "10001",
         "Name": "Roast Chicken on Strip",
         "Category": "New Menu",
@@ -7515,7 +7440,7 @@
         "Cloudinary_ID": "/images/roast-beef-on-strip.webp"
     },
     {
-        "Handle": "fish-pasta",
+        "Handle": "m5",
         "SKU": "M5",
         "Name": "Fish Pasta",
         "Category": "New Menu",
@@ -7524,7 +7449,7 @@
         "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784659598/yzlbkru7tlcczyq08ukl.png"
     },
     {
-        "Handle": "english-lok-lak-beef",
+        "Handle": "g17",
         "SKU": "G17",
         "Name": "English Lok lak (Beef)",
         "Category": "Grilled",
@@ -7533,7 +7458,7 @@
         "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
     },
     {
-        "Handle": "english-lok-lak-chicken",
+        "Handle": "g17c",
         "SKU": "G17C",
         "Name": "English Lok lak (Chicken)",
         "Category": "Grilled",
@@ -7542,7 +7467,7 @@
         "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
     },
     {
-        "Handle": "pineapple-fried-rice-cashew-nut-chicken-pork-tofu",
+        "Handle": "m3b",
         "SKU": "M3B",
         "Name": "Pineapple Fried Rice Cashew Nut (Chicken/Pork/Tofu)",
         "Category": "New Menu",
@@ -7551,7 +7476,7 @@
         "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784570147/amqbghnu2gee0dza29uv.png"
     },
     {
-        "Handle": "deep-fried-fish-with-rice",
+        "Handle": "m9b",
         "SKU": "M9B",
         "Name": "Deep Fried Fish with Rice",
         "Category": "New Menu",
@@ -7621,5 +7546,23 @@
         "Description": "Stir-Fried Bok Choy with Tofu. Freshly prepared authentic Cambodian vegetarian option.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "Cloudinary_ID": "/images/stir-fried-bok-choy-with-oyster-sauce.webp"
+    },
+    {
+        "Handle": "g5",
+        "SKU": "G5",
+        "Name": "Chicken Steak with French Fries",
+        "Category": "Grilled",
+        "Description": "Sizzling chicken steak served with crispy French fries and black pepper sauce.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
+        "Cloudinary_ID": "/images/chicken-steak.webp"
+    },
+    {
+        "Handle": "g7",
+        "SKU": "G7",
+        "Name": "Pork Lok Lak with Rice",
+        "Category": "Grilled",
+        "Description": "Savory Pork Lok Lak seared with garlic and lime pepper dip over rice.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
+        "Cloudinary_ID": "/images/pork-lok-lak.webp"
     }
 ]
