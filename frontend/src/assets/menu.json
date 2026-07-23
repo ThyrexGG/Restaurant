@@ -1947,7 +1947,7 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": "",
-        "image": ""
+        "image": "/images/Dessert/fresh fruit slice.png"
     },
     {
         "Handle": "B34",
@@ -2422,7 +2422,7 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": "",
-        "image": ""
+        "image": "/images/Cocktails/GIN.png"
     },
     {
         "Handle": "K10",
@@ -2497,7 +2497,7 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": "",
-        "image": ""
+        "image": "/images/Cocktails/golden barcadi.png"
     },
     {
         "Handle": "D63",
@@ -3197,7 +3197,7 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": "",
-        "image": ""
+        "image": "/images/Hot Drink/hot espresso.png"
     },
     {
         "Handle": "H11",
@@ -4772,7 +4772,7 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": "",
-        "image": ""
+        "image": "/images/Cocktails/Magarita.png"
     },
     {
         "Handle": "D53",
@@ -4872,7 +4872,7 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": "",
-        "image": ""
+        "image": "/images/Macchiato/milo.png"
     },
     {
         "Handle": "G21",
@@ -5122,7 +5122,7 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": "",
-        "image": ""
+        "image": "/images/Cocktails/Mojito.png"
     },
     {
         "Handle": "B3",
@@ -5297,7 +5297,7 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": "",
-        "image": ""
+        "image": "/images/Macchiato/ovaltine.png"
     },
     {
         "Handle": "F9",
@@ -5622,7 +5622,7 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": "",
-        "image": ""
+        "image": "/images/Smoothie/Pine apple smoothie.png"
     },
     {
         "Handle": "M1",
@@ -5897,7 +5897,7 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": "",
-        "image": ""
+        "image": "/images/Cocktails/Rum.png"
     },
     {
         "Handle": "B6",
@@ -8012,6 +8012,6 @@
         "Description": "Freshly sliced avocado.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "Cloudinary_ID": null,
-        "image": ""
+        "image": "/images/Addons/avocado-slice.webp"
     }
 ]
