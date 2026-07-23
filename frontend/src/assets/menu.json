@@ -7810,5 +7810,14 @@
         "Description": "Authentic English Lok lak (Chicken). Tender chicken seared with garlic, black pepper, and lime dip. Served with fresh salad.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4.0",
         "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784651999/f8xkhh88xd9hi1htsbfh.png"
+    },
+    {
+        "Handle": "pineapple-fried-rice-cashew-nut-chicken-pork-tofu",
+        "SKU": "M3B",
+        "Name": "Pineapple Fried Rice Cashew Nut (Chicken/Pork/Tofu)",
+        "Category": "New Menu",
+        "Description": "Flavorful Pineapple Fried Rice Cashew Nut with Choice of Chicken, Pork, or Tofu.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784570147/amqbghnu2gee0dza29uv.png"
     }
 ]

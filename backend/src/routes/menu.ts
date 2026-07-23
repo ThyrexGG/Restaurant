@@ -50,7 +50,12 @@ export default function menuRoutes(io: Server) {
             categoryMap.set(categoryName.toLowerCase(), catId);
           }
           
-          const priceValue = Number(item['Price [Best Khmer (Golden Cafe) Restaurant]']) || 5.00;
+          const priceValue = Number(
+            item['Price [Best Khmer (Golden Cafe) Restaurant]'] ?? 
+            item.Price ?? 
+            item.price ?? 
+            5.00
+          );
           const imgValue = item.Cloudinary_ID || null;
           
           const matchId = (skuValue && existingMap.get(skuValue.toLowerCase())) || existingMap.get(cleanName.toLowerCase());
