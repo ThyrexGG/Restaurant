@@ -192,9 +192,10 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
   const handleLocalImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    // Store just the filename — must be placed in frontend/public/images/
+    // Use category subfolder: frontend/public/images/<Category>/<filename>
     const filename = file.name;
-    setEditingItem((prev: any) => ({ ...prev, image: `/images/${filename}` }));
+    const category = editingItem?.Category || 'Uncategorized';
+    setEditingItem((prev: any) => ({ ...prev, image: `/images/${category}/${filename}` }));
     // Reset input so same file can be re-selected
     e.target.value = '';
   };
