@@ -492,15 +492,30 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
 
               {/* Quick Image Assign Option */}
               <div className="mb-4 bg-[#18181c] p-3 rounded-xl border border-[#d4af37]/30">
-                <label className="text-xs font-bold text-[#d4af37] block mb-1">🎯 Quick Re-assign Image File (e.g. F5.jfif or /images/Fried Rice/F5.jfif)</label>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="text-xs font-bold text-[#d4af37]">🎯 Image File / Dish Code</label>
+                  {editingItem.image && (
+                    <button
+                      type="button"
+                      onClick={() => setEditingItem({ ...editingItem, image: null })}
+                      className="text-[11px] text-red-400 hover:underline font-bold"
+                    >
+                      Clear Image (Leave Empty)
+                    </button>
+                  )}
+                </div>
                 <div className="flex gap-2">
                   <input
                     type="text"
-                    placeholder="Enter filename (e.g. F5.jfif or full /images/... path)"
+                    placeholder="e.g. F5.jfif or fried spring rolls.png or leave empty"
                     value={editingItem.image || ''}
                     onChange={(e) => {
                       let val = e.target.value.trim();
-                      if (val && !val.startsWith('/images/') && !val.startsWith('http')) {
+                      if (!val) {
+                        setEditingItem({ ...editingItem, image: null });
+                        return;
+                      }
+                      if (!val.startsWith('/images/') && !val.startsWith('http')) {
                         const cat = editingItem.category?.name || editingItem.Category || 'Uncategorized';
                         val = `/images/${cat}/${val}`;
                       }
@@ -509,7 +524,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
                     className="flex-1 bg-black/60 border border-gray-700 rounded-lg px-3 py-1.5 text-xs text-white focus:border-[#d4af37] outline-none"
                   />
                 </div>
-                <p className="text-[11px] text-gray-400 mt-1">Type or edit the image path directly here to fix any misplaced photo instantly.</p>
+                <p className="text-[11px] text-gray-400 mt-1">Type the image filename or SKU code (e.g. <code className="text-[#d4af37]">F5.jfif</code>). Clear the box to leave it empty.</p>
               </div>
               <div className="flex gap-6">
                 <div className="grid grid-cols-3 gap-1 w-32 h-32 bg-gray-900 border border-gray-700 p-1 rounded-xl flex-shrink-0">
