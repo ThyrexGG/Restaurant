@@ -172,15 +172,7 @@ export default function menuRoutes(io: Server) {
   });
 
   router.delete('/:id', async (req, res) => {
-    try {
-      const { id } = req.params;
-      await prisma.menuItem.delete({ where: { id } });
-      io.emit('menu_item_deleted', id);
-      res.json({ success: true });
-    } catch (error) {
-      console.error('Failed to delete menu item:', error);
-      res.status(500).json({ error: 'Failed to delete menu item' });
-    }
+    return res.status(403).json({ error: 'Deletion is locked' });
   });
 
   return router;

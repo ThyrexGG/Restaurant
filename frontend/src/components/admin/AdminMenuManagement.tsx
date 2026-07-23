@@ -583,21 +583,12 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
           <div className="flex gap-4 mt-8">
             <button 
               onClick={() => {
-                if (!window.confirm(`Are you sure you want to delete "${editingItem.name}"?`)) return;
-                const itemToDelete = editingItem;
-                setEditingItem(null);
-                
-                fetch(`${backendUrl}/api/menu/${itemToDelete.id}`, { method: 'DELETE' })
-                  .then(res => {
-                    if (res.ok) {
-                      setMenuItems(prev => prev.filter(i => String(i.id) !== String(itemToDelete.id)));
-                    }
-                  })
-                  .catch(err => console.error('Delete failed:', err));
+                alert("Deletion is locked to prevent accidental data loss.");
               }}
-              className="flex-[0.5] py-4 rounded-xl bg-red-900/30 text-red-500 font-bold hover:bg-red-900/50 transition-colors border border-red-900/50"
+              className="flex-[0.5] py-4 rounded-xl bg-red-900/10 text-red-500/50 font-bold cursor-not-allowed border border-red-900/20"
+              title="Deletion is currently locked"
             >
-              Delete
+              Delete (Locked)
             </button>
             <button 
               onClick={() => setEditingItem(null)}
