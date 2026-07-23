@@ -71,7 +71,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Beverage/big-beer.webp"
     },
     {
         "Handle": "angkor-can",
@@ -120,7 +121,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Beverage/small-beer.webp"
     },
     {
         "Handle": "D64",
@@ -494,7 +496,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "CKT2",
@@ -543,7 +546,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Cocktails/blue-hawaii.webp"
     },
     {
         "Handle": "D56",
@@ -592,7 +596,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "D80",
@@ -616,7 +621,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "D45",
@@ -640,7 +646,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "D76",
@@ -664,7 +671,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "cambodia-can",
@@ -713,7 +721,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "D44",
@@ -737,7 +746,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "D72",
@@ -761,7 +771,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "D60",
@@ -935,7 +946,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "D73",
@@ -959,7 +971,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "B54",
@@ -983,7 +996,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Breakfast/pan-cake-chocolate.webp"
     },
     {
         "Handle": "coca-cola",
@@ -1007,7 +1021,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Beverage/coke.webp"
     },
     {
         "Handle": "coca-cola-light",
@@ -1031,7 +1046,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Beverage/coke.webp"
     },
     {
         "Handle": "coca-cola-zero",
@@ -1055,7 +1071,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Beverage/coke-zero.webp"
     },
     {
         "Handle": "D50",
@@ -1104,7 +1121,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "D71",
@@ -1128,7 +1146,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "B52",
@@ -1302,7 +1321,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Grilled/mixed-stir-fried-meatball.webp"
     },
     {
         "Handle": "G23",
@@ -1901,7 +1921,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Dessert/coconut-smoothie.webp"
     },
     {
         "Handle": "fresh-fruits-sliced",
@@ -1925,7 +1946,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Dessert/fresh-fruit-slice.webp"
     },
     {
         "Handle": "B34",
@@ -2474,7 +2496,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Cocktails/pina.webp"
     },
     {
         "Handle": "D63",
@@ -2698,7 +2721,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "D74",
@@ -2722,7 +2746,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "G9",
@@ -2746,7 +2771,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Grilled/grilled-beef-with-rice.webp"
     },
     {
         "Handle": "G19",
@@ -3020,7 +3046,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Breakfast/honey-pan-cake.webp"
     },
     {
         "Handle": "H2",
@@ -3044,7 +3071,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/coke.webp"
     },
     {
         "Handle": "H4",
@@ -3068,7 +3096,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/coke.webp"
     },
     {
         "Handle": "H7",
@@ -3092,7 +3121,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/coke.webp"
     },
     {
         "Handle": "H6",
@@ -3116,7 +3146,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/coke.webp"
     },
     {
         "Handle": "B32",
@@ -3140,7 +3171,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.25",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Breakfast/scrambled-egg-with-bread-and-hotdog.webp"
     },
     {
         "Handle": "H1",
@@ -3164,7 +3196,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/coke.webp"
     },
     {
         "Handle": "H11",
@@ -3188,7 +3221,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/coke.webp"
     },
     {
         "Handle": "H3",
@@ -3212,7 +3246,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/coke.webp"
     },
     {
         "Handle": "H13",
@@ -3236,7 +3271,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/lemon-smoothie.webp"
     },
     {
         "Handle": "H14",
@@ -3260,7 +3296,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/lemon-smoothie.webp"
     },
     {
         "Handle": "H8",
@@ -3284,7 +3321,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/coke.webp"
     },
     {
         "Handle": "H5",
@@ -3308,7 +3346,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/coke.webp"
     },
     {
         "Handle": "H9",
@@ -3332,7 +3371,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/coke.webp"
     },
     {
         "Handle": "H12",
@@ -3356,7 +3396,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/coke.webp"
     },
     {
         "Handle": "H10",
@@ -3380,7 +3421,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Hot Drink/coke.webp"
     },
     {
         "Handle": "D8",
@@ -3404,7 +3446,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D12",
@@ -3428,7 +3471,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D29",
@@ -3452,7 +3496,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D15",
@@ -3476,7 +3521,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/blueberry-smoothie.webp"
     },
     {
         "Handle": "D34",
@@ -3500,7 +3546,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/blueberry-smoothie.webp"
     },
     {
         "Handle": "D23",
@@ -3524,7 +3571,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D10",
@@ -3548,7 +3596,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D3",
@@ -3572,7 +3621,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D22",
@@ -3596,7 +3646,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D5",
@@ -3620,7 +3671,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D1",
@@ -3644,7 +3696,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D13",
@@ -3668,7 +3721,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D20",
@@ -3692,7 +3746,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D11",
@@ -3716,7 +3771,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D32",
@@ -3740,7 +3796,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D2",
@@ -3764,7 +3821,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D27",
@@ -3788,7 +3846,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/lemon-smoothie.webp"
     },
     {
         "Handle": "D28",
@@ -3812,7 +3871,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/lemon-smoothie.webp"
     },
     {
         "Handle": "D25",
@@ -3836,7 +3896,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/lemon-smoothie.webp"
     },
     {
         "Handle": "D26",
@@ -3860,7 +3921,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/lemon-smoothie.webp"
     },
     {
         "Handle": "D24",
@@ -3884,7 +3946,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/lemon-smoothie.webp"
     },
     {
         "Handle": "D35",
@@ -3908,7 +3971,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/lychee-smoothie.webp"
     },
     {
         "Handle": "D21",
@@ -3932,7 +3996,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D6",
@@ -3956,7 +4021,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D4",
@@ -3980,7 +4046,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D7",
@@ -4004,7 +4071,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D17",
@@ -4028,7 +4096,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/passion-smoothie.webp"
     },
     {
         "Handle": "D30",
@@ -4052,7 +4121,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/passion-smoothie.webp"
     },
     {
         "Handle": "D9",
@@ -4076,7 +4146,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D16",
@@ -4100,7 +4171,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/strawberry-smoothie.webp"
     },
     {
         "Handle": "D31",
@@ -4124,7 +4196,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/strawberry-smoothie.webp"
     },
     {
         "Handle": "D18",
@@ -4148,7 +4221,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D19",
@@ -4172,7 +4246,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D33",
@@ -4196,7 +4271,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D14",
@@ -4220,7 +4296,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Iced Drink/soda-water.webp"
     },
     {
         "Handle": "D54",
@@ -4269,7 +4346,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "S9",
@@ -4293,7 +4371,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Soup/vietnamese-sour-soup.webp"
     },
     {
         "Handle": "K5",
@@ -4642,7 +4721,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Cocktails/blue-hawaii.webp"
     },
     {
         "Handle": "D59",
@@ -4691,7 +4771,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Cocktails/blue-hawaii.webp"
     },
     {
         "Handle": "D53",
@@ -4765,7 +4846,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "D83",
@@ -4789,7 +4871,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "G21",
@@ -5013,7 +5096,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "CKT7",
@@ -5037,7 +5121,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Cocktails/blue-hawaii.webp"
     },
     {
         "Handle": "B3",
@@ -5161,7 +5246,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "D40",
@@ -5185,7 +5271,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "D84",
@@ -5209,7 +5296,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "F9",
@@ -5358,7 +5446,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/passion-smoothie.webp"
     },
     {
         "Handle": "D62",
@@ -5682,7 +5771,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "D81",
@@ -5706,7 +5796,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "rice",
@@ -5780,7 +5871,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "rum",
@@ -6054,7 +6146,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Cocktails/pina-colada.webp"
     },
     {
         "Handle": "soda-water",
@@ -6103,7 +6196,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.75",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Beverage/soft-drinks.webp"
     },
     {
         "Handle": "S15",
@@ -6177,7 +6271,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Breakfast/spaghetti-tomato-sauce.webp"
     },
     {
         "Handle": "B39",
@@ -6226,7 +6321,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/New Menu/spaghetti-carbonara.webp"
     },
     {
         "Handle": "B38",
@@ -7225,7 +7321,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Breakfast/pan-cake-strawberry.webp"
     },
     {
         "Handle": "D55",
@@ -7324,7 +7421,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "VF2",
@@ -7348,7 +7446,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Vegetarian Food/amok.webp"
     },
     {
         "Handle": "VF1",
@@ -7447,7 +7546,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Soup/tom-yam-with-shrimp.webp"
     },
     {
         "Handle": "s7",
@@ -7471,7 +7571,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "4",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Soup/tom-yam-with-shrimp.webp"
     },
     {
         "Handle": "M2",
@@ -7520,7 +7621,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Frappe/coconut-smoothie.webp"
     },
     {
         "Handle": "D82",
@@ -7544,7 +7646,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Macchiato/grape-smoothie.webp"
     },
     {
         "Handle": "B33",
@@ -7718,7 +7821,8 @@
         "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
-        "Cloudinary_ID": ""
+        "Cloudinary_ID": "",
+        "image": "/images/Cocktails/pina.webp"
     },
     {
         "Handle": "D69",
@@ -7837,7 +7941,8 @@
         "Category": "New Menu",
         "Description": "Delicious Fish Pasta. A carefully prepared new menu showcasing fresh fish and tender pasta tossed in aromatic sauce. Guaranteed to satisfy your cravings.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
-        "Cloudinary_ID": null
+        "Cloudinary_ID": null,
+        "image": "/images/New Menu/chicken-pasta.webp"
     },
     {
         "Handle": "g17c",
@@ -7876,7 +7981,8 @@
         "Category": "Addons",
         "Description": "Extra bowl of steamed white jasmine rice.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
-        "Cloudinary_ID": null
+        "Cloudinary_ID": null,
+        "image": "/images/Addons/fried-rice-2.webp"
     },
     {
         "Handle": "add4",
@@ -7885,7 +7991,8 @@
         "Category": "Addons",
         "Description": "Melted cheddar cheese slice.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
-        "Cloudinary_ID": null
+        "Cloudinary_ID": null,
+        "image": "/images/Addons/cheese-burger-(beef-burger-with-cheese).webp"
     },
     {
         "Handle": "add5",
@@ -7894,7 +8001,8 @@
         "Category": "Addons",
         "Description": "Crispy grilled bacon slices.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
-        "Cloudinary_ID": null
+        "Cloudinary_ID": null,
+        "image": "/images/Addons/crispy-chicken-burger-with-cheese.webp"
     },
     {
         "Handle": "add6",
@@ -7903,6 +8011,7 @@
         "Category": "Addons",
         "Description": "Freshly sliced avocado.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
-        "Cloudinary_ID": null
+        "Cloudinary_ID": null,
+        "image": "/images/Addons/avocado-slice.webp"
     }
 ]

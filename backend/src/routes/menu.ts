@@ -56,7 +56,7 @@ export default function menuRoutes(io: Server) {
             item.price ?? 
             5.00
           );
-          const imgValue = item.Cloudinary_ID || null;
+          const imgValue = item.image || item.Cloudinary_ID || null;
           
           const matchId = (skuValue && existingMap.get(skuValue.toLowerCase())) || existingMap.get(cleanName.toLowerCase());
 

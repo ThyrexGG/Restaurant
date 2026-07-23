@@ -32,7 +32,7 @@ async function main() {
           name: item.Name,
           description: item.Description,
           price: priceValue,
-          image: item.Cloudinary_ID || null,
+          image: item.image || item.Cloudinary_ID || null,
           categoryId: category.id,
         }
       });
