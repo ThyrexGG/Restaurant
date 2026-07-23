@@ -489,6 +489,28 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
                   )}
                 </div>
               </div>
+
+              {/* Quick Image Assign Option */}
+              <div className="mb-4 bg-[#18181c] p-3 rounded-xl border border-[#d4af37]/30">
+                <label className="text-xs font-bold text-[#d4af37] block mb-1">🎯 Quick Re-assign Image File (e.g. F5.jfif or /images/Fried Rice/F5.jfif)</label>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    placeholder="Enter filename (e.g. F5.jfif or full /images/... path)"
+                    value={editingItem.image || ''}
+                    onChange={(e) => {
+                      let val = e.target.value.trim();
+                      if (val && !val.startsWith('/images/') && !val.startsWith('http')) {
+                        const cat = editingItem.category?.name || editingItem.Category || 'Uncategorized';
+                        val = `/images/${cat}/${val}`;
+                      }
+                      setEditingItem({ ...editingItem, image: val });
+                    }}
+                    className="flex-1 bg-black/60 border border-gray-700 rounded-lg px-3 py-1.5 text-xs text-white focus:border-[#d4af37] outline-none"
+                  />
+                </div>
+                <p className="text-[11px] text-gray-400 mt-1">Type or edit the image path directly here to fix any misplaced photo instantly.</p>
+              </div>
               <div className="flex gap-6">
                 <div className="grid grid-cols-3 gap-1 w-32 h-32 bg-gray-900 border border-gray-700 p-1 rounded-xl flex-shrink-0">
                   {['top left', 'top center', 'top right', 'center left', 'center', 'center right', 'bottom left', 'bottom center', 'bottom right'].map((pos) => (
