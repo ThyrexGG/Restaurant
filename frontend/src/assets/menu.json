@@ -7819,5 +7819,14 @@
         "Description": "Flavorful Pineapple Fried Rice Cashew Nut with Choice of Chicken, Pork, or Tofu.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
         "Cloudinary_ID": "https://res.cloudinary.com/dcizelppo/image/upload/v1784570147/amqbghnu2gee0dza29uv.png"
+    },
+    {
+        "Handle": "deep-fried-fish-with-rice",
+        "SKU": "M9B",
+        "Name": "Deep Fried Fish with Rice",
+        "Category": "New Menu",
+        "Description": "Crispy Deep Fried Fish served with warm jasmine rice and fresh cucumber slices.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
+        "Cloudinary_ID": "/images/deep-fried-fish-fillet-with-rice.webp"
     }
 ]
