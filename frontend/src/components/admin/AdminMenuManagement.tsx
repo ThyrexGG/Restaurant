@@ -187,45 +187,16 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
     }
   };
 
-  const openCloudinaryWidget = () => {
-    if (!(window as any).cloudinary) {
-      alert("Cloudinary widget script is not loaded yet.");
-      return;
-    }
-    
-    const widget = (window as any).cloudinary.createUploadWidget(
-      {
-        cloudName: 'dcizelppo',
-        uploadPreset: 'restaurant_menu',
-        sources: ['local', 'url', 'camera'],
-        cropping: true,
-        multiple: false,
-        defaultSource: 'local',
-        styles: {
-          palette: {
-            window: "#0a0a0c",
-            windowBorder: "#333",
-            tabIcon: "#d4af37",
-            menuIcons: "#d4af37",
-            textDark: "#ffffff",
-            textLight: "#aaaaaa",
-            link: "#d4af37",
-            action: "#d4af37",
-            inactiveTabIcon: "#aaaaaa",
-            error: "#ff4444",
-            inProgress: "#d4af37",
-            complete: "#22c55e",
-            sourceBg: "#050505"
-          }
-        }
-      },
-      (error: any, result: any) => {
-        if (!error && result && result.event === "success") {
-          setEditingItem((prev: any) => ({ ...prev, image: result.info.secure_url }));
-        }
-      }
-    );
-    widget.open();
+  const localFileInputRef = React.useRef<HTMLInputElement>(null);
+
+  const handleLocalImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    // Store just the filename — must be placed in frontend/public/images/
+    const filename = file.name;
+    setEditingItem((prev: any) => ({ ...prev, image: `/images/${filename}` }));
+    // Reset input so same file can be re-selected
+    e.target.value = '';
   };
 
   const totalItemsCount = menuItems.length;
@@ -481,12 +452,18 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
                       Crop Existing
                     </button>
                   )}
-                  <button 
-                    onClick={openCloudinaryWidget}
-                    className="bg-[#222] hover:bg-gray-800 text-white border border-gray-700 px-3 py-1 rounded text-xs font-bold transition-colors"
+                  <label
+                    className="bg-[#222] hover:bg-gray-800 text-white border border-gray-700 px-3 py-1 rounded text-xs font-bold transition-colors cursor-pointer"
                   >
                     Upload New
-                  </button>
+                    <input
+                      ref={localFileInputRef}
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={handleLocalImageUpload}
+                    />
+                  </label>
                   {editingItem.image && (
                     <button 
                       onClick={() => {
@@ -536,10 +513,16 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
                     <div className="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs text-white">Live Preview</div>
                   </div>
                 ) : (
-                  <div className="flex-1 h-32 bg-gray-900/50 border border-dashed border-gray-700 rounded-xl flex flex-col items-center justify-center text-gray-500 cursor-pointer hover:border-gray-500 hover:text-gray-400 transition-colors" onClick={openCloudinaryWidget}>
+                  <label className="flex-1 h-32 bg-gray-900/50 border border-dashed border-gray-700 rounded-xl flex flex-col items-center justify-center text-gray-500 cursor-pointer hover:border-gray-500 hover:text-gray-400 transition-colors">
                     <span className="text-2xl mb-1">+</span>
-                    <span className="text-xs font-bold">No Image</span>
-                  </div>
+                    <span className="text-xs font-bold">Click to Upload Image</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={handleLocalImageUpload}
+                    />
+                  </label>
                 )}
               </div>
               <p className="text-xs text-gray-500 mt-2">Upload a photo, then select the most important part of the dish to prevent it from being cropped out on the menu.</p>
