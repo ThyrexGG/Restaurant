@@ -7,10 +7,9 @@ import { Server } from 'socket.io';
 export default function menuRoutes(io: Server) {
   const router = express.Router();
 
-  // Seed menu from JSON
+  // Seed/Import menu from JSON
   router.post('/seed', async (req, res) => {
     try {
-      // Use import.meta.url for ESM to get __dirname equivalent, or keep simple path relative to CWD
       const menuPath = path.resolve(process.cwd(), '../frontend/src/assets/menu.json');
       if (!fs.existsSync(menuPath)) {
         return res.status(404).json({ error: 'menu.json not found' });
@@ -20,39 +19,81 @@ export default function menuRoutes(io: Server) {
       const menuData = JSON.parse(rawData);
       
       let itemsAdded = 0;
+      let itemsUpdated = 0;
       
-      for (const item of menuData) {
-        if (!item.Name) continue;
-        const cleanName = item.Name.trim();
-        
-        const categoryName = item.Category || 'Uncategorized';
-        let category = await prisma.category.findFirst({ where: { name: categoryName } });
-        
-        if (!category) {
-          category = await prisma.category.create({ data: { name: categoryName } });
-        }
-        
-        const priceValue = Number(item['Price [Best Khmer (Golden Cafe) Restaurant]']) || 5.00;
-        
-        const existingItem = await prisma.menuItem.findFirst({ 
-          where: { name: { equals: cleanName, mode: 'insensitive' } } 
-        });
-        if (!existingItem) {
-          await prisma.menuItem.create({
-            data: {
-              name: cleanName,
-              sku: item.SKU || null,
-              description: item.Description,
-              price: priceValue,
-              image: item.Cloudinary_ID || null,
-              categoryId: category.id,
-            }
-          });
-          itemsAdded++;
-        }
+      const categories = await prisma.category.findMany();
+      const categoryMap = new Map<string, string>();
+      categories.forEach(c => categoryMap.set(c.name.trim().toLowerCase(), c.id));
+
+      const existingItems = await prisma.menuItem.findMany({ select: { id: true, name: true, sku: true } });
+      const existingMap = new Map<string, string>();
+      existingItems.forEach(i => {
+        if (i.sku) existingMap.set(i.sku.trim().toLowerCase(), i.id);
+        if (i.name) existingMap.set(i.name.trim().toLowerCase(), i.id);
+      });
+
+      // Process in parallel batches of 25 items for fast performance
+      const BATCH_SIZE = 25;
+      for (let i = 0; i < menuData.length; i += BATCH_SIZE) {
+        const batch = menuData.slice(i, i + BATCH_SIZE);
+        await Promise.all(batch.map(async (item: any) => {
+          if (!item.Name) return;
+          const cleanName = item.Name.trim();
+          const skuValue = item.SKU ? item.SKU.trim() : null;
+          
+          const categoryName = (item.Category || 'Uncategorized').trim();
+          let catId = categoryMap.get(categoryName.toLowerCase());
+          
+          if (!catId) {
+            const category = await prisma.category.create({ data: { name: categoryName } });
+            catId = category.id;
+            categoryMap.set(categoryName.toLowerCase(), catId);
+          }
+          
+          const priceValue = Number(
+            item['Price [Best Khmer (Golden Cafe) Restaurant]'] ?? 
+            item.Price ?? 
+            item.price ?? 
+            5.00
+          );
+          const imgValue = item.Cloudinary_ID || null;
+          
+          const matchId = (skuValue && existingMap.get(skuValue.toLowerCase())) || existingMap.get(cleanName.toLowerCase());
+
+          if (matchId) {
+            await prisma.menuItem.update({
+              where: { id: matchId },
+              data: {
+                name: cleanName,
+                sku: skuValue,
+                description: item.Description,
+                price: priceValue,
+                ...(imgValue ? { image: imgValue } : {}),
+                categoryId: catId,
+                availability: true
+              }
+            });
+            itemsUpdated++;
+          } else {
+            const created = await prisma.menuItem.create({
+              data: {
+                name: cleanName,
+                sku: skuValue,
+                description: item.Description,
+                price: priceValue,
+                image: imgValue,
+                categoryId: catId,
+                availability: true
+              }
+            });
+            existingMap.set(cleanName.toLowerCase(), created.id);
+            if (skuValue) existingMap.set(skuValue.toLowerCase(), created.id);
+            itemsAdded++;
+          }
+        }));
       }
       
-      res.json({ success: true, message: `Seeded ${itemsAdded} new menu items.` });
+      res.json({ success: true, message: `Imported menu items (${itemsAdded} added, ${itemsUpdated} updated).` });
     } catch (error) {
       console.error('Failed to seed menu:', error);
       res.status(500).json({ error: 'Failed to seed menu' });

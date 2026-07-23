@@ -7582,5 +7582,110 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": ""
+    },
+    {
+        "Handle": "b20",
+        "SKU": "B20",
+        "Name": "Deep Fried fish & French fries",
+        "Category": "Breakfast",
+        "Description": "Vibrant Deep Fried fish & French fries. A carefully prepared breakfast showcasing premium ingredients and balanced flavors. Enjoy every bite.",
+        "Sold by weight": "N",
+        "Option 1 name": "",
+        "Option 1 value": "",
+        "Option 2 name": "",
+        "Option 2 value": "",
+        "Option 3 name": "",
+        "Option 3 value": "",
+        "Cost": "0",
+        "Barcode": "",
+        "SKU of included item": "",
+        "Quantity of included item": "",
+        "Track stock": "N",
+        "Available for sale [Best Khmer (Golden Cafe) Restaurant]": "Y",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
+        "Cloudinary_ID": "/images/french-fries.webp"
+    },
+    {
+        "Handle": "10001",
+        "SKU": "10001",
+        "Name": "Roast Chicken on Strip",
+        "Category": "New Menu",
+        "Description": "Flavorful Roast Chicken on Strip. A carefully prepared new menu showcasing premium ingredients and balanced flavors. Perfect for any time of the day.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "Cloudinary_ID": null
+    },
+    {
+        "Handle": "m5",
+        "SKU": "M5",
+        "Name": "Fish Pasta",
+        "Category": "New Menu",
+        "Description": "Delicious Fish Pasta. A carefully prepared new menu showcasing fresh fish and tender pasta tossed in aromatic sauce. Guaranteed to satisfy your cravings.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "3.5",
+        "Cloudinary_ID": null
+    },
+    {
+        "Handle": "g17c",
+        "SKU": "G17C",
+        "Name": "English Lok lak (Chicken)",
+        "Category": "Grilled",
+        "Description": "Authentic English Lok lak (Chicken). Tender chicken seared with garlic, black pepper, and lime dip. Served with fresh salad.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "4.0",
+        "Cloudinary_ID": "/images/english-lok-lak.webp"
+    },
+    {
+        "Handle": "m9b",
+        "SKU": "M9B",
+        "Name": "Deep Fried Fish with Rice",
+        "Category": "New Menu",
+        "Description": "Crispy Deep Fried Fish served with warm jasmine rice and fresh cucumber slices.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "2.5",
+        "Cloudinary_ID": "/images/deep-fried-fish-with-rice.webp"
+    },
+    {
+        "Handle": "g5",
+        "SKU": "G5",
+        "Name": "Chicken Steak with French Fries",
+        "Category": "Grilled",
+        "Description": "Sizzling chicken steak served with crispy French fries and black pepper sauce.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
+        "Cloudinary_ID": "/images/chicken-steak.webp"
+    },
+    {
+        "Handle": "add2",
+        "SKU": "ADD2",
+        "Name": "White Rice",
+        "Category": "Addons",
+        "Description": "Extra bowl of steamed white jasmine rice.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
+        "Cloudinary_ID": null
+    },
+    {
+        "Handle": "add4",
+        "SKU": "ADD4",
+        "Name": "Extra Cheese",
+        "Category": "Addons",
+        "Description": "Melted cheddar cheese slice.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
+        "Cloudinary_ID": null
+    },
+    {
+        "Handle": "add5",
+        "SKU": "ADD5",
+        "Name": "Extra Bacon",
+        "Category": "Addons",
+        "Description": "Crispy grilled bacon slices.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
+        "Cloudinary_ID": null
+    },
+    {
+        "Handle": "add6",
+        "SKU": "ADD6",
+        "Name": "Extra Avocado",
+        "Category": "Addons",
+        "Description": "Freshly sliced avocado.",
+        "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
+        "Cloudinary_ID": null
     }
 ]
