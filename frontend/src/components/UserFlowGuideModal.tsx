@@ -93,8 +93,8 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
             </button>
           </div>
 
-          {/* Video Player Container */}
-          <div className="relative aspect-video w-full bg-black rounded-2xl overflow-hidden border border-gray-800 shadow-inner group">
+          {/* Video Player Container - Tailored for Portrait/Mobile Screen Walkthroughs */}
+          <div className="relative aspect-[9/16] max-w-[280px] mx-auto w-full bg-black rounded-2xl overflow-hidden border border-gray-800 shadow-[0_0_25px_rgba(0,0,0,0.6)] group">
             {hasError ? (
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-3 bg-[#111115]">
                 <AlertCircle className="text-[#d4af37]" size={40} />
@@ -111,11 +111,11 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
                   loop
                   playsInline
                   onError={handleVideoError}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
 
                 {/* Custom Overlay Controls */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-3">
                       <button
