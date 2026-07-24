@@ -170,7 +170,7 @@ export default function CartDrawer() {
                 onClick={handleFinalCheckout}
                 className="w-full bg-[#d4af37] hover:bg-[#b08d29] text-black font-extrabold text-xs md:text-sm py-3.5 px-4 rounded-xl shadow-[0_4px_20px_rgba(212,175,55,0.4)] transition-all hover:scale-105"
               >
-                Send to Kitchen →
+                Confirm
               </button>
             </div>
 
