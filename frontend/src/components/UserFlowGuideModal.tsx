@@ -74,27 +74,27 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-2xl bg-[#0a0a0c] border-2 border-[#d4af37] rounded-3xl p-6 md:p-8 shadow-[0_25px_60px_rgba(212,175,55,0.15)] space-y-6"
+          className="relative w-full max-w-md bg-[#0a0a0c] border-2 border-[#d4af37] rounded-3xl p-5 md:p-6 shadow-[0_25px_60px_rgba(212,175,55,0.15)] space-y-4 max-h-[92vh] overflow-y-auto flex flex-col justify-between hide-scrollbar"
         >
           {/* Header */}
-          <div className="flex justify-between items-center pb-4 border-b border-gray-800">
+          <div className="flex justify-between items-center pb-3 border-b border-gray-800">
             <div>
-              <h3 className="text-2xl font-bold text-white font-['Playfair_Display']">Video Ordering Guide</h3>
-              <p className="text-xs text-gray-400 mt-1">Watch this quick tutorial to see the exact steps to order</p>
+              <h3 className="text-xl font-bold text-white font-['Playfair_Display']">Video Ordering Guide</h3>
+              <p className="text-[11px] text-gray-400 mt-0.5">Watch this quick tutorial to see the exact steps to order</p>
             </div>
             <button
               onClick={() => {
                 if (videoRef.current) videoRef.current.pause();
                 if (onClose) onClose();
               }}
-              className="p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
+              className="p-1.5 rounded-full text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
             >
-              <X size={22} />
+              <X size={20} />
             </button>
           </div>
 
           {/* Video Player Container - Tailored for Portrait/Mobile Screen Walkthroughs */}
-          <div className="relative aspect-[9/16] max-w-[280px] mx-auto w-full bg-black rounded-2xl overflow-hidden border border-gray-800 shadow-[0_0_25px_rgba(0,0,0,0.6)] group">
+          <div className="relative aspect-[9/16] h-[38vh] max-h-[300px] min-h-[220px] mx-auto bg-black rounded-2xl overflow-hidden border border-gray-800 shadow-[0_0_25px_rgba(0,0,0,0.6)] group">
             {hasError ? (
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-3 bg-[#111115]">
                 <AlertCircle className="text-[#d4af37]" size={40} />
