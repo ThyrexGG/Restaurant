@@ -68,6 +68,7 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
   const [sugarLevel, setSugarLevel] = React.useState<string>('100% (Normal)');
   const [iceLevel, setIceLevel] = React.useState<string>('Normal Ice');
   const [error, setError] = React.useState<string | null>(null);
+  const [showValidationError, setShowValidationError] = React.useState(false);
 
   const sugarOptions = ['100% (Normal)', '75% (Less Sweet)', '50% (Half Sugar)', '25% (Little Sugar)', '0% (No Sugar)'];
   const iceOptions = ['Normal Ice', 'Less Ice', 'No Ice'];
@@ -93,6 +94,7 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
   const handleAddToCart = (e: React.MouseEvent) => {
     if (options.length > 0 && !selectedOption) {
       setError("Please select a required meat/tofu option before adding to your cart.");
+      setShowValidationError(true);
       return;
     }
 
@@ -211,15 +213,22 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
 
             {options.length > 0 && (
               <div className="mb-6">
-                <h4 className="font-bold mb-3 text-white">Choose Option:</h4>
+                <h4 className="font-bold mb-3 text-white flex items-center gap-2">
+                  <span>Choose Option:</span>
+                  <span className="text-red-500 text-xs font-bold bg-red-500/10 border border-red-500/20 px-2.5 py-0.5 rounded-md animate-pulse">
+                    * Required
+                  </span>
+                </h4>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {options.map((opt, idx) => (
                     <label 
                       key={idx} 
-                      className={`cursor-pointer border rounded-xl p-3 text-center transition-all ${
+                      className={`cursor-pointer border-2 rounded-2xl p-3.5 text-center transition-all ${
                         selectedOption === opt 
-                          ? 'border-[#d4af37] bg-[#d4af37]/10 text-[#d4af37] font-bold' 
-                          : 'border-gray-700 hover:border-gray-500 text-gray-300'
+                          ? 'border-[#d4af37] bg-[#d4af37]/15 text-[#d4af37] font-black shadow-[0_0_15px_rgba(212,175,55,0.25)] scale-105' 
+                          : showValidationError
+                            ? 'border-red-500 bg-red-500/5 text-red-400 font-bold'
+                            : 'border-gray-700 hover:border-[#d4af37]/60 hover:bg-gray-900/50 text-gray-300'
                       }`}
                     >
                       <input 
@@ -230,6 +239,7 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
                         onChange={(e) => {
                           setSelectedOption(e.target.value);
                           setError(null);
+                          setShowValidationError(false);
                         }}
                         className="hidden"
                       />
