@@ -67,6 +67,7 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
 
   const [sugarLevel, setSugarLevel] = React.useState<string>('100% (Normal)');
   const [iceLevel, setIceLevel] = React.useState<string>('Normal Ice');
+  const [error, setError] = React.useState<string | null>(null);
 
   const sugarOptions = ['100% (Normal)', '75% (Less Sweet)', '50% (Half Sugar)', '25% (Little Sugar)', '0% (No Sugar)'];
   const iceOptions = ['Normal Ice', 'Less Ice', 'No Ice'];
@@ -89,14 +90,12 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
     baseName = displayName.replace(/\([^)]+\)/, '').trim();
   }
 
-  // Auto-select first option if available
-  React.useEffect(() => {
-    if (options.length > 0 && !selectedOption) {
-      setSelectedOption(options[0]);
-    }
-  }, [options]);
-
   const handleAddToCart = (e: React.MouseEvent) => {
+    if (options.length > 0 && !selectedOption) {
+      setError("Please select a required meat/tofu option before adding to your cart.");
+      return;
+    }
+
     let finalNotes = specialInstructions.trim();
 
     if (isDrink) {
@@ -228,7 +227,10 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
                         name="itemOption" 
                         value={opt} 
                         checked={selectedOption === opt}
-                        onChange={(e) => setSelectedOption(e.target.value)}
+                        onChange={(e) => {
+                          setSelectedOption(e.target.value);
+                          setError(null);
+                        }}
                         className="hidden"
                       />
                       {opt}
@@ -349,6 +351,13 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
                 </button>
               </div>
             </div>
+            
+            {error && (
+              <div className="mb-4 bg-red-500/10 border border-red-500/30 text-red-400 p-3.5 rounded-xl text-xs font-bold flex items-center gap-2 animate-pulse flex-shrink-0">
+                <span className="w-2 h-2 rounded-full bg-red-500"></span>
+                {error}
+              </div>
+            )}
             
             <button 
               disabled={item.availability === false}

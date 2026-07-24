@@ -45,6 +45,15 @@ function MenuItemCard({ item, onSelect, isPopular = false }: { item: MenuItem, o
   const handleAdd = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!isAvailable) return;
+    
+    const optionsMatch = displayName.match(/\(([^)]+)\)/);
+    const hasOptions = optionsMatch && optionsMatch[1].includes('/');
+    
+    if (hasOptions) {
+      onSelect();
+      return;
+    }
+    
     addToCart({
       id: item.id || item.SKU || displayName,
       name: displayName,
