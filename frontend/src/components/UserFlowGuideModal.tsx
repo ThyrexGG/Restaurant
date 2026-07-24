@@ -140,16 +140,7 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
             )}
           </div>
 
-          {/* Tips / Instructions */}
-          <div className="bg-gray-900/40 border border-gray-800/80 p-4 rounded-2xl flex items-start gap-3">
-            <AlertCircle className="text-[#d4af37] flex-shrink-0 mt-0.5" size={18} />
-            <div className="text-xs text-gray-300 leading-relaxed">
-              <span className="font-bold text-white block mb-1">Quick Ordering Checklist:</span>
-              1. Choose a dish and select options (e.g., choice of meat or extra toppings).<br />
-              2. Add item to order cart. Pick your Table number (Dine In) or select Take Away.<br />
-              3. Tap <span className="text-[#d4af37] font-bold">Confirm</span> to submit your order to the cashier!
-            </div>
-          </div>
+
 
           {/* Action Button */}
           <button
