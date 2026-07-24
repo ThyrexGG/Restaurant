@@ -52,6 +52,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
   const [imageFilter, setImageFilter] = useState<'ALL' | 'WITH_IMAGE' | 'NO_IMAGE'>('ALL');
   
   const [removedImageBackup, setRemovedImageBackup] = useState<string | null>(null);
+  const [priceChangesCount, setPriceChangesCount] = useState(0);
 
   const categoryOrder = [
     'New Menu',
@@ -249,6 +250,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
         (m.id && updated.id && String(m.id) === String(updated.id)) ||
         (m.sku && updated.sku && String(m.sku).toLowerCase() === String(updated.sku).toLowerCase())
       ) ? { ...m, ...updated } : m));
+      setPriceChangesCount(prev => prev + 1);
     })
     .catch(err => console.error("Failed to update price inline", err));
   };
@@ -268,6 +270,12 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
               <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
               {displayItems.length} Showing Now
             </span>
+            {priceChangesCount > 0 && (
+              <span className="bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3.5 py-1 rounded-full text-xs font-bold tracking-wide flex items-center gap-1.5 shadow-[0_0_10px_rgba(245,158,11,0.1)]">
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                ✓ {priceChangesCount} Price Changes Saved
+              </span>
+            )}
             {activeCategory !== 'All' && (
               <span className="bg-gray-800 text-gray-300 border border-gray-700 px-3.5 py-1 rounded-full text-xs font-bold tracking-wide">
                 Category: {activeCategory} ({categoryCounts[activeCategory] || 0})
@@ -647,6 +655,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
                     (item.id && updated.id && String(item.id) === String(updated.id)) ||
                     (item.sku && updated.sku && String(item.sku).toLowerCase() === String(updated.sku).toLowerCase())
                   ) ? { ...item, ...updated } : item));
+                  setPriceChangesCount(prev => prev + 1);
                   setEditingItem(null);
                 });
               }}
