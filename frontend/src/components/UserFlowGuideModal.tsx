@@ -74,10 +74,10 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-md bg-[#0a0a0c] border-2 border-[#d4af37] rounded-3xl p-5 md:p-6 shadow-[0_25px_60px_rgba(212,175,55,0.15)] space-y-4 max-h-[92vh] overflow-y-auto flex flex-col justify-between hide-scrollbar"
+          className="relative w-[95vw] max-w-md h-[88vh] max-h-[800px] bg-[#0a0a0c] border-2 border-[#d4af37] rounded-3xl p-5 md:p-6 shadow-[0_25px_60px_rgba(212,175,55,0.15)] flex flex-col justify-between overflow-hidden"
         >
           {/* Header */}
-          <div className="flex justify-between items-center pb-3 border-b border-gray-800">
+          <div className="flex justify-between items-center pb-3 border-b border-gray-800 flex-shrink-0">
             <div>
               <h3 className="text-xl font-bold text-white font-['Playfair_Display']">Video Ordering Guide</h3>
               <p className="text-[11px] text-gray-400 mt-0.5">Watch this quick tutorial to see the exact steps to order</p>
@@ -93,8 +93,8 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
             </button>
           </div>
 
-          {/* Video Player Container - Tailored for Portrait/Mobile Screen Walkthroughs */}
-          <div className="relative aspect-[9/16] h-[38vh] max-h-[300px] min-h-[220px] mx-auto bg-black rounded-2xl overflow-hidden border border-gray-800 shadow-[0_0_25px_rgba(0,0,0,0.6)] group">
+          {/* Video Player Container - Dynamically fills remaining vertical space */}
+          <div className="flex-1 min-h-0 w-full bg-black rounded-2xl overflow-hidden border border-gray-800 shadow-[0_0_25px_rgba(0,0,0,0.6)] group relative my-3">
             {hasError ? (
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-3 bg-[#111115]">
                 <AlertCircle className="text-[#d4af37]" size={40} />
@@ -111,11 +111,11 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
                   loop
                   playsInline
                   onError={handleVideoError}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain bg-black"
                 />
 
                 {/* Custom Overlay Controls */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-3">
                       <button
@@ -148,7 +148,7 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
               if (videoRef.current) videoRef.current.pause();
               if (onClose) onClose();
             }}
-            className="w-full bg-[#d4af37] text-black font-extrabold text-sm py-4 rounded-xl hover:bg-[#b08d29] active:scale-95 transition-all shadow-[0_4px_25px_rgba(212,175,55,0.3)]"
+            className="w-full bg-[#d4af37] text-black font-extrabold text-sm py-4 rounded-xl hover:bg-[#b08d29] active:scale-95 transition-all shadow-[0_4px_25px_rgba(212,175,55,0.3)] flex-shrink-0"
           >
             Got it! Start Ordering
           </button>
