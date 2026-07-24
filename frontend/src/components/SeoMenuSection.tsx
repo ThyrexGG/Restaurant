@@ -151,11 +151,15 @@ export default function SeoMenuSection() {
   }, [sortedRawCategories]);
 
 
+  // Pre-calculate recommended items (Chef's Recommendations)
   const recommendedItemIds = React.useMemo(() => {
+    const recommendedSkus = ['F1', 'K5', 's1', 'F5', 'F6', 'VF5', 's6'];
     return new Set(
       menuItems
-        .filter(i => (i.image || i.Cloudinary_ID) && i.availability !== false)
-        .slice(0, 8)
+        .filter(i => {
+          const sku = (i.sku || i.SKU || '').trim().toUpperCase();
+          return recommendedSkus.includes(sku) && i.availability !== false;
+        })
         .map(i => i.id)
     );
   }, [menuItems]);
