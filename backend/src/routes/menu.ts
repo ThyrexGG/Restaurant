@@ -161,6 +161,31 @@ export default function menuRoutes(io: Server) {
         include: { category: true }
       });
       
+      // Persist changes to frontend/src/assets/menu.json
+      const menuPath = path.resolve(process.cwd(), '../frontend/src/assets/menu.json');
+      if (fs.existsSync(menuPath)) {
+        try {
+          const raw = fs.readFileSync(menuPath, 'utf-8');
+          const menu = JSON.parse(raw);
+          // Find by SKU first, then by original name
+          const item = menu.find((i: any) => 
+            (updated.sku && String(i.SKU).trim().toLowerCase() === String(updated.sku).trim().toLowerCase()) || 
+            (String(i.Name).trim().toLowerCase() === String(updated.name).trim().toLowerCase())
+          );
+          
+          if (item) {
+            if (name !== undefined) item.Name = name;
+            if (description !== undefined) item.Description = description;
+            if (price !== undefined) item['Price [Best Khmer (Golden Cafe) Restaurant]'] = String(price);
+            if (image !== undefined) item.image = image;
+            fs.writeFileSync(menuPath, JSON.stringify(menu, null, 4), 'utf-8');
+            console.log(`[menu.json] Persisted changes for SKU: ${updated.sku || 'N/A'}, Name: ${updated.name}`);
+          }
+        } catch (err) {
+          console.error('[menu.json] Failed to write changes:', err);
+        }
+      }
+      
       // Broadcast menu update to connected clients
       io.emit('menu_updated', updated);
       
