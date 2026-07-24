@@ -8373,17 +8373,6 @@
         "availability": true
     },
     {
-        "Handle": "VF23",
-        "SKU": "VF23",
-        "Name": "Deep Fried Tofu with Sauce",
-        "Category": "Vegetarian Food",
-        "Description": "Deep Fried Tofu with Sauce. Freshly prepared authentic Cambodian vegetarian option.",
-        "Sold by weight": "N",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "3",
-        "image": "/images/Vegetarian Food/Deep fried fish with sweet and sour sauce.png",
-        "availability": true
-    },
-    {
         "Handle": "F23",
         "SKU": "F23",
         "Name": "Fried Instant Noodle (Beef/Shrimp)",
