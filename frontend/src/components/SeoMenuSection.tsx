@@ -312,7 +312,13 @@ export default function SeoMenuSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
               {menuItems
                 .filter(i => recommendedItemIds.has(i.id))
-                .filter(i => !searchQuery || (i.name || i.Name || '').toLowerCase().includes(searchQuery.toLowerCase()))
+                .filter(i => {
+                  if (!searchQuery) return true;
+                  const cleanSearch = searchQuery.toLowerCase();
+                  const nameMatch = (i.name || i.Name || '').toLowerCase().includes(cleanSearch);
+                  const isBeerMatch = cleanSearch.includes('beer') && ['BV8', 'BV9', 'BV10', 'BV11'].includes((i.sku || i.SKU || '').trim().toUpperCase());
+                  return nameMatch || isBeerMatch;
+                })
                 .map((item, index) => (
                   <SeoMenuItemCard 
                     key={item.id || index} 
@@ -330,7 +336,10 @@ export default function SeoMenuSection() {
           const sectionItems = menuItems.filter(item => {
             const cat = item.category?.name || item.Category || 'Uncategorized';
             const matchesCat = cat === catName;
-            const matchesSearch = !searchQuery || (item.name || item.Name || '').toLowerCase().includes(searchQuery.toLowerCase());
+            const matchesSearch = !searchQuery || (
+              (item.name || item.Name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+              (searchQuery.toLowerCase().includes('beer') && ['BV8', 'BV9', 'BV10', 'BV11'].includes((item.sku || item.SKU || '').trim().toUpperCase()))
+            );
             return matchesCat && matchesSearch;
           }).sort((a, b) => (a.name || a.Name || '').localeCompare(b.name || b.Name || ''));
 
