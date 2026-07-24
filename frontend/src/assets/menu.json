@@ -7472,7 +7472,7 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": "",
-        "image": ""
+        "image": "/images/Soup/Tom Yum Chicken.jpg"
     },
     {
         "Handle": "s7",
@@ -7497,7 +7497,7 @@
         "In stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Low stock [Best Khmer (Golden Cafe) Restaurant]": "",
         "Cloudinary_ID": "",
-        "image": ""
+        "image": "/images/Soup/Tom Yum Shrimp.jpg"
     },
     {
         "Handle": "M2",
@@ -7927,7 +7927,7 @@
         "Description": "Crispy grilled bacon slices.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
         "Cloudinary_ID": null,
-        "image": ""
+        "image": "/images/Addons/Extra Bacon.jpg"
     },
     {
         "Handle": "add6",
