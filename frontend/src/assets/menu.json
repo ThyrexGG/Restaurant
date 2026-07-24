@@ -8230,17 +8230,6 @@
         "availability": true
     },
     {
-        "Handle": "add5",
-        "SKU": "ADD5",
-        "Name": "Extra Bacon",
-        "Category": "Addons",
-        "Description": "Crispy grilled bacon slices.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "1",
-        "Cloudinary_ID": null,
-        "image": "",
-        "availability": true
-    },
-    {
         "Handle": "add6",
         "SKU": "ADD6",
         "Name": "Avocado Slice",
