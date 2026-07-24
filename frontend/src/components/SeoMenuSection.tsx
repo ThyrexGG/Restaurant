@@ -110,9 +110,46 @@ export default function SeoMenuSection() {
       .finally(() => setIsLoading(false));
   }, []);
 
-  const categories = React.useMemo(() => {
-    return ['Recommendations', 'All', ...Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean)))];
+  const categoryOrder = [
+    'New Menu',
+    'Vegetarian Food',
+    'Breakfast',
+    'Fried Rice',
+    'Fried Noodle',
+    'Grilled',
+    'Soup',
+    'Salad',
+    'Stir-fried',
+    'Iced Drink',
+    'Soda',
+    'Frappe',
+    'Smoothie',
+    'Macchiato',
+    'Hot Drink',
+    'Beverage',
+    'Dessert',
+    'Cocktails'
+  ];
+
+  const sortedRawCategories = React.useMemo(() => {
+    return Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean))).sort((a, b) => {
+      const aStr = String(a);
+      const bStr = String(b);
+      const aIndex = categoryOrder.indexOf(aStr);
+      const bIndex = categoryOrder.indexOf(bStr);
+      
+      if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+      if (aIndex !== -1) return -1;
+      if (bIndex !== -1) return 1;
+      
+      return aStr.localeCompare(bStr);
+    });
   }, [menuItems]);
+
+  const categories = React.useMemo(() => {
+    return ['Recommendations', 'All', ...sortedRawCategories];
+  }, [sortedRawCategories]);
+
 
   const recommendedItemIds = React.useMemo(() => {
     return new Set(
@@ -161,7 +198,7 @@ export default function SeoMenuSection() {
     );
   }
 
-  const rawCategories = Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean)));
+  const rawCategories = sortedRawCategories;
   const categorySectionsToRender = rawCategories.filter(cat => {
     if (activeCategory !== 'All' && activeCategory !== 'Recommendations' && activeCategory !== cat) {
       return false;

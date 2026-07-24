@@ -195,33 +195,24 @@ export default function MenuSection() {
   }, []);
 
   const categoryOrder = [
-    'Recommendations',
-    'Special Dishes',
-    'Local Special Dish',
-    'Special Khmer Noodle Soup',
-    'Special Pad Thai',
-    'English Fried Rice',
-    'English Lok Lak',
-    'English Noodle',
-    'Appetizer',
-    'Pork Ribs',
+    'New Menu',
+    'Vegetarian Food',
+    'Breakfast',
     'Fried Rice',
     'Fried Noodle',
     'Grilled',
     'Soup',
     'Salad',
-    'Traditional Khmer Food',
-    'Vegetarian Food',
-    'Breakfast',
-    'Sandwich / Burger',
-    'Extra',
-    'Special Drink',
-    'Fresh Juice',
+    'Stir-fried',
+    'Iced Drink',
+    'Soda',
+    'Frappe',
     'Smoothie',
     'Macchiato',
     'Hot Drink',
     'Beverage',
-    'Dessert'
+    'Dessert',
+    'Cocktails'
   ];
 
   const rawCategories = Array.from(new Set(menuItems.map(item => item.category?.name || item.Category).filter(Boolean))).sort((a, b) => {

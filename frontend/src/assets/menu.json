@@ -7890,16 +7890,6 @@
         "image": "/images/New Menu/M9B.png"
     },
     {
-        "Handle": "g5",
-        "SKU": "G5",
-        "Name": "Chicken Steak with French Fries",
-        "Category": "Grilled",
-        "Description": "Sizzling chicken steak served with crispy French fries and black pepper sauce.",
-        "Price [Best Khmer (Golden Cafe) Restaurant]": "4.5",
-        "Cloudinary_ID": "",
-        "image": "/images/Grilled/Chicken Steak.png"
-    },
-    {
         "Handle": "add2",
         "SKU": "ADD2",
         "Name": "White Rice",
@@ -7907,7 +7897,7 @@
         "Description": "Extra bowl of steamed white jasmine rice.",
         "Price [Best Khmer (Golden Cafe) Restaurant]": "0.5",
         "Cloudinary_ID": null,
-        "image": "/images/Addons/White Rice.png"
+        "image": "/images/Addons/Rice.png"
     },
     {
         "Handle": "add4",
