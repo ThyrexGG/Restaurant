@@ -233,6 +233,26 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
       .finally(() => setIsImporting(false));
   };
 
+  const handlePriceChange = (item: any, newPriceStr: string) => {
+    const newPrice = parseFloat(newPriceStr);
+    if (isNaN(newPrice) || newPrice < 0) return;
+    if (newPrice === item.price) return;
+
+    fetch(`${backendUrl}/api/menu/${item.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...item, price: newPrice })
+    })
+    .then(res => res.json())
+    .then(updated => {
+      setMenuItems(prev => prev.map(m => (
+        (m.id && updated.id && String(m.id) === String(updated.id)) ||
+        (m.sku && updated.sku && String(m.sku).toLowerCase() === String(updated.sku).toLowerCase())
+      ) ? { ...m, ...updated } : m));
+    })
+    .catch(err => console.error("Failed to update price inline", err));
+  };
+
   return (
     <div className="max-w-6xl mx-auto">
       {/* ... (Menu Management header with top dish counter badges) */}
@@ -367,7 +387,25 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
                 <h3 className={`text-xl font-bold ${item.availability === false ? 'text-gray-500' : ''}`}>{item.name}</h3>
                 {(item.sku || item.SKU) && <span className="text-sm font-mono text-gray-500 mt-1 block">{item.sku || item.SKU}</span>}
               </div>
-              <span className="text-[#d4af37] font-bold">${(item.price || 0).toFixed(2)}</span>
+              <div className="flex items-center gap-1 bg-gray-950/60 px-3 py-1.5 rounded-xl border border-gray-800 focus-within:border-[#d4af37]/80 focus-within:bg-gray-900/80 transition-all shadow-inner">
+                <span className="text-[#d4af37] font-bold text-sm">$</span>
+                <input 
+                  type="number" 
+                  step="0.01"
+                  key={item.price}
+                  defaultValue={item.price}
+                  onBlur={(e) => handlePriceChange(item, e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      handlePriceChange(item, e.currentTarget.value);
+                      e.currentTarget.blur();
+                    }
+                  }}
+                  className="w-16 bg-transparent text-right font-bold text-base text-[#d4af37] focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  title="Click to edit price directly"
+                />
+              </div>
+
             </div>
             <p className="text-gray-400 text-sm line-clamp-2 mb-6 flex-1">{item.description}</p>
             <div className="flex justify-between items-center mt-auto border-t border-gray-800 pt-4">
