@@ -7,6 +7,17 @@ interface AdminLiveOrdersProps {
   updateStatus: (orderId: string, status: string) => void;
 }
 
+const formatTime = (ts: any) => {
+  if (!ts) return '';
+  try {
+    const date = new Date(ts);
+    if (isNaN(date.getTime())) return '';
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+  } catch (e) {
+    return '';
+  }
+};
+
 export default function AdminLiveOrders({ kitchenOrders, activeTables, updateStatus }: AdminLiveOrdersProps) {
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8 h-full min-h-[80vh]">
@@ -39,7 +50,14 @@ export default function AdminLiveOrders({ kitchenOrders, activeTables, updateSta
                 <div key={order.id || idx} className="p-5 bg-gray-900/80 rounded-2xl border border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.15)] flex flex-col justify-between">
                   <div>
                     <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-[#d4af37] font-bold text-2xl">Table {order.table}</h3>
+                      <div>
+                        <h3 className="text-[#d4af37] font-bold text-2xl">Table {order.table}</h3>
+                        {order.timestamp && (
+                          <span className="text-xs text-gray-400 font-semibold block mt-1">
+                            Ordered at {formatTime(order.timestamp)}
+                          </span>
+                        )}
+                      </div>
                       <span className="text-xs px-3 py-1 rounded font-bold border bg-gray-800 text-gray-400 border-gray-700">
                         #{order.dailyOrderNumber || (order.id ? order.id.toString().slice(-4) : 'NEW')}
                       </span>
@@ -122,8 +140,16 @@ export default function AdminLiveOrders({ kitchenOrders, activeTables, updateSta
                       <div className="space-y-2 mb-6 flex-1">
                         {tableData.orders.map((o: any, i: number) => (
                           <div key={i} className="flex justify-between items-center text-sm bg-black/50 p-3 rounded-lg text-gray-300 border border-gray-800">
-                            <span>Order #{o.id.toString().slice(-4)} <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] uppercase font-bold ${o.status === 'READY' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'}`}>{o.status}</span></span>
-                            <span className="font-bold text-right">${o.total.toFixed(2)} <span className="text-xs text-gray-400 font-normal">({(o.total * 4000).toLocaleString()} ៛)</span></span>
+                            <div className="flex flex-col gap-1">
+                              <div className="flex items-center gap-2">
+                                <span className="font-bold text-gray-200">Order #{o.id.toString().slice(-4)}</span>
+                                <span className={`px-1.5 py-0.5 rounded text-[10px] uppercase font-bold ${o.status === 'READY' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'}`}>{o.status}</span>
+                              </div>
+                              {o.timestamp && (
+                                <span className="text-[10px] text-gray-500 font-medium">Time: {formatTime(o.timestamp)}</span>
+                              )}
+                            </div>
+                            <span className="font-bold text-right">${o.total.toFixed(2)} <span className="text-xs text-gray-400 font-normal block text-[10px]">({(o.total * 4000).toLocaleString()} ៛)</span></span>
                           </div>
                         ))}
                       </div>
