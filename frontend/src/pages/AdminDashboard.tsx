@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { connectPrinter, autoConnectPrinter, printOrderReceipt } from '../utils/printer';
-import { Printer, UtensilsCrossed, Settings2 } from 'lucide-react';
+import { Printer, UtensilsCrossed, Settings2, ShoppingBag } from 'lucide-react';
 
 import AdminLiveOrders from '../components/admin/AdminLiveOrders';
 import AdminMenuManagement from '../components/admin/AdminMenuManagement';
 import AdminAnalytics from '../components/admin/AdminAnalytics';
+import AdminOrdering from '../components/admin/AdminOrdering';
 
 export default function AdminDashboard() {
   const { socket, isConnected } = useSocket();
@@ -165,6 +166,12 @@ export default function AdminDashboard() {
               {printerStatus === 'CONNECTED' ? 'Printer Ready' : printerStatus === 'CONNECTING' ? 'Connecting...' : 'Connect Printer'}
             </span>
           </button>
+          <button 
+            onClick={() => setActiveTab('Take Order')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap ${activeTab === 'Take Order' ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.3)]' : 'bg-[#222] text-gray-400 border border-gray-700 hover:text-white hover:border-gray-500'}`}
+          >
+            <ShoppingBag size={16} /> Take Order
+          </button>
           <div className="h-6 w-px bg-gray-800 hidden sm:block"></div>
           <button 
             onClick={() => setActiveTab('Menu Management')}
@@ -199,6 +206,14 @@ export default function AdminDashboard() {
               menuItems={menuItems} 
               setMenuItems={setMenuItems} 
               backendUrl={backendUrl} 
+            />
+          </div>
+        )}
+
+        {activeTab === 'Take Order' && (
+          <div className="print:hidden">
+            <AdminOrdering 
+              menuItems={menuItems} 
             />
           </div>
         )}
