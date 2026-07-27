@@ -153,6 +153,15 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
     }));
   };
 
+  const updateNotes = (cartItemId: string, notes: string) => {
+    setCart(prev => prev.map(item => {
+      if (item.cartItemId === cartItemId) {
+        return { ...item, notes };
+      }
+      return item;
+    }));
+  };
+
   const removeFromCart = (cartItemId: string) => {
     setCart(prev => prev.filter(item => item.cartItemId !== cartItemId));
   };
@@ -367,33 +376,43 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
             </div>
           ) : (
             cart.map((item) => (
-              <div key={item.cartItemId} className="bg-gray-950/40 border border-gray-800/80 p-3 rounded-xl flex items-center justify-between gap-3 shadow-sm">
-                <div className="min-w-0 flex-1">
-                  <h5 className="font-bold text-xs text-white truncate leading-snug">{item.name}</h5>
-                  {item.notes && <p className="text-[9px] text-[#d4af37] truncate mt-0.5">{item.notes}</p>}
-                  <span className="text-[10px] font-semibold text-gray-400 block mt-1">${(item.price * item.quantity).toFixed(2)}</span>
-                </div>
-                <div className="flex items-center gap-2 bg-gray-900 rounded-lg p-1 border border-gray-800 flex-shrink-0">
+              <div key={item.cartItemId} className="bg-gray-950/40 border border-gray-800/80 p-3 rounded-xl flex flex-col gap-2.5 shadow-sm">
+                <div className="flex items-center justify-between gap-3 w-full">
+                  <div className="min-w-0 flex-1">
+                    <h5 className="font-bold text-xs text-white truncate leading-snug">{item.name}</h5>
+                    <span className="text-[10px] font-semibold text-gray-400 block mt-0.5">${(item.price * item.quantity).toFixed(2)}</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gray-900 rounded-lg p-1 border border-gray-800 flex-shrink-0">
+                    <button 
+                      onClick={() => updateQuantity(item.cartItemId!, -1)}
+                      className="p-0.5 hover:text-[#d4af37] transition-colors text-gray-400"
+                    >
+                      <Minus size={12} />
+                    </button>
+                    <span className="font-bold text-xs w-4 text-center text-white">{item.quantity}</span>
+                    <button 
+                      onClick={() => updateQuantity(item.cartItemId!, 1)}
+                      className="p-0.5 hover:text-[#d4af37] transition-colors text-gray-400"
+                    >
+                      <Plus size={12} />
+                    </button>
+                  </div>
                   <button 
-                    onClick={() => updateQuantity(item.cartItemId!, -1)}
-                    className="p-0.5 hover:text-[#d4af37] transition-colors text-gray-400"
+                    onClick={() => removeFromCart(item.cartItemId!)}
+                    className="p-1.5 text-red-500/70 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors flex-shrink-0"
                   >
-                    <Minus size={12} />
-                  </button>
-                  <span className="font-bold text-xs w-4 text-center text-white">{item.quantity}</span>
-                  <button 
-                    onClick={() => updateQuantity(item.cartItemId!, 1)}
-                    className="p-0.5 hover:text-[#d4af37] transition-colors text-gray-400"
-                  >
-                    <Plus size={12} />
+                    <Trash2 size={14} />
                   </button>
                 </div>
-                <button 
-                  onClick={() => removeFromCart(item.cartItemId!)}
-                  className="p-1.5 text-red-500/70 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors flex-shrink-0"
-                >
-                  <Trash2 size={14} />
-                </button>
+                
+                {/* Note input box accessible on every item in the cart */}
+                <input
+                  type="text"
+                  placeholder="Add note (e.g. no spicy, extra sauce)..."
+                  value={item.notes || ''}
+                  onChange={(e) => updateNotes(item.cartItemId!, e.target.value)}
+                  className="w-full bg-black/40 border border-gray-800 hover:border-gray-700 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-2.5 py-1 text-[10px] text-gray-200 placeholder-gray-650 outline-none transition-all"
+                />
               </div>
             ))
           )}
