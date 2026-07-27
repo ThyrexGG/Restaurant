@@ -9,6 +9,7 @@ export interface CartItem {
   quantity: number;
   notes?: string;
   addons?: { id: string; name: string; price: number }[];
+  sku?: string;
 }
 
 export interface OrderHistoryItem {

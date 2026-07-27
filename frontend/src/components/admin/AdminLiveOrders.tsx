@@ -63,13 +63,22 @@ export default function AdminLiveOrders({ kitchenOrders, activeTables, updateSta
                       </span>
                     </div>
                     
-                    <div className="space-y-3 mb-6 bg-black/40 p-4 rounded-xl">
+                    <div className="space-y-3 mb-4 bg-black/40 p-4 rounded-xl">
                       {order.items.map((item: any, i: number) => (
                         <div key={i} className="text-sm border-b border-gray-800/50 last:border-0 pb-2 last:pb-0">
                           <p className="font-bold text-gray-200"><span className="text-blue-400 mr-2">{item.quantity}x</span> {item.name}</p>
                           {item.notes && <p className="text-yellow-500/80 text-xs italic ml-6 mt-1">Note: {item.notes}</p>}
                         </div>
                       ))}
+                    </div>
+                    
+                    {/* Live Order Total Display */}
+                    <div className="flex justify-between items-center bg-gray-950/60 p-3.5 rounded-xl border border-gray-805 mb-4 shadow-inner">
+                      <span className="text-xs text-gray-400 font-bold uppercase tracking-wider">Order Total:</span>
+                      <div className="text-right">
+                        <span className="text-xl font-black text-green-455 block">${(order.total || 0).toFixed(2)}</span>
+                        <span className="block text-[10px] text-gray-500 font-bold">({((order.total || 0) * 4000).toLocaleString()} ៛)</span>
+                      </div>
                     </div>
                   </div>
                   
@@ -127,11 +136,11 @@ export default function AdminLiveOrders({ kitchenOrders, activeTables, updateSta
                       Active Bill
                     </div>
                     
-                    <div className="flex justify-between items-end mb-4">
-                      <h3 className="text-3xl font-bold text-white">Table {tableNum}</h3>
-                      <div className="text-right">
-                        <span className="font-bold text-green-400 text-2xl">${tableData.total.toFixed(2)}</span>
-                        <span className="block text-xs font-bold text-gray-400">({(tableData.total * 4000).toLocaleString()} ៛)</span>
+                    <div className="flex justify-between items-center mb-6 border-b border-gray-800 pb-4">
+                      <h3 className="text-3xl font-black text-white font-['Playfair_Display']">Table {tableNum}</h3>
+                      <div className="text-right bg-green-500/10 border border-green-500/25 px-4 py-2 rounded-2xl shadow-inner">
+                        <span className="text-3xl font-black text-green-400 block tracking-tight">${tableData.total.toFixed(2)}</span>
+                        <span className="block text-[10px] font-bold text-gray-400">({(tableData.total * 4000).toLocaleString()} ៛)</span>
                       </div>
                     </div>
 

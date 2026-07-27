@@ -15,6 +15,7 @@ interface PosCartItem {
   notes?: string;
   quantity: number;
   addons?: any[];
+  sku?: string;
 }
 
 export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
@@ -139,7 +140,8 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
     handleAddToCartFromModal({
       id: item.id || item.SKU || displayName,
       name: displayName,
-      price: price
+      price: price,
+      sku: item.sku || item.SKU
     });
   };
 
@@ -187,7 +189,8 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
         name: item.name,
         price: item.price,
         quantity: item.quantity,
-        notes: item.notes
+        notes: item.notes,
+        sku: item.sku
       })),
       total: totalPrice
     };
@@ -420,11 +423,11 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
 
         {/* Pricing Summary & Checkout Button */}
         <div className="border-t border-gray-800 pt-4 mt-4 flex-shrink-0 space-y-4">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center bg-gray-950/60 p-4 rounded-2xl border border-gray-800 shadow-inner">
             <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Total Due:</span>
             <div className="text-right">
-              <span className="text-2xl font-black text-[#d4af37]">${totalPrice.toFixed(2)}</span>
-              <span className="block text-[10px] font-bold text-gray-500 mt-0.5">({(totalPrice * 4000).toLocaleString()} ៛)</span>
+              <span className="text-3xl font-black text-[#d4af37] block leading-none">${totalPrice.toFixed(2)}</span>
+              <span className="block text-[10px] font-bold text-gray-500 mt-1">({(totalPrice * 4000).toLocaleString()} ៛)</span>
             </div>
           </div>
 

@@ -57,7 +57,8 @@ function MenuItemCard({ item, onSelect, isPopular = false }: { item: MenuItem, o
     addToCart({
       id: item.id || item.SKU || displayName,
       name: displayName,
-      price: price
+      price: price,
+      sku: item.sku || item.SKU
     });
   };
 

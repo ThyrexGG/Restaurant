@@ -146,11 +146,17 @@ export const printOrderReceipt = async (order: any) => {
       "--------------------------------\n"
     );
 
-    // Total in USD & KHR (Riel)
+    // Total in USD & KHR (Riel) with double size
     const rielTotal = Math.round(order.total * 4000).toLocaleString();
+    const bigFontOnCmd = new Uint8Array([0x1D, 0x21, 0x11]); // Double width & height
+    const bigFontOffCmd = new Uint8Array([0x1D, 0x21, 0x00]); // Reset size
+    
     const totalData = encoder.encode(
       `TOTAL: $${order.total.toFixed(2)}\n` +
-      `       (${rielTotal} KHR)\n` +
+      `(${rielTotal} KHR)\n`
+    );
+
+    const footerData = encoder.encode(
       "--------------------------------\n" +
       "       THANK YOU!       \n\n\n\n\n"
     );
@@ -165,8 +171,9 @@ export const printOrderReceipt = async (order: any) => {
 
     // Print items individually to avoid Bluetooth MTU limits and wrap long item names
     for (const item of order.items) {
-      // Clean multiline item name wrapping without truncating
-      const fullItemName = `${item.quantity}x ${item.name}`;
+      // Include SKU tag if available e.g. [B16]
+      const skuTag = item.sku || item.SKU ? `[${item.sku || item.SKU}] ` : '';
+      const fullItemName = `${item.quantity}x ${skuTag}${item.name}`;
       let itemStr = `${fullItemName}\n`;
       itemStr += `   $${item.price.toFixed(2)}\n`;
       if (item.notes) {
@@ -177,9 +184,12 @@ export const printOrderReceipt = async (order: any) => {
     await printerCharacteristic.writeValue(encoder.encode("--------------------------------\n"));
 
     await printerCharacteristic.writeValue(alignCenterCmd);
+    await printerCharacteristic.writeValue(bigFontOnCmd);
     await printerCharacteristic.writeValue(boldOnCmd);
     await printerCharacteristic.writeValue(totalData);
     await printerCharacteristic.writeValue(boldOffCmd);
+    await printerCharacteristic.writeValue(bigFontOffCmd);
+    await printerCharacteristic.writeValue(footerData);
 
     console.log('Order receipt printed successfully!');
   } catch (error) {

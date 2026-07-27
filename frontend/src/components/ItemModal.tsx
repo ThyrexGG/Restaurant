@@ -148,7 +148,8 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
       name: baseName, // Use the base name without the (Chicken/Fish) part
       price: basePriceValue,
       notes: finalNotes || undefined,
-      quantity: quantity
+      quantity: quantity,
+      sku: item.sku || item.SKU
     });
     onClose();
   };
