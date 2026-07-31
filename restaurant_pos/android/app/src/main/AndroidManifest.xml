@@ -2,7 +2,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     
     <application
-        android:label="Best Khmer Restaurant"
+        android:label="BKR Pos"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

@@ -417,22 +417,27 @@ class OrderCard extends StatelessWidget {
   }
 
   Widget _buildActionButtons(BuildContext context) {
+    final double buttonPadding = 12.0;
+    final double gapWidth = 6.0;
+
     switch (order.status.toUpperCase()) {
       case 'NEW':
         return Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
+              constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
+              padding: EdgeInsets.zero,
               tooltip: 'Cancel Order',
-              icon: const Icon(Icons.close_rounded, color: AppTheme.statusCancelled),
+              icon: const Icon(Icons.close_rounded, color: AppTheme.statusCancelled, size: 20),
               onPressed: () => _confirmStatusChange(context, 'CANCELLED', 'Cancel this order?'),
             ),
-            const SizedBox(width: 8),
+            SizedBox(width: gapWidth),
             ElevatedButton(
               onPressed: () => orderProvider.updateOrderStatus(order.id, 'COOKING'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppTheme.statusCooking,
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: EdgeInsets.symmetric(horizontal: buttonPadding, vertical: 8),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
               ),
               child: const Text('PREPARE', style: TextStyle(fontSize: 12)),
@@ -444,16 +449,18 @@ class OrderCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
+              constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
+              padding: EdgeInsets.zero,
               tooltip: 'Cancel Order',
-              icon: const Icon(Icons.close_rounded, color: AppTheme.statusCancelled),
+              icon: const Icon(Icons.close_rounded, color: AppTheme.statusCancelled, size: 20),
               onPressed: () => _confirmStatusChange(context, 'CANCELLED', 'Cancel this order?'),
             ),
-            const SizedBox(width: 8),
+            SizedBox(width: gapWidth),
             ElevatedButton(
               onPressed: () => orderProvider.updateOrderStatus(order.id, 'DELIVERED'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppTheme.statusDelivered,
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: EdgeInsets.symmetric(horizontal: buttonPadding, vertical: 8),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
               ),
               child: const Text('SERVE', style: TextStyle(fontSize: 12)),
@@ -466,16 +473,18 @@ class OrderCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
+              constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
+              padding: EdgeInsets.zero,
               tooltip: 'Cancel Order',
-              icon: const Icon(Icons.close_rounded, color: AppTheme.statusCancelled),
+              icon: const Icon(Icons.close_rounded, color: AppTheme.statusCancelled, size: 20),
               onPressed: () => _confirmStatusChange(context, 'CANCELLED', 'Cancel this order?'),
             ),
-            const SizedBox(width: 8),
+            SizedBox(width: gapWidth),
             ElevatedButton(
               onPressed: () => orderProvider.updateOrderStatus(order.id, 'PAID'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppTheme.statusPaid,
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: EdgeInsets.symmetric(horizontal: buttonPadding, vertical: 8),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
               ),
               child: const Text('CHECKOUT', style: TextStyle(fontSize: 12)),

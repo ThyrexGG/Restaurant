@@ -129,6 +129,8 @@ export const printOrderReceipt = async (order: any) => {
     const alignLeftCmd = new Uint8Array([0x1B, 0x61, 0x00]); // Align Left
     const boldOnCmd = new Uint8Array([0x1B, 0x45, 0x01]); // Bold On
     const boldOffCmd = new Uint8Array([0x1B, 0x45, 0x00]); // Bold Off
+    const bigFontOnCmd = new Uint8Array([0x1D, 0x21, 0x11]); // Double width & height
+    const bigFontOffCmd = new Uint8Array([0x1D, 0x21, 0x00]); // Reset size
 
     // Header
     const headerData = encoder.encode(
@@ -141,15 +143,13 @@ export const printOrderReceipt = async (order: any) => {
     const displayOrderNum = order.dailyOrderNumber || (order.id ? order.id.toString().substring(0, 4) : '#' + (Math.floor(Math.random() * 1000) + 1000));
     const orderInfoData = encoder.encode(
       `Order: #${displayOrderNum}\n` +
-      `Table: ${order.table}\n` +
-      `Type:  ${order.type}\n` +
-      "--------------------------------\n"
+      `Type:  ${order.type}\n`
     );
+
+    const tableData = encoder.encode(`TABLE: ${order.table.toString().toUpperCase()}\n`);
 
     // Total in USD & KHR (Riel) with double size
     const rielTotal = Math.round(order.total * 4000).toLocaleString();
-    const bigFontOnCmd = new Uint8Array([0x1D, 0x21, 0x11]); // Double width & height
-    const bigFontOffCmd = new Uint8Array([0x1D, 0x21, 0x00]); // Reset size
     
     const totalData = encoder.encode(
       `TOTAL: $${order.total.toFixed(2)}\n` +
@@ -168,6 +168,14 @@ export const printOrderReceipt = async (order: any) => {
 
     await printerCharacteristic.writeValue(alignLeftCmd);
     await printerCharacteristic.writeValue(orderInfoData);
+
+    // Print Table in BIG and BOLD
+    await printerCharacteristic.writeValue(bigFontOnCmd);
+    await printerCharacteristic.writeValue(boldOnCmd);
+    await printerCharacteristic.writeValue(tableData);
+    await printerCharacteristic.writeValue(boldOffCmd);
+    await printerCharacteristic.writeValue(bigFontOffCmd);
+    await printerCharacteristic.writeValue(encoder.encode("--------------------------------\n"));
 
     // Print items individually to avoid Bluetooth MTU limits and wrap long item names
     for (const item of order.items) {

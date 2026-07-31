@@ -166,23 +166,20 @@ class _MainLayoutState extends State<MainLayout> {
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(6),
+            padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
-              color: AppTheme.primaryAccent.withOpacity(0.1),
+              color: AppTheme.primaryAccent.withOpacity(0.08),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
-                color: AppTheme.primaryAccent.withOpacity(0.2),
+                color: AppTheme.primaryAccent.withOpacity(0.15),
                 width: 1,
               ),
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                'assets/images/logo.png',
-                width: 32,
-                height: 32,
-                fit: BoxFit.cover,
-              ),
+            child: Image.asset(
+              'assets/images/logo.png',
+              width: 38,
+              height: 38,
+              fit: BoxFit.contain,
             ),
           ),
           const SizedBox(width: 12),
@@ -302,7 +299,7 @@ class _MainLayoutState extends State<MainLayout> {
   Widget _buildHeader(PosProvider posProvider, OrderProvider orderProvider, bool isWideScreen) {
     return Container(
       height: 70,
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: isWideScreen ? 20 : 12),
       decoration: const BoxDecoration(
         color: AppTheme.cardBg,
         border: Border(bottom: BorderSide(color: AppTheme.cardBorder, width: 1.5)),
@@ -320,16 +317,19 @@ class _MainLayoutState extends State<MainLayout> {
           
           if (!isWideScreen) const SizedBox(width: 8),
 
-          Text(
-            posProvider.activeTabIndex == 0 ? 'POS Catalog' : 'Live Active Orders',
-            style: const TextStyle(
-              color: AppTheme.textPrimary,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+          Expanded(
+            child: Text(
+              posProvider.activeTabIndex == 0 ? 'POS Catalog' : 'Live Active Orders',
+              style: const TextStyle(
+                color: AppTheme.textPrimary,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+              overflow: TextOverflow.ellipsis,
             ),
           ),
           
-          const Spacer(),
+          const SizedBox(width: 8),
 
           // Clock display
           if (isWideScreen) ...[
@@ -358,7 +358,7 @@ class _MainLayoutState extends State<MainLayout> {
               );
             },
           ),
-          const SizedBox(width: 12),
+          SizedBox(width: isWideScreen ? 12 : 6),
 
           // Socket connection status badge
           Container(
