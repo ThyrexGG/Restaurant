@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef } from 'react';
-import { Search, ChevronDown, Trash2, Plus, Minus, Utensils, CheckCircle } from 'lucide-react';
+import { Search, ChevronDown, Trash2, Plus, Minus, Utensils, CheckCircle, MessageSquare } from 'lucide-react';
 import ItemModal, { type MenuItem } from '../ItemModal';
 import { useSocket } from '../../context/SocketContext';
 
@@ -28,6 +28,7 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [showNotesMap, setShowNotesMap] = useState<Record<string, boolean>>({});
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -221,7 +222,7 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
               : 'text-gray-400 hover:text-white'
           }`}
         >
-          📋 Browse Menu
+          Browse Menu
         </button>
         <button
           onClick={() => setMobileActiveTab('cart')}
@@ -231,7 +232,7 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
               : 'text-gray-400 hover:text-white'
           }`}
         >
-          🛒 Current Order
+          Current Order
           {cart.length > 0 && (
             <span className="bg-red-500 text-white text-[9px] px-2 py-0.5 rounded-full font-black animate-pulse">
               {cart.reduce((sum, i) => sum + i.quantity, 0)}
@@ -437,22 +438,37 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
                       <Plus size={12} />
                     </button>
                   </div>
-                  <button 
-                    onClick={() => removeFromCart(item.cartItemId!)}
-                    className="p-1.5 text-red-500/70 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors flex-shrink-0"
-                  >
-                    <Trash2 size={14} />
-                  </button>
+                  <div className="flex items-center gap-1.5 flex-shrink-0">
+                    <button 
+                      onClick={() => setShowNotesMap(prev => ({ ...prev, [item.cartItemId!]: !prev[item.cartItemId!] }))}
+                      className={`p-1.5 rounded-lg transition-colors ${
+                        item.notes || showNotesMap[item.cartItemId!] 
+                          ? 'text-[#d4af37] bg-[#d4af37]/10' 
+                          : 'text-gray-500 hover:text-gray-400 hover:bg-gray-800'
+                      }`}
+                      title="Add instructions note"
+                    >
+                      <MessageSquare size={13} />
+                    </button>
+                    <button 
+                      onClick={() => removeFromCart(item.cartItemId!)}
+                      className="p-1.5 text-red-550/70 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
+                    >
+                      <Trash2 size={13} />
+                    </button>
+                  </div>
                 </div>
                 
-                {/* Note input box accessible on every item in the cart */}
-                <input
-                  type="text"
-                  placeholder="Add note (e.g. no spicy, extra sauce)..."
-                  value={item.notes || ''}
-                  onChange={(e) => updateNotes(item.cartItemId!, e.target.value)}
-                  className="w-full bg-black/40 border border-gray-800 hover:border-gray-700 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-2.5 py-1 text-[10px] text-gray-200 placeholder-gray-650 outline-none transition-all"
-                />
+                {/* Note input box visible only when expanded or has text */}
+                {(item.notes || showNotesMap[item.cartItemId!]) && (
+                  <input
+                    type="text"
+                    placeholder="Add special instruction note..."
+                    value={item.notes || ''}
+                    onChange={(e) => updateNotes(item.cartItemId!, e.target.value)}
+                    className="w-full bg-black/40 border border-[#d4af37]/20 hover:border-[#d4af37]/40 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-2.5 py-1 text-[10px] text-gray-200 placeholder-gray-650 outline-none transition-all animate-in slide-in-from-top-1 duration-150"
+                  />
+                )}
               </div>
             ))
           )}

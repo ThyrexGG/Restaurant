@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { connectPrinter, autoConnectPrinter, printOrderReceipt } from '../utils/printer';
-import { Printer, UtensilsCrossed, Settings2, ShoppingBag } from 'lucide-react';
+import { Printer, UtensilsCrossed, Settings2, ShoppingBag, ChevronDown } from 'lucide-react';
 
 import AdminLiveOrders from '../components/admin/AdminLiveOrders';
 import AdminMenuManagement from '../components/admin/AdminMenuManagement';
@@ -150,10 +150,10 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-4 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
+        <div className="flex items-center gap-2 w-full md:w-auto overflow-x-auto md:overflow-visible pb-2 md:pb-0 hide-scrollbar">
           <button 
             onClick={handleConnectPrinter}
-            className={`px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all whitespace-nowrap ${
               printerStatus === 'CONNECTED' 
                 ? 'bg-green-500/10 text-green-400 border border-green-500/30' 
                 : printerStatus === 'CONNECTING'
@@ -161,30 +161,49 @@ export default function AdminDashboard() {
                   : 'bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]'
             }`}
           >
-            <Printer size={16} />
+            <Printer size={14} />
             <span>
-              {printerStatus === 'CONNECTED' ? 'Printer Ready' : printerStatus === 'CONNECTING' ? 'Connecting...' : 'Connect Printer'}
+              {printerStatus === 'CONNECTED' ? 'Ready' : printerStatus === 'CONNECTING' ? '...' : 'Connect'}
             </span>
           </button>
-          <button 
-            onClick={() => setActiveTab('Take Order')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap ${activeTab === 'Take Order' ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.3)]' : 'bg-[#222] text-gray-400 border border-gray-700 hover:text-white hover:border-gray-500'}`}
-          >
-            <ShoppingBag size={16} /> Take Order
-          </button>
-          <div className="h-6 w-px bg-gray-800 hidden sm:block"></div>
-          <button 
-            onClick={() => setActiveTab('Menu Management')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap ${activeTab === 'Menu Management' ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.3)]' : 'bg-[#222] text-gray-400 border border-gray-700 hover:text-white hover:border-gray-500'}`}
-          >
-            <UtensilsCrossed size={16} /> Menu Setup
-          </button>
-          <button 
-            onClick={() => setActiveTab('Analytics')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap ${activeTab === 'Analytics' ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.3)]' : 'bg-[#222] text-gray-400 border border-gray-700 hover:text-white hover:border-gray-500'}`}
-          >
-            <Settings2 size={16} /> Settings
-          </button>
+
+          {/* Dropdown for active tab on mobile */}
+          <div className="relative flex-1 md:hidden ml-2">
+            <select
+              value={activeTab}
+              onChange={(e) => setActiveTab(e.target.value)}
+              className="w-full bg-gray-900 border border-gray-800 rounded-lg py-2 px-3 text-xs font-bold text-[#d4af37] focus:border-[#d4af37] outline-none appearance-none cursor-pointer pr-8"
+            >
+              <option value="Dashboard">Dashboard</option>
+              <option value="Take Order">Take Order</option>
+              <option value="Menu Management">Menu Setup</option>
+              <option value="Analytics">Settings</option>
+            </select>
+            <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+          </div>
+
+          {/* Desktop Only Navigation Links */}
+          <div className="hidden md:flex items-center gap-2">
+            <button 
+              onClick={() => setActiveTab('Take Order')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap ${activeTab === 'Take Order' ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.3)]' : 'bg-[#222] text-gray-400 border border-gray-700 hover:text-white hover:border-gray-500'}`}
+            >
+              <ShoppingBag size={16} /> Take Order
+            </button>
+            <div className="h-6 w-px bg-gray-800"></div>
+            <button 
+              onClick={() => setActiveTab('Menu Management')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap ${activeTab === 'Menu Management' ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.3)]' : 'bg-[#222] text-gray-400 border border-gray-700 hover:text-white hover:border-gray-500'}`}
+            >
+              <UtensilsCrossed size={16} /> Menu Setup
+            </button>
+            <button 
+              onClick={() => setActiveTab('Analytics')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-colors whitespace-nowrap ${activeTab === 'Analytics' ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.3)]' : 'bg-[#222] text-gray-400 border border-gray-700 hover:text-white hover:border-gray-500'}`}
+            >
+              <Settings2 size={16} /> Settings
+            </button>
+          </div>
         </div>
       </nav>
 
