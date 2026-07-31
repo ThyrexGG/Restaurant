@@ -1,4 +1,4 @@
-import { History, Grid2X2, CheckCircle, Printer } from 'lucide-react';
+import { History, Grid2X2, CheckCircle, Printer, Trash2 } from 'lucide-react';
 import { printOrderReceipt } from '../../utils/printer';
 
 interface AdminLiveOrdersProps {
@@ -84,17 +84,28 @@ export default function AdminLiveOrders({ kitchenOrders, activeTables, updateSta
                   
                   <div className="flex gap-2 mt-auto pt-2 border-t border-gray-800">
                     <button 
-                      onClick={() => printOrderReceipt(order)} 
-                      className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all border border-gray-700"
+                      onClick={() => {
+                        if (window.confirm(`Are you sure you want to permanently delete Order #${order.dailyOrderNumber || order.id.toString().slice(-4)} from the kitchen and database?`)) {
+                          updateStatus(order.id, 'DELETED');
+                        }
+                      }}
+                      className="p-3 bg-red-650/10 hover:bg-red-600/35 text-red-400 border border-red-500/25 rounded-xl transition-all"
+                      title="Delete Order Permanently"
                     >
-                      <Printer size={16} /> Reprint Ticket
+                      <Trash2 size={16} />
+                    </button>
+                    <button 
+                      onClick={() => printOrderReceipt(order)} 
+                      className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-1.5 transition-all border border-gray-700 text-xs"
+                    >
+                      <Printer size={15} /> Reprint
                     </button>
                     <button 
                       onClick={() => updateStatus(order.id, 'READY')} 
-                      className="flex-1 bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all border border-blue-500/30"
+                      className="flex-1 bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 font-bold py-3 rounded-xl flex items-center justify-center gap-1.5 transition-all border border-blue-500/30 text-xs"
                       title="Clear from this feed"
                     >
-                      <CheckCircle size={16} /> Mark as Done
+                      <CheckCircle size={15} /> Done
                     </button>
                   </div>
                 </div>
@@ -158,7 +169,23 @@ export default function AdminLiveOrders({ kitchenOrders, activeTables, updateSta
                                 <span className="text-[10px] text-gray-500 font-medium">Time: {formatTime(o.timestamp)}</span>
                               )}
                             </div>
-                            <span className="font-bold text-right">${o.total.toFixed(2)} <span className="text-xs text-gray-400 font-normal block text-[10px]">({(o.total * 4000).toLocaleString()} ៛)</span></span>
+                            <div className="flex items-center gap-3">
+                              <span className="font-bold text-right">
+                                ${o.total.toFixed(2)} 
+                                <span className="text-xs text-gray-400 font-normal block text-[10px]">({(o.total * 4000).toLocaleString()} ៛)</span>
+                              </span>
+                              <button 
+                                onClick={() => {
+                                  if (window.confirm(`Are you sure you want to permanently delete Order #${o.id.toString().slice(-4)}? This cannot be undone.`)) {
+                                    updateStatus(o.id, 'DELETED');
+                                  }
+                                }}
+                                className="text-red-500 hover:text-red-400 p-1.5 rounded hover:bg-red-500/10 transition-colors"
+                                title="Delete Order Permanently"
+                              >
+                                <Trash2 size={15} />
+                              </button>
+                            </div>
                           </div>
                         ))}
                       </div>

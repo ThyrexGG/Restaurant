@@ -144,7 +144,7 @@ export function setupSockets(io: Server) {
       // Update in-memory store
       const orderIndex = activeOrders.findIndex(o => o.id === orderId);
       if (orderIndex !== -1) {
-        if (status === 'PAID') {
+        if (status === 'PAID' || status === 'DELETED') {
           activeOrders.splice(orderIndex, 1);
         } else {
           activeOrders[orderIndex].status = status;
@@ -157,10 +157,22 @@ export function setupSockets(io: Server) {
       // Update in database if it's a real UUID (not a mock order right now)
       if (orderId && orderId.length > 10) {
         try {
-          await prisma.order.update({
-            where: { id: orderId },
-            data: { status }
-          });
+          if (status === 'DELETED') {
+            // Delete associated items first to avoid foreign key errors
+            await prisma.orderItem.deleteMany({
+              where: { orderId }
+            });
+            // Delete the order
+            await prisma.order.delete({
+              where: { id: orderId }
+            });
+            console.log(`Order ${orderId} and its items permanently deleted from DB.`);
+          } else {
+            await prisma.order.update({
+              where: { id: orderId },
+              data: { status }
+            });
+          }
         } catch (e) {
           console.error('Error updating DB status (might be a mock order):', e);
         }

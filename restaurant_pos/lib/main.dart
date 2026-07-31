@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/cart_provider.dart';
@@ -9,6 +10,15 @@ import 'views/main_layout.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const RestaurantPosApp());
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.trackpad,
+      };
 }
 
 class RestaurantPosApp extends StatelessWidget {
@@ -28,6 +38,7 @@ class RestaurantPosApp extends StatelessWidget {
         title: 'Restaurant POS',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.darkTheme,
+        scrollBehavior: MyCustomScrollBehavior(),
         home: const MainLayoutInitializer(),
       ),
     );

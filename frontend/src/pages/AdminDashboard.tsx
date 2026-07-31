@@ -70,7 +70,7 @@ export default function AdminDashboard() {
 
     socket.on('order_status_changed', ({ orderId, status }) => {
       setLiveOrders((prev) => {
-        if (status === 'PAID') {
+        if (status === 'PAID' || status === 'DELETED') {
           return prev.filter(o => o.id !== orderId);
         }
         return prev.map(o => o.id === orderId ? { ...o, status } : o);
