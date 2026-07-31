@@ -129,21 +129,37 @@ export const printOrderReceipt = async (order: any) => {
     const alignLeftCmd = new Uint8Array([0x1B, 0x61, 0x00]); // Align Left
     const boldOnCmd = new Uint8Array([0x1B, 0x45, 0x01]); // Bold On
     const boldOffCmd = new Uint8Array([0x1B, 0x45, 0x00]); // Bold Off
-    const bigFontOnCmd = new Uint8Array([0x1D, 0x21, 0x11]); // Double width & height
+    const bigFontOnCmd = new Uint8Array([0x1D, 0x21, 0x11]); // Double width & height (Grand Total)
     const bigFontOffCmd = new Uint8Array([0x1D, 0x21, 0x00]); // Reset size
+    const doubleHeightOnCmd = new Uint8Array([0x1D, 0x21, 0x01]); // Double height, normal width (Table)
+    const doubleHeightOffCmd = new Uint8Array([0x1D, 0x21, 0x00]); // Reset size
 
     // Header
     const headerData = encoder.encode(
       "--------------------------------\n" +
-      "    BEST KHMER RESTAURANT   \n" +
+      "     BEST KHMER RESTAURANT      \n" +
       "--------------------------------\n\n"
     );
+
+    // Format Date and Time
+    const dateObj = new Date(order.timestamp || order.date || order.createdAt || new Date());
+    const day = String(dateObj.getDate()).padStart(2, '0');
+    const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+    const year = dateObj.getFullYear();
+    let hours = dateObj.getHours();
+    const minutes = String(dateObj.getMinutes()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // convert '0' to '12'
+    const formattedHours = String(hours).padStart(2, '0');
+    const formattedDateTime = `${day}/${month}/${year} ${formattedHours}:${minutes} ${ampm}`;
 
     // Order Info
     const displayOrderNum = order.dailyOrderNumber || (order.id ? order.id.toString().substring(0, 4) : '#' + (Math.floor(Math.random() * 1000) + 1000));
     const orderInfoData = encoder.encode(
       `Order: #${displayOrderNum}\n` +
-      `Type:  ${order.type}\n`
+      `Date:  ${formattedDateTime}\n` +
+      `Type:  ${order.type === 'DINE_IN' ? 'DINE IN' : 'TAKE OUT'}\n`
     );
 
     const tableData = encoder.encode(`TABLE: ${order.table.toString().toUpperCase()}\n`);
@@ -158,7 +174,7 @@ export const printOrderReceipt = async (order: any) => {
 
     const footerData = encoder.encode(
       "--------------------------------\n" +
-      "       THANK YOU!       \n\n\n\n\n"
+      "           THANK YOU!           \n\n\n\n\n"
     );
 
     // Write sequence
@@ -169,23 +185,31 @@ export const printOrderReceipt = async (order: any) => {
     await printerCharacteristic.writeValue(alignLeftCmd);
     await printerCharacteristic.writeValue(orderInfoData);
 
-    // Print Table in BIG and BOLD
-    await printerCharacteristic.writeValue(bigFontOnCmd);
+    // Print Table in TALL (double height, normal width) and BOLD
+    await printerCharacteristic.writeValue(doubleHeightOnCmd);
     await printerCharacteristic.writeValue(boldOnCmd);
     await printerCharacteristic.writeValue(tableData);
     await printerCharacteristic.writeValue(boldOffCmd);
-    await printerCharacteristic.writeValue(bigFontOffCmd);
+    await printerCharacteristic.writeValue(doubleHeightOffCmd);
     await printerCharacteristic.writeValue(encoder.encode("--------------------------------\n"));
 
     // Print items individually to avoid Bluetooth MTU limits and wrap long item names
     for (const item of order.items) {
       // Include SKU tag if available e.g. [B16]
       const skuTag = item.sku || item.SKU ? `[${item.sku || item.SKU}] ` : '';
-      const fullItemName = `${item.quantity}x ${skuTag}${item.name}`;
-      let itemStr = `${fullItemName}\n`;
-      itemStr += `   $${item.price.toFixed(2)}\n`;
+      const nameLine = `${skuTag}${item.name}\n`;
+      
+      const qtyStr = `${item.quantity} x $${item.price.toFixed(2)}`;
+      const totalStr = `$${(item.price * item.quantity).toFixed(2)}`;
+      
+      // Padding calculations to align subtotal price right-side in a 32 column ticket
+      const paddingLength = 32 - qtyStr.length - totalStr.length;
+      const spaces = paddingLength > 0 ? ' '.repeat(paddingLength) : ' ';
+      const priceLine = `${qtyStr}${spaces}${totalStr}\n`;
+      
+      let itemStr = nameLine + priceLine;
       if (item.notes) {
-        itemStr += `   *${item.notes}*\n`;
+        itemStr += `  *${item.notes}*\n`;
       }
       await printerCharacteristic.writeValue(encoder.encode(itemStr));
     }
