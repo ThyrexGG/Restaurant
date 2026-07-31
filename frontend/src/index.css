@@ -135,3 +135,8 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none;
   transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
+/* Override Playfair_Display font-family with premium Outfit font */
+[class*="Playfair_Display"] {
+  font-family: 'Outfit', 'Inter', -apple-system, sans-serif !important;
+}

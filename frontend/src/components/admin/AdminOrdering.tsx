@@ -29,6 +29,7 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [showNotesMap, setShowNotesMap] = useState<Record<string, boolean>>({});
+  const [showDiningConfig, setShowDiningConfig] = useState(false);
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -368,44 +369,72 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
           </div>
         )}
 
-        {/* Table & Dining Configuration */}
-        <div className="bg-gray-950/60 border border-gray-800 p-4 rounded-2xl mb-4 flex-shrink-0 space-y-4 shadow-inner">
-          <div>
-            <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-2">Dining Method</label>
-            <div className="grid grid-cols-2 gap-2 bg-gray-900 p-1 rounded-xl border border-gray-800">
-              <button 
-                onClick={() => setDiningType('DINE_IN')}
-                className={`py-1.5 text-xs font-extrabold rounded-lg transition-all ${diningType === 'DINE_IN' ? 'bg-[#d4af37] text-black shadow-md' : 'text-gray-400 hover:text-white'}`}
-              >
-                Dine In
-              </button>
-              <button 
-                onClick={() => setDiningType('TAKE_AWAY')}
-                className={`py-1.5 text-xs font-extrabold rounded-lg transition-all ${diningType === 'TAKE_AWAY' ? 'bg-[#d4af37] text-black shadow-md' : 'text-gray-400 hover:text-white'}`}
-              >
-                Take Away
-              </button>
+        {/* Table & Dining Configuration (Collapsible to save vertical screen space) */}
+        {!showDiningConfig ? (
+          <div className="flex justify-between items-center bg-gray-950/60 border border-gray-850/80 px-4 py-3 rounded-2xl mb-4 shadow-inner">
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-black uppercase tracking-wider bg-[#d4af37]/15 text-[#d4af37] border border-[#d4af37]/25 px-2.5 py-1 rounded-xl">
+                {diningType === 'DINE_IN' ? 'Dine In' : 'Take Away'}
+              </span>
+              {diningType === 'DINE_IN' && (
+                <span className="text-[10px] font-black uppercase tracking-wider bg-gray-900 text-gray-200 border border-gray-850 px-2.5 py-1 rounded-xl">
+                  Table #{tableNumber}
+                </span>
+              )}
             </div>
+            <button 
+              onClick={() => setShowDiningConfig(true)}
+              className="text-[10px] font-black text-gray-400 hover:text-[#d4af37] transition-colors border border-gray-800 px-3 py-1 rounded-xl hover:border-[#d4af37]/30 bg-gray-900/60"
+            >
+              Change
+            </button>
           </div>
-
-          {diningType === 'DINE_IN' && (
-            <div className="animate-in fade-in slide-in-from-top-1 duration-200">
-              <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-2">Assign Table Number</label>
-              <div className="relative">
-                <select
-                  value={tableNumber}
-                  onChange={(e) => setTableNumber(e.target.value)}
-                  className="w-full bg-gray-900 border border-gray-800 rounded-xl p-3 text-sm font-bold text-white focus:border-[#d4af37] outline-none appearance-none cursor-pointer"
+        ) : (
+          <div className="bg-gray-950/60 border border-gray-850 p-4 rounded-2xl mb-4 flex-shrink-0 space-y-4 shadow-inner animate-in fade-in zoom-in-95 duration-200">
+            <div>
+              <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-2">Dining Method</label>
+              <div className="grid grid-cols-2 gap-2 bg-gray-900 p-1 rounded-xl border border-gray-850">
+                <button 
+                  onClick={() => setDiningType('DINE_IN')}
+                  className={`py-1.5 text-xs font-extrabold rounded-lg transition-all ${diningType === 'DINE_IN' ? 'bg-[#d4af37] text-black shadow-md' : 'text-gray-400 hover:text-white'}`}
                 >
-                  {Array.from({ length: 20 }, (_, i) => String(i + 1)).map(t => (
-                    <option key={t} value={t}>Table #{t}</option>
-                  ))}
-                </select>
-                <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                  Dine In
+                </button>
+                <button 
+                  onClick={() => setDiningType('TAKE_AWAY')}
+                  className={`py-1.5 text-xs font-extrabold rounded-lg transition-all ${diningType === 'TAKE_AWAY' ? 'bg-[#d4af37] text-black shadow-md' : 'text-gray-400 hover:text-white'}`}
+                >
+                  Take Away
+                </button>
               </div>
             </div>
-          )}
-        </div>
+
+            {diningType === 'DINE_IN' && (
+              <div className="animate-in fade-in slide-in-from-top-1 duration-200">
+                <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-2">Assign Table Number</label>
+                <div className="relative">
+                  <select
+                    value={tableNumber}
+                    onChange={(e) => setTableNumber(e.target.value)}
+                    className="w-full bg-gray-900 border border-gray-800 rounded-xl p-3 text-sm font-bold text-white focus:border-[#d4af37] outline-none appearance-none cursor-pointer"
+                  >
+                    {Array.from({ length: 20 }, (_, i) => String(i + 1)).map(t => (
+                      <option key={t} value={t}>Table #{t}</option>
+                    ))}
+                  </select>
+                  <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                </div>
+              </div>
+            )}
+
+            <button
+              onClick={() => setShowDiningConfig(false)}
+              className="w-full py-2.5 text-xs font-black text-black bg-[#d4af37] hover:bg-[#b08d29] rounded-xl transition-all shadow-md active:scale-95"
+            >
+              Done Selecting
+            </button>
+          </div>
+        )}
 
         {/* Cart items list */}
         <div className="flex-grow overflow-y-auto space-y-3 pr-1 hide-scrollbar min-h-0 py-1">
