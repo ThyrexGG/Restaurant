@@ -526,7 +526,7 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
             {analytics.dailyBreakdown && analytics.dailyBreakdown.length > 0 && (
               <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
                 <h3 className="text-xl font-bold mb-4 text-white flex items-center justify-between">
-                  <span>📅 Daily Sales Records (Past Days Preserved)</span>
+                  <span>Daily Sales Records (Past Days Preserved)</span>
                   <span className="text-xs text-gray-400 font-normal">New day starts fresh record automatically</span>
                 </h3>
                 <div className="overflow-x-auto">
@@ -534,12 +534,9 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
                     <thead>
                       <tr className="border-b border-gray-800 text-gray-400 text-[10px] font-extrabold uppercase tracking-wider">
                         <th className="py-3 px-4">Date</th>
-                        <th className="py-3 px-4 text-right">Gross sales</th>
-                        <th className="py-3 px-4 text-right">Refunds</th>
-                        <th className="py-3 px-4 text-right">Discounts</th>
-                        <th className="py-3 px-4 text-right">Net sales</th>
-                        <th className="py-3 px-4 text-right">Cost of goods</th>
-                        <th className="py-3 px-4 text-right text-[#54b948]">Gross profit</th>
+                        <th className="py-3 px-4 text-center">Customers</th>
+                        <th className="py-3 px-4 text-center">Orders</th>
+                        <th className="py-3 px-4 text-right text-[#54b948]">Profit</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -549,15 +546,12 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
                         return (
                           <tr key={idx} className="border-b border-gray-850 hover:bg-gray-800/20 text-xs">
                             <td className="py-3.5 px-4 font-bold text-gray-200">{row.date}</td>
-                            <td className="py-3.5 px-4 text-right text-gray-300 font-bold">
-                              {revStr} <span className="block text-[9px] text-gray-500 font-normal mt-0.5">{rielStr}</span>
+                            <td className="py-3.5 px-4 text-center text-gray-300 font-bold">
+                              {row.ordersCount} <span className="text-[10px] text-gray-500 font-normal ml-0.5">receipt(s)</span>
                             </td>
-                            <td className="py-3.5 px-4 text-right text-gray-600 font-medium">$0.00</td>
-                            <td className="py-3.5 px-4 text-right text-gray-600 font-medium">$0.00</td>
-                            <td className="py-3.5 px-4 text-right text-gray-300 font-bold">
-                              {revStr} <span className="block text-[9px] text-gray-500 font-normal mt-0.5">{rielStr}</span>
+                            <td className="py-3.5 px-4 text-center text-gray-300 font-bold">
+                              {row.itemsCount || row.ordersCount} <span className="text-[10px] text-gray-500 font-normal ml-0.5">dish(es)</span>
                             </td>
-                            <td className="py-3.5 px-4 text-right text-gray-600 font-medium">$0.00</td>
                             <td className="py-3.5 px-4 text-right text-[#54b948] font-black">
                               {revStr} <span className="block text-[9px] text-emerald-600/80 font-semibold mt-0.5">{rielStr}</span>
                             </td>

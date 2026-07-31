@@ -25,18 +25,41 @@ export default function analyticsRoutes() {
       // Recent orders (complete history sorted newest first)
       const recentOrders = [...orders].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
-      // Top Selling Items
+      // Top Selling Items (Parsed from items relation or JSON notes)
       const itemSales: Record<string, { name: string, quantity: number, revenue: number }> = {};
       orders.forEach(o => {
-        o.items.forEach(i => {
-          const id = i.menuItem?.id;
-          const name = i.menuItem?.name || 'Unknown Item';
+        let items: any[] = [];
+        if (o.items && o.items.length > 0) {
+          items = o.items.map(i => ({
+            id: i.menuItem?.id || i.menuItemId,
+            name: i.menuItem?.name || 'Unknown Item',
+            quantity: i.quantity,
+            price: i.priceAtTime
+          }));
+        } else if (o.notes) {
+          try {
+            const parsed = JSON.parse(o.notes);
+            if (Array.isArray(parsed)) {
+              items = parsed.map(i => ({
+                id: i.id || i.sku || i.name,
+                name: i.name || 'Unknown Item',
+                quantity: i.quantity || 1,
+                price: i.price || 0
+              }));
+            }
+          } catch (e) {}
+        }
+
+        items.forEach(i => {
+          const id = i.id;
+          const name = i.name;
           if (!id) return;
           if (!itemSales[id]) itemSales[id] = { name, quantity: 0, revenue: 0 };
           itemSales[id].quantity += i.quantity;
-          itemSales[id].revenue += i.quantity * i.priceAtTime;
+          itemSales[id].revenue += i.quantity * i.price;
         });
       });
+
       const topItems = Object.values(itemSales)
         .sort((a, b) => b.quantity - a.quantity)
         .slice(0, 5);
@@ -60,14 +83,28 @@ export default function analyticsRoutes() {
       const salesChart = Object.keys(salesByDay).map(date => ({ date, revenue: salesByDay[date] }));
 
       // Daily Breakdown List (Grouped by date, sorted newest first)
-      const dailyMap: Record<string, { date: string, revenue: number, ordersCount: number }> = {};
+      const dailyMap: Record<string, { date: string, revenue: number, ordersCount: number, itemsCount: number }> = {};
       orders.forEach(o => {
         const dateKey = new Date(o.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
         if (!dailyMap[dateKey]) {
-          dailyMap[dateKey] = { date: dateKey, revenue: 0, ordersCount: 0 };
+          dailyMap[dateKey] = { date: dateKey, revenue: 0, ordersCount: 0, itemsCount: 0 };
         }
         dailyMap[dateKey].revenue += o.totalPrice;
         dailyMap[dateKey].ordersCount += 1;
+
+        // Sum up total dishes/items sold
+        let qtySum = 0;
+        if (o.items && o.items.length > 0) {
+          qtySum = o.items.reduce((sum, item) => sum + item.quantity, 0);
+        } else if (o.notes) {
+          try {
+            const parsed = JSON.parse(o.notes);
+            if (Array.isArray(parsed)) {
+              qtySum = parsed.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            }
+          } catch (e) {}
+        }
+        dailyMap[dateKey].itemsCount += qtySum || 1;
       });
 
       const dailyBreakdown = Object.values(dailyMap).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
