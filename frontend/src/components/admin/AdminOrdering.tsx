@@ -22,7 +22,7 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
   const { socket } = useSocket();
   const [cart, setCart] = useState<PosCartItem[]>([]);
   const [diningType, setDiningType] = useState<'DINE_IN' | 'TAKE_AWAY'>('DINE_IN');
-  const [tableNumber, setTableNumber] = useState<string>('1');
+  const [tableNumber, setTableNumber] = useState<string>('');
   
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string>('All');
@@ -30,6 +30,7 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [showNotesMap, setShowNotesMap] = useState<Record<string, boolean>>({});
   const [showDiningConfig, setShowDiningConfig] = useState(false);
+  const [validationError, setValidationError] = useState<string | null>(null);
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -180,6 +181,14 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
   // 4. Submit POS Order
   const handleSubmitOrder = () => {
     if (cart.length === 0 || !socket) return;
+
+    // Enforce table selection for Dine-in orders
+    if (diningType === 'DINE_IN' && !tableNumber) {
+      setShowDiningConfig(true);
+      setValidationError('Table selection is required for Dine-in!');
+      setTimeout(() => setValidationError(null), 4000);
+      return;
+    }
     
     const tableLabel = diningType === 'TAKE_AWAY' ? 'Takeaway' : tableNumber;
     
@@ -377,8 +386,12 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
                 {diningType === 'DINE_IN' ? 'Dine In' : 'Take Away'}
               </span>
               {diningType === 'DINE_IN' && (
-                <span className="text-[10px] font-black uppercase tracking-wider bg-gray-900 text-gray-200 border border-gray-850 px-2.5 py-1 rounded-xl">
-                  Table #{tableNumber}
+                <span className={`text-[10px] font-black uppercase tracking-wider border px-2.5 py-1 rounded-xl ${
+                  tableNumber 
+                    ? 'bg-gray-900 text-gray-200 border-gray-850' 
+                    : 'bg-red-500/10 text-red-400 border-red-500/20'
+                }`}>
+                  {tableNumber ? `Table #${tableNumber}` : 'Select Table'}
                 </span>
               )}
             </div>
@@ -415,11 +428,17 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
                 <div className="relative">
                   <select
                     value={tableNumber}
-                    onChange={(e) => setTableNumber(e.target.value)}
-                    className="w-full bg-gray-900 border border-gray-800 rounded-xl p-3 text-sm font-bold text-white focus:border-[#d4af37] outline-none appearance-none cursor-pointer"
+                    onChange={(e) => {
+                      setTableNumber(e.target.value);
+                      if (e.target.value) setValidationError(null);
+                    }}
+                    className={`w-full bg-gray-900 border rounded-xl p-3 text-sm font-bold text-white focus:border-[#d4af37] outline-none appearance-none cursor-pointer ${
+                      !tableNumber ? 'border-red-500/30 text-gray-500' : 'border-gray-800'
+                    }`}
                   >
+                    <option value="">-- Choose Table Number --</option>
                     {Array.from({ length: 20 }, (_, i) => String(i + 1)).map(t => (
-                      <option key={t} value={t}>Table #{t}</option>
+                      <option key={t} value={t} className="text-white">Table #{t}</option>
                     ))}
                   </select>
                   <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
@@ -512,6 +531,12 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
               <span className="block text-[10px] font-bold text-gray-500 mt-1">({(totalPrice * 4000).toLocaleString()} ៛)</span>
             </div>
           </div>
+
+          {validationError && (
+            <div className="bg-red-500/10 border border-red-500/30 text-red-450 p-3 rounded-xl text-xs font-black text-center animate-bounce">
+              ⚠️ {validationError}
+            </div>
+          )}
 
           <button
             disabled={cart.length === 0}
