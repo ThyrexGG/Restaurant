@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Printer, Download, Layout, Lock } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { QRCodeSVG } from 'qrcode.react';
 import { toPng } from 'html-to-image';
 
@@ -355,53 +355,76 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
 
         {analytics ? (
           <div className="space-y-8">
-            {/* Top Cards: Today's Metrics vs Lifetime */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-gray-900/80 p-6 rounded-3xl border border-[#d4af37]/40 shadow-xl relative overflow-hidden">
-                <div className="absolute top-3 right-3 bg-[#d4af37]/20 text-[#d4af37] text-[10px] font-black uppercase px-2.5 py-1 rounded-full border border-[#d4af37]/30">
-                  Today's Record
-                </div>
-                <p className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Today's Revenue</p>
-                <h3 className="text-3xl font-black text-[#d4af37]">${analytics.todayRevenue?.toFixed(2) || '0.00'}</h3>
-                <p className="text-xs font-bold text-gray-400 mt-1">({Math.round((analytics.todayRevenue || 0) * 4000).toLocaleString()} ៛)</p>
+            {/* Top Cards: Loyverse Financial Metrics Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+              {/* Gross sales */}
+              <div className="bg-gray-900/80 p-5 rounded-2xl border border-gray-800 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <span className="text-gray-400 text-[10px] font-extrabold uppercase tracking-wider block mb-2">Gross sales</span>
+                <span className="text-2xl font-black text-white block">${analytics.totalRevenue?.toFixed(2) || '0.00'}</span>
+                <span className="text-[10px] text-gray-500 font-bold block mt-1">Today: ${(analytics.todayRevenue || 0).toFixed(2)}</span>
+              </div>
+              
+              {/* Refunds */}
+              <div className="bg-gray-900/80 p-5 rounded-2xl border border-gray-800 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <span className="text-gray-400 text-[10px] font-extrabold uppercase tracking-wider block mb-2">Refunds</span>
+                <span className="text-2xl font-black text-gray-600 block">$0.00</span>
+                <span className="text-[10px] text-gray-600 font-bold block mt-1">$0.00 (0%)</span>
               </div>
 
-              <div className="bg-gray-900/80 p-6 rounded-3xl border border-blue-500/40 shadow-xl relative overflow-hidden">
-                <div className="absolute top-3 right-3 bg-blue-500/20 text-blue-400 text-[10px] font-black uppercase px-2.5 py-1 rounded-full border border-blue-500/30">
-                  Today's Record
-                </div>
-                <p className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Today's Orders</p>
-                <h3 className="text-3xl font-black text-white">{analytics.todayOrders || 0} <span className="text-sm font-normal text-gray-400">orders</span></h3>
+              {/* Discounts */}
+              <div className="bg-gray-900/80 p-5 rounded-2xl border border-gray-800 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <span className="text-gray-400 text-[10px] font-extrabold uppercase tracking-wider block mb-2">Discounts</span>
+                <span className="text-2xl font-black text-gray-600 block">$0.00</span>
+                <span className="text-[10px] text-gray-600 font-bold block mt-1">$0.00 (0%)</span>
               </div>
 
-              <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
-                <p className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Lifetime Total Revenue</p>
-                <h3 className="text-2xl font-bold text-gray-200">${analytics.totalRevenue?.toFixed(2) || '0.00'}</h3>
-                <p className="text-xs font-bold text-gray-500 mt-1">({Math.round((analytics.totalRevenue || 0) * 4000).toLocaleString()} ៛)</p>
+              {/* Net sales */}
+              <div className="bg-gray-900/80 p-5 rounded-2xl border border-[#54b948]/25 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <div className="absolute top-0 bottom-0 left-0 w-[4px] bg-[#54b948]" />
+                <span className="text-gray-400 text-[10px] font-extrabold uppercase tracking-wider block mb-2 pl-1">Net sales</span>
+                <span className="text-2xl font-black text-white block pl-1">${analytics.totalRevenue?.toFixed(2) || '0.00'}</span>
+                <span className="text-[10px] text-gray-500 font-bold block mt-1 pl-1">Today: ${(analytics.todayRevenue || 0).toFixed(2)}</span>
               </div>
 
-              <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
-                <p className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Lifetime Orders</p>
-                <h3 className="text-2xl font-bold text-gray-200">{analytics.totalOrders || 0} <span className="text-sm font-normal text-gray-500">total</span></h3>
+              {/* Gross profit */}
+              <div className="bg-gray-900/80 p-5 rounded-2xl border border-gray-800 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <span className="text-gray-400 text-[10px] font-extrabold uppercase tracking-wider block mb-2">Gross profit</span>
+                <span className="text-2xl font-black text-white block">${analytics.totalRevenue?.toFixed(2) || '0.00'}</span>
+                <span className="text-[10px] text-gray-500 font-bold block mt-1">Today: ${(analytics.todayRevenue || 0).toFixed(2)}</span>
               </div>
             </div>
 
             {/* Charts */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg h-96 flex flex-col">
-                <h3 className="text-xl font-bold mb-6 text-white">Revenue (Last 7 Days)</h3>
+                <h3 className="text-xl font-bold mb-6 text-white font-['Playfair_Display']">Gross sales (Last 7 Days)</h3>
                 <div className="flex-1 w-full h-full">
                   <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={analytics.salesChart}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                      <XAxis dataKey="date" stroke="#888" />
-                      <YAxis stroke="#888" />
+                    <AreaChart data={analytics.salesChart}>
+                      <defs>
+                        <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="#54b948" stopOpacity={0.4}/>
+                          <stop offset="95%" stopColor="#54b948" stopOpacity={0}/>
+                        </linearGradient>
+                      </defs>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#222" vertical={false} />
+                      <XAxis dataKey="date" stroke="#666" fontSize={11} tickLine={false} />
+                      <YAxis stroke="#666" fontSize={11} tickLine={false} axisLine={false} />
                       <RechartsTooltip
                         contentStyle={{ backgroundColor: '#111', borderColor: '#333', color: '#fff', borderRadius: '8px' }}
-                        itemStyle={{ color: '#d4af37' }}
+                        itemStyle={{ color: '#54b948' }}
                       />
-                      <Line type="monotone" dataKey="revenue" stroke="#d4af37" strokeWidth={3} dot={{ fill: '#d4af37', r: 6 }} activeDot={{ r: 8 }} />
-                    </LineChart>
+                      <Area 
+                        type="monotone" 
+                        dataKey="revenue" 
+                        stroke="#54b948" 
+                        strokeWidth={3} 
+                        fillOpacity={1} 
+                        fill="url(#colorRevenue)" 
+                        dot={{ fill: '#54b948', r: 4 }} 
+                        activeDot={{ r: 6 }} 
+                      />
+                    </AreaChart>
                   </ResponsiveContainer>
                 </div>
               </div>
@@ -435,22 +458,38 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
                 <div className="overflow-x-auto">
                   <table className="w-full text-left">
                     <thead>
-                      <tr className="border-b border-gray-800 text-gray-400 text-sm">
+                      <tr className="border-b border-gray-800 text-gray-400 text-[10px] font-extrabold uppercase tracking-wider">
                         <th className="py-3 px-4">Date</th>
-                        <th className="py-3 px-4 text-center">Orders Count</th>
-                        <th className="py-3 px-4 text-right">Daily Total Revenue</th>
+                        <th className="py-3 px-4 text-right">Gross sales</th>
+                        <th className="py-3 px-4 text-right">Refunds</th>
+                        <th className="py-3 px-4 text-right">Discounts</th>
+                        <th className="py-3 px-4 text-right">Net sales</th>
+                        <th className="py-3 px-4 text-right">Cost of goods</th>
+                        <th className="py-3 px-4 text-right text-[#54b948]">Gross profit</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {analytics.dailyBreakdown.map((row: any, idx: number) => (
-                        <tr key={idx} className="border-b border-gray-800/50 hover:bg-gray-800/30">
-                          <td className="py-3.5 px-4 font-bold text-gray-200">{row.date}</td>
-                          <td className="py-3.5 px-4 text-center font-bold text-gray-300">{row.ordersCount} orders</td>
-                          <td className="py-3.5 px-4 font-black text-[#d4af37] text-right">
-                            ${row.revenue.toFixed(2)} <span className="text-xs text-gray-400 font-normal">({Math.round(row.revenue * 4000).toLocaleString()} ៛)</span>
-                          </td>
-                        </tr>
-                      ))}
+                      {analytics.dailyBreakdown.map((row: any, idx: number) => {
+                        const revStr = `$${row.revenue.toFixed(2)}`;
+                        const rielStr = `(${(row.revenue * 4000).toLocaleString()} ៛)`;
+                        return (
+                          <tr key={idx} className="border-b border-gray-850 hover:bg-gray-800/20 text-xs">
+                            <td className="py-3.5 px-4 font-bold text-gray-200">{row.date}</td>
+                            <td className="py-3.5 px-4 text-right text-gray-300 font-bold">
+                              {revStr} <span className="block text-[9px] text-gray-500 font-normal mt-0.5">{rielStr}</span>
+                            </td>
+                            <td className="py-3.5 px-4 text-right text-gray-600 font-medium">$0.00</td>
+                            <td className="py-3.5 px-4 text-right text-gray-600 font-medium">$0.00</td>
+                            <td className="py-3.5 px-4 text-right text-gray-300 font-bold">
+                              {revStr} <span className="block text-[9px] text-gray-500 font-normal mt-0.5">{rielStr}</span>
+                            </td>
+                            <td className="py-3.5 px-4 text-right text-gray-600 font-medium">$0.00</td>
+                            <td className="py-3.5 px-4 text-right text-[#54b948] font-black">
+                              {revStr} <span className="block text-[9px] text-emerald-600/80 font-semibold mt-0.5">{rielStr}</span>
+                            </td>
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>
