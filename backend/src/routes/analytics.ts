@@ -136,5 +136,23 @@ export default function analyticsRoutes() {
     }
   });
 
+  router.delete('/order/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+      // Delete associated items first to satisfy foreign key constraints
+      await prisma.orderItem.deleteMany({
+        where: { orderId: id }
+      });
+      // Delete the order record
+      await prisma.order.delete({
+        where: { id }
+      });
+      res.json({ success: true, message: `Order ${id} successfully deleted.` });
+    } catch (error) {
+      console.error(`Failed to delete order ${id}:`, error);
+      res.status(500).json({ error: 'Failed to delete order' });
+    }
+  });
+
   return router;
 }

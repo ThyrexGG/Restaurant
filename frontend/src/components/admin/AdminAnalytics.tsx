@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Printer, Download, Layout, Lock, ChevronDown, ChevronUp, Clock, Utensils } from 'lucide-react';
+import { Printer, Download, Layout, Lock, ChevronDown, ChevronUp, Clock, Utensils, Trash2 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
 import { QRCodeSVG } from 'qrcode.react';
 import { toPng } from 'html-to-image';
@@ -87,6 +87,31 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
       timestamp: order.createdAt
     };
     printOrderReceipt(formattedOrder);
+  };
+
+  const handleDeleteOrder = async (orderId: string) => {
+    const passcode = window.prompt('Enter Admin Passcode to delete this order:');
+    if (!passcode) return;
+    if (passcode !== 'Bkr@0168') {
+      alert('Unauthorized: Invalid passcode.');
+      return;
+    }
+
+    if (!window.confirm('Are you sure you want to permanently delete this order? This action cannot be undone.')) return;
+
+    try {
+      const apiHost = backendUrl || import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+      const res = await fetch(`${apiHost}/api/analytics/order/${orderId}`, { method: 'DELETE' });
+      if (res.ok) {
+        alert('Order deleted successfully!');
+        window.location.reload();
+      } else {
+        alert('Failed to delete order.');
+      }
+    } catch (err) {
+      console.error('Failed to delete order:', err);
+      alert('Failed to delete order.');
+    }
   };
 
   const handleDownloadCard = async (tableNum: number) => {
@@ -660,7 +685,7 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
                                       <div className="text-[9px] text-gray-500 font-mono">
                                         Full ID: {order.id}
                                       </div>
-                                      <div className="pt-2">
+                                      <div className="pt-2 flex flex-col sm:flex-row gap-2">
                                         <button
                                           onClick={(e) => {
                                             e.stopPropagation();
@@ -669,6 +694,15 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
                                           className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-xl flex items-center justify-center gap-2 transition-all border border-gray-700 text-[10px] w-full sm:w-auto"
                                         >
                                           <Printer size={12} /> Reprint Receipt Ticket
+                                        </button>
+                                        <button
+                                          onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleDeleteOrder(order.id);
+                                          }}
+                                          className="bg-red-950/40 hover:bg-red-900/60 text-red-400 font-bold py-2 px-4 rounded-xl flex items-center justify-center gap-2 transition-all border border-red-900/40 text-[10px] w-full sm:w-auto"
+                                        >
+                                          <Trash2 size={12} /> Delete Order
                                         </button>
                                       </div>
                                     </div>
