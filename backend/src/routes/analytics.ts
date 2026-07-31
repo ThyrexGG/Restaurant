@@ -22,8 +22,8 @@ export default function analyticsRoutes() {
       const todayRevenue = todayOrdersList.reduce((sum, o) => sum + o.totalPrice, 0);
       const todayOrders = todayOrdersList.length;
 
-      // Recent orders (last 10)
-      const recentOrders = [...orders].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 10);
+      // Recent orders (complete history sorted newest first)
+      const recentOrders = [...orders].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
       // Top Selling Items
       const itemSales: Record<string, { name: string, quantity: number, revenue: number }> = {};

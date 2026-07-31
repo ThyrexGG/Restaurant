@@ -1,8 +1,9 @@
 import React, { useState, useMemo } from 'react';
-import { Printer, Download, Layout, Lock } from 'lucide-react';
+import { Printer, Download, Layout, Lock, ChevronDown, ChevronUp, Clock, Utensils } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { QRCodeSVG } from 'qrcode.react';
 import { toPng } from 'html-to-image';
+import { printOrderReceipt } from '../../utils/printer';
 
 interface AdminAnalyticsProps {
   analytics: any;
@@ -33,6 +34,60 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
     });
     return groups;
   }, [analytics]);
+
+  const [selectedHistoryDate, setSelectedHistoryDate] = useState<string>('');
+  const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
+
+  const availableDates = useMemo(() => {
+    return Object.keys(ordersGroupedByDay);
+  }, [ordersGroupedByDay]);
+
+  React.useEffect(() => {
+    if (availableDates.length > 0 && !selectedHistoryDate) {
+      setSelectedHistoryDate(availableDates[0]);
+    }
+  }, [availableDates, selectedHistoryDate]);
+
+  const getOrderItemsList = (order: any) => {
+    if (order.items && order.items.length > 0) {
+      return order.items.map((i: any) => ({
+        name: i.menuItem?.name || i.name || 'Unknown',
+        quantity: i.quantity || 1,
+        price: i.priceAtTime || i.price || 0,
+        notes: i.notes || ''
+      }));
+    }
+    
+    if (order.notes) {
+      try {
+        const parsed = JSON.parse(order.notes);
+        if (Array.isArray(parsed)) {
+          return parsed.map((i: any) => ({
+            name: i.name || 'Unknown',
+            quantity: i.quantity || 1,
+            price: i.price || 0,
+            notes: i.notes || ''
+          }));
+        }
+      } catch (e) {
+        // Not JSON notes
+      }
+    }
+    return [];
+  };
+
+  const handleReprint = (order: any) => {
+    const items = getOrderItemsList(order);
+    const formattedOrder = {
+      id: order.id,
+      table: order.table || 'N/A',
+      type: order.type || order.diningType || 'DINE_IN',
+      items: items,
+      total: order.totalPrice || order.total || 0,
+      timestamp: order.createdAt
+    };
+    printOrderReceipt(formattedOrder);
+  };
 
   const handleDownloadCard = async (tableNum: number) => {
     const cardElement = document.getElementById(`table-card-${tableNum}`);
@@ -515,46 +570,131 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
               </div>
             )}
 
-            {/* Recent Orders List grouped by day */}
+            {/* Recent Orders List grouped and selectable by day */}
             <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
-              <h3 className="text-xl font-bold mb-6 text-white font-['Playfair_Display']">Recent Order History</h3>
-              <div className="overflow-x-auto max-h-[600px] hide-scrollbar border border-gray-800 rounded-2xl">
-                <table className="w-full text-left">
-                  <thead>
-                    <tr className="border-b border-gray-800 text-gray-400 text-xs uppercase tracking-wider bg-gray-950/40">
-                      <th className="py-3.5 px-5">Time</th>
-                      <th className="py-3.5 px-5">Order ID</th>
-                      <th className="py-3.5 px-5 text-right">Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {Object.keys(ordersGroupedByDay).map((day) => (
-                      <React.Fragment key={day}>
-                        {/* Day Section Header */}
-                        <tr className="bg-gray-950/85 border-t border-b border-gray-800/80">
-                          <td colSpan={3} className="py-3 px-5 text-xs font-black text-[#d4af37] tracking-wider">
-                            📅 {day}
-                          </td>
-                        </tr>
-                        {/* Order Rows under this Day */}
-                        {ordersGroupedByDay[day].map((order: any) => (
-                          <tr key={order.id} className="border-b border-gray-850 hover:bg-gray-800/20 text-xs transition-colors">
-                            <td className="py-3.5 px-5 whitespace-nowrap text-gray-300 font-bold">
-                              {new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true })}
-                            </td>
-                            <td className="py-3.5 px-5 text-[10px] font-mono text-gray-500 select-all" title={order.id}>
-                              {order.id}
-                            </td>
-                            <td className="py-3.5 px-5 font-black text-[#d4af37] text-right whitespace-nowrap">
-                              ${order.totalPrice.toFixed(2)} <span className="text-[10px] text-gray-400 font-normal ml-1">({Math.round(order.totalPrice * 4000).toLocaleString()} ៛)</span>
-                            </td>
-                          </tr>
-                        ))}
-                      </React.Fragment>
-                    ))}
-                  </tbody>
-                </table>
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                <div>
+                  <h3 className="text-xl font-bold text-white font-['Playfair_Display']">Order History</h3>
+                  <p className="text-xs text-gray-400 mt-1">Select a date to view orders. Click any order row to inspect details.</p>
+                </div>
+                {availableDates.length > 0 && (
+                  <div className="relative w-full sm:w-64">
+                    <select
+                      value={selectedHistoryDate}
+                      onChange={(e) => {
+                        setSelectedHistoryDate(e.target.value);
+                        setSelectedOrderId(null);
+                      }}
+                      className="w-full bg-gray-950 border border-gray-800 hover:border-gray-700 text-[#d4af37] font-bold py-2.5 px-4 rounded-xl text-xs outline-none transition-all cursor-pointer appearance-none pr-10"
+                    >
+                      {availableDates.map(date => (
+                        <option key={date} value={date}>{date}</option>
+                      ))}
+                    </select>
+                    <ChevronDown size={14} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                  </div>
+                )}
               </div>
+
+              {availableDates.length === 0 ? (
+                <div className="text-center py-12 text-gray-500">
+                  <p className="text-sm font-bold">No Order History Found</p>
+                </div>
+              ) : (
+                <div className="overflow-x-auto max-h-[600px] hide-scrollbar border border-gray-800 rounded-2xl">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="border-b border-gray-800 text-gray-400 text-xs uppercase tracking-wider bg-gray-950/40">
+                        <th className="py-3 px-5">Time</th>
+                        <th className="py-3 px-5">Order ID</th>
+                        <th className="py-3 px-5 text-right">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {(ordersGroupedByDay[selectedHistoryDate] || []).map((order: any) => {
+                        const isExpanded = selectedOrderId === order.id;
+                        const items = getOrderItemsList(order);
+                        return (
+                          <React.Fragment key={order.id}>
+                            <tr 
+                              onClick={() => setSelectedOrderId(isExpanded ? null : order.id)}
+                              className={`border-b border-gray-850 hover:bg-gray-800/20 text-xs transition-colors cursor-pointer ${isExpanded ? 'bg-gray-800/10' : ''}`}
+                            >
+                              <td className="py-3.5 px-5 whitespace-nowrap text-gray-300 font-bold flex items-center gap-2">
+                                {isExpanded ? <ChevronUp size={12} className="text-[#d4af37]" /> : <ChevronDown size={12} className="text-gray-500" />}
+                                {new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true })}
+                              </td>
+                              <td className="py-3.5 px-5 text-[10px] font-mono text-gray-500 select-all" title={order.id}>
+                                {order.id.slice(-8)} (expand)
+                              </td>
+                              <td className="py-3.5 px-5 font-black text-[#d4af37] text-right whitespace-nowrap">
+                                ${order.totalPrice.toFixed(2)} <span className="text-[10px] text-gray-400 font-normal ml-1">({Math.round(order.totalPrice * 4000).toLocaleString()} ៛)</span>
+                              </td>
+                            </tr>
+                            
+                            {isExpanded && (
+                              <tr className="bg-black/40 border-b border-gray-850">
+                                <td colSpan={3} className="py-4 px-5">
+                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                                    {/* Left Details */}
+                                    <div className="space-y-2 border-r border-gray-850/80 pr-4">
+                                      <div className="flex items-center gap-2 text-gray-400">
+                                        <Clock size={12} />
+                                        <span>Ordered: {new Date(order.createdAt).toLocaleString()}</span>
+                                      </div>
+                                      <div className="flex items-center gap-2 text-gray-400">
+                                        <Utensils size={12} />
+                                        <span>Type: <strong className="text-gray-200">{order.diningType || order.type || 'DINE_IN'}</strong> {order.table ? `(Table ${order.table})` : ''}</span>
+                                      </div>
+                                      <div className="text-[9px] text-gray-500 font-mono">
+                                        Full ID: {order.id}
+                                      </div>
+                                      <div className="pt-2">
+                                        <button
+                                          onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleReprint(order);
+                                          }}
+                                          className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-xl flex items-center justify-center gap-2 transition-all border border-gray-700 text-[10px] w-full sm:w-auto"
+                                        >
+                                          <Printer size={12} /> Reprint Receipt Ticket
+                                        </button>
+                                      </div>
+                                    </div>
+                                    
+                                    {/* Right Items */}
+                                    <div className="space-y-2">
+                                      <span className="font-bold text-gray-400 block mb-1">Ordered Items ({items.length}):</span>
+                                      <div className="bg-black/50 p-3 rounded-xl space-y-2 border border-gray-850/80 max-h-[150px] overflow-y-auto">
+                                        {items.length === 0 ? (
+                                          <span className="text-gray-500 italic block">No item details saved.</span>
+                                        ) : (
+                                          items.map((it: any, idx: number) => (
+                                            <div key={idx} className="flex justify-between items-start text-[11px] border-b border-gray-800/50 last:border-0 pb-1.5 last:pb-0">
+                                              <div>
+                                                <span className="font-extrabold text-blue-400 mr-1.5">{it.quantity}x</span>
+                                                <span className="font-bold text-gray-200">{it.name}</span>
+                                                {it.notes && (
+                                                  <span className="block text-[10px] text-yellow-500/80 italic ml-5">Note: {it.notes}</span>
+                                                )}
+                                              </div>
+                                              <span className="font-bold text-gray-400">${(it.price * it.quantity).toFixed(2)}</span>
+                                            </div>
+                                          ))
+                                        )}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            )}
+                          </React.Fragment>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
