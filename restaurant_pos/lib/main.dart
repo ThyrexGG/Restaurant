@@ -35,7 +35,7 @@ class RestaurantPosApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Restaurant POS',
+        title: 'Best Khmer Restaurant',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.darkTheme,
         scrollBehavior: MyCustomScrollBehavior(),

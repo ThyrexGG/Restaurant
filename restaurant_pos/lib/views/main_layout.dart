@@ -58,26 +58,28 @@ class _MainLayoutState extends State<MainLayout> {
     final bool isWideScreen = screenWidth > 800;
 
     return Scaffold(
-      body: Row(
-        children: [
-          // Sidebar (only on desktop/tablet)
-          if (isWideScreen) _buildSidebar(posProvider, orderProvider),
+      body: SafeArea(
+        child: Row(
+          children: [
+            // Sidebar (only on desktop/tablet)
+            if (isWideScreen) _buildSidebar(posProvider, orderProvider),
 
-          // Main Content Area
-          Expanded(
-            child: Column(
-              children: [
-                // Top Header Panel
-                _buildHeader(posProvider, orderProvider, isWideScreen),
-                
-                // Screen Content
-                Expanded(
-                  child: screens[posProvider.activeTabIndex],
-                ),
-              ],
+            // Main Content Area
+            Expanded(
+              child: Column(
+                children: [
+                  // Top Header Panel
+                  _buildHeader(posProvider, orderProvider, isWideScreen),
+                  
+                  // Screen Content
+                  Expanded(
+                    child: screens[posProvider.activeTabIndex],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       // Drawer on smaller screens
       drawer: !isWideScreen ? Drawer(
@@ -164,15 +166,23 @@ class _MainLayoutState extends State<MainLayout> {
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(6),
             decoration: BoxDecoration(
-              color: AppTheme.primaryAccent.withOpacity(0.15),
+              color: AppTheme.primaryAccent.withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: AppTheme.primaryAccent.withOpacity(0.2),
+                width: 1,
+              ),
             ),
-            child: const Icon(
-              Icons.restaurant_rounded,
-              color: AppTheme.primaryAccent,
-              size: 28,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                'assets/images/logo.png',
+                width: 32,
+                height: 32,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           const SizedBox(width: 12),
@@ -181,7 +191,7 @@ class _MainLayoutState extends State<MainLayout> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Thyrex Restaurant',
+                  'Best Khmer Restaurant',
                   style: TextStyle(
                     color: AppTheme.textPrimary,
                     fontSize: 16,

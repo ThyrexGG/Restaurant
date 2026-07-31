@@ -8,7 +8,7 @@ class ApiService {
   // Point this to your frontend server where the public/images folder is hosted.
   // In local development, run the React frontend (npm run dev) and use http://localhost:5173.
   // In production, set this to your deployed website URL (e.g. https://your-site.vercel.app).
-  static const String imageBaseUrl = 'http://localhost:5173';
+  static const String imageBaseUrl = 'https://restaurant-three-chi-91.vercel.app';
 
   Future<List<MenuItem>> fetchMenu() async {
     try {

@@ -257,6 +257,7 @@ class MenuItemCard extends StatelessWidget {
                   ? Image.network(
                       imageUrl,
                       fit: BoxFit.cover,
+                      cacheWidth: 400, // Optimize memory usage by decoding at max 400px width
                       errorBuilder: (context, error, stackTrace) => _buildFallbackImage(),
                       loadingBuilder: (context, child, loadingProgress) {
                         if (loadingProgress == null) return child;
