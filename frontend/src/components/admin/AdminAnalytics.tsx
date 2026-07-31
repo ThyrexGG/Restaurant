@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Printer, Download, Layout, Lock, ChevronDown, ChevronUp, Clock, Utensils } from 'lucide-react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
 import { QRCodeSVG } from 'qrcode.react';
 import { toPng } from 'html-to-image';
 import { printOrderReceipt } from '../../utils/printer';
@@ -470,9 +470,9 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
 
             {/* Charts */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg h-96 flex flex-col">
-                <h3 className="text-xl font-bold mb-6 text-white font-['Playfair_Display']">Gross sales (Last 7 Days)</h3>
-                <div className="flex-1 w-full h-full">
+              <div className="bg-gray-900/60 p-5 sm:p-6 rounded-3xl border border-gray-800 shadow-lg h-[320px] sm:h-96 flex flex-col">
+                <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-white font-['Playfair_Display']">Gross sales (Last 7 Days)</h3>
+                <div className="flex-1 w-full h-full min-h-0">
                   <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={analytics.salesChart}>
                       <defs>
@@ -482,8 +482,8 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
                         </linearGradient>
                       </defs>
                       <CartesianGrid strokeDasharray="3 3" stroke="#222" vertical={false} />
-                      <XAxis dataKey="date" stroke="#666" fontSize={11} tickLine={false} />
-                      <YAxis stroke="#666" fontSize={11} tickLine={false} axisLine={false} />
+                      <XAxis dataKey="date" stroke="#666" fontSize={10} tickLine={false} />
+                      <YAxis stroke="#666" fontSize={10} tickLine={false} axisLine={false} />
                       <RechartsTooltip
                         contentStyle={{ backgroundColor: '#111', borderColor: '#333', color: '#fff', borderRadius: '8px' }}
                         itemStyle={{ color: '#54b948' }}
@@ -503,21 +503,38 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
                 </div>
               </div>
 
-              <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg h-96 flex flex-col">
-                <h3 className="text-xl font-bold mb-6 text-[#d4af37]">Top Selling Items</h3>
-                <div className="flex-1 w-full h-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={analytics.topItems} layout="vertical" margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#333" horizontal={false} />
-                      <XAxis type="number" stroke="#888" />
-                      <YAxis dataKey="name" type="category" stroke="#fff" width={120} tick={{ fill: '#ccc', fontSize: 12 }} />
-                      <RechartsTooltip
-                        contentStyle={{ backgroundColor: '#111', borderColor: '#333', color: '#fff', borderRadius: '8px' }}
-                        itemStyle={{ color: '#d4af37' }}
-                      />
-                      <Bar dataKey="quantity" fill="#d4af37" radius={[0, 4, 4, 0]} />
-                    </BarChart>
-                  </ResponsiveContainer>
+              <div className="bg-gray-900/60 p-5 sm:p-6 rounded-3xl border border-gray-800 shadow-lg h-[320px] sm:h-96 flex flex-col">
+                <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-white font-['Playfair_Display']">Top Selling Items</h3>
+                <div className="flex-1 w-full h-full overflow-y-auto pr-1 space-y-4">
+                  {analytics.topItems && analytics.topItems.length > 0 ? (
+                    analytics.topItems.map((item: any, idx: number) => {
+                      const maxQty = analytics.topItems[0]?.quantity || 1;
+                      const pct = Math.max(8, (item.quantity / maxQty) * 100);
+                      return (
+                        <div key={idx} className="space-y-1.5">
+                          <div className="flex justify-between items-center text-xs font-bold">
+                            <div className="flex items-center gap-2 truncate max-w-[70%]">
+                              <span className="w-5 h-5 rounded-md bg-gray-800 text-gray-400 font-extrabold flex items-center justify-center text-[10px] flex-shrink-0">
+                                #{idx + 1}
+                              </span>
+                              <span className="text-gray-200 truncate">{item.name}</span>
+                            </div>
+                            <span className="text-[#54b948] font-black whitespace-nowrap">{item.quantity} sold</span>
+                          </div>
+                          <div className="w-full bg-gray-950/80 h-3 rounded-full overflow-hidden border border-gray-850 shadow-inner relative">
+                            <div 
+                              className="h-full bg-gradient-to-r from-emerald-600 to-[#54b948] rounded-full transition-all duration-700 shadow-[0_0_8px_rgba(84,185,72,0.4)]" 
+                              style={{ width: `${pct}%` }}
+                            />
+                          </div>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <div className="flex flex-col items-center justify-center h-full text-gray-500 text-sm">
+                      No sales data available.
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
