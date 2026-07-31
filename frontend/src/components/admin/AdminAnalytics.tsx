@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Printer, Download, Layout, Lock } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { QRCodeSVG } from 'qrcode.react';
@@ -14,6 +14,25 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
   const [showPreview, setShowPreview] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   const [orientation, setOrientation] = useState<'landscape' | 'portrait'>('landscape');
+
+  const ordersGroupedByDay = useMemo(() => {
+    if (!analytics || !analytics.recentOrders) return {};
+    
+    const groups: Record<string, any[]> = {};
+    analytics.recentOrders.forEach((order: any) => {
+      const dateStr = new Date(order.createdAt).toLocaleDateString([], { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+      if (!groups[dateStr]) {
+        groups[dateStr] = [];
+      }
+      groups[dateStr].push(order);
+    });
+    return groups;
+  }, [analytics]);
 
   const handleDownloadCard = async (tableNum: number) => {
     const cardElement = document.getElementById(`table-card-${tableNum}`);
@@ -496,27 +515,42 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
               </div>
             )}
 
-            {/* Recent Orders List */}
+            {/* Recent Orders List grouped by day */}
             <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg">
-              <h3 className="text-xl font-bold mb-6 text-white">Recent Order History</h3>
-              <div className="overflow-x-auto">
+              <h3 className="text-xl font-bold mb-6 text-white font-['Playfair_Display']">Recent Order History</h3>
+              <div className="overflow-x-auto max-h-[600px] hide-scrollbar border border-gray-800 rounded-2xl">
                 <table className="w-full text-left">
                   <thead>
-                    <tr className="border-b border-gray-800 text-gray-400">
-                      <th className="py-3 px-4">Date & Time</th>
-                      <th className="py-3 px-4">Order ID</th>
-                      <th className="py-3 px-4 text-right">Total</th>
+                    <tr className="border-b border-gray-800 text-gray-400 text-xs uppercase tracking-wider bg-gray-950/40">
+                      <th className="py-3.5 px-5">Time</th>
+                      <th className="py-3.5 px-5">Order ID</th>
+                      <th className="py-3.5 px-5 text-right">Total</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {analytics.recentOrders?.map((order: any) => (
-                      <tr key={order.id} className="border-b border-gray-800/50 hover:bg-gray-800/30">
-                        <td className="py-3 px-4 whitespace-nowrap text-sm text-gray-300">{new Date(order.createdAt).toLocaleString()}</td>
-                        <td className="py-3 px-4 text-xs font-mono text-gray-500">{order.id}</td>
-                        <td className="py-3 px-4 font-bold text-[#d4af37] text-right">
-                          ${order.totalPrice.toFixed(2)} <span className="text-xs text-gray-400 font-normal">({Math.round(order.totalPrice * 4000).toLocaleString()} ៛)</span>
-                        </td>
-                      </tr>
+                    {Object.keys(ordersGroupedByDay).map((day) => (
+                      <React.Fragment key={day}>
+                        {/* Day Section Header */}
+                        <tr className="bg-gray-950/85 border-t border-b border-gray-800/80">
+                          <td colSpan={3} className="py-3 px-5 text-xs font-black text-[#d4af37] tracking-wider">
+                            📅 {day}
+                          </td>
+                        </tr>
+                        {/* Order Rows under this Day */}
+                        {ordersGroupedByDay[day].map((order: any) => (
+                          <tr key={order.id} className="border-b border-gray-850 hover:bg-gray-800/20 text-xs transition-colors">
+                            <td className="py-3.5 px-5 whitespace-nowrap text-gray-300 font-bold">
+                              {new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true })}
+                            </td>
+                            <td className="py-3.5 px-5 text-[10px] font-mono text-gray-500 select-all" title={order.id}>
+                              {order.id}
+                            </td>
+                            <td className="py-3.5 px-5 font-black text-[#d4af37] text-right whitespace-nowrap">
+                              ${order.totalPrice.toFixed(2)} <span className="text-[10px] text-gray-400 font-normal ml-1">({Math.round(order.totalPrice * 4000).toLocaleString()} ៛)</span>
+                            </td>
+                          </tr>
+                        ))}
+                      </React.Fragment>
                     ))}
                   </tbody>
                 </table>
