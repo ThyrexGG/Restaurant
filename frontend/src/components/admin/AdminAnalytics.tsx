@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Printer, Download, Trash2, Layout } from 'lucide-react';
+import { Printer, Download, Layout, Lock } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { QRCodeSVG } from 'qrcode.react';
 import { toPng } from 'html-to-image';
@@ -50,6 +50,13 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
   };
 
   const handleClearOrders = async () => {
+    const passcode = window.prompt('Enter Admin Passcode to unlock clearing history:');
+    if (!passcode) return;
+    if (passcode !== 'Bkr@0168') {
+      alert('Unauthorized: Invalid passcode.');
+      return;
+    }
+
     if (!window.confirm('Are you sure you want to clear all order history from the system? This action cannot be undone.')) return;
     
     try {
@@ -499,10 +506,10 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
                 </div>
                 <button
                   onClick={handleClearOrders}
-                  className="bg-red-500/20 text-red-400 border border-red-500/50 font-bold px-8 py-4 rounded-xl hover:bg-red-500/30 transition-colors shadow-lg flex items-center justify-center gap-3 hover:scale-105"
+                  className="bg-red-500/10 text-red-400 border border-red-500/30 font-bold px-8 py-4 rounded-xl hover:bg-red-500/20 transition-colors shadow-lg flex items-center justify-center gap-3 hover:scale-105"
                 >
-                  <Trash2 size={20} />
-                  Clear All Order History
+                  <Lock size={20} className="text-red-400" />
+                  Clear All Order History (Passcode Locked)
                 </button>
               </div>
             </div>
