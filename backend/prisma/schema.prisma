@@ -110,3 +110,9 @@ model InventoryItem {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model QRScanLog {
+  id        String   @id @default(uuid())
+  tableNum  String
+  scannedAt DateTime @default(now())
+}

@@ -742,6 +742,55 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
               )}
             </div>
 
+            {/* QR Code Scans Tracking */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+              {/* Summary Card */}
+              <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg flex flex-col justify-between col-span-1">
+                <div>
+                  <h3 className="text-xl font-bold text-white font-['Playfair_Display'] mb-1">QR Code Usage</h3>
+                  <p className="text-xs text-gray-400 mb-6">Unique menu scans logged from customer tables.</p>
+                </div>
+                <div className="flex flex-col items-center justify-center p-6 bg-black/40 rounded-2xl border border-gray-850/80">
+                  <span className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-2">Total Menu Scans</span>
+                  <span className="text-5xl font-black text-[#d4af37]">{analytics.totalQrScans || 0}</span>
+                  <span className="text-[10px] text-gray-400 font-bold block mt-3">Active Session Scans Only</span>
+                </div>
+              </div>
+
+              {/* Table Breakdown Table */}
+              <div className="bg-gray-900/60 p-6 rounded-3xl border border-gray-800 shadow-lg col-span-2">
+                <h3 className="text-xl font-bold text-white font-['Playfair_Display'] mb-1">Scans by Table</h3>
+                <p className="text-xs text-gray-400 mb-4">Breakdown of customer menu scans per table number.</p>
+                
+                <div className="overflow-x-auto max-h-[220px] hide-scrollbar border border-gray-800 rounded-2xl">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="border-b border-gray-800 text-gray-400 text-[10px] font-extrabold uppercase tracking-wider bg-gray-950/40">
+                        <th className="py-2.5 px-4">Table Number</th>
+                        <th className="py-2.5 px-4 text-right">Unique Scans</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {analytics.qrScansByTable && analytics.qrScansByTable.length > 0 ? (
+                        analytics.qrScansByTable.map((row: any, idx: number) => (
+                          <tr key={idx} className="border-b border-gray-850 hover:bg-gray-800/10 text-xs">
+                            <td className="py-2.5 px-4 font-bold text-gray-200">Table {row.tableNum}</td>
+                            <td className="py-2.5 px-4 text-right text-[#d4af37] font-black">{row.count} scan(s)</td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan={2} className="py-6 text-center text-gray-500 text-xs italic">
+                            No QR scans recorded yet.
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
               <div className="bg-gray-900/60 p-8 rounded-3xl border border-gray-800 shadow-lg flex flex-col justify-between">
                 <div>

@@ -15,7 +15,9 @@ class PosView extends StatelessWidget {
   Widget build(BuildContext context) {
     final posProvider = Provider.of<PosProvider>(context);
     final double width = MediaQuery.of(context).size.width;
-    final bool showSplitScreen = width > 1000;
+    final double height = MediaQuery.of(context).size.height;
+    // Split screen on tablets (width > 720) or landscape phones (width > 600 && height < 500)
+    final bool showSplitScreen = width > 720 || (width > 600 && height < 500);
 
     if (posProvider.isLoading && posProvider.menuItems.isEmpty) {
       return const Center(
@@ -237,17 +239,20 @@ class MenuItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final cartProvider = Provider.of<CartProvider>(context, listen: false);
     final imageUrl = _getFullImageUrl(item.image);
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
+    final bool showSplitScreen = width > 720 || (width > 600 && height < 500);
 
     return InkWell(
       onTap: () {
-        cartProvider.addItem(item);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('${item.name} added to cart'),
-            duration: const Duration(milliseconds: 600),
-            backgroundColor: AppTheme.primaryAccent,
-          ),
-        );
+        if (_itemNeedsOptions(item)) {
+          _showItemOptionsDialog(context, item, cartProvider, showSplitScreen);
+        } else {
+          cartProvider.addItem(item);
+          if (!showSplitScreen) {
+            _showGlassmorphicToast(context, item.name);
+          }
+        }
       },
       borderRadius: BorderRadius.circular(16),
       child: Container(
@@ -672,6 +677,502 @@ class _CartPaneState extends State<CartPane> {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+// Check if item needs options (meat selections, drinks customizations, fried egg add-on)
+bool _itemNeedsOptions(MenuItem item) {
+  final nameLower = item.name.toLowerCase();
+  final catLower = (item.category?.name ?? '').toLowerCase();
+
+  // 1. Check for parentheses options like (Chicken/Fish/Tofu)
+  final optionsMatch = RegExp(r'\(([^)]+)\)').firstMatch(item.name);
+  if (optionsMatch != null && optionsMatch.group(1)!.contains('/')) {
+    return true;
+  }
+
+  // 2. Check if it's a drink
+  final isDrink = catLower.contains('drink') ||
+      catLower.contains('beverage') ||
+      catLower.contains('smoothie') ||
+      catLower.contains('juice') ||
+      catLower.contains('macchiato') ||
+      catLower.contains('coffee') ||
+      catLower.contains('tea') ||
+      catLower.contains('cocktail') ||
+      catLower.contains('iced') ||
+      nameLower.contains('smoothie') ||
+      nameLower.contains('juice') ||
+      nameLower.contains('tea') ||
+      nameLower.contains('coffee') ||
+      nameLower.contains('macchiato') ||
+      nameLower.contains('soda') ||
+      nameLower.contains('frappe') ||
+      nameLower.contains('shake') ||
+      nameLower.contains('drink') ||
+      nameLower.contains('latte');
+
+  if (isDrink) return true;
+
+  // 3. Check if eligible for Fried Egg
+  final isEligibleForEgg = (nameLower.contains('fried rice') ||
+          nameLower.contains('fried noodle') ||
+          nameLower.contains('stir fried') ||
+          catLower.contains('fried rice') ||
+          catLower.contains('fried noodle')) &&
+      !nameLower.contains('burger') &&
+      !nameLower.contains('soup') &&
+      !catLower.contains('burger') &&
+      !catLower.contains('soup');
+
+  if (isEligibleForEgg) return true;
+
+  return false;
+}
+
+// Show Custom Options Dialog (Meat choice, Sugar, Ice, Fried egg)
+void _showItemOptionsDialog(BuildContext context, MenuItem item, CartProvider cartProvider, bool showSplitScreen) {
+  final nameLower = item.name.toLowerCase();
+  final catLower = (item.category?.name ?? '').toLowerCase();
+
+  // Parse options e.g. "Amok (Chicken/Fish)"
+  final optionsMatch = RegExp(r'\(([^)]+)\)').firstMatch(item.name);
+  List<String> options = [];
+  String baseName = item.name;
+  if (optionsMatch != null && optionsMatch.group(1)!.contains('/')) {
+    options = optionsMatch.group(1)!.split('/').map((s) => s.trim()).toList();
+    baseName = item.name.replaceAll(RegExp(r'\([^)]+\)'), '').trim();
+  }
+
+  final isDrink = catLower.contains('drink') ||
+      catLower.contains('beverage') ||
+      catLower.contains('smoothie') ||
+      catLower.contains('juice') ||
+      catLower.contains('macchiato') ||
+      catLower.contains('coffee') ||
+      catLower.contains('tea') ||
+      catLower.contains('cocktail') ||
+      catLower.contains('iced') ||
+      nameLower.contains('smoothie') ||
+      nameLower.contains('juice') ||
+      nameLower.contains('tea') ||
+      nameLower.contains('coffee') ||
+      nameLower.contains('macchiato') ||
+      nameLower.contains('soda') ||
+      nameLower.contains('frappe') ||
+      nameLower.contains('shake') ||
+      nameLower.contains('drink') ||
+      nameLower.contains('latte');
+
+  final isEligibleForEgg = (nameLower.contains('fried rice') ||
+          nameLower.contains('fried noodle') ||
+          nameLower.contains('stir fried') ||
+          catLower.contains('fried rice') ||
+          catLower.contains('fried noodle')) &&
+      !nameLower.contains('burger') &&
+      !nameLower.contains('soup') &&
+      !catLower.contains('burger') &&
+      !catLower.contains('soup');
+
+  String selectedOption = '';
+  bool addEgg = false;
+  String sugarLevel = '100% (Normal)';
+  String iceLevel = 'Normal Ice';
+  int quantity = 1;
+  final TextEditingController notesController = TextEditingController();
+  String? validationError;
+
+  final sugarOptions = ['100% (Normal)', '75% (Less Sweet)', '50% (Half Sugar)', '25% (Little Sugar)', '0% (No Sugar)'];
+  final iceOptions = ['Normal Ice', 'Less Ice', 'No Ice'];
+
+  showDialog(
+    context: context,
+    builder: (context) {
+      return StatefulBuilder(
+        builder: (context, setState) {
+          final eggPrice = addEgg ? 0.50 : 0.0;
+          final double basePriceValue = item.price + eggPrice;
+          final double totalPrice = basePriceValue * quantity;
+
+          return AlertDialog(
+            backgroundColor: AppTheme.cardBg,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    baseName,
+                    style: const TextStyle(color: AppTheme.textPrimary, fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.close, color: AppTheme.textSecondary),
+                  onPressed: () => Navigator.pop(context),
+                )
+              ],
+            ),
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if (validationError != null)
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 12),
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: AppTheme.statusCancelled.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: AppTheme.statusCancelled.withOpacity(0.3)),
+                      ),
+                      child: Text(
+                        validationError!,
+                        style: const TextStyle(color: AppTheme.statusCancelled, fontSize: 12, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+
+                  if (options.isNotEmpty) ...[
+                    const Text('Select Choice (Required)', style: TextStyle(color: AppTheme.primaryAccent, fontWeight: FontWeight.bold, fontSize: 13)),
+                    const SizedBox(height: 8),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: options.map((opt) {
+                        final isSelected = selectedOption == opt;
+                        return ChoiceChip(
+                          label: Text(opt),
+                          selected: isSelected,
+                          onSelected: (selected) {
+                            if (selected) {
+                              setState(() {
+                                selectedOption = opt;
+                                validationError = null;
+                              });
+                            }
+                          },
+                          selectedColor: AppTheme.primaryAccent.withOpacity(0.2),
+                          backgroundColor: Colors.transparent,
+                          checkmarkColor: AppTheme.primaryAccent,
+                          side: BorderSide(
+                            color: isSelected ? AppTheme.primaryAccent : AppTheme.cardBorder,
+                            width: 1.5,
+                          ),
+                          labelStyle: TextStyle(
+                            color: isSelected ? AppTheme.textPrimary : AppTheme.textSecondary,
+                            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                          ),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        );
+                      }).toList(),
+                    ),
+                    const SizedBox(height: 16),
+                  ],
+
+                  if (isEligibleForEgg) ...[
+                    const Text('Add-ons', style: TextStyle(color: AppTheme.primaryAccent, fontWeight: FontWeight.bold, fontSize: 13)),
+                    const SizedBox(height: 8),
+                    CheckboxListTile(
+                      title: Text('Add Fried Egg (+\$0.50)', style: const TextStyle(color: AppTheme.textPrimary, fontSize: 13)),
+                      value: addEgg,
+                      onChanged: (val) {
+                        setState(() {
+                          addEgg = val ?? false;
+                        });
+                      },
+                      activeColor: AppTheme.primaryAccent,
+                      checkColor: Colors.black,
+                      tileColor: AppTheme.darkBg.withOpacity(0.2),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+                    ),
+                    const SizedBox(height: 16),
+                  ],
+
+                  if (isDrink) ...[
+                    const Text('Sugar Level', style: TextStyle(color: AppTheme.primaryAccent, fontWeight: FontWeight.bold, fontSize: 13)),
+                    const SizedBox(height: 8),
+                    DropdownButtonFormField<String>(
+                      value: sugarLevel,
+                      dropdownColor: AppTheme.cardBg,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: AppTheme.darkBg.withOpacity(0.2),
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: AppTheme.cardBorder)),
+                        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: AppTheme.cardBorder)),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      ),
+                      style: const TextStyle(color: AppTheme.textPrimary, fontSize: 13),
+                      onChanged: (val) {
+                        if (val != null) setState(() => sugarLevel = val);
+                      },
+                      items: sugarOptions.map((sug) => DropdownMenuItem(value: sug, child: Text(sug))).toList(),
+                    ),
+                    const SizedBox(height: 16),
+
+                    const Text('Ice Level', style: TextStyle(color: AppTheme.primaryAccent, fontWeight: FontWeight.bold, fontSize: 13)),
+                    const SizedBox(height: 8),
+                    DropdownButtonFormField<String>(
+                      value: iceLevel,
+                      dropdownColor: AppTheme.cardBg,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: AppTheme.darkBg.withOpacity(0.2),
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: AppTheme.cardBorder)),
+                        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: AppTheme.cardBorder)),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      ),
+                      style: const TextStyle(color: AppTheme.textPrimary, fontSize: 13),
+                      onChanged: (val) {
+                        if (val != null) setState(() => iceLevel = val);
+                      },
+                      items: iceOptions.map((ice) => DropdownMenuItem(value: ice, child: Text(ice))).toList(),
+                    ),
+                    const SizedBox(height: 16),
+                  ],
+
+                  const Text('Special Instructions', style: TextStyle(color: AppTheme.primaryAccent, fontWeight: FontWeight.bold, fontSize: 13)),
+                  const SizedBox(height: 8),
+                  TextField(
+                    controller: notesController,
+                    maxLines: 2,
+                    style: const TextStyle(color: AppTheme.textPrimary, fontSize: 13),
+                    decoration: InputDecoration(
+                      hintText: 'e.g. No onions, extra spicy...',
+                      hintStyle: const TextStyle(color: AppTheme.textSecondary, fontSize: 12),
+                      filled: true,
+                      fillColor: AppTheme.darkBg.withOpacity(0.2),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: AppTheme.cardBorder)),
+                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: AppTheme.cardBorder)),
+                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: AppTheme.primaryAccent)),
+                      contentPadding: const EdgeInsets.all(12),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text('Quantity', style: TextStyle(color: AppTheme.textPrimary, fontWeight: FontWeight.bold, fontSize: 14)),
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.remove_circle_outline, color: AppTheme.primaryAccent, size: 28),
+                            onPressed: () {
+                              if (quantity > 1) {
+                                setState(() => quantity -= 1);
+                              }
+                            },
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            child: Text(
+                              '$quantity',
+                              style: const TextStyle(color: AppTheme.textPrimary, fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.add_circle_outline, color: AppTheme.primaryAccent, size: 28),
+                            onPressed: () => setState(() => quantity += 1),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Cancel', style: TextStyle(color: AppTheme.textSecondary)),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppTheme.primaryAccent,
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                ),
+                onPressed: () {
+                  if (options.isNotEmpty && selectedOption.isEmpty) {
+                    setState(() {
+                      validationError = 'Please select a required option.';
+                    });
+                    return;
+                  }
+
+                  // Compile custom notes
+                  List<String> notesParts = [];
+                  if (selectedOption.isNotEmpty) {
+                    notesParts.add('Choice: $selectedOption');
+                  }
+                  if (isDrink) {
+                    notesParts.add('Sugar: $sugarLevel');
+                    notesParts.add('Ice: $iceLevel');
+                  }
+                  if (addEgg) {
+                    notesParts.add('Add Fried Egg (+\$0.50)');
+                  }
+                  if (notesController.text.trim().isNotEmpty) {
+                    notesParts.add(notesController.text.trim());
+                  }
+
+                  final finalNotes = notesParts.join(' | ');
+
+                  // Add custom item
+                  cartProvider.addCustomItem(
+                    item,
+                    price: basePriceValue,
+                    quantity: quantity,
+                    notes: finalNotes,
+                    customName: baseName,
+                  );
+
+                  Navigator.pop(context);
+
+                  if (!showSplitScreen) {
+                    _showGlassmorphicToast(context, baseName);
+                  }
+                },
+                child: Text('Add to Order (\$${totalPrice.toStringAsFixed(2)})', style: const TextStyle(fontWeight: FontWeight.bold)),
+              ),
+            ],
+          );
+        },
+      );
+    },
+  );
+}
+
+// Custom Premium Glassmorphic Top Toast
+void _showGlassmorphicToast(BuildContext context, String itemName) {
+  final overlay = Overlay.of(context);
+  late OverlayEntry overlayEntry;
+
+  overlayEntry = OverlayEntry(
+    builder: (context) => _ToastWidget(
+      itemName: itemName,
+      onDismiss: () => overlayEntry.remove(),
+    ),
+  );
+
+  overlay.insert(overlayEntry);
+}
+
+class _ToastWidget extends StatefulWidget {
+  final String itemName;
+  final VoidCallback onDismiss;
+
+  const _ToastWidget({
+    required this.itemName,
+    required this.onDismiss,
+  });
+
+  @override
+  State<_ToastWidget> createState() => _ToastWidgetState();
+}
+
+class _ToastWidgetState extends State<_ToastWidget> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _opacityAnimation;
+  late Animation<Offset> _slideAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 200),
+    );
+
+    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+    );
+
+    _slideAnimation = Tween<Offset>(begin: const Offset(0, -0.4), end: Offset.zero).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+    );
+
+    _controller.forward();
+
+    // Fade out and dismiss after 650ms
+    Future.delayed(const Duration(milliseconds: 650), () async {
+      if (mounted) {
+        await _controller.reverse();
+        widget.onDismiss();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double toastWidth = screenWidth > 600 ? 320 : screenWidth - 48;
+
+    return Positioned(
+      top: MediaQuery.of(context).padding.top + 16,
+      left: (screenWidth - toastWidth) / 2,
+      width: toastWidth,
+      child: Material(
+        color: Colors.transparent,
+        child: FadeTransition(
+          opacity: _opacityAnimation,
+          child: SlideTransition(
+            position: _slideAnimation,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.85),
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: AppTheme.primaryAccent.withOpacity(0.3),
+                    width: 1.5,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.4),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.check_circle_rounded,
+                      color: AppTheme.primaryAccent,
+                      size: 16,
+                    ),
+                    const SizedBox(width: 8),
+                    Flexible(
+                      child: Text(
+                        '${widget.itemName} added',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

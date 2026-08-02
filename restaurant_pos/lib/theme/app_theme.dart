@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   // Theme Colors
-  static const Color darkBg = Color(0xFF0F172A); // Slate 900
-  static const Color cardBg = Color(0xFF1E293B); // Slate 800
-  static const Color cardBorder = Color(0xFF334155); // Slate 700
-  static const Color textPrimary = Color(0xFFF8FAFC); // Slate 50
-  static const Color textSecondary = Color(0xFF94A3B8); // Slate 400
-  static const Color primaryAccent = Color(0xFF6366F1); // Indigo 500
-  static const Color primaryHover = Color(0xFF4F46E5); // Indigo 600
+  static const Color darkBg = Color(0xFF050505); // Rich deep black
+  static const Color cardBg = Color(0xFF121212); // Sleek dark carbon
+  static const Color cardBorder = Color(0xFF222222); // Dark borders
+  static const Color textPrimary = Color(0xFFF8FAFC); // Clean white
+  static const Color textSecondary = Color(0xFFA3A3A3); // Premium muted gray
+  static const Color primaryAccent = Color(0xFFD4AF37); // Metallic Gold
+  static const Color primaryHover = Color(0xFFB8972E); // Darker Gold
 
   // Status Colors
   static const Color statusNew = Color(0xFF3B82F6); // Blue 500
@@ -98,7 +98,7 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryAccent,
-          foregroundColor: Colors.white,
+          foregroundColor: Colors.black,
           elevation: 0,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           shape: RoundedRectangleBorder(

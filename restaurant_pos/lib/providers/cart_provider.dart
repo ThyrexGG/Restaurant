@@ -44,6 +44,27 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void addCustomItem(MenuItem menuItem, {required double price, required int quantity, required String notes, String? customName}) {
+    // Generate a unique ID based on the custom options so different variations appear as separate items
+    final String uniqueId = notes.isNotEmpty 
+        ? '${menuItem.id}_${notes.hashCode}' 
+        : menuItem.id;
+
+    if (_items.containsKey(uniqueId)) {
+      _items[uniqueId]!.quantity += quantity;
+    } else {
+      _items[uniqueId] = CartItem(
+        id: uniqueId,
+        name: customName ?? menuItem.name,
+        price: price,
+        sku: menuItem.sku,
+        quantity: quantity,
+        notes: notes,
+      );
+    }
+    notifyListeners();
+  }
+
   void updateQuantity(String itemId, int quantity) {
     if (!_items.containsKey(itemId)) return;
     

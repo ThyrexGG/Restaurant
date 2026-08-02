@@ -109,6 +109,24 @@ export default function analyticsRoutes() {
 
       const dailyBreakdown = Object.values(dailyMap).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
+      // Fetch QR scan statistics
+      const totalQrScans = await prisma.qRScanLog.count();
+      
+      const qrScansByTableRaw = await prisma.qRScanLog.groupBy({
+        by: ['tableNum'],
+        _count: {
+          tableNum: true
+        }
+      });
+      const qrScansByTable = qrScansByTableRaw.map(g => ({
+        tableNum: g.tableNum,
+        count: g._count.tableNum
+      })).sort((a, b) => {
+        const numA = parseInt(a.tableNum) || 0;
+        const numB = parseInt(b.tableNum) || 0;
+        return numA - numB;
+      });
+
       res.json({
         todayRevenue,
         todayOrders,
@@ -117,7 +135,9 @@ export default function analyticsRoutes() {
         recentOrders,
         topItems,
         salesChart,
-        dailyBreakdown
+        dailyBreakdown,
+        totalQrScans,
+        qrScansByTable
       });
     } catch (error) {
       console.error('Failed to fetch analytics:', error);
@@ -125,10 +145,28 @@ export default function analyticsRoutes() {
     }
   });
 
+  router.post('/log-scan', async (req, res) => {
+    const { tableNum } = req.body;
+    if (!tableNum) {
+      return res.status(400).json({ error: 'tableNum is required' });
+    }
+    try {
+      const scan = await prisma.qRScanLog.create({
+        data: { tableNum: String(tableNum) }
+      });
+      res.json({ success: true, scan });
+    } catch (error) {
+      console.error('Failed to log scan:', error);
+      res.status(500).json({ error: 'Failed to log scan' });
+    }
+  });
+
   router.delete('/clear-orders', async (req, res) => {
     try {
       await prisma.orderItem.deleteMany();
       await prisma.order.deleteMany();
+      // Also clear QR logs when resetting history
+      await prisma.qRScanLog.deleteMany();
       res.json({ success: true, message: 'All order history cleared.' });
     } catch (error) {
       console.error('Failed to clear orders:', error);
