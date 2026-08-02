@@ -8,7 +8,6 @@ import MenuItemPage from './pages/MenuItemPage';
 import AdminDashboard from './pages/AdminDashboard';
 import InventoryDashboard from './pages/InventoryDashboard';
 
-import PinAuth from './components/PinAuth';
 
 function App() {
   return (
@@ -22,8 +21,8 @@ function App() {
               <Route path="/table/:id" element={<CustomerOrdering />} />
               <Route path="/menu/:slug" element={<MenuItemPage />} />
               
-              <Route path="/admin/*" element={<PinAuth><AdminDashboard /></PinAuth>} />
-              <Route path="/inventory" element={<PinAuth><InventoryDashboard /></PinAuth>} />
+              <Route path="/admin/*" element={<AdminDashboard />} />
+              <Route path="/inventory" element={<InventoryDashboard />} />
             </Routes>
           </Router>
         </CartProvider>
