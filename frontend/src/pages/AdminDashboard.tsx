@@ -12,7 +12,16 @@ export default function AdminDashboard() {
   const { socket, isConnected } = useSocket();
   const [liveOrders, setLiveOrders] = useState<any[]>([]);
   const [printerStatus, setPrinterStatus] = useState<'DISCONNECTED' | 'CONNECTING' | 'CONNECTED'>('DISCONNECTED');
-  const [activeTab, setActiveTab] = useState('Dashboard');
+  const [activeTab, setActiveTab] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const tabParam = params.get('tab');
+      if (tabParam === 'Analytics') return 'Analytics';
+      if (tabParam === 'Menu') return 'Menu Management';
+      if (tabParam === 'Order') return 'Take Order';
+    }
+    return 'Dashboard';
+  });
   const [analytics, setAnalytics] = useState<any>(null);
   const [menuItems, setMenuItems] = useState<any[]>([]);
 

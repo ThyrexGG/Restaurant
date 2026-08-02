@@ -70,14 +70,16 @@ class PosView extends StatelessWidget {
           ? Consumer<CartProvider>(
               builder: (context, cartProvider, child) {
                 if (cartProvider.itemCount == 0) return const SizedBox.shrink();
-                return FloatingActionButton.extended(
-                  onPressed: () => _showCartDrawer(context),
-                  backgroundColor: AppTheme.primaryAccent,
-                  icon: const Badge(
-                    label: Text(''),
-                    child: Icon(Icons.shopping_cart_rounded, color: Colors.white),
+                return SafeArea(
+                  child: FloatingActionButton.extended(
+                    onPressed: () => _showCartDrawer(context),
+                    backgroundColor: AppTheme.primaryAccent,
+                    icon: const Badge(
+                      label: Text(''),
+                      child: Icon(Icons.shopping_cart_rounded, color: Colors.white),
+                    ),
+                    label: Text('View Order (\$${cartProvider.totalAmount.toStringAsFixed(2)})'),
                   ),
-                  label: Text('View Order (\$${cartProvider.totalAmount.toStringAsFixed(2)})'),
                 );
               },
             )
@@ -190,23 +192,26 @@ class PosView extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       builder: (context) {
-        return FractionallySizedBox(
-          heightFactor: 0.85,
-          child: Column(
-            children: [
-              const SizedBox(height: 12),
-              Container(
-                width: 40,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: AppTheme.cardBorder,
-                  borderRadius: BorderRadius.circular(10),
+        return SafeArea(
+          top: false, // Let the sheet stretch up to 85% height, but pad bottom content safely
+          child: FractionallySizedBox(
+            heightFactor: 0.85,
+            child: Column(
+              children: [
+                const SizedBox(height: 12),
+                Container(
+                  width: 40,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: AppTheme.cardBorder,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
-              ),
-              const Expanded(
-                child: CartPane(),
-              ),
-            ],
+                const Expanded(
+                  child: CartPane(),
+                ),
+              ],
+            ),
           ),
         );
       },

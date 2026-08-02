@@ -7,6 +7,7 @@ import '../providers/order_provider.dart';
 import '../theme/app_theme.dart';
 import 'pos_view.dart';
 import 'orders_view.dart';
+import 'admin_dashboard_view.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -51,6 +52,7 @@ class _MainLayoutState extends State<MainLayout> {
     final List<Widget> screens = [
       const PosView(),
       const OrdersView(),
+      const AdminDashboardView(),
     ];
 
     // Determine layout width (Desktop/Tablet vs Mobile)
@@ -112,6 +114,17 @@ class _MainLayoutState extends State<MainLayout> {
                   Navigator.pop(context);
                 },
               ),
+              _buildDrawerItem(
+                context,
+                icon: Icons.analytics_rounded,
+                title: 'Sales Analytics',
+                index: 2,
+                activeTab: posProvider.activeTabIndex,
+                onTap: () {
+                  posProvider.setActiveTab(2);
+                  Navigator.pop(context);
+                },
+              ),
             ],
           ),
         ),
@@ -146,6 +159,13 @@ class _MainLayoutState extends State<MainLayout> {
             activeTab: posProvider.activeTabIndex,
             badgeCount: orderProvider.orders.length,
             onTap: () => posProvider.setActiveTab(1),
+          ),
+          _buildSidebarNavItem(
+            icon: Icons.analytics_rounded,
+            title: 'Sales Analytics',
+            index: 2,
+            activeTab: posProvider.activeTabIndex,
+            onTap: () => posProvider.setActiveTab(2),
           ),
           const Spacer(),
           Padding(
@@ -319,7 +339,11 @@ class _MainLayoutState extends State<MainLayout> {
 
           Expanded(
             child: Text(
-              posProvider.activeTabIndex == 0 ? 'POS Catalog' : 'Live Active Orders',
+              posProvider.activeTabIndex == 0
+                  ? 'POS Catalog'
+                  : posProvider.activeTabIndex == 1
+                      ? 'Live Active Orders'
+                      : 'Sales Analytics',
               style: const TextStyle(
                 color: AppTheme.textPrimary,
                 fontSize: 18,
