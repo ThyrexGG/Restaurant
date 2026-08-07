@@ -16,8 +16,8 @@ class PosView extends StatelessWidget {
     final posProvider = Provider.of<PosProvider>(context);
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
-    // Split screen on tablets (width > 720) or landscape phones (width > 600 && height < 500)
-    final bool showSplitScreen = width > 720 || (width > 600 && height < 500);
+    // Split screen on tablets/desktops (width > 720 and height > 550) to exclude landscape phones
+    final bool showSplitScreen = width > 720 && height > 550;
 
     if (posProvider.isLoading && posProvider.menuItems.isEmpty) {
       return const Center(
@@ -241,7 +241,8 @@ class MenuItemCard extends StatelessWidget {
     final imageUrl = _getFullImageUrl(item.image);
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
-    final bool showSplitScreen = width > 720 || (width > 600 && height < 500);
+    // Split screen on tablets/desktops (width > 720 and height > 550) to exclude landscape phones
+    final bool showSplitScreen = width > 720 && height > 550;
 
     return InkWell(
       onTap: () {

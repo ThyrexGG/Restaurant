@@ -57,7 +57,9 @@ class _MainLayoutState extends State<MainLayout> {
 
     // Determine layout width (Desktop/Tablet vs Mobile)
     final double screenWidth = MediaQuery.of(context).size.width;
-    final bool isWideScreen = screenWidth > 800;
+    final double screenHeight = MediaQuery.of(context).size.height;
+    // Show permanent sidebar navigation only on tablet/desktop sizes (exclude landscape phones)
+    final bool isWideScreen = screenWidth > 800 && screenHeight > 550;
 
     return Scaffold(
       body: SafeArea(
