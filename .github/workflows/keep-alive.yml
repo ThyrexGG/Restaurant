@@ -1,0 +1,26 @@
+name: Keep backend awake
+
+# Render's free plan sleeps after ~15 min without traffic. This pings the health
+# endpoint every 5 minutes during opening hours only (08:00-22:00 Cambodia time, UTC+7),
+# so the free instance hours are not used overnight.
+# GitHub cron runs in UTC: 01:00-14:55 UTC = 08:00-21:55 local.
+on:
+  schedule:
+    - cron: '*/5 1-14 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ping /api/health
+        env:
+          URL: ${{ vars.BACKEND_URL || 'https://restaurant-pjwk.onrender.com' }}
+        run: |
+          # A cold start can take ~30s, so allow a long timeout and a few retries
+          curl --fail --silent --show-error \
+            --max-time 90 --retry 3 --retry-delay 10 --retry-all-errors \
+            "$URL/api/health"
