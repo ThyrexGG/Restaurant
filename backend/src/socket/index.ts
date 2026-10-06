@@ -1,6 +1,27 @@
 import { Server, Socket } from 'socket.io';
 import { prisma } from '../db/prisma.js';
 import { postOrderToLoyverse } from '../../loyverse.js';
+import { z } from 'zod';
+import { isAdminSocket } from '../auth.js';
+import { priceOrder } from './pricing.js';
+
+const VALID_STATUSES = ['NEW', 'COOKING', 'READY', 'SERVED', 'PAID', 'DELETED', 'REJECTED', 'CANCELLED'] as const;
+
+const newOrderSchema = z.object({
+  table: z.union([z.string().max(20), z.number()]),
+  type: z.string().max(30).optional(),
+  total: z.number().finite().nonnegative().max(100000),
+  items: z.array(z.object({}).passthrough()).min(1).max(100)
+}).passthrough();
+
+const statusUpdateSchema = z.object({
+  orderId: z.string().min(1).max(100),
+  status: z.string().min(1).max(30)
+});
+
+// Customers can place orders without a login, so cap how fast one connection can submit them
+const ORDER_WINDOW_MS = 60_000;
+const ORDER_MAX_PER_WINDOW = 10;
 
 export const activeOrders: any[] = [];
 
@@ -39,9 +60,12 @@ export async function loadActiveOrders() {
 export function setupSockets(io: Server) {
   io.on('connection', (socket: Socket) => {
     console.log('A user connected:', socket.id);
+    const orderTimes: number[] = [];
+    const deny = () => socket.emit('auth_error', { error: 'Unauthorized' });
 
     // For the Kitchen Display System (KDS)
     socket.on('join_kitchen', () => {
+      if (!isAdminSocket(socket)) return deny();
       socket.join('kitchen_room');
       console.log(`Socket ${socket.id} joined kitchen_room`);
       // Send existing active orders to the kitchen
@@ -50,6 +74,7 @@ export function setupSockets(io: Server) {
 
     // For the Admin Dashboard
     socket.on('join_admin', () => {
+      if (!isAdminSocket(socket)) return deny();
       socket.join('admin_room');
       console.log(`Socket ${socket.id} joined admin_room`);
       // Send existing active orders to the admin
@@ -57,7 +82,34 @@ export function setupSockets(io: Server) {
     });
 
     // Handle incoming new order from Customer Ordering App
-    socket.on('new_order', async (orderData) => {
+    socket.on('new_order', async (rawOrder) => {
+      const now = Date.now();
+      while (orderTimes.length && now - (orderTimes[0] ?? 0) > ORDER_WINDOW_MS) orderTimes.shift();
+      if (orderTimes.length >= ORDER_MAX_PER_WINDOW) {
+        socket.emit('order_error', { error: 'Too many orders. Please wait a moment.' });
+        return;
+      }
+      const parsedOrder = newOrderSchema.safeParse(rawOrder);
+      if (!parsedOrder.success) {
+        socket.emit('order_error', { error: 'Invalid order' });
+        return;
+      }
+      orderTimes.push(now);
+      const orderData: any = parsedOrder.data;
+
+      // Rebuild prices and total from the database. If the database itself is down we keep
+      // accepting orders as before rather than blocking the restaurant.
+      try {
+        const priced = await priceOrder(orderData.items);
+        if (!priced.ok) {
+          socket.emit('order_error', { error: priced.error });
+          return;
+        }
+        orderData.items = priced.items;
+        orderData.total = priced.total;
+      } catch (pricingError) {
+        console.error('Could not verify prices against the database, using submitted prices:', pricingError);
+      }
       console.log('New order received from customer:', orderData);
 
       // Save to PostgreSQL Database for resilience and analytics
@@ -138,7 +190,11 @@ export function setupSockets(io: Server) {
     });
 
     // Handle order status updates from Admin or KDS
-    socket.on('update_order_status', async ({ orderId, status }) => {
+    socket.on('update_order_status', async (payload) => {
+      if (!isAdminSocket(socket)) return deny();
+      const parsedUpdate = statusUpdateSchema.safeParse(payload);
+      if (!parsedUpdate.success || !(VALID_STATUSES as readonly string[]).includes(parsedUpdate.data.status)) return;
+      const { orderId, status } = parsedUpdate.data;
       console.log(`Order ${orderId} status updated to: ${status}`);
 
       // Update in-memory store

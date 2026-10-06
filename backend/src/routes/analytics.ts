@@ -1,10 +1,11 @@
 import express from 'express';
 import { prisma } from '../db/prisma.js';
+import { requireAdmin } from '../auth.js';
 
 export default function analyticsRoutes() {
   const router = express.Router();
 
-  router.get('/', async (req, res) => {
+  router.get('/', requireAdmin, async (req, res) => {
     try {
       const orders = await prisma.order.findMany({
         where: { status: { not: 'CANCELLED' } },
@@ -146,8 +147,8 @@ export default function analyticsRoutes() {
   });
 
   router.post('/log-scan', async (req, res) => {
-    const { tableNum } = req.body;
-    if (!tableNum) {
+    const { tableNum } = req.body ?? {};
+    if (!tableNum || String(tableNum).length > 20) {
       return res.status(400).json({ error: 'tableNum is required' });
     }
     try {
@@ -161,7 +162,7 @@ export default function analyticsRoutes() {
     }
   });
 
-  router.delete('/clear-orders', async (req, res) => {
+  router.delete('/clear-orders', requireAdmin, async (req, res) => {
     try {
       await prisma.orderItem.deleteMany();
       await prisma.order.deleteMany();
@@ -174,8 +175,8 @@ export default function analyticsRoutes() {
     }
   });
 
-  router.delete('/order/:id', async (req, res) => {
-    const { id } = req.params;
+  router.delete('/order/:id', requireAdmin, async (req, res) => {
+    const id = req.params.id as string;
     try {
       // Delete associated items first to satisfy foreign key constraints
       await prisma.orderItem.deleteMany({

@@ -3,12 +3,13 @@ import fs from 'fs';
 import path from 'path';
 import { prisma } from '../db/prisma.js';
 import { Server } from 'socket.io';
+import { requireAdmin } from '../auth.js';
 
 export default function menuRoutes(io: Server) {
   const router = express.Router();
 
   // Seed/Import menu from JSON
-  router.post('/seed', async (req, res) => {
+  router.post('/seed', requireAdmin, async (req, res) => {
     try {
       const menuPath = path.resolve(process.cwd(), '../frontend/src/assets/menu.json');
       if (!fs.existsSync(menuPath)) {
@@ -142,9 +143,9 @@ export default function menuRoutes(io: Server) {
   });
 
   // Update a menu item
-  router.put('/:id', async (req, res) => {
+  router.put('/:id', requireAdmin, async (req, res) => {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       const { name, description, price, availability, imagePosition, image, sku } = req.body;
       
       const updated = await prisma.menuItem.update({
@@ -196,7 +197,7 @@ export default function menuRoutes(io: Server) {
     }
   });
 
-  router.delete('/:id', async (req, res) => {
+  router.delete('/:id', requireAdmin, async (req, res) => {
     return res.status(403).json({ error: 'Deletion is locked' });
   });
 
