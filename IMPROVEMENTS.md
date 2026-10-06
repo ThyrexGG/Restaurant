@@ -21,14 +21,14 @@ Status: `[ ]` todo, `[x]` done. Cons are listed so each item is a conscious trad
 - [ ] Table tokens on QR codes. Cons: reprint QR codes; tokens can still be shared.
 
 ## Performance
-- [ ] WebP images (conversion script in progress locally; menu images already lazy-loaded). Cons: free-tier limits, third-party dependency.
+- [x] WebP images: 673 MB of originals replaced by 18.8 MB; old .png/.jpg paths from the DB are mapped to .webp in the web app and Flutter POS. Cons: free-tier limits, third-party dependency.
 - [x] Code-split admin/inventory/item pages; menu.json fallback loaded only when needed (main bundle 1.33 MB -> 560 kB). Cons: brief loading flashes, stale-chunk errors after deploys.
 - [x] Menu caching as stale-while-revalidate: cached menu shows instantly, fresh copy fetched on every load. Cons: a customer can briefly see the previous menu (up to one load) before the update arrives.
 
 ## Code health
 - [x] One-off backend scripts moved to `scripts/archive/backend/` (nothing deleted).
 - [ ] Legacy Vue app (`legacy-vue-frontend/`): decide whether to delete.
-- [ ] `backend/raw-images` is 1.2 GB / ~700 files tracked in git. Moving them out (Cloudinary/external storage) shrinks clones, but needs a history rewrite to reclaim space; decide before doing it.
+- [x] `backend/raw-images` and `unused-images` (1.2 GB) are no longer tracked (files kept locally, still in git history). A history rewrite would be needed to shrink the .git folder itself.
 - [x] Tests for order pricing (`npm test` in `backend/`, 7 passing). [ ] Still untested: socket order flow, status transitions, auth routes.
   Cons: upfront time, maintenance.
 - [x] React error boundary. [ ] Sentry (needs account/DSN). Cons: free-tier limits; avoid capturing customer data.
