@@ -170,7 +170,7 @@ export default function ItemModal({ item, onClose, addToCart }: { item: MenuItem
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
           className="glass-panel w-full max-w-lg max-h-[90vh] overflow-y-auto hide-scrollbar flex flex-col pointer-events-auto rounded-3xl border border-[#d4af37]/30 shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative"
         >
-          <button 
+          <button aria-label="Close" 
             onClick={onClose}
             className="absolute top-4 right-4 bg-black/50 hover:bg-red-500 text-white p-2 rounded-full z-10 backdrop-blur-sm transition-colors"
           >

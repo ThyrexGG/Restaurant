@@ -22,7 +22,7 @@ export default function BillModal({ isOpen, onClose }: BillModalProps) {
             <Receipt size={24} />
             My Bill
           </h2>
-          <button 
+          <button aria-label="Close bill" 
             onClick={onClose}
             className="text-gray-500 hover:text-white transition-colors p-2"
           >

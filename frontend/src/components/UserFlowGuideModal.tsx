@@ -118,13 +118,13 @@ export default function UserFlowGuideModal({ isOpen, onClose }: UserFlowGuideMod
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-3">
-                      <button
+                      <button aria-label="Play or pause video"
                         onClick={togglePlay}
                         className="bg-[#d4af37] hover:bg-[#b08d29] text-black p-2.5 rounded-full transition-colors shadow-md"
                       >
                         {isPlaying ? <Pause size={16} /> : <Play size={16} />}
                       </button>
-                      <button
+                      <button aria-label="Mute or unmute video"
                         onClick={toggleMute}
                         className="bg-gray-900/80 hover:bg-gray-800 text-white p-2.5 rounded-full transition-colors border border-gray-700 shadow-md"
                       >

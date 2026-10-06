@@ -31,7 +31,7 @@ export default function CartDrawer() {
         {/* Header */}
         <div className="p-6 border-b border-gray-800 flex justify-between items-center">
           <h2 className="text-2xl font-bold font-['Playfair_Display'] text-[#d4af37]">Your Order</h2>
-          <button onClick={toggleCart} className="text-gray-400 hover:text-white transition-colors">
+          <button aria-label="Close cart" onClick={toggleCart} className="text-gray-400 hover:text-white transition-colors">
             <X size={24} />
           </button>
         </div>

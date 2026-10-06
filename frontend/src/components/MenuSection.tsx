@@ -4,7 +4,7 @@ import { fill } from '@cloudinary/url-gen/actions/resize';
 import { format, quality } from '@cloudinary/url-gen/actions/delivery';
 import { cld } from '../cloudinary';
 import { useCart } from '../context/CartContext';
-import menuDataFallback from '../assets/menu.json';
+import { fetchMenu, getCachedMenu } from '../utils/menuCache';
 import { Search, ChevronDown, ArrowLeftRight, HelpCircle } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import ItemModal, { type MenuItem } from './ItemModal';
@@ -161,8 +161,9 @@ export default function MenuSection() {
   const { addToCart } = useCart();
   const [activeCategory, setActiveCategory] = React.useState<string>('Recommendations');
   const [searchQuery, setSearchQuery] = React.useState('');
-  const [menuItems, setMenuItems] = React.useState<any[]>([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [cachedMenu] = React.useState(getCachedMenu);
+  const [menuItems, setMenuItems] = React.useState<any[]>(cachedMenu ?? []);
+  const [isLoading, setIsLoading] = React.useState(!cachedMenu);
   const [selectedItem, setSelectedItem] = React.useState<MenuItem | null>(null);
   const [showGuideModal, setShowGuideModal] = React.useState(false);
 
@@ -190,16 +191,19 @@ export default function MenuSection() {
   };
 
   React.useEffect(() => {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
-    fetch(`${backendUrl}/api/menu`)
-      .then(res => res.json())
+    // Bundled menu.json is large, so it is only loaded when there is neither a fresh nor a cached menu
+    const useFallback = () => {
+      if (cachedMenu) return;
+      import('../assets/menu.json').then(m => setMenuItems(m.default as any[]));
+    };
+    fetchMenu()
       .then(data => {
         if (data && data.length > 0) setMenuItems(data);
-        else setMenuItems(menuDataFallback as any[]);
+        else useFallback();
       })
       .catch(err => {
         console.error("Failed to fetch menu from API, falling back to local menu.json", err);
-        setMenuItems(menuDataFallback as any[]);
+        useFallback();
       })
       .finally(() => setIsLoading(false));
   }, []);

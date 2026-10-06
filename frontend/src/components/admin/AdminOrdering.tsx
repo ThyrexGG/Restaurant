@@ -329,6 +329,7 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
                       <img 
                         src={item.image} 
                         alt={displayName} 
+                        loading="lazy"
                         className="w-16 h-16 object-cover rounded-xl border border-gray-800 flex-shrink-0"
                         style={{ objectPosition: item.imagePosition || 'center' }}
                       />

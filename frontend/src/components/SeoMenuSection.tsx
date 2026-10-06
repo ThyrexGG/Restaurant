@@ -1,6 +1,7 @@
 import React from 'react';
 import { Search, ChevronDown, ArrowLeftRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { fetchMenu, getCachedMenu } from '../utils/menuCache';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
 import { format, quality } from '@cloudinary/url-gen/actions/delivery';
@@ -96,13 +97,12 @@ function SeoMenuItemCard({ item, isPopular = false }: { item: any, isPopular?: b
 export default function SeoMenuSection() {
   const [activeCategory, setActiveCategory] = React.useState<string>('Recommendations');
   const [searchQuery, setSearchQuery] = React.useState('');
-  const [menuItems, setMenuItems] = React.useState<any[]>([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [cachedMenu] = React.useState(getCachedMenu);
+  const [menuItems, setMenuItems] = React.useState<any[]>(cachedMenu ?? []);
+  const [isLoading, setIsLoading] = React.useState(!cachedMenu);
 
   React.useEffect(() => {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
-    fetch(`${backendUrl}/api/menu`)
-      .then(res => res.json())
+    fetchMenu()
       .then(data => {
         if (data && data.length > 0) setMenuItems(data);
       })
