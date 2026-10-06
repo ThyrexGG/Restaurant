@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
+import { authFetch } from '../utils/auth';
 import { connectPrinter, autoConnectPrinter, printOrderReceipt } from '../utils/printer';
 import { Printer, UtensilsCrossed, Settings2, ShoppingBag, ChevronDown } from 'lucide-react';
 
@@ -44,7 +45,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     if (activeTab === 'Analytics' && !analytics) {
-      fetch(`${backendUrl}/api/analytics`)
+      authFetch(`${backendUrl}/api/analytics`)
         .then(res => res.json())
         .then(data => setAnalytics(data))
         .catch(err => console.error("Failed to fetch analytics", err));

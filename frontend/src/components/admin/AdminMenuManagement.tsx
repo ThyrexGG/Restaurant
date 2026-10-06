@@ -3,6 +3,7 @@ import { Search, Image as ImageIcon, UtensilsCrossed } from 'lucide-react';
 import Cropper from 'react-easy-crop';
 import { getCroppedImg } from '../../utils/cropImage';
 import { getOptimizedImage } from '../../utils/image';
+import { authFetch } from '../../utils/auth';
 
 const DraggableScrollContainer = ({ children, className }: { children: React.ReactNode, className?: string }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -218,7 +219,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
 
   const handleImportMenu = () => {
     setIsImporting(true);
-    fetch(`${backendUrl}/api/menu/seed`, { method: 'POST' })
+    authFetch(`${backendUrl}/api/menu/seed`, { method: 'POST' })
       .then(res => res.json())
       .then(() => {
         fetch(`${backendUrl}/api/menu`)
@@ -239,7 +240,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
     if (isNaN(newPrice) || newPrice < 0) return;
     if (newPrice === item.price) return;
 
-    fetch(`${backendUrl}/api/menu/${item.id}`, {
+    authFetch(`${backendUrl}/api/menu/${item.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...item, price: newPrice })
@@ -644,7 +645,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
             </button>
             <button 
               onClick={() => {
-                fetch(`${backendUrl}/api/menu/${editingItem.id}`, {
+                authFetch(`${backendUrl}/api/menu/${editingItem.id}`, {
                   method: 'PUT',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify(editingItem)

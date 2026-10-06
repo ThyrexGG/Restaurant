@@ -147,10 +147,17 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
     };
     socket.on('order_status_changed', handleStatusChange);
+
+    // The server rejected the order (invalid, unavailable item, or too many orders)
+    const handleOrderError = (data: { error?: string }) => {
+      alert(`${data?.error || 'Your order could not be placed.'} Please check your order and try again.`);
+    };
+    socket.on('order_error', handleOrderError);
     
     return () => {
       socket.off('order_confirmed', handleOrderConfirmed);
       socket.off('order_status_changed', handleStatusChange);
+      socket.off('order_error', handleOrderError);
     };
   }, [socket]);
 

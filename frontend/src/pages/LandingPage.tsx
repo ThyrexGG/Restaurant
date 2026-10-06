@@ -10,6 +10,20 @@ export default function LandingPage() {
       <Helmet>
         <title>Best Khmer Restaurant | Authentic Khmer Cuisine in Siem Reap</title>
         <meta name="description" content="Discover authentic Khmer cuisine at Best Khmer Restaurant in Siem Reap, Cambodia. Browse our menu of traditional dishes and visit us today." />
+        <meta property="og:type" content="restaurant.restaurant" />
+        <meta property="og:title" content="Best Khmer Restaurant | Authentic Khmer Cuisine in Siem Reap" />
+        <meta property="og:description" content="Authentic Khmer cuisine in Siem Reap, Cambodia. Browse our menu of traditional dishes." />
+        <meta property="og:image" content="https://restaurant-three-chi-91.vercel.app/logo.png" />
+        <meta name="twitter:card" content="summary" />
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Restaurant',
+          name: 'Best Khmer Restaurant',
+          servesCuisine: 'Khmer',
+          url: 'https://restaurant-three-chi-91.vercel.app/',
+          image: 'https://restaurant-three-chi-91.vercel.app/logo.png',
+          address: { '@type': 'PostalAddress', addressLocality: 'Siem Reap', addressCountry: 'KH' }
+        })}</script>
       </Helmet>
       
       <Navbar />

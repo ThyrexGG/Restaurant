@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { authFetch } from '../utils/auth';
 import { Package, AlertTriangle, CheckCircle, Plus, Minus, ShoppingCart, Search } from 'lucide-react';
 
 interface InventoryItem {
@@ -22,7 +23,7 @@ export default function InventoryDashboard() {
 
   const fetchInventory = async () => {
     try {
-      const res = await fetch(`${backendUrl}/api/inventory`);
+      const res = await authFetch(`${backendUrl}/api/inventory`);
       const data = await res.json();
       setItems(data);
     } catch (err) {
@@ -38,7 +39,7 @@ export default function InventoryDashboard() {
 
   const updateItemStatus = async (id: string, newStatus: string) => {
     try {
-      const res = await fetch(`${backendUrl}/api/inventory/${id}`, {
+      const res = await authFetch(`${backendUrl}/api/inventory/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus })
@@ -54,7 +55,7 @@ export default function InventoryDashboard() {
   const updateQuantity = async (id: string, currentQty: number, delta: number) => {
     const newQty = Math.max(0, currentQty + delta);
     try {
-      const res = await fetch(`${backendUrl}/api/inventory/${id}`, {
+      const res = await authFetch(`${backendUrl}/api/inventory/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ quantity: newQty })

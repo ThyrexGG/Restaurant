@@ -4,6 +4,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RechartsToolti
 import { QRCodeSVG } from 'qrcode.react';
 import { toPng } from 'html-to-image';
 import { printOrderReceipt } from '../../utils/printer';
+import { authFetch } from '../../utils/auth';
 
 interface AdminAnalyticsProps {
   analytics: any;
@@ -101,7 +102,7 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
 
     try {
       const apiHost = backendUrl || import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
-      const res = await fetch(`${apiHost}/api/analytics/order/${orderId}`, { method: 'DELETE' });
+      const res = await authFetch(`${apiHost}/api/analytics/order/${orderId}`, { method: 'DELETE' });
       if (res.ok) {
         alert('Order deleted successfully!');
         window.location.reload();
@@ -160,7 +161,7 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
     
     try {
       const apiHost = backendUrl || import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
-      const res = await fetch(`${apiHost}/api/analytics/clear-orders`, { method: 'DELETE' });
+      const res = await authFetch(`${apiHost}/api/analytics/clear-orders`, { method: 'DELETE' });
       if (res.ok) {
         Object.keys(localStorage).forEach(key => {
           if (key.includes('restaurant_order_history') || key.includes('restaurant_active_order') || key.includes('restaurant_cart')) {
