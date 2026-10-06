@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { authFetch } from '../utils/auth';
+import { normalizeMenuImages } from '../utils/image';
 import { connectPrinter, autoConnectPrinter, printOrderReceipt } from '../utils/printer';
 import { Printer, UtensilsCrossed, Settings2, ShoppingBag, ChevronDown } from 'lucide-react';
 
@@ -38,7 +39,7 @@ export default function AdminDashboard() {
     fetch(`${backendUrl}/api/menu`)
       .then(res => res.json())
       .then(data => {
-        if (Array.isArray(data)) setMenuItems(data);
+        if (Array.isArray(data)) setMenuItems(normalizeMenuImages(data));
       })
       .catch(err => console.error("Failed to fetch menu", err));
   }, [backendUrl]);

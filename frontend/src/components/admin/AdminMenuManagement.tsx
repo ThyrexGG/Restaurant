@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback } from 'react';
 import { Search, Image as ImageIcon, UtensilsCrossed } from 'lucide-react';
 import Cropper from 'react-easy-crop';
 import { getCroppedImg } from '../../utils/cropImage';
-import { getOptimizedImage } from '../../utils/image';
+import { getOptimizedImage, normalizeMenuImage, normalizeMenuImages } from '../../utils/image';
 import { authFetch } from '../../utils/auth';
 
 const DraggableScrollContainer = ({ children, className }: { children: React.ReactNode, className?: string }) => {
@@ -225,7 +225,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
         fetch(`${backendUrl}/api/menu`)
           .then(res => res.json())
           .then(data => {
-            if (Array.isArray(data)) setMenuItems(data);
+            if (Array.isArray(data)) setMenuItems(normalizeMenuImages(data));
           });
       })
       .catch(err => {
@@ -250,7 +250,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
       setMenuItems(prev => prev.map(m => (
         (m.id && updated.id && String(m.id) === String(updated.id)) ||
         (m.sku && updated.sku && String(m.sku).toLowerCase() === String(updated.sku).toLowerCase())
-      ) ? { ...m, ...updated } : m));
+      ) ? { ...m, ...normalizeMenuImage(updated) } : m));
       setPriceChangesCount(prev => prev + 1);
     })
     .catch(err => console.error("Failed to update price inline", err));
@@ -655,7 +655,7 @@ export default function AdminMenuManagement({ menuItems, setMenuItems, backendUr
                   setMenuItems(prev => prev.map(item => (
                     (item.id && updated.id && String(item.id) === String(updated.id)) ||
                     (item.sku && updated.sku && String(item.sku).toLowerCase() === String(updated.sku).toLowerCase())
-                  ) ? { ...item, ...updated } : item));
+                  ) ? { ...item, ...normalizeMenuImage(updated) } : item));
                   setPriceChangesCount(prev => prev + 1);
                   setEditingItem(null);
                 });

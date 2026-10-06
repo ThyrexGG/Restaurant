@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { normalizeMenuImage } from '../utils/image';
 import Navbar from '../components/Navbar';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
 import { Cloudinary } from '@cloudinary/url-gen';
@@ -30,7 +31,7 @@ export default function MenuItemPage() {
         if (!res.ok) throw new Error('Not found');
         return res.json();
       })
-      .then(data => setItem(data))
+      .then(data => setItem(normalizeMenuImage(data)))
       .catch(err => {
         console.error(err);
         navigate('/');

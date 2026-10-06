@@ -1,4 +1,5 @@
 import { BACKEND_URL } from './auth';
+import { normalizeMenuImages } from './image';
 
 const CACHE_KEY = 'menu_cache_v1';
 
@@ -9,7 +10,7 @@ export function getCachedMenu(): any[] | null {
     const raw = localStorage.getItem(CACHE_KEY);
     if (!raw) return null;
     const data = JSON.parse(raw);
-    return Array.isArray(data) && data.length > 0 ? data : null;
+    return Array.isArray(data) && data.length > 0 ? normalizeMenuImages(data) : null;
   } catch {
     return null;
   }
@@ -25,7 +26,8 @@ export function fetchMenu(): Promise<any[]> {
       if (!res.ok) throw new Error(`Menu request failed: ${res.status}`);
       return res.json();
     })
-    .then((data: any[]) => {
+    .then((raw: any[]) => {
+      const data = Array.isArray(raw) ? normalizeMenuImages(raw) : raw;
       if (Array.isArray(data) && data.length > 0) {
         try {
           localStorage.setItem(CACHE_KEY, JSON.stringify(data));

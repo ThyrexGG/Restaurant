@@ -232,7 +232,11 @@ class MenuItemCard extends StatelessWidget {
       return imgPath;
     }
     final clean = imgPath.startsWith('/') ? imgPath : '/$imgPath';
-    return '${ApiService.imageBaseUrl}$clean';
+    // Local menu images were converted to WebP; the backend may still report the old extension
+    final path = clean.startsWith('/images/')
+        ? clean.replaceAll(RegExp(r'\.(png|jpe?g|jfif)$', caseSensitive: false), '.webp')
+        : clean;
+    return '${ApiService.imageBaseUrl}$path';
   }
 
   @override
