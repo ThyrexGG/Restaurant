@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
 import '../theme/app_theme.dart';
 
 class AdminDashboardView extends StatefulWidget {
@@ -27,6 +29,16 @@ class _AdminDashboardViewState extends State<AdminDashboardView> {
             });
           },
           onPageFinished: (String url) {
+            // Hand the staff login to the embedded website so it doesn't ask again
+            final token = context.read<AuthProvider>().token;
+            if (token != null && token.isNotEmpty) {
+              _controller.runJavaScript('''
+                if (localStorage.getItem('admin_token') !== '$token') {
+                  localStorage.setItem('admin_token', '$token');
+                  location.reload();
+                }
+              ''');
+            }
             // Seamlessly hide the website top navigation bar
             _controller.runJavaScript('''
               var nav = document.querySelector('nav');

@@ -9,6 +9,10 @@ class OrderProvider with ChangeNotifier {
   
   List<Order> _orders = [];
   bool _isSocketConnected = false;
+  bool _authed = false;
+
+  /// Set by the app so a rejected token sends staff back to the login screen
+  VoidCallback? onAuthRejected;
 
   List<Order> get orders => _orders;
   bool get isSocketConnected => _isSocketConnected;
@@ -50,9 +54,22 @@ class OrderProvider with ChangeNotifier {
           notifyListeners();
         }
       },
+      onAuthError: () => onAuthRejected?.call(),
     );
+  }
 
-    _socketService.connect();
+  /// Connects the socket once staff are signed in, and drops it on sign-out.
+  void applyAuth(bool loggedIn, String? token) {
+    if (isTesting) return;
+    if (loggedIn && !_authed) {
+      _authed = true;
+      _socketService.connect(token: token);
+    } else if (!loggedIn && _authed) {
+      _authed = false;
+      _orders = [];
+      _socketService.disconnect();
+      notifyListeners();
+    }
   }
 
   void _sortOrders() {

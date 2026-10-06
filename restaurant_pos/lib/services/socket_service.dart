@@ -15,13 +15,16 @@ class SocketService {
   void Function(List<Order> orders)? onInitialOrdersReceived;
   void Function(Order order)? onNewOrderReceived;
   void Function(String orderId, String status)? onOrderStatusChanged;
+  void Function()? onAuthError;
 
   void initialize({
     required void Function(bool connected) onConnectionStatusChanged,
     required void Function(List<Order> orders) onInitialOrdersReceived,
     required void Function(Order order) onNewOrderReceived,
     required void Function(String orderId, String status) onOrderStatusChanged,
+    void Function()? onAuthError,
   }) {
+    this.onAuthError = onAuthError;
     this.onConnectionStatusChanged = onConnectionStatusChanged;
     this.onInitialOrdersReceived = onInitialOrdersReceived;
     this.onNewOrderReceived = onNewOrderReceived;
@@ -43,9 +46,13 @@ class SocketService {
     _setupListeners();
   }
 
-  void connect() {
+  /// Connects (or reconnects) using [token] as the staff credential.
+  /// An empty token is fine when the backend has no password configured.
+  void connect({String? token}) {
     if (!_isInitialized) return;
     developer.log('Connecting to socket server...');
+    _socket.auth = {'token': token ?? ''};
+    if (_socket.connected) _socket.disconnect();
     _socket.connect();
   }
 
@@ -76,6 +83,12 @@ class SocketService {
       developer.log('Socket Connection Error: $data');
       _isConnected = false;
       onConnectionStatusChanged?.call(false);
+    });
+
+    // The backend refused an admin action: token missing, invalid or expired
+    _socket.on('auth_error', (_) {
+      developer.log('Socket auth rejected by server.');
+      onAuthError?.call();
     });
 
     // Listeners for business events
