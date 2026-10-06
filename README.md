@@ -122,4 +122,4 @@ flutter run
 ## Notes
 
 - `backend/prisma/dev.db` is a local SQLite artifact left over from earlier development; the schema itself is configured for PostgreSQL.
-- Various `.js`/`.ts` files directly under `backend/` (e.g. `seed.ts`, `sync-menu-images.js`, `fix-s6-image.js`) and the scripts under `scripts/` are one-off maintenance utilities used during data migration and image cleanup, not part of the running application.
+- `backend/seed.ts`, `backend/seed-inventory.ts` and `backend/reset-orders.ts` are maintenance utilities, not part of the running application. The earlier one-off migration scripts (image linking, de-duplication, menu fixes) are archived in `scripts/archive/backend/` for reference; their relative paths assume they were run from `backend/`, so they may need adjusting before reuse. The scripts under `scripts/` are likewise one-off data/image utilities.
