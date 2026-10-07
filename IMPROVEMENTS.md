@@ -7,7 +7,7 @@ Status: `[ ]` todo, `[x]` done. Cons are listed so each item is a conscious trad
   Cons: extra DB reads/writes per order change; must keep DB and socket state in sync; needs a Redis adapter if ever run on multiple instances.
 - [x] **Opening-hours pinger (8am-10pm Cambodia time)** via `.github/workflows/keep-alive.yml` (needs to be pushed to GitHub to start) hitting `/api/health` every ~5 min (GitHub Actions cron or Render cron; UptimeRobot can't schedule by hour).
   Cons: a workaround, not a guarantee; first request of the morning can still be a cold start; cron schedules can drift.
-- [ ] "Server waking up..." message and retry with backoff instead of a plain Offline badge.
+- [x] "Server waking up..." message (admin login retries; dashboard badge shows amber "Connecting…" instead of red Offline) and retry with backoff instead of a plain Offline badge.
   Cons: only hides the delay; aggressive retries can flood a booting server.
 - [ ] Paid Render plan (always on). Cons: monthly cost.
 
@@ -18,7 +18,7 @@ Status: `[ ]` todo, `[x]` done. Cons are listed so each item is a conscious trad
 - [x] helmet, rate limiting (API, login, per-socket orders), CORS allowlist (`ALLOWED_ORIGINS`), zod validation on orders, status updates and inventory.
   - [x] Order totals are recomputed from DB prices; unavailable/unknown items and bad quantities are rejected (falls back to submitted prices only if the DB is unreachable).
   Cons: shared restaurant Wi-Fi can trip IP rate limits; wrong CORS breaks the site.
-- [ ] Table tokens on QR codes. Cons: reprint QR codes; tokens can still be shared.
+- [-] Table tokens on QR codes: decided not needed. Cons: reprint QR codes; tokens can still be shared.
 
 ## Performance
 - [x] WebP images: 673 MB of originals replaced by 18.8 MB; old .png/.jpg paths from the DB are mapped to .webp in the web app and Flutter POS. Cons: free-tier limits, third-party dependency.
@@ -29,7 +29,7 @@ Status: `[ ]` todo, `[x]` done. Cons are listed so each item is a conscious trad
 - [x] One-off backend scripts moved to `scripts/archive/backend/` (nothing deleted).
 - [ ] Legacy Vue app (`legacy-vue-frontend/`): decide whether to delete.
 - [x] `backend/raw-images` and `unused-images` (1.2 GB) are no longer tracked (files kept locally, still in git history). A history rewrite would be needed to shrink the .git folder itself.
-- [x] Tests for order pricing (`npm test` in `backend/`, 7 passing). [ ] Still untested: socket order flow, status transitions, auth routes.
+- [x] Tests for order pricing and auth/login/token routes (`npm test` in `backend/`, 12 passing). [ ] Still untested: socket order flow, status transitions.
   Cons: upfront time, maintenance.
 - [x] React error boundary. [ ] Sentry (needs account/DSN). Cons: free-tier limits; avoid capturing customer data.
 

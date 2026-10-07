@@ -152,12 +152,12 @@ export default function AdminDashboard() {
           >
             Cashier Dashboard
           </h2>
-          <div className="flex items-center gap-2 px-3 py-1 bg-gray-900 rounded-full border border-gray-800">
+          <div role="status" aria-live="polite" className="flex items-center gap-2 px-3 py-1 bg-gray-900 rounded-full border border-gray-800">
             <span className="relative flex h-2.5 w-2.5">
               {isConnected && <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>}
-              <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${isConnected ? 'bg-green-500' : 'bg-red-500'}`}></span>
+              <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${isConnected ? 'bg-green-500' : 'bg-amber-400 animate-pulse'}`}></span>
             </span>
-            <span className="text-xs text-gray-400 font-bold">{isConnected ? 'Online' : 'Offline'}</span>
+            <span className="text-xs text-gray-400 font-bold">{isConnected ? 'Online' : 'Connecting… (server may be waking up)'}</span>
           </div>
         </div>
 

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsx --test src/socket/pricing.test.ts",
+    "test": "tsx --test src/socket/pricing.test.ts src/auth.test.ts",
     "dev": "tsx watch index.ts",
     "start": "tsx index.ts",
     "postinstall": "prisma generate"
