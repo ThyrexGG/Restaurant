@@ -96,7 +96,8 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
 
   // 2. Filtered menu items
   const filteredItems = useMemo(() => {
-    return menuItems.filter(item => {
+    const q = searchQuery.trim().toLowerCase();
+    const filtered = menuItems.filter(item => {
       const cat = item.category?.name || item.Category || 'Uncategorized';
       const matchesCat = activeCategory === 'All' || cat === activeCategory;
       const matchesSearch = !searchQuery || (
@@ -106,6 +107,23 @@ export default function AdminOrdering({ menuItems }: AdminOrderingProps) {
       );
       return matchesCat && matchesSearch;
     });
+    if (!q) return filtered;
+
+    // Rank matches: exact SKU, SKU prefix, name prefix, then any other match.
+    // Ties keep numeric SKU order (SF2, SF20, SF21 ... rather than menu order).
+    const skuOf = (item: any) => (item.sku || item.SKU || '').trim().toLowerCase();
+    const nameOf = (item: any) => (item.name || item.Name || '').toLowerCase();
+    const rank = (item: any) => {
+      const sku = skuOf(item);
+      if (sku === q) return 0;
+      if (sku.startsWith(q)) return 1;
+      if (nameOf(item).startsWith(q)) return 2;
+      return 3;
+    };
+    return [...filtered].sort((a, b) =>
+      rank(a) - rank(b) ||
+      skuOf(a).localeCompare(skuOf(b), undefined, { numeric: true, sensitivity: 'base' })
+    );
   }, [menuItems, activeCategory, searchQuery]);
 
   // 3. Cart handlers

@@ -60,7 +60,7 @@ class PosProvider with ChangeNotifier {
 
   // Filtered menu items matching search query & category selection
   List<MenuItem> get filteredMenuItems {
-    return _menuItems.where((item) {
+    final filtered = _menuItems.where((item) {
       // 1. Category Filter
       final bool matchesCategory = _selectedCategory == 'All' ||
           (item.category?.name == _selectedCategory) ||
@@ -74,6 +74,36 @@ class PosProvider with ChangeNotifier {
 
       return matchesCategory && matchesSearch;
     }).toList();
+
+    final q = _searchQuery.trim().toLowerCase();
+    if (q.isEmpty) return filtered;
+
+    // Rank matches: exact SKU, SKU prefix, name prefix, then any other match.
+    // Ties keep numeric SKU order (SF2, SF20, SF21 ...).
+    int rank(MenuItem item) {
+      final sku = (item.sku ?? '').trim().toLowerCase();
+      if (sku == q) return 0;
+      if (sku.startsWith(q)) return 1;
+      if (item.name.toLowerCase().startsWith(q)) return 2;
+      return 3;
+    }
+
+    int compareSku(String a, String b) {
+      final re = RegExp(r'^(\D*)(\d+)');
+      final ma = re.firstMatch(a);
+      final mb = re.firstMatch(b);
+      if (ma != null && mb != null && ma.group(1) == mb.group(1)) {
+        return int.parse(ma.group(2)!).compareTo(int.parse(mb.group(2)!));
+      }
+      return a.compareTo(b);
+    }
+
+    filtered.sort((a, b) {
+      final r = rank(a).compareTo(rank(b));
+      if (r != 0) return r;
+      return compareSku((a.sku ?? '').toLowerCase(), (b.sku ?? '').toLowerCase());
+    });
+    return filtered;
   }
 
   Future<void> loadMenu() async {
