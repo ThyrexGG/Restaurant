@@ -7,7 +7,7 @@ const KHR_PER_USD = 4000;
 // Edit these to change the header and footer text
 export const SHOP = {
   name: 'BEST KHMER RESTAURANT',
-  tagline: '',
+  tagline: 'Siem Reap, Cambodia',
   phone: '',
   footerLines: ['THANK YOU!', 'Please come again']
 };
@@ -123,7 +123,8 @@ export function buildReceipt(order: any): ReceiptLine[] {
 
   // Header
   // The logo bitmap is printed above these lines by printer.ts
-  add(SHOP.name, { align: 'center', bold: true });
+  // Double height keeps the whole 21-character name on one line (double width would not fit 32 columns)
+  add(SHOP.name, { align: 'center', size: 'tall', bold: true });
   if (SHOP.tagline) add(SHOP.tagline, { align: 'center' });
   if (SHOP.phone) add(`Tel: ${SHOP.phone}`, { align: 'center' });
   rule('=');
@@ -155,7 +156,7 @@ export function buildReceipt(order: any): ReceiptLine[] {
     if (it.quantity > 1) add(`    @ ${money(it.price)} each`);
     for (const note of it.notes.split('|').map(n => n.trim()).filter(Boolean)) {
       const noteLines = wrap(note, COLS - 6, COLS - 6);
-      noteLines.forEach((l, i) => add(`${i === 0 ? '  - ' : '    '}${l}`));
+      noteLines.forEach((l, i) => add(`${i === 0 ? '  - ' : '    '}${l}`, { bold: true }));
     }
     add('');
   }

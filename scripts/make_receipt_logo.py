@@ -9,7 +9,7 @@ import sys
 import numpy as np
 from PIL import Image
 
-WIDTH = 232  # dots wide, a multiple of 8, on 384-dot (58mm) paper
+WIDTH = 160  # dots wide, a multiple of 8, on 384-dot (58mm) paper
 THRESHOLD = 150
 
 path = sys.argv[1]
