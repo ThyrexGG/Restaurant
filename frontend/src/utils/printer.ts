@@ -129,7 +129,8 @@ const logoChunks = (): Uint8Array[] => {
   const chunks: Uint8Array[] = [header];
   const bitmap = logoBitmap();
   for (let i = 0; i < bitmap.length; i += 120) chunks.push(bitmap.slice(i, i + 120));
-  chunks.push(new Uint8Array([0x0A, 0x1B, 0x61, 0x00]));
+  // Feed 40 dots (about 5mm) so the name does not sit right under the logo
+  chunks.push(new Uint8Array([0x0A, 0x1B, 0x4A, 40, 0x1B, 0x61, 0x00]));
   return chunks;
 };
 

@@ -7,7 +7,7 @@ const KHR_PER_USD = 4000;
 // Edit these to change the header and footer text
 export const SHOP = {
   name: 'BEST KHMER RESTAURANT',
-  tagline: 'Siem Reap, Cambodia',
+  tagline: '',
   phone: '',
   footerLines: ['THANK YOU!', 'Please come again']
 };
