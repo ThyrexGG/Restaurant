@@ -81,7 +81,9 @@ export default function AdminAnalytics({ analytics, backendUrl, setAnalytics }: 
     const items = getOrderItemsList(order);
     const formattedOrder = {
       id: order.id,
-      table: order.table || 'N/A',
+      orderNumber: order.orderNumber,
+      // Saved orders keep the table in customerName ("Table 5")
+      table: order.table || (/^table\s/i.test(order.customerName || '') ? order.customerName : ''),
       type: order.type || order.diningType || 'DINE_IN',
       items: items,
       total: order.totalPrice || order.total || 0,

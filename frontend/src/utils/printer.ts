@@ -1,3 +1,5 @@
+import { buildReceipt, type ReceiptLine } from './receipt';
+
 export let printerCharacteristic: any = null;
 export let printerDevice: any = null;
 
@@ -111,6 +113,33 @@ export const autoConnectPrinter = async (): Promise<boolean> => {
   return false;
 };
 
+// Turns receipt lines into ESC/POS bytes, grouped so each Bluetooth write stays small
+const SIZE_CMD = { normal: 0x00, tall: 0x01, big: 0x11 } as const;
+const ALIGN_CMD = { left: 0x00, center: 0x01, right: 0x02 } as const;
+
+const receiptChunks = (lines: ReceiptLine[]): Uint8Array[] => {
+  const encoder = new TextEncoder();
+  const chunks: Uint8Array[] = [new Uint8Array([0x1B, 0x40])]; // Initialize
+  let current: number[] = [];
+  const flush = () => {
+    if (current.length) chunks.push(new Uint8Array(current));
+    current = [];
+  };
+  for (const line of lines) {
+    const bytes = [
+      0x1B, 0x61, ALIGN_CMD[line.align ?? 'left'],
+      0x1D, 0x21, SIZE_CMD[line.size ?? 'normal'],
+      0x1B, 0x45, line.bold ? 1 : 0,
+      ...encoder.encode(line.text + '\n')
+    ];
+    if (current.length + bytes.length > 300) flush();
+    current.push(...bytes);
+  }
+  current.push(0x1B, 0x61, 0x00, 0x1D, 0x21, 0x00, 0x1B, 0x45, 0x00, 0x0A, 0x0A, 0x0A, 0x0A); // reset + feed
+  flush();
+  return chunks;
+};
+
 export const printOrderReceipt = async (order: any) => {
   if (!printerCharacteristic) {
     console.log('Printer characteristic null, attempting autoConnectPrinter...');
@@ -123,106 +152,9 @@ export const printOrderReceipt = async (order: any) => {
   }
 
   try {
-    const encoder = new TextEncoder();
-    const initCmd = new Uint8Array([0x1B, 0x40]); // Initialize
-    const alignCenterCmd = new Uint8Array([0x1B, 0x61, 0x01]); // Align Center
-    const alignLeftCmd = new Uint8Array([0x1B, 0x61, 0x00]); // Align Left
-    const boldOnCmd = new Uint8Array([0x1B, 0x45, 0x01]); // Bold On
-    const boldOffCmd = new Uint8Array([0x1B, 0x45, 0x00]); // Bold Off
-    const bigFontOnCmd = new Uint8Array([0x1D, 0x21, 0x11]); // Double width & height (Grand Total)
-    const bigFontOffCmd = new Uint8Array([0x1D, 0x21, 0x00]); // Reset size
-    const doubleHeightOnCmd = new Uint8Array([0x1D, 0x21, 0x01]); // Double height, normal width (Table)
-    const doubleHeightOffCmd = new Uint8Array([0x1D, 0x21, 0x00]); // Reset size
-
-    // Header
-    const headerData = encoder.encode(
-      "--------------------------------\n" +
-      "     BEST KHMER RESTAURANT      \n" +
-      "--------------------------------\n\n"
-    );
-
-    // Format Date and Time
-    const dateObj = new Date(order.timestamp || order.date || order.createdAt || new Date());
-    const day = String(dateObj.getDate()).padStart(2, '0');
-    const month = String(dateObj.getMonth() + 1).padStart(2, '0');
-    const year = dateObj.getFullYear();
-    let hours = dateObj.getHours();
-    const minutes = String(dateObj.getMinutes()).padStart(2, '0');
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // convert '0' to '12'
-    const formattedHours = String(hours).padStart(2, '0');
-    const formattedDateTime = `${day}/${month}/${year} ${formattedHours}:${minutes} ${ampm}`;
-
-    // Order Info
-    const displayOrderNum = order.dailyOrderNumber || (order.id ? order.id.toString().substring(0, 4) : '#' + (Math.floor(Math.random() * 1000) + 1000));
-    const orderInfoData = encoder.encode(
-      `Order: #${displayOrderNum}\n` +
-      `Date:  ${formattedDateTime}\n` +
-      `Type:  ${order.type === 'DINE_IN' ? 'DINE IN' : 'TAKE OUT'}\n`
-    );
-
-    const tableData = encoder.encode(`TABLE: ${order.table.toString().toUpperCase()}\n`);
-
-    // Total in USD & KHR (Riel) with double size
-    const rielTotal = Math.round(order.total * 4000).toLocaleString();
-    
-    const totalData = encoder.encode(
-      `TOTAL: $${order.total.toFixed(2)}\n` +
-      `(${rielTotal} KHR)\n`
-    );
-
-    const footerData = encoder.encode(
-      "--------------------------------\n" +
-      "           THANK YOU!           \n\n\n\n\n"
-    );
-
-    // Write sequence
-    await printerCharacteristic.writeValue(initCmd);
-    await printerCharacteristic.writeValue(alignCenterCmd);
-    await printerCharacteristic.writeValue(headerData);
-
-    await printerCharacteristic.writeValue(alignLeftCmd);
-    await printerCharacteristic.writeValue(orderInfoData);
-
-    // Print Table in TALL (double height, normal width) and BOLD
-    await printerCharacteristic.writeValue(doubleHeightOnCmd);
-    await printerCharacteristic.writeValue(boldOnCmd);
-    await printerCharacteristic.writeValue(tableData);
-    await printerCharacteristic.writeValue(boldOffCmd);
-    await printerCharacteristic.writeValue(doubleHeightOffCmd);
-    await printerCharacteristic.writeValue(encoder.encode("--------------------------------\n"));
-
-    // Print items individually to avoid Bluetooth MTU limits and wrap long item names
-    for (const item of order.items) {
-      // Include SKU tag if available e.g. [B16]
-      const skuTag = item.sku || item.SKU ? `[${item.sku || item.SKU}] ` : '';
-      const nameLine = `${skuTag}${item.name}\n`;
-      
-      const qtyStr = `${item.quantity} x $${item.price.toFixed(2)}`;
-      const totalStr = `$${(item.price * item.quantity).toFixed(2)}`;
-      
-      // Padding calculations to align subtotal price right-side in a 32 column ticket
-      const paddingLength = 32 - qtyStr.length - totalStr.length;
-      const spaces = paddingLength > 0 ? ' '.repeat(paddingLength) : ' ';
-      const priceLine = `${qtyStr}${spaces}${totalStr}\n`;
-      
-      let itemStr = nameLine + priceLine;
-      if (item.notes) {
-        itemStr += `  *${item.notes}*\n`;
-      }
-      await printerCharacteristic.writeValue(encoder.encode(itemStr));
+    for (const chunk of receiptChunks(buildReceipt(order))) {
+      await printerCharacteristic.writeValue(chunk);
     }
-    await printerCharacteristic.writeValue(encoder.encode("--------------------------------\n"));
-
-    await printerCharacteristic.writeValue(alignCenterCmd);
-    await printerCharacteristic.writeValue(bigFontOnCmd);
-    await printerCharacteristic.writeValue(boldOnCmd);
-    await printerCharacteristic.writeValue(totalData);
-    await printerCharacteristic.writeValue(boldOffCmd);
-    await printerCharacteristic.writeValue(bigFontOffCmd);
-    await printerCharacteristic.writeValue(footerData);
-
     console.log('Order receipt printed successfully!');
   } catch (error) {
     console.error('Error printing receipt:', error);
