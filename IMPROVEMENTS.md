@@ -40,3 +40,22 @@ Status: `[ ]` todo, `[x]` done. Cons are listed so each item is a conscious trad
 - [x] Error boundary, aria-labels on icon-only buttons, visible keyboard focus, reduced-motion support, pinch-zoom re-enabled, Open Graph tags and Restaurant structured data (no phone/street address yet: add real ones).
 - [ ] PWA (installable + offline menu). Cons: service-worker caching can serve stale prices; only worth it if staff want an installable app.
 - [ ] Full accessibility audit (colour contrast, touch-target sizes, screen-reader pass).
+
+## Receipt printing (done 2026-10)
+- [x] New 58mm thermal layout in `frontend/src/utils/receipt.ts` (pure, previewable); Bluetooth/ESC-POS sending in `printer.ts`.
+  Logo (`receiptLogo.ts`, regenerate with `scripts/make_receipt_logo.py`) -> bold double-height name -> tagline -> order no./date -> table -> items (wrapped, qty, unit price, bold notes) -> total + KHR -> thank-you.
+  Header/footer text lives in `SHOP` at the top of `receipt.ts`. No phone, tax/VAT or Wi-Fi line yet (add if wanted).
+- [x] Reprint from Analytics now passes the real order number and table (it used to print `#5e00` and `TABLE: N/A`).
+- [ ] Not yet checked on the live site: do one real reprint after the Vercel deploy. Logo size/darkness may need tuning (width is `WIDTH` in the script, gap below the logo is the `40` in `logoChunks`).
+- Local testing tip: the CORS allowlist rejects `localhost`, so a local dev server needs a temporary Vite proxy to the live backend (it showed "Server is waking up" forever without it).
+
+## POS search (done)
+- [x] Cashier POS search (web and Flutter) ranks exact SKU, then SKU prefix, then name prefix, then other matches (SF2 before SF20...).
+
+## Open items / next session
+- [ ] Rebuild and reinstall the Flutter APK to get the SF2 search fix (phone currently has the login + WebP build): `cd restaurant_pos && flutter build apk --release`, then `adb install -r` (adb is at `%LOCALAPPDATA%\Android\Sdk\platform-toolsdb.exe`, not on PATH).
+- [ ] Render env: `ADMIN_PASSWORD` and `ALLOWED_ORIGINS` are set (verified: login required, CORS limited to the Vercel site). `LOYVERSE_API_KEY` is still invalid (Loyverse sync fails, deliberately left alone).
+- [ ] Delete `legacy-vue-frontend/` (1.5 MB, only referenced by the README) when ready: `git rm -r legacy-vue-frontend` and remove the README mentions.
+- [ ] Still untested: socket order flow, status transitions. Sentry, PWA, accessibility audit, history rewrite (~810 MB .git) remain optional.
+- [x] Table tokens on QR codes: decided not needed.
+
