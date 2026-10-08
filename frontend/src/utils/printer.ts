@@ -1,4 +1,5 @@
 import { buildReceipt, type ReceiptLine } from './receipt';
+import { logoBitmap, LOGO_WIDTH_BYTES, LOGO_HEIGHT } from './receiptLogo';
 
 export let printerCharacteristic: any = null;
 export let printerDevice: any = null;
@@ -117,9 +118,29 @@ export const autoConnectPrinter = async (): Promise<boolean> => {
 const SIZE_CMD = { normal: 0x00, tall: 0x01, big: 0x11 } as const;
 const ALIGN_CMD = { left: 0x00, center: 0x01, right: 0x02 } as const;
 
+// Centered logo as an ESC/POS raster image (GS v 0), sent in small pieces the printer can buffer
+const logoChunks = (): Uint8Array[] => {
+  const header = new Uint8Array([
+    0x1B, 0x61, 0x01, // center
+    0x1D, 0x76, 0x30, 0x00, // raster bit image, normal density
+    LOGO_WIDTH_BYTES & 0xff, LOGO_WIDTH_BYTES >> 8,
+    LOGO_HEIGHT & 0xff, LOGO_HEIGHT >> 8
+  ]);
+  const chunks: Uint8Array[] = [header];
+  const bitmap = logoBitmap();
+  for (let i = 0; i < bitmap.length; i += 120) chunks.push(bitmap.slice(i, i + 120));
+  chunks.push(new Uint8Array([0x0A, 0x1B, 0x61, 0x00]));
+  return chunks;
+};
+
 const receiptChunks = (lines: ReceiptLine[]): Uint8Array[] => {
   const encoder = new TextEncoder();
   const chunks: Uint8Array[] = [new Uint8Array([0x1B, 0x40])]; // Initialize
+  try {
+    chunks.push(...logoChunks());
+  } catch (error) {
+    console.error('Skipping logo:', error); // the receipt still prints without it
+  }
   let current: number[] = [];
   const flush = () => {
     if (current.length) chunks.push(new Uint8Array(current));
